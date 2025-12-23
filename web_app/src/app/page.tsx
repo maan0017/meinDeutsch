@@ -15,7 +15,7 @@ export default function Home() {
       badge: "Practice",
     },
     {
-      href: "/gems",
+      href: "/juwelen",
       icon: Gamepad2,
       title: "Quiz Games",
       description: "Practice skills",

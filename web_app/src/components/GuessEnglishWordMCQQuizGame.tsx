@@ -143,7 +143,7 @@ export default function GuessEnglishWordMCQQuizGame() {
         <header className="relative text-center space-y-1 md:space-y-2">
           <div className="absolute left-0 top-9">
             <Link
-              href="/german-language-games-menu"
+              href="/juwelen"
               className="p-1.5 md:p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
               title="Back to Quiz Menu"
             >

@@ -24,14 +24,6 @@ export default function GuessGermanNumberGame() {
     setTimeout(() => inputRef.current?.focus(), 50);
   }, []);
 
-  const handleTimeout = useCallback(() => {
-    setStatus("wrong");
-    playSound("wrong");
-    setTimeout(() => {
-      handleNextNumber();
-    }, 3000);
-  }, [handleNextNumber, playSound]);
-
   // Initialize word on mount
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +72,7 @@ export default function GuessGermanNumberGame() {
         <header className="flex items-center justify-between w-full mb-4 md:mb-8 relative">
           <div className="shrink-0">
             <Link
-              href="/german-language-games-menu"
+              href="/juwelen"
               className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
               title="Back to Quiz Menu"
             >

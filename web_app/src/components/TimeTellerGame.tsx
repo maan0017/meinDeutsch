@@ -73,7 +73,7 @@ export default function TimeTellerGame() {
         <header className="flex items-center justify-between w-full mb-4 md:mb-8 relative">
           <div className="shrink-0">
             <Link
-              href="/german-language-games-menu"
+              href="/juwelen"
               className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
               title="Back to Quiz Menu"
             >
