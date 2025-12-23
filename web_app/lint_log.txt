@@ -1,0 +1,89 @@
+
+> web_app@0.1.0 lint
+> eslint
+
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\scripts\migrateData.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessEnglishWordMCQQuizGame.tsx
+  67:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessEnglishWordMCQQuizGame.tsx:67:5
+  65 |   // Initialize on mount
+  66 |   useEffect(() => {
+> 67 |     handleNextWord();
+     |     ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  68 |   }, [handleNextWord]);
+  69 |
+  70 |   const handleOptionClick = (word: GermanWord, index: number) => {  react-hooks/set-state-in-effect
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessGermanWordQuizGame.tsx
+  30:37  error    Compilation Skipped: Existing memoization could not be preserved
+
+React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. The inferred dependencies did not match the manually specified dependencies, which could cause the value to change more or less frequently than expected. The inferred dependency was `playSound`, but the source dependencies were [handleNextWord]. Inferred different dependency than source.
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessGermanWordQuizGame.tsx:30:37
+  28 |   }, []);
+  29 |
+> 30 |   const handleTimeout = useCallback(() => {
+     |                                     ^^^^^^^
+> 31 |     setStatus("wrong");
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |     playSound("wrong");
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |     setTimeout(() => {
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |       handleNextWord();
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |     }, 3000);
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |   }, [handleNextWord]);
+     | ^^^^ Could not preserve existing manual memoization
+  37 |
+  38 |   // Timer Logic
+  39 |   useEffect(() => {  react-hooks/preserve-manual-memoization
+  36:6   warning  React Hook useCallback has a missing dependency: 'playSound'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+  43:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessGermanWordQuizGame.tsx:43:7
+  41 |
+  42 |     if (timeLeft <= 0) {
+> 43 |       handleTimeout();
+     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  44 |       return;
+  45 |     }
+  46 |                                                                                                                                                                          react-hooks/set-state-in-effect
+  57:6   warning  React Hook useEffect has a missing dependency: 'playSound'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+  61:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\downDOCS\Documents\my_programms\web\NextJS\LearnLanguages\web_app\src\components\GuessGermanWordQuizGame.tsx:61:5
+  59 |   // Initialize word on mount
+  60 |   useEffect(() => {
+> 61 |     handleNextWord();
+     |     ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  62 |   }, [handleNextWord]);
+  63 |
+  64 |   const handleSubmit = (e: React.FormEvent) => {                                                                                              react-hooks/set-state-in-effect
+
+Γ£û 8 problems (6 errors, 2 warnings)
+

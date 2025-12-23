@@ -1,0 +1,45 @@
+
+> web_app@0.1.0 lint
+> eslint
+
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\app\page.tsx
+  5:3  warning  'MessageCircle' is defined but never used  @typescript-eslint/no-unused-vars
+  6:3  warning  'Map' is defined but never used            @typescript-eslint/no-unused-vars
+  7:3  warning  'Keyboard' is defined but never used       @typescript-eslint/no-unused-vars
+  8:3  warning  'BookOpen' is defined but never used       @typescript-eslint/no-unused-vars
+  9:3  warning  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\GermanWordsTable.tsx
+  201:6  warning  React Hook useEffect has a missing dependency: 'filteredWords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\GuessEnglishWordMCQQuizGame.tsx
+    9:3  warning  'GetGermanWordsLenght' is defined but never used                                                                @typescript-eslint/no-unused-vars
+   75:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+  131:6  warning  React Hook useEffect has a missing dependency: 'totalGroups'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\GuessGermanNumberGame.tsx
+  27:9  warning  'handleTimeout' is assigned a value but never used                                              @typescript-eslint/no-unused-vars
+  37:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\GuessGermanWordQuizGame.tsx
+  45:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+  90:6  warning  React Hook useEffect has a missing dependency: 'totalGroups'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\TimeTellerGame.tsx
+  30:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\myKeyboard\key.tsx
+  3:10  warning  'useState' is defined but never used     @typescript-eslint/no-unused-vars
+  3:20  warning  'useCallback' is defined but never used  @typescript-eslint/no-unused-vars
+  3:33  warning  'useEffect' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\components\myKeyboard\myKeyboard.tsx
+  133:11  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+D:\downDOCS\Documents\my_programms\web\NextJS\meinDeutsch\web_app\src\hooks\useGoBack.ts
+  21:6  warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 19 problems (0 errors, 19 warnings)
+  0 errors and 4 warnings potentially fixable with the `--fix` option.
+
