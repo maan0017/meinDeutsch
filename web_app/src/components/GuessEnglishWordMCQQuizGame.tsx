@@ -117,11 +117,11 @@ export default function GuessEnglishWordMCQQuizGame() {
         }
       }
 
-      if (e.key == "ArrowLeft") {
+      if (e.key == "ArrowLeft" && !allIn) {
         setCurrentGroup((prev) => Math.max(0, prev - 1));
       }
 
-      if (e.key == "ArrowRight") {
+      if (e.key == "ArrowRight" && !allIn) {
         setCurrentGroup((prev) => Math.min(totalGroups - 1, prev + 1));
       }
     };

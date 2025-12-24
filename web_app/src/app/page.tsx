@@ -7,20 +7,21 @@ export default function Home() {
     {
       href: "/german-language-most-common-words",
       icon: Book,
-      title: "Dictionary",
+      title: "German Core Vocabulary",
       description:
         "Most commonly used German words with english and hindi meanings.",
       stat: "2,000+ words",
       color: "blue",
-      badge: "Practice",
+      badge: "Essential",
     },
     {
       href: "/juwelen",
       icon: Gamepad2,
       title: "Quiz Games",
-      description: "Practice skills",
+      description: "Practice German with games.",
       stat: "4 game modes",
       color: "indigo",
+      badge: "Practice",
     },
     // {
     //   href: "/german-language-most-common-sentences",

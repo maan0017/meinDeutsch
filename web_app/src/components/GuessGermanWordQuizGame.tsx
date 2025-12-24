@@ -24,7 +24,10 @@ export default function GuessGermanWordQuizGame() {
   // group system
   const [currentGroup, setCurrentGroup] = useState<number>(0);
   const totalGroups = GetGermanWordsGroupLength(WORDS_GROUP_SIZE);
+
+  // game mode
   const [allIn, setAllIn] = useState<boolean>(false);
+  const [strictMode, setStrictMode] = useState<boolean>(false);
 
   const handleNextWord = useCallback(() => {
     let newWord: GermanWord;
@@ -52,16 +55,26 @@ export default function GuessGermanWordQuizGame() {
 
     const normalize = (s: string) => s.trim().toLowerCase();
 
-    const userAttempt = normalize(userAnswer);
-    const baseAnswer = normalize(word.germanWord);
+    let userAttempt, baseAnswer;
+
+    if (strictMode) {
+      userAttempt = userAnswer;
+      baseAnswer = word.article
+        ? `${word.article} ${word.germanWord}`
+        : word.germanWord;
+    } else {
+      userAttempt = normalize(userAnswer);
+      baseAnswer = normalize(word.germanWord);
+    }
 
     const articleAnswer = word.article
       ? normalize(`${word.article} ${word.germanWord}`)
       : null;
 
-    const isCorrect =
-      userAttempt === baseAnswer ||
-      (articleAnswer !== null && userAttempt === articleAnswer);
+    const isCorrect = strictMode
+      ? userAttempt === baseAnswer
+      : userAttempt === baseAnswer ||
+        (articleAnswer !== null && userAttempt === articleAnswer);
 
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
@@ -76,11 +89,11 @@ export default function GuessGermanWordQuizGame() {
       const target = e.target as HTMLInputElement;
       if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
 
-      if (e.key == "ArrowLeft") {
+      if (e.key == "ArrowLeft" && !allIn) {
         setCurrentGroup((prev) => Math.max(0, prev - 1));
       }
 
-      if (e.key == "ArrowRight") {
+      if (e.key == "ArrowRight" && !allIn) {
         setCurrentGroup((prev) => Math.min(totalGroups - 1, prev + 1));
       }
     };
@@ -138,7 +151,7 @@ export default function GuessGermanWordQuizGame() {
 
           <div className="flex-1 text-center px-2 md:px-4">
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#E0E0E0]">
-              German Quiz
+              Practice German Words
             </h1>
             <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium mt-0.5 md:mt-1">
               Translate the word below into German
@@ -241,18 +254,7 @@ export default function GuessGermanWordQuizGame() {
 
                 {/* Tag and "All In" Toggle Container */}
                 <div className="mt-2 flex items-center justify-center gap-3 w-full">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
-                    German Word
-                    {word && (
-                      <span className="ml-1 text-gray-400 dark:text-gray-500">
-                        #
-                        {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord,
-                        ) + 1}
-                      </span>
-                    )}
-                  </span>
-
+                  {/* All In Toggle */}
                   <label
                     htmlFor="allIn"
                     title="Play all words at once, Disables Group system"
@@ -307,6 +309,62 @@ export default function GuessGermanWordQuizGame() {
                     </div>
                     All in
                   </label>
+
+                  {/* Strict Mode */}
+                  <label
+                    htmlFor="strictMode"
+                    title="Articles are compulsory if present and correct Captilized words."
+                    className={`
+                                    flex items-center gap-1.5 cursor-pointer select-none 
+                                    text-xs font-medium 
+                                    transition-colors duration-200
+                                    px-2 py-0.5 rounded-md border
+                                    ${
+                                      allIn
+                                        ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                                        : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                                    }
+                                  `}
+                  >
+                    <div className="relative flex items-center">
+                      <input
+                        type="checkbox"
+                        id="strictMode"
+                        checked={strictMode}
+                        onChange={(e) => {
+                          const newValue = e.target.checked;
+                          setStrictMode(newValue);
+                          handleNextWord();
+                        }}
+                        className="sr-only"
+                      />
+                      <div
+                        className={`
+                                        w-3 h-3 rounded-full border mr-1.5 transition-colors
+                                        ${
+                                          strictMode
+                                            ? "bg-blue-500 border-blue-500"
+                                            : "border-gray-300 dark:border-gray-600 bg-transparent"
+                                        }
+                                     `}
+                      >
+                        {strictMode && (
+                          <svg
+                            className="w-full h-full text-white p-0.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    Strict Mode
+                  </label>
                 </div>
               </div>
               <section>
@@ -350,12 +408,17 @@ export default function GuessGermanWordQuizGame() {
             >
               {status === "correct" ? (
                 <span className="flex flex-col items-center justify-center font-bold gap-1 text-xl">
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#121212] dark:border dark:border-[#444444] px-2 py-0.5 md:py-1 rounded">
-                      German
-                    </span>
-                  </div>
-
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
+                    German Word
+                    {word && (
+                      <span className="ml-1 text-gray-400 dark:text-gray-500">
+                        #
+                        {germanWords.findIndex(
+                          (w) => w.germanWord === word.germanWord,
+                        ) + 1}
+                      </span>
+                    )}
+                  </span>
                   <span>
                     “
                     {word.article
@@ -363,7 +426,6 @@ export default function GuessGermanWordQuizGame() {
                       : word.germanWord}
                     ”
                   </span>
-
                   <span className="text-base text-slate-500">
                     (
                     {word.article
@@ -373,18 +435,23 @@ export default function GuessGermanWordQuizGame() {
                       : word.hindiPronunciation}
                     )
                   </span>
-
                   <span className="text-blue-600 text-lg font-medium">
                     ✓ Correct attempt
                   </span>
                 </span>
               ) : (
                 <span className="flex flex-col items-center text-xl font-bold text-center">
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#121212] dark:border dark:border-[#444444] px-2 py-0.5 md:py-1 rounded">
-                      German
-                    </span>
-                  </div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
+                    German Word
+                    {word && (
+                      <span className="ml-1 text-gray-400 dark:text-gray-500">
+                        #
+                        {germanWords.findIndex(
+                          (w) => w.germanWord === word.germanWord,
+                        ) + 1}
+                      </span>
+                    )}
+                  </span>
                   <span>
                     “
                     {word.article

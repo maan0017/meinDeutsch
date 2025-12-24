@@ -3,8 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Learn German | Master Vocabulary",
-  description: "The best way to learn German vocabulary with instant feedback.",
+  title: "Learn German",
+  description: "My personal project to learn and practice German",
 };
 
 export default function RootLayout({

@@ -70,6 +70,12 @@ export default function GermanWordsTable() {
   const [filterGerman, setFilterGerman] = useState("");
   const [filterEnglish, setFilterEnglish] = useState("");
 
+  const WORDS_GROUP_SIZE = 50;
+  const [currentGroup, setCurrentGroup] = useState(0);
+  const [allIn, setAllIn] = useState(false);
+
+  const totalGroups = Math.ceil(germanWords.length / WORDS_GROUP_SIZE);
+
   const [focusedInput, setFocusedInput] = useState<"german" | "english" | null>(
     null,
   );
@@ -82,8 +88,16 @@ export default function GermanWordsTable() {
   useGoBack();
 
   const filteredWords = useMemo(() => {
+    // 0. Group Slicing
+    let baseItems = germanWords;
+    if (!allIn) {
+      const start = currentGroup * WORDS_GROUP_SIZE;
+      const end = start + WORDS_GROUP_SIZE;
+      baseItems = germanWords.slice(start, end);
+    }
+
     // 1. Filter first
-    const items = germanWords.filter((word) => {
+    const items = baseItems.filter((word) => {
       const gMatch = word.germanWord
         .toLowerCase()
         .includes(filterGerman.toLowerCase());
@@ -98,6 +112,7 @@ export default function GermanWordsTable() {
 
     if (!isSearching) {
       // Not searching: Alphabetical order
+      // Note: If grouped, they are already likely sorted in source, but we sort to be safe/consistent
       return items.sort((a, b) => a.germanWord.localeCompare(b.germanWord));
     } else {
       // Searching logic
@@ -142,7 +157,7 @@ export default function GermanWordsTable() {
         return a.germanWord.localeCompare(b.germanWord);
       });
     }
-  }, [filterGerman, filterEnglish]);
+  }, [filterGerman, filterEnglish, currentGroup, allIn]);
 
   // shortcut key binding
   useEffect(() => {
@@ -304,7 +319,7 @@ export default function GermanWordsTable() {
 
   return (
     <div className="w-full min-h-screen bg-gray-100 dark:bg-[#0a0a0a] flex flex-col items-center">
-      <div className="w-full h-full max-w-5xl flex flex-col bg-white dark:bg-[#121212] shadow-xl border border-slate-200 dark:border-[#333333] overflow-hidden">
+      <div className="w-full h-full max-w-7xl flex flex-col bg-white dark:bg-[#121212] shadow-xl border border-slate-200 dark:border-[#333333] overflow-hidden">
         {/* Top Bar / Header */}
         <div className="w-full px-4 md:px-6 py-4 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-[#333333] flex flex-col xl:flex-row xl:items-center justify-between gap-4 shrink-0 z-30">
           {/* Title Area */}
@@ -330,7 +345,7 @@ export default function GermanWordsTable() {
             </button>
             <div>
               <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
-                German Dictionary
+                German Core Vocabulary
               </h1>
               <p className="text-xs text-slate-500 dark:text-[#888888] mt-0.5">
                 <span className="font-semibold text-blue-600 dark:text-blue-400">
@@ -338,6 +353,136 @@ export default function GermanWordsTable() {
                 </span>{" "}
                 words available
               </p>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-3 ml-4 pl-4 border-l border-gray-200 dark:border-gray-700">
+              {/* Separator above ^ */}
+
+              {/* Group Controls */}
+              <div
+                className={`
+                    flex items-center justify-center gap-2 
+                    bg-gray-50 dark:bg-[#1a1a1a] 
+                    rounded-full px-3 py-1 
+                    border border-gray-100 dark:border-[#333]
+                    transition-all duration-300
+                    ${
+                      allIn
+                        ? "opacity-40 grayscale pointer-events-none select-none"
+                        : "opacity-100"
+                    }
+                  `}
+              >
+                <button
+                  disabled={currentGroup === 0 || allIn}
+                  onClick={() => setCurrentGroup((p) => Math.max(0, p - 1))}
+                  className="
+                      p-1 rounded-full 
+                      text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
+                      disabled:opacity-30 disabled:cursor-not-allowed
+                      transition-colors
+                    "
+                  title="Previous Group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono min-w-[5ch] text-center">
+                  {currentGroup + 1}/{totalGroups}
+                </span>
+
+                <button
+                  onClick={() =>
+                    setCurrentGroup((p) => Math.min(totalGroups - 1, p + 1))
+                  }
+                  disabled={currentGroup === totalGroups - 1 || allIn}
+                  className="
+                      p-1 rounded-full 
+                      text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
+                      disabled:opacity-30 disabled:cursor-not-allowed
+                      transition-colors
+                    "
+                  title="Next Group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* All In Toggle */}
+              <label
+                htmlFor="allIn"
+                title="Show all words at once"
+                className={`
+                    flex items-center gap-1.5 cursor-pointer select-none 
+                    text-xs font-medium 
+                    transition-colors duration-200
+                    px-2 py-0.5 rounded-md border
+                    ${
+                      allIn
+                        ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                        : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                    }
+                  `}
+              >
+                <div className="relative flex items-center">
+                  <input
+                    type="checkbox"
+                    id="allIn"
+                    checked={allIn}
+                    onChange={(e) => setAllIn(e.target.checked)}
+                    className="sr-only"
+                  />
+                  <div
+                    className={`
+                        w-3 h-3 rounded-full border mr-1.5 transition-colors
+                        ${
+                          allIn
+                            ? "bg-blue-500 border-blue-500"
+                            : "border-gray-300 dark:border-gray-600 bg-transparent"
+                        }
+                      `}
+                  >
+                    {allIn && (
+                      <svg
+                        className="w-full h-full text-white p-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                All
+              </label>
             </div>
           </div>
 
