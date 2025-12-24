@@ -3,11 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { GermanWord } from "@/models/germanWord";
-import {
-  GetGermanWordsGroupLength,
-  RandomGermanWordSelector,
-  RandomGermanWordSelectorWithinRange,
-} from "@/helper/RandomGermanWordSelector";
+import { GetGermanWordsGroupLength } from "@/helper/RandomGermanWordSelector";
 import { QuizGameInput } from "./QuizGameInput";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { germanWords } from "@/data/germanWords";
@@ -23,6 +19,9 @@ export default function GuessGermanWordQuizGame() {
   const [userAnswer, setUserAnswer] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // logic to track unseen words
+  const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
 
   // group system
   const [currentGroup, setCurrentGroup] = useState<number>(0);
@@ -55,25 +54,59 @@ export default function GuessGermanWordQuizGame() {
     localStorage.setItem(SAVED_STATE_STRICT_MODE, String(strictMode));
   }, [currentGroup, allIn, strictMode, isInitialized]);
 
+  // Reset seen words when group or mode changes
+  useEffect(() => {
+    setSeenIndices(new Set());
+  }, [currentGroup, allIn]);
+
   const handleNextWord = useCallback(() => {
-    let newWord: GermanWord;
-    if (allIn) newWord = RandomGermanWordSelector();
-    else
-      newWord = RandomGermanWordSelectorWithinRange(
-        currentGroup * WORDS_GROUP_SIZE,
-        (currentGroup + 1) * WORDS_GROUP_SIZE,
-      );
-    setWord(newWord);
+    let start = 0;
+    let end = germanWords.length;
+
+    if (!allIn) {
+      start = currentGroup * WORDS_GROUP_SIZE;
+      end = Math.min((currentGroup + 1) * WORDS_GROUP_SIZE, germanWords.length);
+    }
+
+    // Filter available indices that haven't been seen yet
+    let availableIndices = [];
+    for (let i = start; i < end; i++) {
+      if (!seenIndices.has(i)) {
+        availableIndices.push(i);
+      }
+    }
+
+    // If all words seen, reset
+    if (availableIndices.length === 0) {
+      availableIndices = [];
+      for (let i = start; i < end; i++) {
+        availableIndices.push(i);
+      }
+      setSeenIndices(new Set());
+    }
+
+    // Pick random from available
+    const randomIndex = Math.floor(Math.random() * availableIndices.length);
+    const selectedOriginalIndex = availableIndices[randomIndex];
+
+    // Update seen indices
+    setSeenIndices((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(selectedOriginalIndex);
+      return newSet;
+    });
+
+    setWord(germanWords[selectedOriginalIndex]);
     setUserAnswer("");
     setStatus("idle");
     setTimeout(() => inputRef.current?.focus(), 50);
-  }, [allIn, currentGroup]);
+  }, [allIn, currentGroup, seenIndices]);
 
   // Initialize word on mount
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    handleNextWord();
-  }, [handleNextWord]);
+    if (!word) handleNextWord();
+  }, [handleNextWord, word]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

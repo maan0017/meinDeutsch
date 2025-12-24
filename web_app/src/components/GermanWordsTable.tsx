@@ -1,11 +1,57 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, ReactNode } from "react";
 import { germanWords } from "@/data/germanWords";
 import { TableVirtuoso } from "react-virtuoso";
 import { SearchBar } from "./searchBar";
 import { useRouter } from "next/navigation";
 import { useGoBack } from "@/hooks/useGoBack";
+
+// Highlight matching text
+const HighlightText = (text: string, searchQuery: string) => {
+  if (!searchQuery.trim()) return text;
+
+  const searchTerms = searchQuery.toLowerCase().split(" ").filter(Boolean);
+  const parts: ReactNode[] = [];
+  let remaining = text;
+  let lowerRemaining = text.toLowerCase();
+
+  while (remaining) {
+    let matchIndex = -1;
+    let matchTerm = "";
+
+    for (const term of searchTerms) {
+      const idx = lowerRemaining.indexOf(term);
+      if (idx >= 0 && (matchIndex === -1 || idx < matchIndex)) {
+        matchIndex = idx;
+        matchTerm = term;
+      }
+    }
+
+    if (matchIndex === -1) {
+      parts.push(remaining);
+      break;
+    }
+
+    if (matchIndex > 0) {
+      parts.push(remaining.slice(0, matchIndex));
+    }
+
+    parts.push(
+      <span
+        key={parts.length}
+        className="bg-amber-200 dark:bg-amber-600 text-amber-950 dark:text-white rounded px-0.5 font-medium box-decoration-clone"
+      >
+        {remaining.slice(matchIndex, matchIndex + matchTerm.length)}
+      </span>,
+    );
+
+    remaining = remaining.slice(matchIndex + matchTerm.length);
+    lowerRemaining = remaining.toLowerCase();
+  }
+
+  return parts;
+};
 
 const getVal = (val: string | string[] | undefined) => {
   if (!val) return "";
@@ -66,9 +112,29 @@ const WORD_TYPE_DETAILS: Record<string, { label: string; hindi: string }> = {
   },
 };
 
+// Add original index to words
+const indexedGermanWords = germanWords.map((word, index) => ({
+  ...word,
+  originalIndex: index + 1,
+}));
+
 export default function GermanWordsTable() {
   const [filterGerman, setFilterGerman] = useState("");
   const [filterEnglish, setFilterEnglish] = useState("");
+  const [isSorted, setIsSorted] = useState(true);
+
+  // Load state from localStorage on mount
+  useEffect(() => {
+    const savedSort = localStorage.getItem("germanTableSort");
+    if (savedSort !== null) {
+      setIsSorted(JSON.parse(savedSort));
+    }
+  }, []);
+
+  // Save state to localStorage on change
+  useEffect(() => {
+    localStorage.setItem("germanTableSort", JSON.stringify(isSorted));
+  }, [isSorted]);
 
   const [focusedInput, setFocusedInput] = useState<"german" | "english" | null>(
     null,
@@ -83,7 +149,7 @@ export default function GermanWordsTable() {
 
   const filteredWords = useMemo(() => {
     // 0. Base Items
-    const baseItems = germanWords;
+    const baseItems = indexedGermanWords;
 
     // 1. Filter first
     const items = baseItems.filter((word) => {
@@ -96,13 +162,15 @@ export default function GermanWordsTable() {
       return gMatch && eMatch;
     });
 
-    // 2. Sort based on search state
+    // 2. Sort based on search state OR toggle
     const isSearching = filterGerman || filterEnglish;
 
     if (!isSearching) {
-      // Not searching: Alphabetical order
-      // Note: If grouped, they are already likely sorted in source, but we sort to be safe/consistent
-      return items.sort((a, b) => a.germanWord.localeCompare(b.germanWord));
+      if (isSorted) {
+        return items.sort((a, b) => a.germanWord.localeCompare(b.germanWord));
+      } else {
+        return items.sort((a, b) => a.originalIndex - b.originalIndex);
+      }
     } else {
       // Searching logic
       return items.sort((a, b) => {
@@ -142,11 +210,15 @@ export default function GermanWordsTable() {
           }
         }
 
-        // Fallback: Alphabetical
-        return a.germanWord.localeCompare(b.germanWord);
+        // Fallback: Check toggle
+        if (isSorted) {
+          return a.germanWord.localeCompare(b.germanWord);
+        } else {
+          return a.originalIndex - b.originalIndex;
+        }
       });
     }
-  }, [filterGerman, filterEnglish]);
+  }, [filterGerman, filterEnglish, isSorted]);
 
   // shortcut key binding
   useEffect(() => {
@@ -202,40 +274,36 @@ export default function GermanWordsTable() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [filteredWords]);
 
   // Fixed Header for Virtuoso (Labels Only)
   const fixedHeaderContent = () => (
     <tr className="bg-slate-50 dark:bg-[#1E1E1E] border-b border-slate-200 dark:border-[#333333] text-left sticky top-0 z-20 shadow-sm">
-      <th className="py-3 px-4 w-[15%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+      <th className="py-3 px-4 w-[8%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+        S.No.
+      </th>
+      <th className="py-3 px-4 w-[12%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
         Type
       </th>
-      <th className="py-3 px-4 w-[10%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+      <th className="py-3 px-4 w-[8%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
         Article
       </th>
-      <th className="py-3 px-4 w-[25%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+      <th className="py-3 px-4 w-[24%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
         German Word
       </th>
-      <th className="py-3 px-4 w-[25%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+      <th className="py-3 px-4 w-[24%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
         English Meaning
       </th>
-      <th className="py-3 px-4 w-[25%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
+      <th className="py-3 px-4 w-[24%] text-xs font-semibold text-slate-500 dark:text-[#888888] uppercase tracking-wider sticky top-0 bg-slate-50 dark:bg-[#1E1E1E] z-20">
         Hindi Meaning
       </th>
     </tr>
   );
 
   // Row Content
-  const rowContent = (_index: number, word: (typeof germanWords)[0]) => {
-    // Highlight if exact match on German Word
-    const isExactMatch =
-      filterGerman &&
-      word.germanWord.toLowerCase() === filterGerman.toLowerCase();
-
+  const rowContent = (_index: number, word: (typeof indexedGermanWords)[0]) => {
     // English Value
     const englishVal = getVal(word.englishMeaning);
-    const isExactMatchEnglish =
-      filterEnglish && englishVal.toLowerCase() === filterEnglish.toLowerCase();
 
     // Type Details
     const typeDetail = WORD_TYPE_DETAILS[word.type || ""] || {
@@ -245,6 +313,9 @@ export default function GermanWordsTable() {
 
     return (
       <>
+        <td className="px-4 py-3.5 text-xs text-slate-400 dark:text-[#666666] border-b border-slate-100 dark:border-[#2C2C2C] bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors font-mono">
+          {word.originalIndex}
+        </td>
         <td className="px-4 py-3.5 text-xs text-slate-500 dark:text-[#888888] border-b border-slate-100 dark:border-[#2C2C2C] bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors">
           <div className="font-medium uppercase tracking-wide opacity-80">
             {typeDetail.label}
@@ -255,32 +326,14 @@ export default function GermanWordsTable() {
             </div>
           )}
         </td>
-        <td
-          className={`px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors ${
-            isExactMatch
-              ? "bg-blue-50/50 dark:bg-blue-900/10"
-              : "bg-white dark:bg-[#121212]"
-          }`}
-        >
+        <td className="px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors bg-white dark:bg-[#121212]">
           <span className="italic text-slate-500 dark:text-[#888888] font-medium">
             {word.article}
           </span>
         </td>
-        <td
-          className={`px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors ${
-            isExactMatch
-              ? "bg-blue-50/50 dark:bg-blue-900/10"
-              : "bg-white dark:bg-[#121212]"
-          }`}
-        >
-          <div
-            className={`font-bold text-[15px] ${
-              isExactMatch
-                ? "text-blue-700 dark:text-blue-400"
-                : "text-slate-900 dark:text-[#EEEEEE]"
-            }`}
-          >
-            {word.germanWord}
+        <td className="px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors bg-white dark:bg-[#121212]">
+          <div className="font-bold text-[15px] text-slate-900 dark:text-[#EEEEEE]">
+            {HighlightText(word.germanWord, filterGerman)}
           </div>
           <div className="text-xs text-slate-500 dark:text-[#888888] font-hindi mt-1 opacity-90">
             {Array.isArray(word.hindiPronunciation)
@@ -288,14 +341,8 @@ export default function GermanWordsTable() {
               : word.hindiPronunciation}
           </div>
         </td>
-        <td
-          className={`px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors ${
-            isExactMatchEnglish
-              ? "bg-blue-50/50 dark:bg-blue-900/10 text-blue-700 dark:text-blue-400 font-semibold"
-              : "text-slate-700 dark:text-[#CCCCCC] bg-white dark:bg-[#121212]"
-          }`}
-        >
-          {englishVal}
+        <td className="px-4 py-3.5 text-sm border-b border-slate-100 dark:border-[#2C2C2C] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors text-slate-700 dark:text-[#CCCCCC] bg-white dark:bg-[#121212]">
+          {HighlightText(englishVal, filterEnglish)}
         </td>
         <td className="px-4 py-3.5 text-sm text-slate-600 dark:text-[#AAAAAA] border-b border-slate-100 dark:border-[#2C2C2C] font-hindi bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors">
           {Array.isArray(word.hindiMeaning)
@@ -374,31 +421,67 @@ export default function GermanWordsTable() {
               </div>
             </div>
 
-            <button
-              onClick={() =>
-                import("@/helper/ExportPdf").then((mod) =>
-                  mod.exportPdf(filteredWords),
-                )
-              }
-              className="hidden md:flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all ml-auto xl:ml-0 shadow-sm"
-              title="Export to PDF (Ctrl + P)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.8}
-                stroke="currentColor"
-                className="w-4 h-4"
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsSorted(!isSorted)}
+                className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all shadow-sm min-w-[110px]"
+                title={
+                  isSorted
+                    ? "Sorted Alphabetically (Click to unsort)"
+                    : "Original Order (Click to sort)"
+                }
               >
-                <path
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </svg>
-              <span className="hidden lg:inline">Export PDF</span>
-            </button>
+                  className={`text-slate-500 dark:text-[#888888] ${
+                    isSorted ? "text-blue-600 dark:text-blue-400" : ""
+                  }`}
+                >
+                  <path d="m3 16 4 4 4-4" />
+                  <path d="M7 20V4" />
+                  <path d="M11 4h4" />
+                  <path d="M11 8h7" />
+                  <path d="M11 12h10" />
+                </svg>
+                <span className="hidden xl:inline">
+                  {isSorted ? "A-Z" : "Normal"}
+                </span>
+              </button>
+
+              <button
+                onClick={() =>
+                  import("@/helper/ExportPdf").then((mod) =>
+                    mod.exportPdf(filteredWords),
+                  )
+                }
+                className="hidden md:flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all ml-auto xl:ml-0 shadow-sm"
+                title="Export to PDF (Ctrl + P)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.8}
+                  stroke="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+                <span className="hidden lg:inline">Export PDF</span>
+              </button>
+            </div>
           </div>
         </div>
 

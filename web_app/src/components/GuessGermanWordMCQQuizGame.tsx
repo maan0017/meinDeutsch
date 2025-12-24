@@ -6,8 +6,6 @@ import { GermanWord } from "@/models/germanWord";
 import {
   RandomGermanWordSelector,
   GetGermanWordsGroupLength,
-  GetGermanWordsLenght,
-  RandomGermanWordSelectorWithinRange,
 } from "@/helper/RandomGermanWordSelector";
 import { germanWords } from "@/data/germanWords";
 import { useGoBack } from "@/hooks/useGoBack";
@@ -24,6 +22,9 @@ export default function GuessGermanWordMCQQuizGame() {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(
     null,
   );
+
+  // logic to track unseen words
+  const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
 
   // group system
   const [currentGroup, setCurrentGroup] = useState<number>(0);
@@ -54,6 +55,11 @@ export default function GuessGermanWordMCQQuizGame() {
     localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
   }, [currentGroup, allIn, isInitialized]);
 
+  // Reset seen words when group or mode changes
+  useEffect(() => {
+    setSeenIndices(new Set());
+  }, [currentGroup, allIn]);
+
   // refrences of the options
   const option1Ref = useRef<HTMLButtonElement | null>(null);
   const option2Ref = useRef<HTMLButtonElement | null>(null);
@@ -77,25 +83,55 @@ export default function GuessGermanWordMCQQuizGame() {
   };
 
   const handleNextWord = useCallback(() => {
-    let newWord: GermanWord;
-    if (allIn) newWord = RandomGermanWordSelector();
-    else
-      newWord = RandomGermanWordSelectorWithinRange(
-        currentGroup * WORDS_GROUP_SIZE,
-        (currentGroup + 1) * WORDS_GROUP_SIZE,
-      );
+    let start = 0;
+    let end = germanWords.length;
+
+    if (!allIn) {
+      start = currentGroup * WORDS_GROUP_SIZE;
+      end = Math.min((currentGroup + 1) * WORDS_GROUP_SIZE, germanWords.length);
+    }
+
+    // Filter available indices that haven't been seen yet
+    let availableIndices = [];
+    for (let i = start; i < end; i++) {
+      if (!seenIndices.has(i)) {
+        availableIndices.push(i);
+      }
+    }
+
+    // If all words seen, reset
+    if (availableIndices.length === 0) {
+      availableIndices = [];
+      for (let i = start; i < end; i++) {
+        availableIndices.push(i);
+      }
+      setSeenIndices(new Set());
+    }
+
+    // Pick random from available
+    const randomIndex = Math.floor(Math.random() * availableIndices.length);
+    const selectedOriginalIndex = availableIndices[randomIndex];
+
+    // Update seen indices
+    setSeenIndices((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(selectedOriginalIndex);
+      return newSet;
+    });
+
+    const newWord = germanWords[selectedOriginalIndex];
 
     setCurrentWord(newWord);
     setOptions(generateOptions(newWord));
     setStatus("idle");
     setSelectedOptionIndex(null);
-  }, [allIn, currentGroup]);
+  }, [allIn, currentGroup, seenIndices]);
 
   // Initialize on mount
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    handleNextWord();
-  }, [handleNextWord]);
+    if (!currentWord) handleNextWord();
+  }, [handleNextWord, currentWord]);
 
   const handleOptionClick = useCallback(
     (word: GermanWord, index: number) => {
