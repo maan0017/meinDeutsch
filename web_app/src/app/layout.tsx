@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Learn German",
+  title: "Mein Deutsch",
   description: "My personal project to learn and practice German",
 };
 

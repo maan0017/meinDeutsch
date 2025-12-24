@@ -14,8 +14,10 @@ import { useGoBack } from "@/hooks/useGoBack";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 const WORDS_GROUP_SIZE = 50;
+const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_mcq_current_group";
+const SAVED_STATE_ALL_IN = "gem_guess_german_word_mcq_all_in";
 
-export default function GuessEnglishWordMCQQuizGame() {
+export default function GuessGermanWordMCQQuizGame() {
   const [currentWord, setCurrentWord] = useState<GermanWord | null>(null);
   const [options, setOptions] = useState<GermanWord[]>([]);
   const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
@@ -27,11 +29,30 @@ export default function GuessEnglishWordMCQQuizGame() {
   const [currentGroup, setCurrentGroup] = useState<number>(0);
   const totalGroups = GetGermanWordsGroupLength(WORDS_GROUP_SIZE);
   const [allIn, setAllIn] = useState<boolean>(false);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
 
   const { playSound } = useSoundEffects();
 
   // adds shortcut to go back using backspace key
   useGoBack();
+
+  // Load state from local storage on mount
+  useEffect(() => {
+    const savedGroup = localStorage.getItem(SAVED_STATE_CURRENT_GROUP);
+    if (savedGroup) setCurrentGroup(Number(savedGroup));
+
+    const savedAllIn = localStorage.getItem(SAVED_STATE_ALL_IN);
+    if (savedAllIn) setAllIn(savedAllIn === "true");
+
+    setIsInitialized(true);
+  }, []);
+
+  // Save state to local storage when changed (only after initialization)
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(SAVED_STATE_CURRENT_GROUP, String(currentGroup));
+    localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
+  }, [currentGroup, allIn, isInitialized]);
 
   // refrences of the options
   const option1Ref = useRef<HTMLButtonElement | null>(null);

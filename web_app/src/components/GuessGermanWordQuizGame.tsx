@@ -13,6 +13,9 @@ import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { germanWords } from "@/data/germanWords";
 
 const WORDS_GROUP_SIZE = 50;
+const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
+const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
+const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
 
 export default function GuessGermanWordQuizGame() {
   const { playSound } = useSoundEffects();
@@ -28,6 +31,29 @@ export default function GuessGermanWordQuizGame() {
   // game mode
   const [allIn, setAllIn] = useState<boolean>(false);
   const [strictMode, setStrictMode] = useState<boolean>(false);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+
+  // Load state from local storage on mount
+  useEffect(() => {
+    const savedGroup = localStorage.getItem(SAVED_STATE_CURRENT_GROUP);
+    if (savedGroup) setCurrentGroup(Number(savedGroup));
+
+    const savedAllIn = localStorage.getItem(SAVED_STATE_ALL_IN);
+    if (savedAllIn) setAllIn(savedAllIn === "true");
+
+    const savedStrictMode = localStorage.getItem(SAVED_STATE_STRICT_MODE);
+    if (savedStrictMode) setStrictMode(savedStrictMode === "true");
+
+    setIsInitialized(true);
+  }, []);
+
+  // Save state to local storage when changed (only after initialization)
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(SAVED_STATE_CURRENT_GROUP, String(currentGroup));
+    localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
+    localStorage.setItem(SAVED_STATE_STRICT_MODE, String(strictMode));
+  }, [currentGroup, allIn, strictMode, isInitialized]);
 
   const handleNextWord = useCallback(() => {
     let newWord: GermanWord;
@@ -320,7 +346,7 @@ export default function GuessGermanWordQuizGame() {
                                     transition-colors duration-200
                                     px-2 py-0.5 rounded-md border
                                     ${
-                                      allIn
+                                      strictMode
                                         ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
                                         : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
                                     }

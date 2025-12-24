@@ -49,19 +49,19 @@ export default function QuizGamesHomePage() {
   const quizzes: QuizCardProps[] = [
     {
       href: "/juwel/practice-german-word",
-      title: "Practice German Word",
-      description: "Translate English words to German",
+      title: "Practice German Words",
+      description: "Guess the German word",
       color: "blue",
     },
     {
       href: "/juwel/practice-german-word-mcq",
-      title: "Practice German Word (MCQ)",
-      description: "Identify the meaning of English words out of 4 options",
+      title: "Practice German Words (MCQs)",
+      description: "Guess the meaning of German words out of 4 options",
       color: "emerald",
     },
     {
       href: "/juwel/practice-german-numbers",
-      title: "Practice German Number",
+      title: "Practice German Numbers",
       description: "Write numbers in German",
       color: "blue",
     },

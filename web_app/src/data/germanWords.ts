@@ -17793,6 +17793,15 @@ export const germanWords: GermanWord[] = [
     pluralForm: "Die Tragödien",
   },
   {
+    germanWord: "Blumenladen",
+    article: "der",
+    hindiPronunciation: "ब्लूमनलाडेन",
+    englishMeaning: ["Flower shop", "Florist"],
+    hindiMeaning: ["फूलों की दुकान"],
+    type: "noun",
+    pluralForm: "Die Blumenläden",
+  },
+  {
     germanWord: "Ressource",
     article: "die",
     hindiPronunciation: "रेसूर्से",
@@ -17800,6 +17809,15 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["संसाधन"],
     type: "noun",
     pluralForm: "Die Ressourcen",
+  },
+  {
+    germanWord: "Schuster",
+    article: "der",
+    hindiPronunciation: "शूस्टर",
+    englishMeaning: ["Shoemaker", "Cobbler"],
+    hindiMeaning: ["मोची"],
+    type: "noun",
+    pluralForm: "Die Schuster",
   },
   {
     germanWord: "Reisende",
