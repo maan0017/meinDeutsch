@@ -1,13 +1,20 @@
 "use client";
 
-import { MoveLeft, Volume2, VolumeX } from "lucide-react";
-import { ThemeToggleButton } from "@/components/ToggleThemeButton";
+import { GetGermanWordsLenght } from "@/helper/RandomGermanWordSelector";
+
+import { MoveLeft, RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { useSettingsStore } from "@/store/settings";
 import { useGoBack } from "@/hooks/useGoBack";
 import { useRouter } from "next/navigation";
 
 export default function Settings() {
-  const { soundEffects, toggleSoundEffects } = useSettingsStore();
+  const {
+    soundEffects,
+    groupSize,
+    toggleSoundEffects,
+    changeGroupSize,
+    resetSettings,
+  } = useSettingsStore();
   const router = useRouter();
 
   // use
@@ -29,27 +36,20 @@ export default function Settings() {
           <h1 className="text-3xl font-bold text-slate-900 dark:text-[#E0E0E0]">
             Settings
           </h1>
+
+          <button
+            onClick={resetSettings}
+            className="ml-auto group flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-[#333] hover:bg-slate-100 dark:hover:bg-[#1a1a1a] hover:border-slate-300 dark:hover:border-[#444] transition-all duration-200"
+            title="Reset to default settings"
+          >
+            <RotateCcw className="w-4 h-4 text-slate-500 dark:text-[#888888] group-hover:text-slate-700 dark:group-hover:text-[#E0E0E0] transition-colors" />
+            <span className="text-sm font-medium text-slate-600 dark:text-[#B0B0B0] group-hover:text-slate-900 dark:group-hover:text-[#E0E0E0] transition-colors">
+              Reset to Default
+            </span>
+          </button>
         </div>
 
         <div className="space-y-4">
-          {/* Dark Mode Setting */}
-          <div className="p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div>
-                  <h2 className="text-lg font-semibold text-slate-900 dark:text-[#E0E0E0]">
-                    Dark Mode
-                  </h2>
-                  <p className="text-sm text-slate-600 dark:text-[#B0B0B0]">
-                    Switch between light and dark theme
-                  </p>
-                </div>
-              </div>
-
-              <ThemeToggleButton />
-            </div>
-          </div>
-
           {/* Sound Effects Setting */}
           <div className="p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
             <div className="flex items-center justify-between">
@@ -85,6 +85,44 @@ export default function Settings() {
                 />
                 {""}
               </button>
+            </div>
+          </div>
+
+          {/* Group Size Setting */}
+          <div className="p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-[#E0E0E0]">
+                  Group Size
+                </h2>
+                <p className="text-sm text-slate-600 dark:text-[#B0B0B0]">
+                  Number of words per group
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 bg-slate-50 dark:bg-[#1a1a1a] px-3 py-1.5 rounded-md border border-slate-200 dark:border-[#333]">
+                <input
+                  type="number"
+                  min={1}
+                  max={GetGermanWordsLenght()}
+                  value={groupSize}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value);
+                    if (!isNaN(val)) {
+                      changeGroupSize(val);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === "Escape") {
+                      e.currentTarget.blur();
+                    }
+                  }}
+                  className="w-16 text-right bg-transparent text-slate-900 dark:text-[#E0E0E0] font-semibold focus:outline-none"
+                />
+                <span className="text-slate-400 dark:text-[#666666] text-sm select-none">
+                  / {GetGermanWordsLenght()}
+                </span>
+              </div>
             </div>
           </div>
         </div>

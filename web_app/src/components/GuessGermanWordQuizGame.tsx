@@ -7,8 +7,8 @@ import { GetGermanWordsGroupLength } from "@/helper/RandomGermanWordSelector";
 import { QuizGameInput } from "./QuizGameInput";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { germanWords } from "@/data/germanWords";
+import { useSettingsStore } from "@/store/settings";
 
-const WORDS_GROUP_SIZE = 50;
 const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
 const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
 const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
@@ -24,8 +24,9 @@ export default function GuessGermanWordQuizGame() {
   const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
 
   // group system
+  const { groupSize } = useSettingsStore();
   const [currentGroup, setCurrentGroup] = useState<number>(0);
-  const totalGroups = GetGermanWordsGroupLength(WORDS_GROUP_SIZE);
+  const totalGroups = GetGermanWordsGroupLength(groupSize);
 
   // game mode
   const [allIn, setAllIn] = useState<boolean>(false);
@@ -59,54 +60,69 @@ export default function GuessGermanWordQuizGame() {
     setSeenIndices(new Set());
   }, [currentGroup, allIn]);
 
-  const handleNextWord = useCallback(() => {
-    let start = 0;
-    let end = germanWords.length;
+  const handleNextWord = useCallback(
+    (forceReset = false) => {
+      let start = 0;
+      let end = germanWords.length;
 
-    if (!allIn) {
-      start = currentGroup * WORDS_GROUP_SIZE;
-      end = Math.min((currentGroup + 1) * WORDS_GROUP_SIZE, germanWords.length);
-    }
-
-    // Filter available indices that haven't been seen yet
-    let availableIndices = [];
-    for (let i = start; i < end; i++) {
-      if (!seenIndices.has(i)) {
-        availableIndices.push(i);
+      if (!allIn) {
+        start = currentGroup * groupSize;
+        end = Math.min((currentGroup + 1) * groupSize, germanWords.length);
       }
-    }
 
-    // If all words seen, reset
-    if (availableIndices.length === 0) {
-      availableIndices = [];
+      // Filter available indices that haven't been seen yet
+      let availableIndices = [];
+      const indicesToCheck = forceReset ? new Set<number>() : seenIndices;
+
       for (let i = start; i < end; i++) {
-        availableIndices.push(i);
+        if (!indicesToCheck.has(i)) {
+          availableIndices.push(i);
+        }
       }
-      setSeenIndices(new Set());
+
+      // If all words seen, reset
+      if (availableIndices.length === 0) {
+        availableIndices = [];
+        for (let i = start; i < end; i++) {
+          availableIndices.push(i);
+        }
+        if (!forceReset) {
+          setSeenIndices(new Set());
+        }
+      }
+
+      // Pick random from available
+      const randomIndex = Math.floor(Math.random() * availableIndices.length);
+      const selectedOriginalIndex = availableIndices[randomIndex];
+
+      // Update seen indices
+      setSeenIndices((prev) => {
+        const newSet = forceReset ? new Set<number>() : new Set(prev);
+        newSet.add(selectedOriginalIndex);
+        return newSet;
+      });
+
+      setWord(germanWords[selectedOriginalIndex]);
+      setUserAnswer("");
+      setStatus("idle");
+      setTimeout(() => inputRef.current?.focus(), 50);
+    },
+    [allIn, currentGroup, groupSize, seenIndices],
+  );
+
+  // Sync state changes (Group/AllIn) -> Next Word
+  useEffect(() => {
+    if (isInitialized) {
+      handleNextWord(true);
     }
-
-    // Pick random from available
-    const randomIndex = Math.floor(Math.random() * availableIndices.length);
-    const selectedOriginalIndex = availableIndices[randomIndex];
-
-    // Update seen indices
-    setSeenIndices((prev) => {
-      const newSet = new Set(prev);
-      newSet.add(selectedOriginalIndex);
-      return newSet;
-    });
-
-    setWord(germanWords[selectedOriginalIndex]);
-    setUserAnswer("");
-    setStatus("idle");
-    setTimeout(() => inputRef.current?.focus(), 50);
-  }, [allIn, currentGroup, seenIndices]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentGroup, allIn, isInitialized]);
 
   // Initialize word on mount
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (!word) handleNextWord();
-  }, [handleNextWord, word]);
+    if (!word && isInitialized) handleNextWord();
+  }, [handleNextWord, word, isInitialized]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -249,7 +265,6 @@ export default function GuessGermanWordQuizGame() {
                     disabled={currentGroup === 0 || allIn}
                     onClick={() => {
                       setCurrentGroup(currentGroup - 1);
-                      handleNextWord();
                     }}
                     className="
                                   p-1 rounded-full 
@@ -284,7 +299,6 @@ export default function GuessGermanWordQuizGame() {
                   <button
                     onClick={() => {
                       setCurrentGroup(currentGroup + 1);
-                      handleNextWord();
                     }}
                     disabled={currentGroup === totalGroups - 1 || allIn}
                     className="
@@ -337,7 +351,6 @@ export default function GuessGermanWordQuizGame() {
                         onChange={(e) => {
                           const newValue = e.target.checked;
                           setAllIn(newValue);
-                          handleNextWord();
                         }}
                         className="sr-only"
                       />
@@ -393,7 +406,6 @@ export default function GuessGermanWordQuizGame() {
                         onChange={(e) => {
                           const newValue = e.target.checked;
                           setStrictMode(newValue);
-                          handleNextWord();
                         }}
                         className="sr-only"
                       />

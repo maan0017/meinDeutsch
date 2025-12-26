@@ -1,17 +1,26 @@
 "use client";
 
+import { GetGermanWordsLenght } from "@/helper/RandomGermanWordSelector";
+
 import { create } from "zustand";
 
 interface SettingsState {
   soundEffects: "ON" | "OFF";
+  groupSize: number;
   toggleSoundEffects: () => void;
+  changeGroupSize: (size: number) => void;
+  resetSettings: () => void;
 }
 
 const DefaultSettings = {
   soundEffects: "ON" as "ON" | "OFF",
+  groupSize: 50,
 };
 
-const loadSavedSettings = (): { soundEffects: "ON" | "OFF" } => {
+const loadSavedSettings = (): {
+  soundEffects: "ON" | "OFF";
+  groupSize: number;
+} => {
   if (typeof window === "undefined") return DefaultSettings;
 
   try {
@@ -27,7 +36,10 @@ const loadSavedSettings = (): { soundEffects: "ON" | "OFF" } => {
   return DefaultSettings;
 };
 
-const saveSettings = (settings: { soundEffects: "ON" | "OFF" }) => {
+const saveSettings = (settings: {
+  soundEffects: "ON" | "OFF";
+  groupSize: number;
+}) => {
   if (typeof window === "undefined") return;
 
   try {
@@ -40,14 +52,42 @@ const saveSettings = (settings: { soundEffects: "ON" | "OFF" }) => {
 export const useSettingsStore = create<SettingsState>((set, get) => {
   // Load saved settings on initialization
   const initialSettings = loadSavedSettings();
-
   return {
     soundEffects: initialSettings.soundEffects,
-
+    groupSize: initialSettings.groupSize,
     toggleSoundEffects: () => {
       const newValue = get().soundEffects === "ON" ? "OFF" : "ON";
+      if (newValue === "ON") {
+        try {
+          const audio = new Audio("/sounds/correct.opus");
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        } catch {}
+      }
       set({ soundEffects: newValue });
-      saveSettings({ soundEffects: newValue });
+      saveSettings({ soundEffects: newValue, groupSize: get().groupSize });
+    },
+    changeGroupSize: (size: number) => {
+      let newValue = size;
+      const maxLen = GetGermanWordsLenght();
+
+      // Enforce bounds
+      if (newValue < 1) newValue = 1;
+      if (newValue > maxLen) newValue = maxLen;
+
+      set({ groupSize: newValue });
+      saveSettings({ soundEffects: get().soundEffects, groupSize: newValue });
+    },
+    resetSettings: () => {
+      if (get().soundEffects === "OFF") {
+        try {
+          const audio = new Audio("/sounds/correct.opus");
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        } catch {}
+      }
+      set(DefaultSettings);
+      saveSettings(DefaultSettings);
     },
   };
 });

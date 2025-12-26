@@ -1,7 +1,7 @@
-import { germanTimes } from "@/data/germanTimes";
 import { GermanTime } from "@/models/germanTime";
+import { generateDayTimes } from "@/utils/germanTime";
 
 export const RandomGermanTimeSelector = (): GermanTime => {
-  const randomIndex = Math.floor(Math.random() * germanTimes.length);
-  return germanTimes[randomIndex];
+  const randomIndex = Math.floor(Math.random() * 60);
+  return generateDayTimes()[randomIndex];
 };

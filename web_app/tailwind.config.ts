@@ -14,6 +14,9 @@ const config: Config = {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
       },
+      fontFamily: {
+        literata: ["var(--font-literata)"],
+      },
     },
   },
   plugins: [],

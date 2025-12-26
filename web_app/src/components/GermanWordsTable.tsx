@@ -313,7 +313,7 @@ export default function GermanWordsTable() {
 
     return (
       <>
-        <td className="px-4 py-3.5 text-xs text-slate-400 dark:text-[#666666] border-b border-slate-100 dark:border-[#2C2C2C] bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors font-mono">
+        <td className="px-4 py-3.5 text-xs text-slate-400 dark:text-[#666666] border-b border-slate-100 dark:border-[#2C2C2C] bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors">
           {word.originalIndex}
         </td>
         <td className="px-4 py-3.5 text-xs text-slate-500 dark:text-[#888888] border-b border-slate-100 dark:border-[#2C2C2C] bg-white dark:bg-[#121212] group-hover:bg-slate-50 dark:group-hover:bg-[#1E1E1E] transition-colors">

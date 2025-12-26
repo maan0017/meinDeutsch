@@ -11,6 +11,7 @@ export type WordCategory =
   | "personal_pronoun"
   | "possessive_pronoun"
   | "reflexive_pronoun"
+  | "interjection"
   | "phrase";
 
 export type GrammaticalCase =

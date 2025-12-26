@@ -71,11 +71,11 @@ export const ThemeToggleButton = () => {
 
   const currentIcon =
     theme === "light" ? (
-      <SunIcon className="w-5 h-5 text-yellow-500" />
+      <SunIcon className="w-5 h-5 text-orange-500" />
     ) : theme === "dark" ? (
-      <MoonIcon className="w-5 h-5 text-gray-200" />
+      <MoonIcon className="w-5 h-5 text-slate-100" />
     ) : (
-      <ComputerIcon className="w-5 h-5 text-blue-400" />
+      <ComputerIcon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
     );
 
   return (
@@ -86,10 +86,7 @@ export const ThemeToggleButton = () => {
         title="Toggle Theme ( t )"
         onClick={handleLeftClick}
         onContextMenu={handleRightClick}
-        className="w-12 h-12 flex items-center justify-center rounded-full border 
-        border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 
-        text-gray-800 dark:text-gray-100 hover:ring-2 hover:ring-blue-500 
-        transition-all cursor-pointer"
+        className="p-2 rounded-full border border-slate-200 bg-gray-50 text-slate-500 hover:bg-slate-200 dark:border-[#333] dark:bg-[#1a1a1a] dark:text-[#B0B0B0] dark:hover:bg-[#262626] transition-all cursor-pointer"
       >
         {currentIcon}
       </button>
@@ -98,13 +95,15 @@ export const ThemeToggleButton = () => {
       {openMenu && (
         <div
           ref={menuRef}
-          className="absolute top-full mt-2 right-0 w-36 bg-white dark:bg-[#121212] border border-gray-300 dark:border-gray-700 rounded-md shadow-lg z-50"
+          className="absolute top-full mt-2 right-0 w-40 bg-white dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#333] rounded-lg shadow-xl z-50 p-1 overflow-hidden"
         >
           {(["light", "dark", "system"] as ThemeOption[]).map((option) => {
             const icons = {
-              light: <SunIcon className="w-4 h-4 text-yellow-500" />,
-              dark: <MoonIcon className="w-4 h-4 text-gray-200" />,
-              system: <ComputerIcon className="w-4 h-4 text-blue-400" />,
+              light: <SunIcon className="w-4 h-4 text-orange-500" />,
+              dark: <MoonIcon className="w-4 h-4 text-slate-100" />,
+              system: (
+                <ComputerIcon className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              ),
             };
 
             return (
@@ -112,14 +111,12 @@ export const ThemeToggleButton = () => {
                 key={option}
                 type="button"
                 onClick={() => selectTheme(option)}
-                className={`w-full px-4 py-2 text-left flex items-center gap-2 transition-colors hover:rounded-md cursor-pointer
+                className={`w-full px-3 py-2 text-left flex items-center gap-2.5 text-sm rounded-md transition-colors cursor-pointer
                   ${
                     isActive(option)
-                      ? "bg-blue-500 text-white dark:bg-blue-600 dark:text-white font-semibold"
-                      : "text-gray-800 dark:text-gray-100 hover:bg-sky-100 dark:hover:bg-gray-800"
+                      ? "bg-slate-100 dark:bg-[#333] text-slate-900 dark:text-[#E0E0E0] font-medium"
+                      : "text-slate-600 dark:text-[#B0B0B0] hover:bg-slate-50 dark:hover:bg-[#262626]"
                   }
-                ${theme === "light" ? "rounded-t-md" : ""}    
-                ${theme === "system" ? "rounded-b-md" : ""}    
                 `}
               >
                 {icons[option]}

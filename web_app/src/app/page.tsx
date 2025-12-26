@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Book, Gamepad2, Settings } from "lucide-react";
+import { ThemeToggleButton } from "@/components/ToggleThemeButton";
 
 export default function Home() {
   // Main Landing Page
@@ -19,7 +20,7 @@ export default function Home() {
       icon: Gamepad2,
       title: "Quiz Games",
       description: "Practice German with games.",
-      stat: "4 game modes",
+      stat: "6 game modes",
       color: "indigo",
       badge: "Practice",
     },
@@ -69,7 +70,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen w-full flex flex-col font-sans bg-slate-50 dark:bg-[#121212] overflow-auto text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
+    <main className="h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-auto text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
       {/* Top Panel: Branding & Text */}
       <section className="flex w-full justify-center items-center px-6 md:px-10 py-2 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-[#444444] shadow-sm z-10 transition-colors duration-300">
         <div className="w-full max-w-6xl flex justify-between items-center">
@@ -85,12 +86,13 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-3">
+            <ThemeToggleButton />
             <Link
               href="/settings"
               aria-label="Settings"
-              className="flex items-center justify-center text-zinc-800 transition-colors hover:text-blue-600 dark:text-zinc-200 dark:hover:text-blue-400"
+              className="p-2 rounded-full text-zinc-500 hover:bg-slate-100 dark:text-zinc-400 dark:hover:bg-[#333] transition-all"
             >
-              <Settings size={40} strokeWidth={1.5} />
+              <Settings className="w-5 h-5" strokeWidth={1.5} />
             </Link>
           </div>
         </div>

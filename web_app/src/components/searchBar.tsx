@@ -48,7 +48,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         ref={inputRef}
         type="text"
         className={`block w-full pl-9 pr-14 py-2 text-sm rounded-lg border transition-all duration-200 outline-none
-          font-sans shadow-sm
+          shadow-sm
           ${
             isFocused
               ? "border-blue-500 dark:border-blue-500 ring-2 ring-blue-100 dark:ring-blue-900/30 bg-white dark:bg-[#1E1E1E]"
@@ -66,7 +66,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       {shortcutKeys && (
         <div className="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
           <kbd
-            className={`hidden md:inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium font-sans border transition-colors duration-200 ${
+            className={`hidden md:inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium border transition-colors duration-200 ${
               isFocused
                 ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-800"
                 : "bg-slate-100 dark:bg-[#2C2C2C] text-slate-500 dark:text-[#888888] border-slate-200 dark:border-[#444444]"
