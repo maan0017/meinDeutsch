@@ -154,7 +154,8 @@ export default function GuessGermanWordQuizGame() {
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
 
-    setTimeout(handleNextWord, 3000);
+    const isMobile = window.innerWidth < 768;
+    setTimeout(handleNextWord, isMobile ? 1500 : 3000);
   };
 
   useEffect(() => {

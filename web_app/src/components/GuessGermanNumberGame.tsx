@@ -46,7 +46,8 @@ export default function GuessGermanNumberGame() {
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
 
-    setTimeout(handleNextNumber, 3000);
+    const isMobile = window.innerWidth < 768;
+    setTimeout(handleNextNumber, isMobile ? 1500 : 3000);
   };
 
   if (!number) return null;

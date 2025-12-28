@@ -79,13 +79,6 @@ export const useSettingsStore = create<SettingsState>((set, get) => {
       saveSettings({ soundEffects: get().soundEffects, groupSize: newValue });
     },
     resetSettings: () => {
-      if (get().soundEffects === "OFF") {
-        try {
-          const audio = new Audio("/sounds/correct.opus");
-          audio.currentTime = 0;
-          audio.play().catch(() => {});
-        } catch {}
-      }
       set(DefaultSettings);
       saveSettings(DefaultSettings);
     },

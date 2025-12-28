@@ -16,6 +16,9 @@ export const useSoundEffects = () => {
   const backspaceAudio = useRef<HTMLAudioElement | null>(null);
   const enterAudio = useRef<HTMLAudioElement | null>(null);
 
+  // roll sound
+  const rollAudio = useRef<HTMLAudioElement | null>(null);
+
   // Initialize Audio
   useEffect(() => {
     correctAudio.current = new Audio("/sounds/correct.opus");
@@ -25,6 +28,7 @@ export const useSoundEffects = () => {
     spaceAudio.current = new Audio("/sounds/spacebar.opus");
     backspaceAudio.current = new Audio("/sounds/backspace.opus");
     enterAudio.current = new Audio("/sounds/enter.opus");
+    rollAudio.current = new Audio("/sounds/roll.opus");
   }, []);
 
   const safePlay = useCallback(
@@ -86,8 +90,13 @@ export const useSoundEffects = () => {
     [safePlay, isSoundEffectsOn],
   );
 
+  const playRollSound = useCallback(() => {
+    if (isSoundEffectsOn) safePlay(rollAudio.current);
+  }, [safePlay, isSoundEffectsOn]);
+
   return {
     playKeyboardSound,
     playSound,
+    playRollSound,
   };
 };

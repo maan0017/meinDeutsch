@@ -15,7 +15,7 @@ const config: Config = {
         secondary: "var(--secondary)",
       },
       fontFamily: {
-        literata: ["var(--font-literata)"],
+        literata: ["var(--font-literata)", "Literata", "sans"],
       },
     },
   },

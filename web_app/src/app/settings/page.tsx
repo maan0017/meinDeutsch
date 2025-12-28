@@ -6,6 +6,7 @@ import { MoveLeft, RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { useSettingsStore } from "@/store/settings";
 import { useGoBack } from "@/hooks/useGoBack";
 import { useRouter } from "next/navigation";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export default function Settings() {
   const {
@@ -15,7 +16,10 @@ export default function Settings() {
     changeGroupSize,
     resetSettings,
   } = useSettingsStore();
+
   const router = useRouter();
+
+  const { playSound, playRollSound } = useSoundEffects();
 
   // use
   useGoBack();
@@ -38,7 +42,10 @@ export default function Settings() {
           </h1>
 
           <button
-            onClick={resetSettings}
+            onClick={() => {
+              playSound("correct");
+              resetSettings();
+            }}
             className="ml-auto group flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-[#333] hover:bg-slate-100 dark:hover:bg-[#1a1a1a] hover:border-slate-300 dark:hover:border-[#444] transition-all duration-200"
             title="Reset to default settings"
           >
@@ -111,6 +118,7 @@ export default function Settings() {
                     if (!isNaN(val)) {
                       changeGroupSize(val);
                     }
+                    playRollSound();
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === "Escape") {

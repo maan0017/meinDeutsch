@@ -161,9 +161,13 @@ export default function GuessGermanWordMCQQuizGame() {
         playSound("wrong");
       }
 
-      setTimeout(() => {
-        handleNextWord();
-      }, 1500); // Faster transition for smooth gameplay
+      const isMobile = window.innerWidth < 768;
+      setTimeout(
+        () => {
+          handleNextWord();
+        },
+        isMobile ? 1000 : 1500,
+      ); // Faster transition for smooth gameplay
     },
     [status, currentWord, handleNextWord, playSound],
   );

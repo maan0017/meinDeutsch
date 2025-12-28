@@ -47,7 +47,8 @@ export default function TimeTellerGame() {
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
 
-    setTimeout(handleNextTime, 3000);
+    const isMobile = window.innerWidth < 768;
+    setTimeout(handleNextTime, isMobile ? 1500 : 3000);
   };
 
   if (!germanTime) return null;

@@ -175,9 +175,6 @@ export default function PracticeGrammarPage() {
                 <span className="text-blue-600 text-lg font-medium">
                   ✓ Correct attempt
                 </span>
-                <p className="text-xs text-slate-400 dark:text-[#666]">
-                  Next question in 3s...
-                </p>
               </div>
             )}
 
@@ -208,18 +205,6 @@ export default function PracticeGrammarPage() {
               inputStyles={inputStyles}
               handleKeyDown={handleKeyDown}
             />
-          </div>
-
-          {/* Action Area (Skip Button only) */}
-          <div className="flex justify-center h-8">
-            {status !== "idle" && (
-              <button
-                onClick={handleNext}
-                className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 uppercase font-bold tracking-widest transition-colors animate-pulse"
-              >
-                Skip Wait →
-              </button>
-            )}
           </div>
         </div>
       </div>
