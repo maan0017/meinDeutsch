@@ -107,7 +107,7 @@ export default function GuessGermanWordQuizGame() {
       setStatus("idle");
       setTimeout(() => inputRef.current?.focus(), 50);
     },
-    [allIn, currentGroup, groupSize, seenIndices],
+    [allIn, currentGroup, groupSize, seenIndices]
   );
 
   // Sync state changes (Group/AllIn) -> Next Word
@@ -486,7 +486,7 @@ export default function GuessGermanWordQuizGame() {
                       <span className="ml-1 text-gray-400 dark:text-gray-500">
                         #
                         {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord,
+                          (w) => w.germanWord === word.germanWord
                         ) + 1}
                       </span>
                     )}
@@ -519,7 +519,7 @@ export default function GuessGermanWordQuizGame() {
                       <span className="ml-1 text-gray-400 dark:text-gray-500">
                         #
                         {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord,
+                          (w) => w.germanWord === word.germanWord
                         ) + 1}
                       </span>
                     )}
@@ -552,6 +552,7 @@ export default function GuessGermanWordQuizGame() {
               inputStyles={inputStyles}
               userAnswer={userAnswer}
               setUserAnswer={setUserAnswer}
+              useMicrophone={true}
             />
           </div>
         </article>

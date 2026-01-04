@@ -95,7 +95,7 @@ export default function PracticeGrammarPage() {
       : "border-gray-200 dark:border-[#444444]";
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center p-4 md:p-6 bg-slate-50 dark:bg-[#121212] transition-colors">
+    <main className="min-h-screen w-full flex flex-col items-center justify-center p-2 md:p-4 bg-slate-50 dark:bg-[#121212] transition-colors">
       <div className="w-full max-w-lg space-y-4 md:space-y-6">
         {/* Header */}
         <header className="flex items-center justify-between w-full">
@@ -111,7 +111,7 @@ export default function PracticeGrammarPage() {
             <h1 className="text-xl font-bold text-slate-900 dark:text-white">
               Grammar Practice
             </h1>
-            <div className="text-xs font-mono font-medium text-slate-400 dark:text-slate-500 mt-0.5">
+            <div className="text-xs font-medium text-slate-400 dark:text-slate-500 mt-0.5">
               Question {questionCount} /{" "}
               {totalQuestions.current > 0 ? totalQuestions.current : "∞"}
             </div>
@@ -204,10 +204,11 @@ export default function PracticeGrammarPage() {
               placeholder="Type answer..."
               inputStyles={inputStyles}
               handleKeyDown={handleKeyDown}
+              useMicrophone={true}
             />
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -23,7 +23,7 @@ export default function GrammarExercisesPage() {
   useEffect(() => {
     const indices = Array.from(
       { length: grammarExercises.length },
-      (_, i) => i,
+      (_, i) => i
     );
     const shuffled = indices.sort(() => Math.random() - 0.5);
     setShuffledIndices(shuffled);
@@ -95,7 +95,7 @@ export default function GrammarExercisesPage() {
     // Re-shuffle on restart
     const indices = Array.from(
       { length: grammarExercises.length },
-      (_, i) => i,
+      (_, i) => i
     );
     const shuffled = indices.sort(() => Math.random() - 0.5);
     setShuffledIndices(shuffled);
@@ -312,6 +312,7 @@ export default function GrammarExercisesPage() {
                   }}
                   inputRef={inputRef}
                   inputStyles={inputStyles}
+                  useMicrophone={false}
                 />
               )}
             </div>

@@ -1,34 +1,32 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
-import { ReactNode, useEffect } from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ReactNode } from "react";
 
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
 function ThemeEvents() {
-  const { setTheme, resolvedTheme } = useTheme();
+  // useEffect(() => {
+  //   function KeyJobs(event: KeyboardEvent) {
+  //     const target = event.target as HTMLElement;
 
-  useEffect(() => {
-    function KeyJobs(event: KeyboardEvent) {
-      const target = event.target as HTMLElement;
+  //     // Ignore typing in input, textarea, or editable elements
+  //     if (
+  //       ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
+  //       target.isContentEditable
+  //     )
+  //       return;
 
-      // Ignore typing in input, textarea, or editable elements
-      if (
-        ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
-        target.isContentEditable
-      )
-        return;
+  //     if (!event.shiftKey && event.key.toLowerCase() === "t") {
+  //       setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  //     }
+  //   }
 
-      if (!event.shiftKey && event.key.toLowerCase() === "t") {
-        setTheme(resolvedTheme === "dark" ? "light" : "dark");
-      }
-    }
-
-    window.addEventListener("keydown", KeyJobs);
-    return () => window.removeEventListener("keydown", KeyJobs);
-  }, [resolvedTheme, setTheme]);
+  //   window.addEventListener("keydown", KeyJobs);
+  //   return () => window.removeEventListener("keydown", KeyJobs);
+  // }, [resolvedTheme, setTheme]);
 
   return null;
 }

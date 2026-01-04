@@ -11,6 +11,11 @@ import {
   GraduationCap,
   ArrowLeft,
   LucideIcon,
+  LineChart,
+  Scale,
+  BookA,
+  BookMinus,
+  BookUserIcon,
 } from "lucide-react";
 
 type ColorType = "blue" | "emerald" | "purple" | "indigo";
@@ -124,7 +129,7 @@ export default function QuizGamesHomePage() {
     },
     {
       href: "/juwel/practice-grammar",
-      title: "Practice Grammar",
+      title: "Practice Core Grammar",
       description: "Infinite grammar drills without hints",
       color: "indigo",
       icon: BrainCircuit,
@@ -136,21 +141,52 @@ export default function QuizGamesHomePage() {
       color: "purple",
       icon: GraduationCap,
     },
+    {
+      href: "/juwel/practice-german-sentences",
+      title: "Practice German Sentences",
+      description: "Write sentences in German",
+      color: "emerald",
+      icon: BookMinus,
+    },
+    {
+      href: "/juwel/practice-reading",
+      title: "Practice Reading",
+      description: "Read German sentences",
+      color: "indigo",
+      icon: BookUserIcon,
+    },
   ];
 
   return (
     <main className="min-h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-hidden">
       {/* Header Section - minimal height */}
-      <div className="pt-6 pb-4 px-6 flex items-center justify-between z-10">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            className="group p-2 rounded-full hover:bg-slate-200 dark:hover:bg-[#2A2A2A] transition-all duration-300"
-            aria-label="Go back"
-          >
-            <ArrowLeft className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:-translate-x-1 transition-transform" />
-          </Link>
-          <div>
+      <div className="pt-6 pb-4 px-6 z-10 w-full">
+        <div className="max-w-7xl mx-auto w-full relative flex items-center justify-center">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 ml-6">
+            <Link
+              href="/"
+              className="p-1.5 md:p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
+              title="Back to Quiz Menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              <span className="hidden md:inline text-sm font-semibold font-serif">
+                Back To Main Menu
+              </span>
+            </Link>
+          </div>
+          <div className="text-center">
             <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300">
               My Gems
             </h1>

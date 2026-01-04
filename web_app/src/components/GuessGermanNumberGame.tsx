@@ -8,6 +8,8 @@ import { GermanNumber } from "@/models/germanNumber";
 import { RandomGermanNumberSelector } from "@/helper/RandomGermanNumberSelector";
 import { AllowOnlyNumberInput } from "@/helper/AllowOnlyNumberInput";
 
+const SAVED_STATE_IS_REVERSED = "gem_guess_german_number_is_reversed";
+
 export default function GuessGermanNumberGame() {
   const { playSound } = useSoundEffects();
   const [number, setNumber] = useState<GermanNumber | null>(null);
@@ -16,6 +18,22 @@ export default function GuessGermanNumberGame() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isGameReversed, setIsGameReversed] = useState<boolean>(false);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+
+  // Load state from local storage on mount
+  useEffect(() => {
+    const savedReversed = localStorage.getItem(SAVED_STATE_IS_REVERSED);
+    if (savedReversed) {
+      setIsGameReversed(savedReversed === "true");
+    }
+    setIsInitialized(true);
+  }, []);
+
+  // Save state to local storage when changed
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(SAVED_STATE_IS_REVERSED, String(isGameReversed));
+  }, [isGameReversed, isInitialized]);
 
   const handleNextNumber = useCallback(() => {
     setNumber(RandomGermanNumberSelector());
@@ -25,10 +43,12 @@ export default function GuessGermanNumberGame() {
   }, []);
 
   // Initialize word on mount
+  // Initialize word on mount after hydration
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    handleNextNumber();
-  }, [handleNextNumber]);
+    if (isInitialized) {
+      handleNextNumber();
+    }
+  }, [handleNextNumber, isInitialized]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,8 +58,8 @@ export default function GuessGermanNumberGame() {
 
     const userAttempt = normalize(userAnswer);
     const baseAnswer = isGameReversed
-      ? normalize(number.germanWord)
-      : normalize(number.number.toString());
+      ? normalize(number.number.toString())
+      : normalize(number.germanWord);
 
     const isCorrect = userAttempt === baseAnswer;
 
@@ -120,11 +140,11 @@ export default function GuessGermanNumberGame() {
                 {/* Added px-4 to prevent touching edges */}
                 <div className="w-full flex items-center justify-center space-x-2 mb-2">
                   <span className="w-auto text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#121212] dark:border dark:border-[#444444] px-2 py-0.5 md:py-1 rounded">
-                    {isGameReversed ? "Number" : "Number in German"}
+                    {isGameReversed ? "Number in German" : "Number"}
                   </span>
                 </div>
                 <p className="w-full text-center wrap-break-word text-3xl md:text-4xl font-semibold text-gray-900 dark:text-[#E0E0E0]">
-                  {isGameReversed ? number.number : number.germanWord}
+                  {isGameReversed ? number.germanWord : number.number}
                 </p>
               </section>
             </div>
@@ -161,7 +181,7 @@ export default function GuessGermanNumberGame() {
                     </span>
                   </div>
                   <span>
-                    {isGameReversed ? number.germanWord : number.number}
+                    {isGameReversed ? number.number : number.germanWord}
                   </span>
                 </span>
               )}
@@ -173,33 +193,51 @@ export default function GuessGermanNumberGame() {
               inputRef={inputRef}
               status={status}
               inputStyles={inputStyles}
-              handleKeyDown={isGameReversed ? undefined : AllowOnlyNumberInput}
+              handleKeyDown={isGameReversed ? AllowOnlyNumberInput : undefined}
               userAnswer={userAnswer}
               setUserAnswer={setUserAnswer}
               placeholder={
                 isGameReversed ? "Type German word..." : "Type number..."
               }
+              useMicrophone={false}
             />
-            <section className="my-2 flex">
+            <section className="mt-4 flex justify-center">
               <label
                 htmlFor="isGameReversed"
-                className="flex items-center gap-2 cursor-pointer select-none text-base text-gray-700 hover:text-gray-900 transition-colors duration-200 w-fit group"
+                className="flex items-center gap-2 cursor-pointer select-none text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200 w-fit group"
               >
-                <div className="relative">
+                <div className="relative flex items-center">
                   <input
                     id="isGameReversed"
                     name="isGameReversed"
                     type="checkbox"
                     checked={isGameReversed}
                     onChange={() => {
-                      setIsGameReversed((prev) => !prev);
-                      handleNextNumber();
+                      setIsGameReversed(!isGameReversed);
                     }}
-                    className="w-5 h-5 cursor-pointer accent-blue-600 rounded transition-transform duration-200 hover:scale-110 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="sr-only"
                   />
+                  {/* Custom Toggle Switch UI */}
+                  <div
+                    className={`
+                    w-9 h-5 rounded-full transition-colors duration-200 ease-in-out
+                    ${
+                      isGameReversed
+                        ? "bg-blue-600"
+                        : "bg-gray-300 dark:bg-gray-600"
+                    }
+                  `}
+                  >
+                    <div
+                      className={`
+                        w-3 h-3 bg-white rounded-full shadow-sm transform transition-transform duration-200 ease-in-out mt-1 ml-1
+                        ${isGameReversed ? "translate-x-4" : "translate-x-0"}
+                    `}
+                    />
+                  </div>
                 </div>
                 <span className="font-medium group-hover:translate-x-0.5 transition-transform duration-200">
-                  {isGameReversed ? "Reverse Game" : "Normal Game"}
+                  Reverse Game (Read German, Write Digits)
                 </span>
               </label>
             </section>

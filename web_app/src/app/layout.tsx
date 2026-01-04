@@ -10,6 +10,11 @@ const Literata = localFont({
       weight: "700",
       style: "normal",
     },
+    {
+      path: "../fonts/Literata-Bold-subset.ttf",
+      weight: "400",
+      style: "normal",
+    },
   ],
   variable: "--font-literata",
   display: "swap",
@@ -28,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
+        suppressHydrationWarning={true}
         className={`antialiased min-h-screen bg-background text-foreground ${Literata.variable} ${Literata.className}`}
       >
         <ThemeProvider>{children}</ThemeProvider>

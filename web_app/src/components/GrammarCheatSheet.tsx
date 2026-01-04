@@ -260,30 +260,6 @@ export default function GrammarCheatSheet({ onClose }: Props) {
             </div>
           )}
 
-          {activeTab === "Verbs" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-20">
-              {germanGrammar.verbConjugations.typeA_regular.map((verb, i) => (
-                <VerbCard key={`reg-${i}`} verb={verb} />
-              ))}
-              {germanGrammar.verbConjugations.nominativeVerbs.map((verb, i) => (
-                <VerbCard
-                  key={`nom-${i}`}
-                  verb={verb}
-                  badge="Nominative"
-                  badgeColor="blue"
-                />
-              ))}
-              {germanGrammar.verbConjugations.dativeVerbs.map((verb, i) => (
-                <VerbCard
-                  key={`dat-${i}`}
-                  verb={verb}
-                  badge="Dative"
-                  badgeColor="purple"
-                />
-              ))}
-            </div>
-          )}
-
           {activeTab === "Structure" && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
               <div className="space-y-6">
@@ -425,54 +401,3 @@ const ArticleTable = ({
     </div>
   );
 };
-
-const VerbCard = ({
-  verb,
-  badge,
-  badgeColor,
-}: {
-  verb: any;
-  badge?: string;
-  badgeColor?: string;
-}) => (
-  <div className="bg-white dark:bg-[#121212] p-4 rounded-xl border border-slate-200 dark:border-[#333] shadow-sm hover:shadow-md transition-all hover:border-slate-300 dark:hover:border-[#555]">
-    <div className="flex justify-between items-start mb-3 border-b border-slate-50 dark:border-[#222] pb-2">
-      <div>
-        <div className="flex items-center gap-2">
-          <h4 className="font-bold text-lg text-slate-900 dark:text-white">
-            {verb.infinitive}
-          </h4>
-          {badge && (
-            <span
-              className={`text-[10px] px-1.5 py-0.5 rounded border uppercase tracking-wider font-bold ${
-                badgeColor === "purple"
-                  ? "bg-purple-50 text-purple-600 border-purple-100 dark:bg-purple-900/20 dark:border-purple-800"
-                  : "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:border-blue-800"
-              }`}
-            >
-              {badge}
-            </span>
-          )}
-        </div>
-        <p className="text-xs text-slate-500 dark:text-[#888]">
-          {verb.meaning}
-        </p>
-      </div>
-      <span className="text-xs font-medium text-slate-400 dark:text-[#666]">
-        {verb.hindi}
-      </span>
-    </div>
-    <div className="grid grid-cols-2 gap-y-1.5 gap-x-2 text-sm">
-      {Object.entries(verb.conjugation).map(([person, conj]: any, idx) => (
-        <div key={idx} className="flex justify-between items-center group">
-          <span className="text-slate-400 dark:text-[#666] text-xs">
-            {person}
-          </span>
-          <span className="font-medium text-slate-700 dark:text-[#E0E0E0] group-hover:text-black dark:group-hover:text-white transition-colors">
-            {conj}
-          </span>
-        </div>
-      ))}
-    </div>
-  </div>
-);

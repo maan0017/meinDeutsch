@@ -41,7 +41,7 @@ export const useSoundEffects = () => {
         });
       }
     },
-    [isSoundEffectsOn],
+    [isSoundEffectsOn]
   );
 
   const playKeyboardSound = useCallback(
@@ -73,7 +73,7 @@ export const useSoundEffects = () => {
         // Ignore
       }
     },
-    [isSoundEffectsOn],
+    [isSoundEffectsOn]
   );
 
   const playSound = useCallback(
@@ -87,7 +87,7 @@ export const useSoundEffects = () => {
         safePlay(tickAudio.current);
       }
     },
-    [safePlay, isSoundEffectsOn],
+    [safePlay, isSoundEffectsOn]
   );
 
   const playRollSound = useCallback(() => {

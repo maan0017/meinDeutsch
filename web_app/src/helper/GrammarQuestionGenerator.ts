@@ -126,36 +126,6 @@ const generators: QuestionGenerator[] = [
       answer: answer,
     };
   },
-
-  // 5. Verb Conjugations
-  () => {
-    const verbTypes = [
-      "typeA_regular",
-      "nominativeVerbs",
-      "dativeVerbs",
-    ] as const;
-    const targetType = verbTypes[Math.floor(Math.random() * verbTypes.length)];
-    const list = germanGrammar.verbConjugations[targetType];
-    const verb = list[Math.floor(Math.random() * list.length)];
-
-    const persons = [
-      "ich",
-      "du",
-      "er/sie/es",
-      "wir",
-      "ihr",
-      "sie/Sie",
-    ] as const;
-    const targetPerson = persons[Math.floor(Math.random() * persons.length)];
-
-    return {
-      category: "Verb Conjugation",
-      subCategory: `${verb.meaning} (${verb.hindi})`,
-      question: `Conjugate '${verb.infinitive}' for '${targetPerson}'`,
-      answer: verb.conjugation[targetPerson],
-      hint: verb.meaning,
-    };
-  },
 ];
 
 export const getRandomGrammarQuestion = (): GrammarQuestion => {
@@ -184,22 +154,12 @@ export const getTotalQuestionsCount = (): number => {
   // Negative: 3 cases * 4 genders (M, F, N, Pl)
   const indefiniteNegative = 3 * 4;
 
-  // 5. Verb Conjugations
-  // sum of all verb lists * 6 persons
-  const regularVerbs = germanGrammar.verbConjugations.typeA_regular.length * 6;
-  const nominativeVerbs =
-    germanGrammar.verbConjugations.nominativeVerbs.length * 6;
-  const dativeVerbs = germanGrammar.verbConjugations.dativeVerbs.length * 6;
-
   return (
     personalSingular +
     personalPlural +
     possessive +
     definite +
     indefiniteUnbestimmte +
-    indefiniteNegative +
-    regularVerbs +
-    nominativeVerbs +
-    dativeVerbs
+    indefiniteNegative
   );
 };

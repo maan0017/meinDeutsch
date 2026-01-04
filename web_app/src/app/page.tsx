@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { Book, Gamepad2, Keyboard, Settings } from "lucide-react";
+import {
+  Book,
+  BookOpen,
+  Gamepad2,
+  Keyboard,
+  Map,
+  MessageCircle,
+  Settings,
+  Zap,
+} from "lucide-react";
 import { ThemeToggleButton } from "@/components/ToggleThemeButton";
 import { AboutGermanTypingPage } from "@/components/AboutGermanTypingPage";
 
@@ -21,7 +30,7 @@ export default function Home() {
       icon: Gamepad2,
       title: "Quiz Games",
       description: "Practice German with games.",
-      stat: "6 game modes",
+      stat: "8 game modes",
       color: "indigo",
       badge: "Practice",
     },
@@ -81,7 +90,7 @@ export default function Home() {
                 mein Deutsch
               </h1>
 
-              <p className=" text-slate-600 dark:text-[#B0B0B0] pl-2 leading-relaxed italic text-base md:text-lg mb-2 font-serif">
+              <p className=" text-slate-600 dark:text-[#B0B0B0] pl-2 leading-relaxed italic text-base md:text-lg mb-2 font-light">
                 &quot;My personal German learning project.&quot;
               </p>
             </div>
