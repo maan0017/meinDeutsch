@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, memo, useCallback } from "react";
+import { useState, useEffect, useMemo, memo, useCallback, useRef } from "react";
 import GermanSTT from "@/components/GSTT";
 import { RotateCcw } from "lucide-react";
 import { germanParagraphs } from "@/data/germanParagraphs";
@@ -44,9 +44,21 @@ const Word = memo(
 
 Word.displayName = "Word";
 
+// Normalize function for consistent comparison
+const normalizeWord = (word: string) => {
+  return word
+    .toLowerCase()
+    .normalize("NFD") // Decompose umlauts
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+    .replace(/[^a-z0-9]/gi, "") // Remove punctuation
+    .trim();
+};
+
 export const ReadParagraph = () => {
   const [paragraph, setParagraph] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
+  const [processedLength, setProcessedLength] = useState(0); // Track what we've already processed
+  const lastProcessedWordRef = useRef(""); // Track last processed word to avoid duplicates
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [completedWords, setCompletedWords] = useState(new Set<number>());
   const [skippedWords, setSkippedWords] = useState(new Set<number>());
@@ -75,58 +87,58 @@ export const ReadParagraph = () => {
   // Memoize words and tokens
   const words = useMemo(() => paragraph.trim().split(/\s+/), [paragraph]);
 
-  // Process transcript changes
+  // Process transcript changes - OPTIMIZED
   useEffect(() => {
     if (!userAnswer || !paragraph || currentWordIndex >= words.length) return;
 
     const transcriptWords = userAnswer.trim().split(/\s+/);
-    const currentTranscriptIndex = transcriptWords.length - 1;
+    if (transcriptWords.length === 0) return;
+
+    const lastWord = transcriptWords[transcriptWords.length - 1].trim();
+
+    // Skip if we already processed this exact word
+    if (!lastWord || lastWord === lastProcessedWordRef.current) return;
+    lastProcessedWordRef.current = lastWord;
 
     // Count attempt
-    const lastWord = transcriptWords[currentTranscriptIndex];
-    if (lastWord?.trim().length > 0) {
-      setTotalAttempts((prev) => prev + 1);
+    setTotalAttempts((prev) => prev + 1);
+
+    const targetWord = words[currentWordIndex];
+    const normalizedTarget = normalizeWord(targetWord);
+    const normalizedSpoken = normalizeWord(lastWord);
+
+    let isMatch = normalizedSpoken === normalizedTarget;
+
+    // Try number conversion if not a direct match
+    if (!isMatch && !isNaN(Number(lastWord))) {
+      const num = numberToGerman(Number(lastWord));
+      isMatch = normalizeWord(num.germanWord) === normalizedTarget;
     }
 
-    // Process the match
-    let result;
-    result =
-      lastWord.trim().toLowerCase() ===
-      words[currentWordIndex].trim().toLowerCase().replace(".", "");
-
-    if (result) {
-      // Mark display word as completed if needed
-      setCompletedWords((prev) => {
-        const newSet = new Set(prev);
-        newSet.add(currentWordIndex);
-        return newSet;
-      });
-
-      // Advance to next token
+    if (isMatch) {
+      setCompletedWords((prev) => new Set([...prev, currentWordIndex]));
       setCurrentWordIndex((prev) => prev + 1);
       setCurrentWordAttempts(0);
-    } else if (!result && !isNaN(Number(lastWord))) {
-      let num = numberToGerman(Number(lastWord));
-      result =
-        num.germanWord.trim().toLowerCase() ===
-        words[currentWordIndex].trim().toLowerCase();
 
-      if (result) {
-        // Mark display word as completed if needed
-        setCompletedWords((prev) => {
-          const newSet = new Set(prev);
-          newSet.add(currentWordIndex);
-          return newSet;
-        });
-
-        // Advance to next token
-        setCurrentWordIndex((prev) => prev + 1);
-        setCurrentWordAttempts(0);
-      }
-    } else if (lastWord?.trim().length > 0) {
+      // Clear for next word
+      setUserAnswer("");
+      lastProcessedWordRef.current = "";
+    } else {
       setCurrentWordAttempts((prev) => prev + 1);
     }
-  }, [userAnswer, currentWordIndex, paragraph]);
+  }, [userAnswer, currentWordIndex, paragraph, words]);
+
+  // Clear buffer every 3 seconds if no match (prevent accumulation)
+  useEffect(() => {
+    if (!userAnswer) return;
+
+    const timeout = setTimeout(() => {
+      setUserAnswer("");
+      lastProcessedWordRef.current = "";
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [userAnswer]);
 
   // Skip handler
   const handleSkip = useCallback(() => {

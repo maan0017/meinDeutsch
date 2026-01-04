@@ -1,8 +1,10 @@
 "use client";
 
-import { useGermanSpeechToText } from "@/hooks/useGermanSpeechToText";
 import { Mic, Square, MicOff } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 
 interface GSTTProps {
   onTranscript: (text: string) => void;
@@ -14,29 +16,92 @@ interface GSTTProps {
 
 export default function GermanSTT({
   onTranscript,
-  className,
+  className = "",
   startTitle = "Start recording",
   stopTitle = "Stop recording",
   disabled = false,
 }: GSTTProps) {
-  const { transcript, listening, start, stop, isSupported, resetTranscript } =
-    useGermanSpeechToText();
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+
+  /* Mounting check to prevent hydration mismatch */
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (transcript) {
-      onTranscript(transcript);
-      resetTranscript();
-    }
-  }, [transcript, onTranscript]);
+    setMounted(true);
+  }, []);
 
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const previousTranscriptRef = useRef("");
+
+  // Send transcript on each change (real-time word by word)
+  useEffect(() => {
+    if (
+      listening &&
+      transcript &&
+      transcript !== previousTranscriptRef.current
+    ) {
+      onTranscript(transcript);
+      previousTranscriptRef.current = transcript;
+    }
+  }, [transcript, listening, onTranscript]);
+
+  // Auto-reset every 5 seconds to clear buffer and prevent lag
+  useEffect(() => {
+    if (listening) {
+      // Clear any existing interval
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+
+      // Set up 5-second interval to reset transcript
+      intervalRef.current = setInterval(() => {
+        resetTranscript();
+        previousTranscriptRef.current = "";
+      }, 3000);
+    } else {
+      // Clean up interval when not listening
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [listening, resetTranscript]);
+
+  const startListening = () => {
+    previousTranscriptRef.current = "";
+    resetTranscript();
+    SpeechRecognition.startListening({
+      language: "de-DE",
+      continuous: true,
+    });
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening();
+    previousTranscriptRef.current = "";
+  };
+
+  // Keyboard shortcut (Ctrl + Space)
   useEffect(() => {
     const handleKeyboardShortcut = (event: KeyboardEvent) => {
       if ((event.key === " " || event.code === "Space") && event.ctrlKey) {
         event.preventDefault();
         if (listening) {
-          stop();
+          stopListening();
         } else {
-          start();
+          startListening();
         }
       }
     };
@@ -46,11 +111,15 @@ export default function GermanSTT({
     return () => {
       document.removeEventListener("keydown", handleKeyboardShortcut);
     };
-  }, [listening, start, stop]);
+  }, [listening]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className={className}>
-      {!isSupported ? (
+      {!browserSupportsSpeechRecognition ? (
         <button
           disabled
           type="button"
@@ -71,10 +140,9 @@ export default function GermanSTT({
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              e.stopPropagation(); // Stop event bubbling
-              listening ? stop() : start();
+              e.stopPropagation();
+              listening ? stopListening() : startListening();
             }}
-            // Use onPointerDown to prevent focus loss on both mouse and touch devices
             onPointerDown={(e) => e.preventDefault()}
             disabled={disabled}
             className={`relative p-2 transition-all duration-200 touch-manipulation flex items-center justify-center 
