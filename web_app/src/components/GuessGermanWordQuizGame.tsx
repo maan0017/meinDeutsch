@@ -132,24 +132,22 @@ export default function GuessGermanWordQuizGame() {
 
     let userAttempt, baseAnswer;
 
-    if (strictMode) {
+    if (strictMode && word.article) {
       userAttempt = userAnswer;
-      baseAnswer = word.article
-        ? `${word.article} ${word.germanWord}`
-        : word.germanWord;
+      baseAnswer = `${word.article} ${word.germanWord}`;
     } else {
       userAttempt = normalize(userAnswer);
       baseAnswer = normalize(word.germanWord);
     }
 
-    const articleAnswer = word.article
-      ? normalize(`${word.article} ${word.germanWord}`)
-      : null;
-
-    const isCorrect = strictMode
-      ? userAttempt === baseAnswer
-      : userAttempt === baseAnswer ||
-        (articleAnswer !== null && userAttempt === articleAnswer);
+    const isCorrect =
+      strictMode && word.article
+        ? userAttempt.split(" ")[0].toLowerCase() ===
+            word.article.toLowerCase() &&
+          userAttempt.split(" ")[1] === word.germanWord
+        : userAttempt.toLowerCase() === baseAnswer.toLowerCase() ||
+          userAttempt.toLowerCase() ===
+            `${word?.article?.toLowerCase()} ${word.germanWord.toLowerCase()}`;
 
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
