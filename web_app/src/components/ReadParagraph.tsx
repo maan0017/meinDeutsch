@@ -66,6 +66,7 @@ export const ReadParagraph = () => {
   const [currentWordAttempts, setCurrentWordAttempts] = useState(0);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [sttEngine, setSttEngine] = useState<"native" | "german">("german");
+  const [trigger, setTrigger] = useState<number>(0);
 
   // Initialize paragraph
   useEffect(() => {
@@ -123,6 +124,7 @@ export const ReadParagraph = () => {
       // Clear for next word
       setUserAnswer("");
       lastProcessedWordRef.current = "";
+      setTrigger((prev) => prev + 1);
     } else {
       setCurrentWordAttempts((prev) => prev + 1);
     }
@@ -309,6 +311,7 @@ export const ReadParagraph = () => {
                   <GermanSTT
                     onTranscript={setUserAnswer}
                     className="rounded-full"
+                    trigger={trigger}
                   />
                 ) : (
                   <STT

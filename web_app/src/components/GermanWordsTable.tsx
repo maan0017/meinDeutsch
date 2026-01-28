@@ -43,7 +43,7 @@ const HighlightText = (text: string, searchQuery: string) => {
         className="bg-amber-200 dark:bg-amber-600 text-amber-950 dark:text-white rounded px-0.5 font-medium box-decoration-clone"
       >
         {remaining.slice(matchIndex, matchIndex + matchTerm.length)}
-      </span>,
+      </span>
     );
 
     remaining = remaining.slice(matchIndex + matchTerm.length);
@@ -137,7 +137,7 @@ export default function GermanWordsTable() {
   }, [isSorted]);
 
   const [focusedInput, setFocusedInput] = useState<"german" | "english" | null>(
-    null,
+    null
   );
 
   // search bars refs
@@ -265,7 +265,7 @@ export default function GermanWordsTable() {
       if (key.toLowerCase() === "p" && event.ctrlKey) {
         event.preventDefault();
         import("@/helper/ExportPdf").then((mod) =>
-          mod.exportPdf(filteredWords),
+          mod.exportPdf(filteredWords)
         );
       }
     };
@@ -459,7 +459,7 @@ export default function GermanWordsTable() {
               <button
                 onClick={() =>
                   import("@/helper/ExportPdf").then((mod) =>
-                    mod.exportPdf(filteredWords),
+                    mod.exportPdf(filteredWords)
                   )
                 }
                 className="hidden md:flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all ml-auto xl:ml-0 shadow-sm"

@@ -1,4 +1,5 @@
 export type GermanSentenceModel = {
-  sentence: string;
-  translation: string;
+  germanSentence: string;
+  englishTranslation: string;
+  hindiTranslation: string;
 };

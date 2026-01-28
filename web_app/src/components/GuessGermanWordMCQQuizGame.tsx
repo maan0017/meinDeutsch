@@ -20,7 +20,7 @@ export default function GuessGermanWordMCQQuizGame() {
   const [options, setOptions] = useState<GermanWord[]>([]);
   const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(
-    null,
+    null
   );
 
   // logic to track unseen words
@@ -136,7 +136,7 @@ export default function GuessGermanWordMCQQuizGame() {
       setStatus("idle");
       setSelectedOptionIndex(null);
     },
-    [allIn, currentGroup, groupSize, seenIndices],
+    [allIn, currentGroup, groupSize, seenIndices]
   );
 
   // Sync state changes (Group/AllIn) -> Next Word
@@ -166,10 +166,10 @@ export default function GuessGermanWordMCQQuizGame() {
         () => {
           handleNextWord();
         },
-        isMobile ? 1000 : 1500,
+        isMobile ? 1000 : 1500
       ); // Faster transition for smooth gameplay
     },
-    [status, currentWord, handleNextWord, playSound],
+    [status, currentWord, handleNextWord, playSound]
   );
 
   useEffect(() => {
@@ -341,7 +341,7 @@ export default function GuessGermanWordMCQQuizGame() {
                       <span className="ml-1 text-gray-400 dark:text-gray-500">
                         #
                         {germanWords.findIndex(
-                          (w) => w.germanWord === currentWord.germanWord,
+                          (w) => w.germanWord === currentWord.germanWord
                         ) + 1}
                       </span>
                     )}
@@ -418,7 +418,7 @@ export default function GuessGermanWordMCQQuizGame() {
                   (
                   {currentWord?.article
                     ? `${convertArticleInHindiPronuncation(
-                        currentWord.article,
+                        currentWord.article
                       )} ${currentWord.hindiPronunciation}`
                     : currentWord?.hindiPronunciation}
                   )
@@ -456,10 +456,10 @@ export default function GuessGermanWordMCQQuizGame() {
               const buttonStyle = isIdle
                 ? idleStyle
                 : isCorrect
-                ? correctStyle
-                : isWrong
-                ? wrongStyle
-                : dimStyle;
+                  ? correctStyle
+                  : isWrong
+                    ? wrongStyle
+                    : dimStyle;
 
               return (
                 <button
@@ -468,10 +468,10 @@ export default function GuessGermanWordMCQQuizGame() {
                     index === 0
                       ? option1Ref
                       : index === 1
-                      ? option2Ref
-                      : index === 2
-                      ? option3Ref
-                      : option4Ref
+                        ? option2Ref
+                        : index === 2
+                          ? option3Ref
+                          : option4Ref
                   }
                   onClick={() => handleOptionClick(option, index)}
                   disabled={!isIdle}

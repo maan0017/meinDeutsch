@@ -93,7 +93,7 @@ export default function FillInTheBlanks() {
   const handleAnswerChange = (
     questionId: number,
     blankIndex: number,
-    value: string,
+    value: string
   ) => {
     setUserAnswers((prev) => ({
       ...prev,
@@ -104,7 +104,7 @@ export default function FillInTheBlanks() {
   const checkAnswer = (
     questionId: number,
     blankIndex: number,
-    correctAnswer: string,
+    correctAnswer: string
   ) => {
     const userAnswer = userAnswers[`${questionId}-${blankIndex}`] || "";
     return (
@@ -185,7 +185,7 @@ export default function FillInTheBlanks() {
                           handleAnswerChange(
                             questionData.id,
                             part.index,
-                            e.target.value,
+                            e.target.value
                           )
                         }
                         disabled={showResults}

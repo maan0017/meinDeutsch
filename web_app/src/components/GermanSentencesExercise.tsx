@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import { GermanSentenceModel } from "@/models/germanSentences";
 import { QuizGameInput } from "./QuizGameInput";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
@@ -80,7 +80,7 @@ export const PracticeGermanSentencesExercise = () => {
         .replace(/\s{2,}/g, " ");
 
     const userAttempt = normalize(userAnswer);
-    const baseAnswer = normalize(currentSentence.sentence);
+    const baseAnswer = normalize(currentSentence.germanSentence);
 
     const isCorrect = userAttempt === baseAnswer;
 
@@ -92,21 +92,36 @@ export const PracticeGermanSentencesExercise = () => {
     setTimeout(handleNextSentence, isMobile ? 3000 : 4000);
   };
 
+  const clues = useMemo(() => {
+    const arr = [
+      currentSentence.englishTranslation,
+      currentSentence.hindiTranslation,
+    ];
+
+    // Fisher–Yates
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+
+    return arr;
+  }, [currentSentence.germanSentence]);
+
   if (!currentSentence) return null;
 
   const cardBorder =
     status === "correct"
       ? "border-green-500 ring-1 ring-green-500"
       : status === "wrong"
-      ? "border-red-500 ring-1 ring-red-500"
-      : "border-gray-200 dark:border-[#444444]";
+        ? "border-red-500 ring-1 ring-red-500"
+        : "border-gray-200 dark:border-[#444444]";
 
   const inputStyles =
     status === "correct"
       ? "border-green-500 text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-900/20 focus:border-green-500 focus:ring-green-200 dark:focus:ring-green-800"
       : status === "wrong"
-      ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
-      : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
+        ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+        : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center p-2 md:p-4 bg-gray-50 dark:bg-[#121212] transition-colors relative">
@@ -156,16 +171,13 @@ export const PracticeGermanSentencesExercise = () => {
           >
             {/* Clues */}
             <div className="space-y-4 md:space-y-6 mb-6 md:mb-8">
-              <section>
-                <div className="flex items-center justify-center space-x-2 mb-2 md:mb-3">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#2A2A2A] dark:text-gray-500 border border-gray-200 dark:border-[#333] px-2 py-1 rounded-md">
-                    English
-                  </span>
-                </div>
-                <p className="text-xl md:text-3xl font-semibold text-gray-900 dark:text-white leading-relaxed">
-                  {currentSentence.translation}
-                </p>
-              </section>
+              {clues.map((item) => (
+                <section key={item}>
+                  <p className="text-xl md:text-3xl font-semibold text-gray-900 dark:text-white leading-relaxed">
+                    {item}
+                  </p>
+                </section>
+              ))}
             </div>
 
             {/* Feedback Message */}
@@ -188,7 +200,7 @@ export const PracticeGermanSentencesExercise = () => {
             >
               <span className="flex flex-col items-center justify-center font-bold gap-2 text-lg md:text-xl">
                 <span className="text-center italic text-xl md:text-2xl">
-                  “{currentSentence.sentence}”
+                  “{currentSentence.germanSentence}”
                 </span>
                 {status === "correct" && (
                   <span className="text-blue-600 dark:text-blue-400 text-base font-medium flex items-center gap-1">

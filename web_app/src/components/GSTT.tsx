@@ -1,7 +1,7 @@
 "use client";
 
 import { Mic, Square, MicOff } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -12,6 +12,7 @@ interface GSTTProps {
   startTitle?: string;
   stopTitle?: string;
   disabled?: boolean;
+  trigger?: number;
 }
 
 export default function GermanSTT({
@@ -20,12 +21,15 @@ export default function GermanSTT({
   startTitle = "Start recording",
   stopTitle = "Stop recording",
   disabled = false,
+  trigger,
 }: GSTTProps) {
   const {
     transcript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
+    browserSupportsContinuousListening,
+    isMicrophoneAvailable,
   } = useSpeechRecognition();
 
   /* Mounting check to prevent hydration mismatch */
@@ -35,63 +39,27 @@ export default function GermanSTT({
     setMounted(true);
   }, []);
 
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const previousTranscriptRef = useRef("");
-
-  // Send transcript on each change (real-time word by word)
   useEffect(() => {
-    if (
-      listening &&
-      transcript &&
-      transcript !== previousTranscriptRef.current
-    ) {
-      onTranscript(transcript);
-      previousTranscriptRef.current = transcript;
-    }
-  }, [transcript, listening, onTranscript]);
-
-  // Auto-reset every 5 seconds to clear buffer and prevent lag
-  useEffect(() => {
-    if (listening) {
-      // Clear any existing interval
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-
-      // Set up 5-second interval to reset transcript
-      intervalRef.current = setInterval(() => {
-        resetTranscript();
-        previousTranscriptRef.current = "";
-      }, 3000);
-    } else {
-      // Clean up interval when not listening
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
-  }, [listening, resetTranscript]);
+    resetTranscript();
+  }, [trigger]);
 
   const startListening = () => {
-    previousTranscriptRef.current = "";
     resetTranscript();
     SpeechRecognition.startListening({
       language: "de-DE",
-      continuous: true,
+      continuous: browserSupportsContinuousListening,
     });
   };
 
   const stopListening = () => {
     SpeechRecognition.stopListening();
-    previousTranscriptRef.current = "";
   };
+
+  useEffect(() => {
+    if (transcript) {
+      onTranscript(transcript);
+    }
+  }, [transcript]);
 
   // Keyboard shortcut (Ctrl + Space)
   useEffect(() => {
@@ -125,6 +93,15 @@ export default function GermanSTT({
           type="button"
           className="p-2 rounded-lg bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-zinc-600 cursor-not-allowed border border-gray-200 dark:border-zinc-700"
           title="Browser doesn't support speech recognition"
+        >
+          <MicOff size={20} />
+        </button>
+      ) : !isMicrophoneAvailable ? (
+        <button
+          disabled
+          type="button"
+          className="p-2 rounded-lg bg-red-100 dark:bg-red-900/20 text-red-500 dark:text-red-400 cursor-not-allowed border border-red-200 dark:border-red-800"
+          title="Microphone unavailable or permission denied"
         >
           <MicOff size={20} />
         </button>

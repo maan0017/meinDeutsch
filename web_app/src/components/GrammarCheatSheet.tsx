@@ -40,7 +40,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                   >
                     {tab}
                   </button>
-                ),
+                )
               )}
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                 >
                   {tab}
                 </button>
-              ),
+              )
             )}
           </div>
 
@@ -147,7 +147,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                                 {word}
                               </span>
                             </div>
-                          ),
+                          )
                         )}
                       </div>
                     </div>
@@ -318,7 +318,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                             {item.ending}
                           </span>
                         </div>
-                      ),
+                      )
                     )}
                   </div>
                 </div>

@@ -80,8 +80,8 @@ export default function TimeTellerGame() {
     const baseAnswer = isGameReversed
       ? germanTime.time.toString()
       : isFormal
-      ? germanTime.formalTime.trim()
-      : germanTime.informalTime.trim();
+        ? germanTime.formalTime.trim()
+        : germanTime.informalTime.trim();
 
     // Improve matching logic to be slightly more lenient but correct
     // For time matching (reverse game), exact match usually best for digits like 13:45
@@ -101,15 +101,15 @@ export default function TimeTellerGame() {
     status === "correct"
       ? "border-green-500 ring-1 ring-green-500"
       : status === "wrong"
-      ? "border-red-500 ring-1 ring-red-500"
-      : "border-gray-200 dark:border-[#444444]";
+        ? "border-red-500 ring-1 ring-red-500"
+        : "border-gray-200 dark:border-[#444444]";
 
   const inputStyles =
     status === "correct"
       ? "border-green-500 text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-900/20 focus:border-green-500 focus:ring-green-200 dark:focus:ring-green-800"
       : status === "wrong"
-      ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
-      : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
+        ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+        : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
 
   return (
     <main className="flex min-h-[60vh] w-full flex-col items-center justify-center p-2 md:p-4 bg-transparent transition-colors relative">
@@ -263,8 +263,8 @@ export default function TimeTellerGame() {
                     {isGameReversed
                       ? germanTime.time
                       : isFormal
-                      ? germanTime.formalTime
-                      : germanTime.informalTime}
+                        ? germanTime.formalTime
+                        : germanTime.informalTime}
                     ”
                   </span>
                   <span className="text-blue-600 text-lg font-medium">
@@ -281,8 +281,8 @@ export default function TimeTellerGame() {
                     {isGameReversed
                       ? germanTime.time
                       : isFormal
-                      ? germanTime.formalTime
-                      : germanTime.informalTime}
+                        ? germanTime.formalTime
+                        : germanTime.informalTime}
                     ”
                   </span>
                 </span>

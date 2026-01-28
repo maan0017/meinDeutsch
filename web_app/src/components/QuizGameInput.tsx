@@ -1,12 +1,19 @@
 "use client";
-import { FC, KeyboardEvent, useEffect } from "react";
+import {
+  FC,
+  FormEvent,
+  KeyboardEvent,
+  RefObject,
+  useEffect,
+  useState,
+} from "react";
 
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import GermanSTT from "./GSTT";
 
 interface QuizGameInputProps {
-  handleSubmit: (e: React.FormEvent) => void;
-  inputRef: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>;
+  handleSubmit: (e: FormEvent) => void;
+  inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement | null>;
   userAnswer: string;
   placeholder?: string;
   setUserAnswer: (answer: string) => void;
@@ -29,7 +36,15 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
   isTextArea = false,
   useMicrophone = false,
 }) => {
+  const [trigger, setTrigger] = useState<number>(0);
+
   const { playKeyboardSound } = useSoundEffects();
+
+  useEffect(() => {
+    if (userAnswer.trim() === "" || userAnswer.split(" ").length > 1) {
+      setTrigger((prev) => prev + 1);
+    }
+  }, [userAnswer]);
 
   const baseBg = status === "idle" ? "bg-white dark:bg-zinc-950" : "";
 
@@ -38,12 +53,12 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
       <div className="relative flex items-center">
         {isTextArea ? (
           <textarea
-            ref={inputRef as React.RefObject<HTMLTextAreaElement>}
+            ref={inputRef as RefObject<HTMLTextAreaElement>}
             value={userAnswer}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
-                handleSubmit({ preventDefault: () => {} } as React.FormEvent);
+                handleSubmit({ preventDefault: () => {} } as FormEvent);
                 return;
               }
 
@@ -57,7 +72,7 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
             disabled={status !== "idle"}
             rows={1}
             className={`
-              w-full px-4 py-3 pr-14
+              w-full px-4 py-3 pr-14 
               ${baseBg}
               rounded-xl border-2 shadow-sm
               text-left leading-normal
@@ -80,6 +95,7 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
               target.style.height = `${Math.min(target.scrollHeight, 200)}px`;
             }}
             autoComplete="off"
+            autoCorrect="off"
             spellCheck="false"
             aria-label="German sentence input"
           />
@@ -120,6 +136,7 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
             <GermanSTT
               onTranscript={setUserAnswer}
               disabled={status !== "idle"}
+              trigger={trigger}
               className={
                 status !== "idle" ? "opacity-50 rounded-xl" : "rounded-xl"
               }
