@@ -58,6 +58,9 @@ export const BookmarkComp: FC<BookmarkCompProps> = ({ word }) => {
     <button
       type="button"
       onClick={toggleBookmark}
+      title={
+        isBookmarked ? "Remove bookmark (Ctrl+D)" : "Add bookmark (Ctrl+D)"
+      }
       className={`
         group relative
         inline-flex items-center justify-center

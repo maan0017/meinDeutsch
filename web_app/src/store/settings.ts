@@ -14,7 +14,7 @@ interface SettingsState {
 
 const DefaultSettings = {
   soundEffects: "ON" as "ON" | "OFF",
-  groupSize: 10,
+  groupSize: 50,
 };
 
 const loadSavedSettings = (): {
