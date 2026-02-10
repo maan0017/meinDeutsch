@@ -184,7 +184,7 @@ export const isConjunctionWord = (word: GermanWord): word is ConjunctionWord =>
   word.type === "conjunction";
 
 export const isInterjectionWord = (
-  word: GermanWord,
+  word: GermanWord
 ): word is InterjectionWord => word.type === "interjection";
 
 export const isPhraseWord = (word: GermanWord): word is PhraseWord =>

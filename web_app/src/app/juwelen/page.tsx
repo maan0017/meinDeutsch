@@ -9,13 +9,10 @@ import {
   Clock,
   BrainCircuit,
   GraduationCap,
-  ArrowLeft,
   LucideIcon,
-  LineChart,
-  Scale,
-  BookA,
   BookMinus,
   BookUserIcon,
+  BookMarked,
 } from "lucide-react";
 
 type ColorType = "blue" | "emerald" | "purple" | "indigo";
@@ -36,60 +33,73 @@ const QuizCard = ({
   icon: Icon,
 }: QuizCardProps) => {
   const colors: Record<ColorType, string> = {
-    blue: "hover:border-blue-500/50 dark:hover:border-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:bg-blue-50/50 dark:group-hover:bg-blue-900/10",
+    blue: "hover:border-blue-500/50 dark:hover:border-blue-500 group-hover:shadow-blue-500/20",
     emerald:
-      "hover:border-emerald-500/50 dark:hover:border-emerald-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:bg-emerald-50/50 dark:group-hover:bg-emerald-900/10",
+      "hover:border-emerald-500/50 dark:hover:border-emerald-500 group-hover:shadow-emerald-500/20",
     purple:
-      "hover:border-purple-500/50 dark:hover:border-purple-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:bg-purple-50/50 dark:group-hover:bg-purple-900/10",
+      "hover:border-purple-500/50 dark:hover:border-purple-500 group-hover:shadow-purple-500/20",
     indigo:
-      "hover:border-indigo-500/50 dark:hover:border-indigo-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:bg-indigo-50/50 dark:group-hover:bg-indigo-900/10",
+      "hover:border-indigo-500/50 dark:hover:border-indigo-500 group-hover:shadow-indigo-500/20",
   };
 
   const iconColors: Record<ColorType, string> = {
-    blue: "text-blue-500 dark:text-blue-400 bg-blue-100/50 dark:bg-blue-900/30",
-    emerald:
-      "text-emerald-500 dark:text-emerald-400 bg-emerald-100/50 dark:bg-emerald-900/30",
-    purple:
-      "text-purple-500 dark:text-purple-400 bg-purple-100/50 dark:bg-purple-900/30",
-    indigo:
-      "text-indigo-500 dark:text-indigo-400 bg-indigo-100/50 dark:bg-indigo-900/30",
+    blue: "text-blue-600 dark:text-blue-400",
+    emerald: "text-emerald-600 dark:text-emerald-400",
+    purple: "text-purple-600 dark:text-purple-400",
+    indigo: "text-indigo-600 dark:text-indigo-400",
   };
 
-  const colorClass = colors[color];
-  const iconClass = iconColors[color];
+  const bgColors: Record<ColorType, string> = {
+    blue: "group-hover:bg-blue-50/30 dark:group-hover:bg-blue-950/20",
+    emerald: "group-hover:bg-emerald-50/30 dark:group-hover:bg-emerald-950/20",
+    purple: "group-hover:bg-purple-50/30 dark:group-hover:bg-purple-950/20",
+    indigo: "group-hover:bg-indigo-50/30 dark:group-hover:bg-indigo-950/20",
+  };
 
   return (
     <Link
       href={href}
       className={`
-        group relative flex flex-col gap-4 p-5 
+        group relative flex items-center gap-3 p-3.5
         bg-white dark:bg-[#1E1E1E] 
-        rounded-2xl border border-slate-200 dark:border-[#333] 
-        shadow-sm hover:shadow-xl hover:-translate-y-1
-        transition-all duration-300 ease-out
-        ${colorClass}
+        rounded-xl border border-slate-200 dark:border-[#333] 
+        hover:shadow-lg hover:-translate-y-0.5
+        transition-all duration-200 ease-out
+        ${colors[color]} ${bgColors[color]}
       `}
     >
-      <div className="flex items-start justify-between w-full">
-        <div
-          className={`p-3 rounded-xl ${iconClass} transition-colors duration-300`}
-        >
-          <Icon className="w-6 h-6" strokeWidth={2.5} />
-        </div>
-
-        {/* Hover arrow indicator */}
-        <div className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-          <span className="text-slate-400 dark:text-slate-500">→</span>
-        </div>
+      {/* Icon - compact size */}
+      <div
+        className={`shrink-0 ${iconColors[color]} transition-transform duration-200 group-hover:scale-110`}
+      >
+        <Icon className="w-5 h-5" strokeWidth={2.5} />
       </div>
 
-      <div className="space-y-1">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 group-hover:text-current transition-colors">
+      {/* Content */}
+      <div className="flex-1 min-w-0">
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate mb-0.5 transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
           {description}
         </p>
+      </div>
+
+      {/* Arrow indicator */}
+      <div className="shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+        <svg
+          className="w-4 h-4 text-slate-400 dark:text-slate-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
       </div>
     </Link>
   );
@@ -99,6 +109,13 @@ export default function QuizGamesHomePage() {
   useGoBack();
 
   const quizzes: QuizCardProps[] = [
+    {
+      href: "/juwel/bookmarked-words-guess",
+      title: "Bookmarked Words Guess",
+      description: "Guess the German word from your bookmarks",
+      color: "emerald",
+      icon: BookMarked,
+    },
     {
       href: "/juwel/practice-german-word",
       title: "Practice German Words",

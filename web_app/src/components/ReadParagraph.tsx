@@ -113,7 +113,7 @@ export const ReadParagraph = () => {
     // Try number conversion if not a direct match
     if (!isMatch && !isNaN(Number(lastWord))) {
       const num = numberToGerman(Number(lastWord));
-      isMatch = normalizeWord(num.germanWord) === normalizedTarget;
+      isMatch = normalizeWord(num) === normalizedTarget;
     }
 
     if (isMatch) {

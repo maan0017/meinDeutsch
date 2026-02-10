@@ -72,9 +72,9 @@ function convertUnder1000(n: number): string {
   return result;
 }
 
-export function numberToGerman(n: number = 3000): GermanNumber {
-  if (n === 0) return { number: n, germanWord: "null" };
-  if (n === 1) return { number: n, germanWord: "eins" }; // Special case
+export function numberToGerman(n: number): string {
+  if (n === 0) return "null";
+  if (n === 1) return "eins"; // Special case
 
   let str = "";
   let current = n;
@@ -84,7 +84,7 @@ export function numberToGerman(n: number = 3000): GermanNumber {
   current %= 1000000000;
   if (billions > 0) {
     const suffix = billions === 1 ? " Milliarde " : " Milliarden ";
-    str += numberToGerman(billions).germanWord.replace("eins", "eine") + suffix;
+    str += numberToGerman(billions).replace("eins", "eine") + suffix;
   }
 
   // 2. Millions (Millionen) - 10^6
@@ -92,7 +92,7 @@ export function numberToGerman(n: number = 3000): GermanNumber {
   current %= 1000000;
   if (millions > 0) {
     const suffix = millions === 1 ? " Million " : " Millionen ";
-    str += numberToGerman(millions).germanWord.replace("eins", "eine") + suffix;
+    str += numberToGerman(millions).replace("eins", "eine") + suffix;
   }
 
   // 3. Thousands (tausend) - 10^3
@@ -115,7 +115,7 @@ export function numberToGerman(n: number = 3000): GermanNumber {
     str += "s";
   }
 
-  return { number: n, germanWord: str };
+  return str;
 }
 
 // utils/germanNumbers.ts
