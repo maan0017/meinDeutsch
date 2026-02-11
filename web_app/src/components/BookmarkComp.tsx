@@ -62,10 +62,8 @@ export const BookmarkComp: FC<BookmarkCompProps> = ({ word }) => {
         isBookmarked ? "Remove bookmark (Ctrl+D)" : "Add bookmark (Ctrl+D)"
       }
       className={`
-        group relative
+        group relative w-10 h-10 rounded-full
         inline-flex items-center justify-center
-        w-10 h-10
-        rounded-full
         transition-all duration-200 ease-out
         ${
           isBookmarked
