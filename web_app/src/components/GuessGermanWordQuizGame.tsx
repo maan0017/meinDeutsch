@@ -201,6 +201,17 @@ export default function GuessGermanWordQuizGame() {
 
   if (!word) return null;
 
+  const currentGroupStart = allIn ? 0 : currentGroup * groupSize;
+  const currentGroupEnd = allIn
+    ? germanWords.length
+    : Math.min((currentGroup + 1) * groupSize, germanWords.length);
+  const totalWordsInCurrentGroup = currentGroupEnd - currentGroupStart;
+  const seenWordsInCurrentGroupCount = Array.from(seenIndices).filter(
+    (index) => index >= currentGroupStart && index < currentGroupEnd
+  ).length;
+  const remainingWordsInGroup =
+    totalWordsInCurrentGroup - seenWordsInCurrentGroupCount;
+
   const cardBorder =
     status === "correct"
       ? "border-green-500 ring-1 ring-green-500"
@@ -266,32 +277,43 @@ export default function GuessGermanWordQuizGame() {
               <div className="flex flex-col items-center justify-center gap-2 relative">
                 {/* Group Controls */}
                 <div className="grid grid-cols-3 items-center">
-                  {/* Left spacer */}
-                  <div />
+                  {/* Left spacer - Words Remaining */}
+                  <span
+                    className="flex items-center justify-center w-10 h-10
+                               text-sm font-semibold font-mono rounded-full
+                               bg-gray-50 dark:bg-gray-700
+                               text-gray-800 dark:text-gray-100"
+                    title="Words remaining in this group"
+                  >
+                    {remainingWordsInGroup}
+                  </span>
 
                   <div
                     className={`
-                                flex items-center justify-center gap-4 
-                                bg-gray-50 dark:bg-[#1a1a1a] 
-                                rounded-full px-4 py-1.5
-                                border border-gray-100 dark:border-[#333]
-                                transition-all duration-300 text-nowrap
-                                ${
-                                  allIn
-                                    ? "opacity-30 grayscale pointer-events-none select-none"
-                                    : "opacity-100"
-                                }
-                              `}
+    inline-flex items-center justify-center gap-4
+    bg-gray-50 dark:bg-[#1a1a1a]
+    rounded-full px-4 py-1.5
+    border border-gray-100 dark:border-[#333]
+    transition-all duration-300 whitespace-nowrap
+    ${
+      allIn
+        ? "opacity-30 grayscale pointer-events-none select-none"
+        : "opacity-100"
+    }
+  `}
                   >
+                    {/* Prev Button */}
                     <button
                       disabled={currentGroup === 0 || allIn}
                       onClick={moveToPrevGroup}
                       className="
-                                  p-1 rounded-full 
-                                  text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
-                                  disabled:opacity-30 disabled:cursor-not-allowed
-                                  transition-colors
-                                "
+      flex items-center justify-center
+      p-1 rounded-full
+      text-gray-500 hover:text-gray-900 
+      dark:text-gray-400 dark:hover:text-gray-100
+      disabled:opacity-30 disabled:cursor-not-allowed
+      transition-colors
+    "
                       title="Previous Group (Left Arrow)"
                     >
                       <svg
@@ -309,22 +331,26 @@ export default function GuessGermanWordQuizGame() {
                       </svg>
                     </button>
 
+                    {/* Group Indicator */}
                     <span
                       title="Splits German words in groups of 50 so that words can learned easily."
-                      className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono"
+                      className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono text-center"
                     >
                       Group {currentGroup + 1} / {totalGroups}
                     </span>
 
+                    {/* Next Button */}
                     <button
                       disabled={currentGroup === totalGroups - 1 || allIn}
                       onClick={moveToNextGroup}
                       className="
-                                  p-1 rounded-full 
-                                  text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
-                                  disabled:opacity-30 disabled:cursor-not-allowed
-                                  transition-colors
-                                "
+      flex items-center justify-center
+      p-1 rounded-full
+      text-gray-500 hover:text-gray-900 
+      dark:text-gray-400 dark:hover:text-gray-100
+      disabled:opacity-30 disabled:cursor-not-allowed
+      transition-colors
+    "
                       title="Next Group (Right Arrow)"
                     >
                       <svg
