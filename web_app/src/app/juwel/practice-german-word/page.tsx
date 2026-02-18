@@ -2,7 +2,7 @@ import GuessGermanWordQuizGame from "@/components/GuessGermanWordQuizGame";
 
 export default async function GuessGermanWordsQuiz() {
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-[#121212] text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
+    <main className="w-full min-h-screen flex flex-col items-center justify-start md:justify-center bg-slate-50 dark:bg-[#121212] text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
       <GuessGermanWordQuizGame />
     </main>
   );

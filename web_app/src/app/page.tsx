@@ -90,8 +90,8 @@ export default function Home() {
                 mein Deutsch
               </h1>
 
-              <p className=" text-slate-600 dark:text-[#B0B0B0] pl-2 leading-relaxed italic text-base md:text-lg mb-2 font-light">
-                &quot;My personal German learning project.&quot;
+              <p className=" text-slate-600 dark:text-[#B0B0B0] md:pl-2 pl-0 leading-relaxed italic text-base md:text-lg mb-2 font-light">
+                &quot;My german learning project.&quot;
               </p>
             </div>
           </div>

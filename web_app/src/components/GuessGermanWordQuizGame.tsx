@@ -227,8 +227,8 @@ export default function GuessGermanWordQuizGame() {
         : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
 
   return (
-    <main className="flex min-h-[50vh] w-full flex-col items-center justify-center p-2 md:p-4 bg-gray-50 dark:bg-[#121212] transition-colors relative">
-      <div className="w-full max-w-lg space-y-2 md:space-y-4 text-center">
+    <main className="flex w-full flex-col items-center justify-start min-h-auto p-2 md:p-4 md:min-h-[50vh] md:justify-center bg-gray-50 dark:bg-[#121212] transition-colors relative">
+      <div className="w-full max-w-lg space-y-1 md:space-y-4 text-center">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative">
           <div className="shrink-0">
@@ -268,13 +268,13 @@ export default function GuessGermanWordQuizGame() {
           <div
             className={`
               relative overflow-hidden rounded-xl bg-white dark:bg-[#121212] 
-              px-4 py-4 md:px-6 md:py-8 shadow-lg border transition-all duration-300 
+              px-3 py-2 md:px-6 md:py-8 shadow-lg border transition-all duration-300 
               ${cardBorder}
             `}
           >
             {/* Clues */}
-            <div className="space-y-3 md:space-y-5 mb-3 md:mb-5">
-              <div className="flex flex-col items-center justify-center gap-2 relative">
+            <div className="space-y-2 md:space-y-5 mb-2 md:mb-5">
+              <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
                 {/* Group Controls */}
                 <div className="grid grid-cols-3 items-center">
                   {/* Left spacer - Words Remaining */}
@@ -373,6 +373,98 @@ export default function GuessGermanWordQuizGame() {
                   {/* Bookmark Section */}
                   <div className="justify-self-end">
                     <BookmarkComp word={word.germanWord} />
+                  </div>
+                </div>
+
+                <div
+                  className="inline-flex items-center gap-0
+                bg-white dark:bg-[#0f0f0f]
+                border border-gray-100 dark:border-white/7
+                rounded-xl overflow-hidden"
+                >
+                  {/* Start Range */}
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-2
+                  border-r border-gray-100 dark:border-white/7"
+                    title="Minimum range of Words in Group"
+                  >
+                    <span
+                      className="text-[10px] font-mono font-semibold
+                     text-gray-400 dark:text-gray-500 tabular-nums leading-none"
+                    >
+                      {groupSize * currentGroup + 1}
+                    </span>
+                    {/* Arrow indicator pointing inward */}
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      className="text-gray-300 dark:text-white/20 shrink-0"
+                    >
+                      <path
+                        d="M2 5h6M5.5 2l3 3-3 3"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Current Word — visually "inside" the range */}
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-2
+                  bg-gray-50 dark:bg-white/4"
+                  >
+                    <span
+                      className="text-[11px] font-medium tracking-tight
+                     text-gray-700 dark:text-gray-200 leading-none"
+                    >
+                      German Word
+                    </span>
+                    {word && (
+                      <span
+                        className="text-[10px] font-mono font-semibold
+                       text-gray-400 dark:text-gray-500 leading-none
+                       bg-gray-100 dark:bg-white/6
+                       px-1.5 py-0.5 rounded"
+                      >
+                        #
+                        {germanWords.findIndex(
+                          (w) => w.germanWord === word.germanWord
+                        ) + 1}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* End Range */}
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-2
+                  border-l border-gray-100 dark:border-white/[0.07]"
+                    title="Maximum range of Words in Group"
+                  >
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      className="text-gray-300 dark:text-white/20 shrink-0"
+                    >
+                      <path
+                        d="M2 5h6M5.5 2l3 3-3 3"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      className="text-[10px] font-mono font-semibold
+                     text-gray-400 dark:text-gray-500 tabular-nums leading-none"
+                    >
+                      {groupSize * (currentGroup + 1)}
+                    </span>
                   </div>
                 </div>
 
@@ -489,6 +581,7 @@ export default function GuessGermanWordQuizGame() {
                   </label>
                 </div>
               </div>
+
               <section>
                 <div className="mt-4 flex items-center justify-center space-x-2 mb-1">
                   <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#121212] dark:border dark:border-[#444444] px-2 py-0.5 md:py-1 rounded">
@@ -512,81 +605,60 @@ export default function GuessGermanWordQuizGame() {
 
             {/* Feedback Message */}
             <div
-              className={`
-                  mb-4 text-sm font-semibold 
-                  transition-all duration-300 transform
-                  ${
-                    status !== "idle"
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 -translate-y-2 h-0 overflow-hidden"
-                  } 
-                  ${
-                    status === "correct"
-                      ? "text-green-600 dark:text-green-400"
-                      : "text-red-500 dark:text-red-400"
-                  }
-                `}
+              className={`mb-1 md:mb-4 text-xs md:text-sm font-semibold transition-all duration-300 transform 
+                ${
+                  status !== "idle"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-2 h-0 overflow-hidden"
+                }
+                ${
+                  status === "correct"
+                    ? "text-green-600 dark:text-green-400"
+                    : "text-red-500 dark:text-red-400"
+                }`}
               role="alert"
             >
               {status === "correct" ? (
-                <span className="flex flex-col items-center justify-center font-bold gap-1 text-xl">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
-                    German Word
-                    {word && (
-                      <span className="ml-1 text-gray-400 dark:text-gray-500">
-                        #
-                        {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord
-                        ) + 1}
-                      </span>
-                    )}
-                  </span>
-                  <span>
+                <span className="flex flex-col items-center justify-start font-bold gap-0.5 md:gap-1 text-base md:text-xl">
+                  {/* Word */}
+                  <span className="text-base md:text-xl leading-tight">
                     “
                     {word.article
                       ? `${word.article} ${word.germanWord}`
                       : word.germanWord}
                     ”
                   </span>
-                  <span className="text-base text-slate-500">
+
+                  {/* Pronunciation */}
+                  <span className="text-xs md:text-base text-slate-500 leading-tight">
                     (
                     {word.article
-                      ? `${convertArticleInHindiPronuncation(word.article)} ${
-                          word.hindiPronunciation
-                        }`
+                      ? `${convertArticleInHindiPronuncation(word.article)} ${word.hindiPronunciation}`
                       : word.hindiPronunciation}
                     )
                   </span>
-                  <span className="text-blue-600 text-lg font-medium">
-                    ✓ Correct attempt
+
+                  {/* Success Text */}
+                  <span className="text-sm md:text-lg text-blue-600 font-medium">
+                    ✓ Correct
                   </span>
                 </span>
               ) : (
-                <span className="flex flex-col items-center text-xl font-bold text-center">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
-                    German Word
-                    {word && (
-                      <span className="ml-1 text-gray-400 dark:text-gray-500">
-                        #
-                        {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord
-                        ) + 1}
-                      </span>
-                    )}
-                  </span>
-                  <span>
+                <span className="flex flex-col items-center text-base md:text-xl font-bold text-center gap-0.5 md:gap-1">
+                  {/* Word */}
+                  <span className="text-base md:text-xl leading-tight">
                     “
                     {word.article
                       ? `${word.article} ${word.germanWord}`
                       : word.germanWord}
                     ”
                   </span>
-                  <span className="text-base text-slate-500">
+
+                  {/* Pronunciation */}
+                  <span className="text-xs md:text-base text-slate-500 leading-tight">
                     (
                     {word.article
-                      ? `${convertArticleInHindiPronuncation(word.article)} ${
-                          word.hindiPronunciation
-                        }`
+                      ? `${convertArticleInHindiPronuncation(word.article)} ${word.hindiPronunciation}`
                       : word.hindiPronunciation}
                     )
                   </span>

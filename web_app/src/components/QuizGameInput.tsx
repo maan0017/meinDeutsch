@@ -49,7 +49,10 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
   const baseBg = status === "idle" ? "bg-white dark:bg-zinc-950" : "";
 
   return (
-    <form onSubmit={handleSubmit} className="relative w-full mx-auto space-y-3">
+    <form
+      onSubmit={handleSubmit}
+      className="relative w-full mx-auto space-y-2 md:space-y-3"
+    >
       <div className="relative flex items-center">
         {isTextArea ? (
           <textarea
@@ -71,27 +74,24 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
             placeholder={placeholder}
             disabled={status !== "idle"}
             rows={1}
-            className={`
-              w-full px-4 py-3 pr-14 
-              ${baseBg}
-              rounded-xl border-2 shadow-sm
-              text-left leading-normal
-              text-base md:text-lg font-medium
-              placeholder:text-gray-400 dark:placeholder:text-zinc-500
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              disabled:opacity-60 disabled:cursor-not-allowed
-              transition-all duration-200
-              resize-none overflow-hidden
-              ${inputStyles}
-            `}
+            className={`w-full px-3 py-2 pr-10 md:px-4 md:py-3 ${baseBg} 
+            rounded-lg md:rounded-xl border-2 shadow-sm
+            text-left leading-snug
+            text-sm md:text-lg font-medium
+            placeholder:text-gray-400 dark:placeholder:text-zinc-500
+            focus:outline-none focus:ring-2 focus:ring-blue-500
+            disabled:opacity-60 disabled:cursor-not-allowed
+            transition-all duration-200
+            resize-none overflow-hidden
+            ${inputStyles}`}
             style={{
-              minHeight: "48px",
+              minHeight: "40px",
               maxHeight: "200px",
               height: "auto",
             }}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
-              target.style.height = "48px";
+              target.style.height = "40px";
               target.style.height = `${Math.min(target.scrollHeight, 200)}px`;
             }}
             autoComplete="off"
@@ -113,25 +113,21 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
             onChange={(e) => setUserAnswer(e.target.value)}
             placeholder={placeholder}
             disabled={status !== "idle"}
-            className={`
-              w-full px-4 py-3 pr-14
-              ${baseBg}
-              rounded-xl border-2 shadow-sm
-              text-center text-base md:text-lg font-medium
-              placeholder:text-gray-400 dark:placeholder:text-zinc-500
-              focus:outline-none focus:ring-2 focus:ring-blue-500
-              disabled:opacity-60 disabled:cursor-not-allowed
-              transition-all duration-200
-              ${inputStyles}
-            `}
+            className={`w-full px-3 py-2 pr-10 md:px-4 md:py-3 ${baseBg} 
+            rounded-lg md:rounded-xl border-2 shadow-sm
+            text-center text-sm md:text-lg font-medium
+            placeholder:text-gray-400 dark:placeholder:text-zinc-500
+            focus:outline-none focus:ring-2 focus:ring-blue-500
+            disabled:opacity-60 disabled:cursor-not-allowed
+            transition-all duration-200
+            ${inputStyles}`}
             autoComplete="off"
             autoCorrect="off"
             spellCheck="false"
             aria-label="German word input"
           />
         )}
-
-        <div className="absolute right-2 bottom-2">
+        <div className="absolute right-2 top-1/2 -translate-y-1/2">
           {useMicrophone && (
             <GermanSTT
               onTranscript={setUserAnswer}
@@ -149,16 +145,16 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
         type="submit"
         disabled={!userAnswer.trim() || status !== "idle"}
         className={`
-          w-full px-6 py-3
-          rounded-xl font-semibold text-base md:text-lg
-          transition-all duration-200
-          flex items-center justify-center gap-2
-          ${
-            !userAnswer.trim() || status !== "idle"
-              ? "bg-gray-200 dark:bg-zinc-800 text-gray-400 dark:text-zinc-600 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white shadow-md hover:shadow-lg"
-          }
-        `}
+    w-full px-4 py-2 md:px-6 md:py-3
+    rounded-lg md:rounded-xl font-semibold text-sm md:text-lg
+    transition-all duration-200
+    flex items-center justify-center gap-1 md:gap-2
+    ${
+      !userAnswer.trim() || status !== "idle"
+        ? "bg-gray-200 dark:bg-zinc-800 text-gray-400 dark:text-zinc-600 cursor-not-allowed"
+        : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white shadow-md hover:shadow-lg"
+    }
+  `}
       >
         <span>Submit Answer</span>
         {!isTextArea && (

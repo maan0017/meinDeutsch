@@ -92,22 +92,6 @@ export const germanWords: GermanWord[] = [
     description: "(female)",
   },
   {
-    germanWord: "Hund",
-    article: "der",
-    hindiPronunciation: "हुंड",
-    englishMeaning: ["Dog"],
-    hindiMeaning: ["कुत्ता"],
-    type: "noun",
-  },
-  {
-    germanWord: "Katze",
-    article: "die",
-    hindiPronunciation: "कात्से",
-    englishMeaning: ["Cat"],
-    hindiMeaning: ["बिल्ली"],
-    type: "noun",
-  },
-  {
     germanWord: "Buch",
     article: "das",
     hindiPronunciation: "बूख",
@@ -285,14 +269,6 @@ export const germanWords: GermanWord[] = [
     hindiPronunciation: "गेम्यूज़े",
     englishMeaning: ["Vegetables"],
     hindiMeaning: ["सब्ज़ी"],
-    type: "noun",
-  },
-  {
-    germanWord: "Apfel",
-    article: "der",
-    hindiPronunciation: "आप्फ़ेल",
-    englishMeaning: ["Apple"],
-    hindiMeaning: ["सेब"],
     type: "noun",
   },
   {
@@ -483,14 +459,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["फ़ोन करना", "कॉल करना"],
     type: "verb",
     description: "(phone)",
-  },
-  {
-    germanWord: "Abend",
-    article: "der",
-    hindiPronunciation: "आबेंट",
-    englishMeaning: ["Evening"],
-    hindiMeaning: ["शाम"],
-    type: "noun",
   },
   {
     germanWord: "Rathaus",
@@ -1208,14 +1176,6 @@ export const germanWords: GermanWord[] = [
     type: "noun",
   },
   {
-    germanWord: "Bahnhof",
-    article: "der",
-    hindiPronunciation: "बान्होफ़",
-    englishMeaning: ["Train station"],
-    hindiMeaning: ["रेलवे स्टेशन"],
-    type: "noun",
-  },
-  {
     germanWord: "Zug",
     article: "der",
     hindiPronunciation: "त्सूक",
@@ -1639,22 +1599,6 @@ export const germanWords: GermanWord[] = [
     hindiPronunciation: "फ़िश",
     englishMeaning: ["Fish"],
     hindiMeaning: ["मछली"],
-    type: "noun",
-  },
-  {
-    germanWord: "Pferd",
-    article: "das",
-    hindiPronunciation: "फ़ेर्ड",
-    englishMeaning: ["Horse"],
-    hindiMeaning: ["घोड़ा"],
-    type: "noun",
-  },
-  {
-    germanWord: "Kuh",
-    article: "die",
-    hindiPronunciation: "कू",
-    englishMeaning: ["Cow"],
-    hindiMeaning: ["गाय"],
     type: "noun",
   },
   {
@@ -4074,14 +4018,6 @@ export const germanWords: GermanWord[] = [
     type: "noun",
   },
   {
-    germanWord: "Abendessen",
-    article: "das",
-    hindiPronunciation: "आबेंड-ए-सन",
-    englishMeaning: ["Dinner"],
-    hindiMeaning: ["रात का खाना"],
-    type: "noun",
-  },
-  {
     germanWord: "Bäckerei",
     article: "die",
     hindiPronunciation: "बेकराई",
@@ -5403,7 +5339,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["प्यार", "प्रेम"],
     type: "noun",
   },
-  // --- Land Animals (Mammals/Säugetiere) ---
   {
     germanWord: "Tier",
     article: "das",
@@ -5434,7 +5369,7 @@ export const germanWords: GermanWord[] = [
   {
     germanWord: "Bär",
     article: "der",
-    hindiPronunciation: "बेयर",
+    hindiPronunciation: "बेअर",
     englishMeaning: ["Bear"],
     hindiMeaning: ["भालू"],
     type: "noun",
@@ -5457,15 +5392,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["लोमड़ी"],
     type: "noun",
     pluralForm: "Die Füchse",
-  },
-  {
-    germanWord: "Pferd",
-    article: "das",
-    hindiPronunciation: "फेर्ड",
-    englishMeaning: ["Horse"],
-    hindiMeaning: ["घोड़ा"],
-    type: "noun",
-    pluralForm: "Die Pferde",
   },
   {
     germanWord: "Schwein",
@@ -5597,8 +5523,6 @@ export const germanWords: GermanWord[] = [
     description: "Literally 'Ink fish'",
     pluralForm: "Die Tintenfische",
   },
-
-  // --- Air Animals & Birds (Vögel) ---
   {
     germanWord: "Vogel",
     article: "der",
@@ -5784,25 +5708,6 @@ export const germanWords: GermanWord[] = [
     type: "noun",
     pluralForm: "Die Krokodile",
   },
-  // --- Pets & Domestic (Haustiere) ---
-  {
-    germanWord: "Hund",
-    article: "der",
-    hindiPronunciation: "हुंड",
-    englishMeaning: ["Dog"],
-    hindiMeaning: ["कुत्ता"],
-    type: "noun",
-    pluralForm: "Die Hunde",
-  },
-  {
-    germanWord: "Katze",
-    article: "die",
-    hindiPronunciation: "कात्से",
-    englishMeaning: ["Cat"],
-    hindiMeaning: ["बिल्ली"],
-    type: "noun",
-    pluralForm: "Die Katzen",
-  },
   {
     germanWord: "Kaninchen",
     article: "das",
@@ -5831,17 +5736,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["हैम्स्टर"],
     type: "noun",
     pluralForm: "Die Hamster",
-  },
-
-  // --- Farm Animals (Bauernhoftiere) ---
-  {
-    germanWord: "Kuh",
-    article: "die",
-    hindiPronunciation: "कू",
-    englishMeaning: ["Cow"],
-    hindiMeaning: ["गाय"],
-    type: "noun",
-    pluralForm: "Die Kühe",
   },
   {
     germanWord: "Esel",
@@ -7017,7 +6911,7 @@ export const germanWords: GermanWord[] = [
   {
     germanWord: "Pferd",
     article: "das",
-    hindiPronunciation: "प्फ़ेर्ट",
+    hindiPronunciation: "फेर्ट",
     englishMeaning: ["Horse"],
     hindiMeaning: ["घोड़ा"],
     type: "noun",
@@ -7067,15 +6961,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["अंतरिक्ष", "कमरा"],
     type: "noun",
     pluralForm: "Die Räume",
-  },
-  {
-    germanWord: "Abend",
-    article: "der",
-    hindiPronunciation: "आबेंड",
-    englishMeaning: ["Evening"],
-    hindiMeaning: ["शाम"],
-    type: "noun",
-    pluralForm: "Die Abende",
   },
   {
     germanWord: "Brief",
@@ -7557,7 +7442,7 @@ export const germanWords: GermanWord[] = [
   {
     germanWord: "Bahnhof",
     article: "der",
-    hindiPronunciation: "बानहोफ़",
+    hindiPronunciation: "बान्होफ़",
     englishMeaning: ["Station", "Train station"],
     hindiMeaning: ["स्टेशन", "रेलवे स्टेशन"],
     type: "noun",
@@ -7661,15 +7546,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["कंपनी", "उद्यम"],
     type: "noun",
     pluralForm: "Die Unternehmen",
-  },
-  {
-    germanWord: "Anzug",
-    article: "der",
-    hindiPronunciation: "आनत्सूक",
-    englishMeaning: ["Suit"],
-    hindiMeaning: ["सूट"],
-    type: "noun",
-    pluralForm: "Die Anzüge",
   },
   {
     germanWord: "Wille",
@@ -9861,15 +9737,6 @@ export const germanWords: GermanWord[] = [
     pluralForm: "Die Eisen",
   },
   {
-    germanWord: "Augenbraue",
-    article: "die",
-    hindiPronunciation: "आउगनब्राउए",
-    englishMeaning: ["Eyebrow"],
-    hindiMeaning: ["भौंह"],
-    type: "noun",
-    pluralForm: "Die Augenbrauen",
-  },
-  {
     germanWord: "Geschwindigkeit",
     article: "die",
     hindiPronunciation: "गेशविंडिष्काइट",
@@ -10011,15 +9878,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["हत्या"],
     type: "noun",
     pluralForm: "Die Morde",
-  },
-  {
-    germanWord: "Bär",
-    article: "der",
-    hindiPronunciation: "बेर",
-    englishMeaning: ["Bear"],
-    hindiMeaning: ["भालू"],
-    type: "noun",
-    pluralForm: "Die Bären",
   },
   {
     germanWord: "Test",
@@ -11212,15 +11070,6 @@ export const germanWords: GermanWord[] = [
     pluralForm: "Die Exemplare",
   },
   {
-    germanWord: "Kuh",
-    article: "die",
-    hindiPronunciation: "कू",
-    englishMeaning: ["Cow"],
-    hindiMeaning: ["गाय"],
-    type: "noun",
-    pluralForm: "Die Kühe",
-  },
-  {
     germanWord: "Arbeiter",
     article: "der",
     hindiPronunciation: "आर्बाइटर",
@@ -11773,15 +11622,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["आदमी", "यार"],
     type: "noun",
     pluralForm: "Die Kerle",
-  },
-  {
-    germanWord: "Angelegenheit",
-    article: "die",
-    hindiPronunciation: "आंगेलेगेनहाइट",
-    englishMeaning: ["Affair", "Matter", "Concern"],
-    hindiMeaning: ["मामला", "बात"],
-    type: "noun",
-    pluralForm: "Die Angelegenheiten",
   },
   {
     germanWord: "Küste",
@@ -13167,8 +13007,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["अनुमान लगाना", "सलाह देना"],
     type: "verb",
   },
-
-  // --- Animals ---
   {
     germanWord: "Affe",
     article: "der",
@@ -13305,15 +13143,6 @@ export const germanWords: GermanWord[] = [
     pluralForm: "Die Strauße",
   },
   {
-    germanWord: "Adler",
-    article: "der",
-    hindiPronunciation: "आडलर",
-    englishMeaning: ["Eagle"],
-    hindiMeaning: ["चील", "गरुड़"],
-    type: "noun",
-    pluralForm: "Die Adler",
-  },
-  {
     germanWord: "Pinguin",
     article: "der",
     hindiPronunciation: "पिंगुइन",
@@ -13422,30 +13251,12 @@ export const germanWords: GermanWord[] = [
     type: "noun",
     pluralForm: "Die Kühe",
   },
-
-  // --- Repeated List (Per Request) ---
   {
     germanWord: "Buchstabe",
     article: "der",
     hindiPronunciation: "बुख-श्टाबा",
     englishMeaning: ["Letter"],
     hindiMeaning: ["अक्षर"],
-    type: "noun",
-  },
-  {
-    germanWord: "Aussprache",
-    article: "die",
-    hindiPronunciation: "आउस-श्प्राखा",
-    englishMeaning: ["Pronunciation"],
-    hindiMeaning: ["उच्चारण"],
-    type: "noun",
-  },
-  {
-    germanWord: "Begrüßungen",
-    article: "die",
-    hindiPronunciation: "बे-ग्र्यु-सुंगन",
-    englishMeaning: ["Greetings"],
-    hindiMeaning: ["अभिवादन"],
     type: "noun",
   },
   {
@@ -16593,15 +16404,6 @@ export const germanWords: GermanWord[] = [
     hindiMeaning: ["झोपड़ी", "कुटिया"],
     type: "noun",
     pluralForm: "Die Hütten",
-  },
-  {
-    germanWord: "Affe",
-    article: "der",
-    hindiPronunciation: "आफ़े",
-    englishMeaning: ["Monkey"],
-    hindiMeaning: ["बंदर"],
-    type: "noun",
-    pluralForm: "Die Affen",
   },
   {
     germanWord: "Make-up",
@@ -20705,15 +20507,6 @@ export const germanWords: GermanWord[] = [
     pluralForm: "Die Patrouillen",
   },
   {
-    germanWord: "Adler",
-    article: "der",
-    hindiPronunciation: "आडलर",
-    englishMeaning: ["Eagle"],
-    hindiMeaning: ["चील", "गर्व"],
-    type: "noun",
-    pluralForm: "Die Adler",
-  },
-  {
     germanWord: "Privatsphäre",
     article: "die",
     hindiPronunciation: "प्रिवाटस्फेरे",
@@ -21521,15 +21314,6 @@ export const germanWords: GermanWord[] = [
     englishMeaning: ["To wake up", "To awake"],
     hindiMeaning: ["जागना", "नींद से जागना"],
     type: "verb",
-  },
-  {
-    germanWord: "Ameise",
-    article: "die",
-    hindiPronunciation: "आमाइज़े",
-    englishMeaning: ["Ant"],
-    hindiMeaning: ["चींटी"],
-    type: "noun",
-    pluralForm: "Die Ameisen",
   },
   {
     germanWord: "Brötchen",
