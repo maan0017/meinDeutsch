@@ -21,7 +21,6 @@ export default function Settings() {
 
   const { playSound, playRollSound } = useSoundEffects();
 
-  // use
   useGoBack();
 
   return (
@@ -58,7 +57,7 @@ export default function Settings() {
 
         <div className="space-y-4">
           {/* Sound Effects Setting */}
-          <div className="p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
+          <div className="relative z-10 p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 {soundEffects === "ON" ? (
@@ -96,7 +95,7 @@ export default function Settings() {
           </div>
 
           {/* Group Size Setting */}
-          <div className="p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
+          <div className="relative z-10 p-6 rounded-lg shadow-sm bg-white dark:bg-[#121212] border border-slate-200 dark:border-[#444444] transition-colors">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-lg font-semibold text-slate-900 dark:text-[#E0E0E0]">

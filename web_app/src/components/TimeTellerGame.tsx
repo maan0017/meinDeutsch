@@ -113,7 +113,7 @@ export default function TimeTellerGame() {
 
   return (
     <main className="flex min-h-[60vh] w-full flex-col items-center justify-center p-2 md:p-4 bg-transparent transition-colors relative">
-      <div className="w-full max-w-lg space-y-2 md:space-y-4 text-center">
+      <div className="w-full max-w-lg space-y-2 md:space-y-4 text-center z-10">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative">
           <div className="shrink-0">

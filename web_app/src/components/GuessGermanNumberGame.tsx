@@ -88,7 +88,7 @@ export default function GuessGermanNumberGame() {
 
   return (
     <main className="flex min-h-[60vh] w-full flex-col items-center justify-center p-4 md:p-6 bg-gray-50 dark:bg-[#121212] transition-colors relative">
-      <div className="w-full max-w-lg space-y-5 md:space-y-8 text-center">
+      <div className="w-full max-w-lg space-y-5 md:space-y-8 text-center z-10">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-4 md:mb-8 relative">
           <div className="shrink-0">

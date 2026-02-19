@@ -1,203 +1,49 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState, useRef, useCallback } from "react";
-import { GermanWord } from "@/models/germanWord";
-import { GetGermanWordsGroupLength } from "@/helper/RandomGermanWordSelector";
 import { QuizGameInput } from "./QuizGameInput";
-import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { germanWords } from "@/data/germanWords";
-import { useSettingsStore } from "@/store/settings";
-import { BookmarkComp } from "./BookmarkComp";
-
-const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
-const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
-const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
+import { useGroupSystem } from "@/hooks/quizGame/useGroupSystem";
+import { useQuizGameLogic } from "@/hooks/quizGame/useQuizGameLogic";
+import { QuizHeader } from "./quizGame/QuizHeader";
+import { QuizGroupControls } from "./quizGame/QuizGroupControls";
+import { QuizFeedback } from "./quizGame/QuizFeedback";
 
 export default function GuessGermanWordQuizGame() {
-  const { playSound } = useSoundEffects();
-  const [word, setWord] = useState<GermanWord | null>(null);
-  const [userAnswer, setUserAnswer] = useState<string>("");
-  const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const {
+    currentGroup,
+    setCurrentGroup,
+    totalGroups,
+    allIn,
+    setAllIn,
+    strictMode,
+    setStrictMode,
+    isInitialized,
+    moveToNextGroup,
+    moveToPrevGroup,
+    groupSize,
+  } = useGroupSystem();
 
-  // logic to track unseen words
-  const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
+  const {
+    word,
+    userAnswer,
+    setUserAnswer,
+    status,
+    inputRef,
+    handleSubmit,
+    handleInputKeyDowns,
+    seenIndices,
+  } = useQuizGameLogic({
+    currentGroup,
+    groupSize,
+    allIn,
+    strictMode,
+    isInitialized,
+    moveToNextGroup,
+    moveToPrevGroup,
+  });
 
-  // group system
-  const { groupSize } = useSettingsStore();
-  const [currentGroup, setCurrentGroup] = useState<number>(0);
-  const totalGroups = GetGermanWordsGroupLength(groupSize);
-
-  // game mode
-  const [allIn, setAllIn] = useState<boolean>(false);
-  const [strictMode, setStrictMode] = useState<boolean>(false);
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
-
-  const moveToNextGroup = () => {
-    if (currentGroup === totalGroups - 1 || allIn) return;
-    setCurrentGroup((prev) => Math.min(totalGroups - 1, prev + 1));
-  };
-
-  const moveToPrevGroup = () => {
-    if (currentGroup <= 0 || allIn) return;
-    setCurrentGroup((prev) => Math.max(0, prev - 1));
-  };
-
-  const handleInputKeyDowns = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.altKey && e.key === "ArrowLeft") {
-      e.preventDefault();
-      moveToPrevGroup();
-    }
-    if (e.altKey && e.key === "ArrowRight") {
-      e.preventDefault();
-      moveToNextGroup();
-    }
-  };
-
-  // Load state from local storage on mount
-  useEffect(() => {
-    const savedGroup = localStorage.getItem(SAVED_STATE_CURRENT_GROUP);
-    if (savedGroup) setCurrentGroup(Number(savedGroup));
-
-    const savedAllIn = localStorage.getItem(SAVED_STATE_ALL_IN);
-    if (savedAllIn) setAllIn(savedAllIn === "true");
-
-    const savedStrictMode = localStorage.getItem(SAVED_STATE_STRICT_MODE);
-    if (savedStrictMode) setStrictMode(savedStrictMode === "true");
-
-    setIsInitialized(true);
-  }, []);
-
-  // Save state to local storage when changed (only after initialization)
-  useEffect(() => {
-    if (!isInitialized) return;
-    localStorage.setItem(SAVED_STATE_CURRENT_GROUP, String(currentGroup));
-    localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
-    localStorage.setItem(SAVED_STATE_STRICT_MODE, String(strictMode));
-  }, [currentGroup, allIn, strictMode, isInitialized]);
-
-  // Reset seen words when group or mode changes
-  useEffect(() => {
-    setSeenIndices(new Set());
-  }, [currentGroup, allIn]);
-
-  const handleNextWord = useCallback(
-    (forceReset = false) => {
-      let start = 0;
-      let end = germanWords.length;
-
-      if (!allIn) {
-        start = currentGroup * groupSize;
-        end = Math.min((currentGroup + 1) * groupSize, germanWords.length);
-      }
-
-      // Filter available indices that haven't been seen yet
-      let availableIndices = [];
-      const indicesToCheck = forceReset ? new Set<number>() : seenIndices;
-
-      for (let i = start; i < end; i++) {
-        if (!indicesToCheck.has(i)) {
-          availableIndices.push(i);
-        }
-      }
-
-      // If all words seen, reset
-      if (availableIndices.length === 0) {
-        availableIndices = [];
-        for (let i = start; i < end; i++) {
-          availableIndices.push(i);
-        }
-        if (!forceReset) {
-          setSeenIndices(new Set());
-        }
-      }
-
-      // Pick random from available
-      const randomIndex = Math.floor(Math.random() * availableIndices.length);
-      const selectedOriginalIndex = availableIndices[randomIndex];
-
-      // Update seen indices
-      setSeenIndices((prev) => {
-        const newSet = forceReset ? new Set<number>() : new Set(prev);
-        newSet.add(selectedOriginalIndex);
-        return newSet;
-      });
-
-      setWord(germanWords[selectedOriginalIndex]);
-      setUserAnswer("");
-      setStatus("idle");
-      setTimeout(() => inputRef.current?.focus(), 50);
-    },
-    [allIn, currentGroup, groupSize, seenIndices]
-  );
-
-  // Sync state changes (Group/AllIn) -> Next Word
-  useEffect(() => {
-    if (isInitialized) {
-      handleNextWord(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentGroup, allIn, isInitialized]);
-
-  // Initialize word on mount
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (!word && isInitialized) handleNextWord();
-  }, [handleNextWord, word, isInitialized]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!word || status !== "idle") return;
-
-    const normalize = (s: string) => s.trim().toLowerCase();
-
-    let userAttempt, baseAnswer;
-
-    if (strictMode && word.article) {
-      userAttempt = userAnswer;
-      baseAnswer = `${word.article} ${word.germanWord}`;
-    } else {
-      userAttempt = normalize(userAnswer);
-      baseAnswer = normalize(word.germanWord);
-    }
-
-    const isCorrect =
-      strictMode && word.article
-        ? userAttempt.split(" ")[0].toLowerCase() ===
-            word.article.toLowerCase() &&
-          userAttempt.split(" ")[1] === word.germanWord
-        : userAttempt.toLowerCase() === baseAnswer.toLowerCase() ||
-          userAttempt.toLowerCase() ===
-            `${word?.article?.toLowerCase()} ${word.germanWord.toLowerCase()}`;
-
-    setStatus(isCorrect ? "correct" : "wrong");
-    playSound(isCorrect ? "correct" : "wrong");
-
-    const isMobile = window.innerWidth < 768;
-    setTimeout(handleNextWord, isMobile ? 1500 : 3000);
-  };
-
-  useEffect(() => {
-    if (!isInitialized) return;
-    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
-      if (status !== "idle") return;
-
-      const target = e.target as HTMLInputElement;
-      if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
-
-      if (e.key == "ArrowLeft" && !allIn) moveToPrevGroup();
-
-      if (e.key == "ArrowRight" && !allIn) moveToNextGroup();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [status, isInitialized]);
-
-  const displayMeaning = (text: string | string[]) => {
-    return Array.isArray(text) ? text.join(", ") : text;
-  };
+  const displayMeaning = (text: string | string[]): string =>
+    Array.isArray(text) ? text.join(", ") : text;
 
   if (!word) return null;
 
@@ -212,480 +58,153 @@ export default function GuessGermanWordQuizGame() {
   const remainingWordsInGroup =
     totalWordsInCurrentGroup - seenWordsInCurrentGroupCount;
 
-  const cardBorder =
-    status === "correct"
-      ? "border-green-500 ring-1 ring-green-500"
-      : status === "wrong"
-        ? "border-red-500 ring-1 ring-red-500"
-        : "border-gray-200 dark:border-[#444444]";
+  const progressPercent =
+    totalWordsInCurrentGroup > 0
+      ? Math.round(
+          (seenWordsInCurrentGroupCount / totalWordsInCurrentGroup) * 100
+        )
+      : 0;
 
-  const inputStyles =
+  const statusConfig = {
+    correct: {
+      card: "border-emerald-500/50 shadow-emerald-500/10 shadow-xl",
+      accent: "bg-emerald-500",
+      input: [
+        "border-emerald-500 focus:border-emerald-500",
+        "text-emerald-700 bg-emerald-50 focus:ring-emerald-100",
+        "dark:text-emerald-300 dark:bg-emerald-950/30 dark:focus:ring-emerald-900",
+      ].join(" "),
+    },
+    wrong: {
+      card: "border-red-500/50 shadow-red-500/10 shadow-xl",
+      accent: "bg-red-500",
+      input: [
+        "border-red-500 focus:border-red-500",
+        "text-red-700 bg-red-50 focus:ring-red-100",
+        "dark:text-red-300 dark:bg-red-950/30 dark:focus:ring-red-900",
+      ].join(" "),
+    },
+    idle: {
+      card: [
+        "shadow-xl",
+        "border-gray-200 shadow-gray-100/80",
+        "dark:border-white/[0.07] dark:shadow-black/50",
+      ].join(" "),
+      accent: "bg-sky-500",
+      input: [
+        "focus:border-sky-500",
+        "border-gray-300 text-gray-800 bg-white hover:border-gray-400 focus:ring-sky-100",
+        "dark:border-white/10 dark:text-white dark:bg-white/5 dark:hover:border-white/20 dark:focus:ring-sky-950",
+      ].join(" "),
+    },
+  } as const;
+
+  const currentStatus =
     status === "correct"
-      ? "border-green-500 text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-900/20 focus:border-green-500 focus:ring-green-200 dark:focus:ring-green-800"
+      ? statusConfig.correct
       : status === "wrong"
-        ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
-        : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
+        ? statusConfig.wrong
+        : statusConfig.idle;
 
   return (
-    <main className="flex w-full flex-col items-center justify-start min-h-auto p-2 md:p-4 md:min-h-[50vh] md:justify-center bg-gray-50 dark:bg-[#121212] transition-colors relative">
-      <div className="w-full max-w-lg space-y-1 md:space-y-4 text-center">
+    <main className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-4 bg-gray-50 dark:bg-[#121212]">
+      <div className="relative flex w-full max-w-xl flex-col gap-3 z-10">
         {/* Header */}
-        <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative">
-          <div className="shrink-0">
-            <Link
-              href="/juwelen"
-              className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
-              title="Back to Quiz Menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m15 18-6-6 6-6" />
-              </svg>
-            </Link>
-          </div>
+        <QuizHeader />
 
-          <div className="flex-1 text-center px-2 md:px-4">
-            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#E0E0E0]">
-              Practice German Words
-            </h1>
-            <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium mt-0.5 md:mt-1">
-              Translate the word below into German
-            </p>
+        {/* Progress bar */}
+        {/* <div className="flex items-center gap-3">
+          <div className="h-[2px] flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/6">
+            <div
+              className="h-full rounded-full bg-linear-to-r from-sky-500 to-violet-500 transition-all duration-700 ease-out"
+              style={{ width: `${progressPercent}%` }}
+            />
           </div>
-        </header>
+          <span className="shrink-0 font-mono text-[10px] font-medium uppercase tracking-widest text-gray-400 dark:text-white/25">
+            {seenWordsInCurrentGroupCount}/{totalWordsInCurrentGroup}
+          </span>
+        </div> */}
 
-        {/* Card */}
-        <article className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <div
-            className={`
-              relative overflow-hidden rounded-xl bg-white dark:bg-[#121212] 
-              px-3 py-2 md:px-6 md:py-8 shadow-lg border transition-all duration-300 
-              ${cardBorder}
-            `}
-          >
+        {/* Main card */}
+        <article
+          className={[
+            "relative overflow-hidden rounded-2xl border transition-all duration-300 ease-out",
+            "bg-white dark:bg-[#121212]",
+            currentStatus.card,
+          ].join(" ")}
+        >
+          <div className="p-4 md:p-6">
+            {/* Group controls */}
+            <QuizGroupControls
+              currentGroup={currentGroup}
+              totalGroups={totalGroups}
+              groupSize={groupSize}
+              allIn={allIn}
+              setAllIn={setAllIn}
+              strictMode={strictMode}
+              setStrictMode={setStrictMode}
+              moveToNextGroup={moveToNextGroup}
+              moveToPrevGroup={moveToPrevGroup}
+              setCurrentGroup={setCurrentGroup}
+              remainingWords={remainingWordsInGroup}
+              wordGerman={word.germanWord}
+            />
+
             {/* Clues */}
-            <div className="space-y-2 md:space-y-5 mb-2 md:mb-5">
-              <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
-                {/* Group Controls */}
-                <div className="grid grid-cols-3 items-center">
-                  {/* Left spacer - Words Remaining */}
-                  <span
-                    className="flex items-center justify-center w-10 h-10
-                               text-sm font-semibold font-mono rounded-full
-                               bg-gray-50 dark:bg-gray-700
-                               text-gray-800 dark:text-gray-100"
-                    title="Words remaining in this group"
-                  >
-                    {remainingWordsInGroup}
-                  </span>
-
-                  <div
-                    className={`
-    inline-flex items-center justify-center gap-4
-    bg-gray-50 dark:bg-[#1a1a1a]
-    rounded-full px-4 py-1.5
-    border border-gray-100 dark:border-[#333]
-    transition-all duration-300 whitespace-nowrap
-    ${
-      allIn
-        ? "opacity-30 grayscale pointer-events-none select-none"
-        : "opacity-100"
-    }
-  `}
-                  >
-                    {/* Prev Button */}
-                    <button
-                      disabled={currentGroup === 0 || allIn}
-                      onClick={moveToPrevGroup}
-                      className="
-      flex items-center justify-center
-      p-1 rounded-full
-      text-gray-500 hover:text-gray-900 
-      dark:text-gray-400 dark:hover:text-gray-100
-      disabled:opacity-30 disabled:cursor-not-allowed
-      transition-colors
-    "
-                      title="Previous Group (Left Arrow)"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="m15 18-6-6 6-6" />
-                      </svg>
-                    </button>
-
-                    {/* Group Indicator */}
-                    <span
-                      title="Splits German words in groups of 50 so that words can learned easily."
-                      className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono text-center"
-                    >
-                      Group {currentGroup + 1} / {totalGroups}
-                    </span>
-
-                    {/* Next Button */}
-                    <button
-                      disabled={currentGroup === totalGroups - 1 || allIn}
-                      onClick={moveToNextGroup}
-                      className="
-      flex items-center justify-center
-      p-1 rounded-full
-      text-gray-500 hover:text-gray-900 
-      dark:text-gray-400 dark:hover:text-gray-100
-      disabled:opacity-30 disabled:cursor-not-allowed
-      transition-colors
-    "
-                      title="Next Group (Right Arrow)"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="m9 18 6-6-6-6" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  {/* Right */}
-                  {/* Bookmark Section */}
-                  <div className="justify-self-end">
-                    <BookmarkComp word={word.germanWord} />
-                  </div>
-                </div>
-
-                <div
-                  className="inline-flex items-center gap-0
-                bg-white dark:bg-[#0f0f0f]
-                border border-gray-100 dark:border-white/7
-                rounded-xl overflow-hidden"
-                >
-                  {/* Start Range */}
-                  <div
-                    className="flex items-center gap-1.5 px-3 py-2
-                  border-r border-gray-100 dark:border-white/7"
-                    title="Minimum range of Words in Group"
-                  >
-                    <span
-                      className="text-[10px] font-mono font-semibold
-                     text-gray-400 dark:text-gray-500 tabular-nums leading-none"
-                    >
-                      {groupSize * currentGroup + 1}
-                    </span>
-                    {/* Arrow indicator pointing inward */}
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      className="text-gray-300 dark:text-white/20 shrink-0"
-                    >
-                      <path
-                        d="M2 5h6M5.5 2l3 3-3 3"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Current Word — visually "inside" the range */}
-                  <div
-                    className="flex items-center gap-1.5 px-3 py-2
-                  bg-gray-50 dark:bg-white/4"
-                  >
-                    <span
-                      className="text-[11px] font-medium tracking-tight
-                     text-gray-700 dark:text-gray-200 leading-none"
-                    >
-                      German Word
-                    </span>
-                    {word && (
-                      <span
-                        className="text-[10px] font-mono font-semibold
-                       text-gray-400 dark:text-gray-500 leading-none
-                       bg-gray-100 dark:bg-white/6
-                       px-1.5 py-0.5 rounded"
-                      >
-                        #
-                        {germanWords.findIndex(
-                          (w) => w.germanWord === word.germanWord
-                        ) + 1}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* End Range */}
-                  <div
-                    className="flex items-center gap-1.5 px-3 py-2
-                  border-l border-gray-100 dark:border-white/[0.07]"
-                    title="Maximum range of Words in Group"
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      className="text-gray-300 dark:text-white/20 shrink-0"
-                    >
-                      <path
-                        d="M2 5h6M5.5 2l3 3-3 3"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span
-                      className="text-[10px] font-mono font-semibold
-                     text-gray-400 dark:text-gray-500 tabular-nums leading-none"
-                    >
-                      {groupSize * (currentGroup + 1)}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Tag and "All In" Toggle Container */}
-                <div className="mt-2 flex items-center justify-center gap-3 w-full">
-                  {/* All In Toggle */}
-                  <label
-                    htmlFor="allIn"
-                    title="Play all words at once, Disables Group system"
-                    className={`
-                                    flex items-center gap-1.5 cursor-pointer select-none 
-                                    text-xs font-medium 
-                                    transition-colors duration-200
-                                    px-2 py-0.5 rounded-md border
-                                    ${
-                                      allIn
-                                        ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
-                                        : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
-                                    }
-                                  `}
-                  >
-                    <div className="relative flex items-center">
-                      <input
-                        type="checkbox"
-                        id="allIn"
-                        checked={allIn}
-                        onChange={(e) => {
-                          const newValue = e.target.checked;
-                          setAllIn(newValue);
-                        }}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`
-                                        w-3 h-3 rounded-full border mr-1.5 transition-colors
-                                        ${
-                                          allIn
-                                            ? "bg-blue-500 border-blue-500"
-                                            : "border-gray-300 dark:border-gray-600 bg-transparent"
-                                        }
-                                     `}
-                      >
-                        {allIn && (
-                          <svg
-                            className="w-full h-full text-white p-0.5"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-                    All in
-                  </label>
-
-                  {/* Strict Mode */}
-                  <label
-                    htmlFor="strictMode"
-                    title="Articles are compulsory if present and correct Captilized words."
-                    className={`
-                                    flex items-center gap-1.5 cursor-pointer select-none 
-                                    text-xs font-medium 
-                                    transition-colors duration-200
-                                    px-2 py-0.5 rounded-md border
-                                    ${
-                                      strictMode
-                                        ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
-                                        : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
-                                    }
-                                  `}
-                  >
-                    <div className="relative flex items-center">
-                      <input
-                        type="checkbox"
-                        id="strictMode"
-                        checked={strictMode}
-                        onChange={(e) => {
-                          const newValue = e.target.checked;
-                          setStrictMode(newValue);
-                        }}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`
-                                        w-3 h-3 rounded-full border mr-1.5 transition-colors
-                                        ${
-                                          strictMode
-                                            ? "bg-blue-500 border-blue-500"
-                                            : "border-gray-300 dark:border-gray-600 bg-transparent"
-                                        }
-                                     `}
-                      >
-                        {strictMode && (
-                          <svg
-                            className="w-full h-full text-white p-0.5"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-                    Strict Mode
-                  </label>
-                </div>
-              </div>
-
-              <section>
-                <div className="mt-4 flex items-center justify-center space-x-2 mb-1">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#121212] dark:border dark:border-[#444444] px-2 py-0.5 md:py-1 rounded">
-                    English
-                  </span>
-                </div>
-                <p className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-[#E0E0E0]">
+            <div className="mt-4 grid gap-4">
+              {/* English */}
+              <section className="text-center">
+                <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
+                  English
+                </span>
+                <p className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
                   {displayMeaning(word.englishMeaning)}
                 </p>
               </section>
 
-              <section>
-                <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium mb-0.5 md:mb-1">
-                  Hindi Hint
-                </p>
-                <p className="text-lg md:text-xl text-gray-700 dark:text-[#E0E0E0] font-hindi">
+              {/* Hindi */}
+              <section className="text-center">
+                <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
+                  Hindi
+                </span>
+                <p className="mt-2 text-xl font-medium leading-snug text-gray-600 font-hindi dark:text-white/65 md:text-2xl">
                   {displayMeaning(word.hindiMeaning)}
                 </p>
               </section>
             </div>
 
-            {/* Feedback Message */}
-            <div
-              className={`mb-1 md:mb-4 text-xs md:text-sm font-semibold transition-all duration-300 transform 
-                ${
-                  status !== "idle"
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-2 h-0 overflow-hidden"
-                }
-                ${
-                  status === "correct"
-                    ? "text-green-600 dark:text-green-400"
-                    : "text-red-500 dark:text-red-400"
-                }`}
-              role="alert"
-            >
-              {status === "correct" ? (
-                <span className="flex flex-col items-center justify-start font-bold gap-0.5 md:gap-1 text-base md:text-xl">
-                  {/* Word */}
-                  <span className="text-base md:text-xl leading-tight">
-                    “
-                    {word.article
-                      ? `${word.article} ${word.germanWord}`
-                      : word.germanWord}
-                    ”
-                  </span>
-
-                  {/* Pronunciation */}
-                  <span className="text-xs md:text-base text-slate-500 leading-tight">
-                    (
-                    {word.article
-                      ? `${convertArticleInHindiPronuncation(word.article)} ${word.hindiPronunciation}`
-                      : word.hindiPronunciation}
-                    )
-                  </span>
-
-                  {/* Success Text */}
-                  <span className="text-sm md:text-lg text-blue-600 font-medium">
-                    ✓ Correct
-                  </span>
-                </span>
-              ) : (
-                <span className="flex flex-col items-center text-base md:text-xl font-bold text-center gap-0.5 md:gap-1">
-                  {/* Word */}
-                  <span className="text-base md:text-xl leading-tight">
-                    “
-                    {word.article
-                      ? `${word.article} ${word.germanWord}`
-                      : word.germanWord}
-                    ”
-                  </span>
-
-                  {/* Pronunciation */}
-                  <span className="text-xs md:text-base text-slate-500 leading-tight">
-                    (
-                    {word.article
-                      ? `${convertArticleInHindiPronuncation(word.article)} ${word.hindiPronunciation}`
-                      : word.hindiPronunciation}
-                    )
-                  </span>
-                </span>
-              )}
+            {/* Feedback */}
+            <div className="mt-3">
+              <QuizFeedback status={status} word={word} />
             </div>
 
             {/* Input */}
-            <QuizGameInput
-              handleSubmit={handleSubmit}
-              inputRef={inputRef}
-              status={status}
-              inputStyles={inputStyles}
-              userAnswer={userAnswer}
-              setUserAnswer={setUserAnswer}
-              useMicrophone={true}
-              handleKeyDown={handleInputKeyDowns}
-            />
+            <div className="mt-3">
+              <QuizGameInput
+                handleSubmit={handleSubmit}
+                inputRef={inputRef}
+                status={status}
+                inputStyles={currentStatus.input}
+                userAnswer={userAnswer}
+                setUserAnswer={setUserAnswer}
+                useMicrophone={true}
+                handleKeyDown={handleInputKeyDowns}
+              />
+            </div>
           </div>
         </article>
+
+        {/* Footer stats */}
+        <div className="flex items-center justify-between px-0.5">
+          <p className="text-[10px] font-medium tracking-wide text-gray-400 dark:text-white/20">
+            {remainingWordsInGroup} word{remainingWordsInGroup !== 1 ? "s" : ""}{" "}
+            remaining
+          </p>
+          <p className="text-[10px] font-medium tracking-wide text-gray-400 dark:text-white/20">
+            {progressPercent}% completed
+          </p>
+        </div>
       </div>
     </main>
   );
-}
-
-function convertArticleInHindiPronuncation(article: "der" | "die" | "das") {
-  if (article === "der") return "डेर ";
-  if (article === "die") return "डी ";
-  if (article === "das") return "डास ";
 }

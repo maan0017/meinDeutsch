@@ -60,7 +60,7 @@ const QuizCard = ({
     <Link
       href={href}
       className={`
-        group relative flex items-center gap-3 p-3.5
+        group relative flex items-center gap-3 p-3.5 z-10
         bg-white dark:bg-[#1E1E1E] 
         rounded-xl border border-slate-200 dark:border-[#333] 
         hover:shadow-lg hover:-translate-y-0.5

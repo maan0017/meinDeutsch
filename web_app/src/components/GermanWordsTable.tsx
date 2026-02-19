@@ -355,7 +355,10 @@ export default function GermanWordsTable() {
 
   return (
     <div className="w-full min-h-screen bg-gray-100 dark:bg-[#0a0a0a] flex flex-col items-center">
-      <div className="w-full h-full max-w-7xl flex flex-col bg-white dark:bg-[#121212] shadow-xl border border-slate-200 dark:border-[#333333] overflow-hidden">
+      <div
+        className="w-full h-full max-w-7xl flex flex-col bg-white dark:bg-[#121212] 
+        shadow-xl border z-10 border-slate-200 dark:border-[#333333] overflow-hidden"
+      >
         {/* Top Bar / Header */}
         <div className="w-full px-4 md:px-6 py-4 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-[#333333] flex flex-col xl:flex-row xl:items-center justify-between gap-4 shrink-0 z-30">
           {/* Title Area */}

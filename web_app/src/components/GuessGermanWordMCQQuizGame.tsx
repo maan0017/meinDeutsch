@@ -213,7 +213,7 @@ export default function GuessGermanWordMCQQuizGame() {
 
   return (
     <div className="flex min-h-[60vh] w-full flex-col items-center justify-center p-4 md:p-6 bg-gray-50 dark:bg-[#121212]">
-      <div className="w-full max-w-md lg:max-w-6xl space-y-4 md:space-y-8">
+      <div className="w-full max-w-md lg:max-w-6xl space-y-4 md:space-y-8 z-10">
         {/* Header */}
         <header className="relative text-center space-y-1 md:space-y-2">
           <div className="absolute left-0 top-9">

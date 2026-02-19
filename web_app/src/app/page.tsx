@@ -118,7 +118,10 @@ export default function Home() {
                 <Link
                   key={index}
                   href={card.href}
-                  className="group relative bg-white dark:bg-[#121212] p-4 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border border-slate-200 dark:border-[#444444] hover:border-blue-300 dark:hover:border-blue-700 overflow-hidden"
+                  className="group relative bg-white dark:bg-[#121212] p-4 rounded-xl shadow-sm z-10 
+                  hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border 
+                  border-slate-200 dark:border-[#444444] hover:border-blue-300 
+                  dark:hover:border-blue-700 overflow-hidden"
                   aria-label={`Navigate to ${card.title}`}
                 >
                   {/* Subtle hover background */}

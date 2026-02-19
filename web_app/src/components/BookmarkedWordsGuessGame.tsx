@@ -133,7 +133,7 @@ export const BookmarkedWordsGuessGame = () => {
   if (bookmarkedWords.length === 0) {
     return (
       <main className="flex min-h-[50vh] w-full flex-col items-center justify-center p-4 bg-gray-50 dark:bg-[#121212]">
-        <div className="w-full max-w-lg text-center space-y-6">
+        <div className="w-full max-w-lg text-center space-y-6 z-10">
           <div className="p-8 bg-white dark:bg-[#1E1E1E] rounded-xl shadow-lg border border-gray-200 dark:border-[#333]">
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg
@@ -200,7 +200,7 @@ export const BookmarkedWordsGuessGame = () => {
 
   return (
     <main className="flex min-h-[50vh] w-full flex-col items-center justify-center p-2 md:p-4 bg-gray-50 dark:bg-[#121212] transition-colors relative">
-      <div className="w-full max-w-lg space-y-2 md:space-y-4 text-center">
+      <div className="w-full max-w-lg space-y-2 md:space-y-4 text-center z-10">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative">
           <div className="shrink-0">

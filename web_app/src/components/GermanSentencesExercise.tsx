@@ -125,7 +125,7 @@ export const PracticeGermanSentencesExercise = () => {
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center p-2 md:p-4 bg-gray-50 dark:bg-[#121212] transition-colors relative">
-      <div className="w-full max-w-2xl space-y-4 md:space-y-6 text-center">
+      <div className="w-full max-w-2xl space-y-4 md:space-y-6 text-center z-10">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative px-2">
           <div className="shrink-0">

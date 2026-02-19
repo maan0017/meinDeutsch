@@ -147,19 +147,19 @@ export default function GrammarExercisesPage() {
     status === "correct"
       ? "border-green-500 ring-1 ring-green-500"
       : status === "wrong"
-      ? "border-red-500 ring-1 ring-red-500"
-      : "border-gray-200 dark:border-[#444444]";
+        ? "border-red-500 ring-1 ring-red-500"
+        : "border-gray-200 dark:border-[#444444]";
 
   const inputStyles =
     status === "correct"
       ? "border-green-500 text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-900/20 focus:border-green-500 focus:ring-green-200 dark:focus:ring-green-800"
       : status === "wrong"
-      ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
-      : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
+        ? "border-red-500 text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+        : "border-gray-300 dark:border-[#444444] focus:border-blue-500 focus:ring-blue-200 dark:focus:ring-blue-800 hover:border-gray-400 dark:hover:border-[#888888]";
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center p-4 md:p-8 bg-slate-50 dark:bg-[#121212] transition-colors">
-      <div className="w-full max-w-lg space-y-4">
+      <div className="w-full max-w-lg space-y-4 z-10">
         {/* Header */}
         <header className="flex items-center justify-between w-full mb-4 relative">
           <div className="shrink-0">
