@@ -11,6 +11,7 @@ import { germanWords } from "@/data/germanWords";
 import { useGoBack } from "@/hooks/useGoBack";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { useSettingsStore } from "@/store/settings";
+import { convertArticleInHindiPronuncation } from "@/utils/utils";
 
 const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_mcq_current_group";
 const SAVED_STATE_ALL_IN = "gem_guess_german_word_mcq_all_in";
@@ -41,12 +42,16 @@ export default function GuessGermanWordMCQQuizGame() {
   // Load state from local storage on mount
   useEffect(() => {
     const savedGroup = localStorage.getItem(SAVED_STATE_CURRENT_GROUP);
-    if (savedGroup) setCurrentGroup(Number(savedGroup));
+    if (savedGroup) {
+      const parsedGroup = Number(savedGroup);
+      setCurrentGroup(parsedGroup >= totalGroups ? 0 : parsedGroup);
+    }
 
     const savedAllIn = localStorage.getItem(SAVED_STATE_ALL_IN);
     if (savedAllIn) setAllIn(savedAllIn === "true");
 
     setIsInitialized(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Save state to local storage when changed (only after initialization)
@@ -67,29 +72,42 @@ export default function GuessGermanWordMCQQuizGame() {
   const option3Ref = useRef<HTMLButtonElement | null>(null);
   const option4Ref = useRef<HTMLButtonElement | null>(null);
 
-  const generateOptions = (correct: GermanWord) => {
+  const generateOptions = useCallback((correct: GermanWord) => {
     // Get 3 random unique distractors
     const distractors: GermanWord[] = [];
-    while (distractors.length < 3) {
+    let attempts = 0;
+    while (distractors.length < 3 && attempts < 50) {
+      attempts++;
       const randomWord = RandomGermanWordSelector();
       if (
         randomWord.germanWord !== correct.germanWord &&
-        !distractors.find((w) => w.germanWord === randomWord.germanWord)
+        !distractors.some((w) => w.germanWord === randomWord.germanWord)
       ) {
         distractors.push(randomWord);
       }
     }
-    // Shuffle options
-    return [correct, ...distractors].sort(() => Math.random() - 0.5);
-  };
+    // Shuffle options using Fisher-Yates
+    const options = [correct, ...distractors];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    return options;
+  }, []);
 
   const handleNextWord = useCallback(
     (forceReset = false) => {
       let start, end;
 
+      let validGroup = currentGroup;
+      if (validGroup >= totalGroups) {
+        validGroup = 0;
+        setCurrentGroup(0);
+      }
+
       if (!allIn) {
-        start = currentGroup * groupSize;
-        end = Math.min((currentGroup + 1) * groupSize, germanWords.length);
+        start = validGroup * groupSize;
+        end = Math.min((validGroup + 1) * groupSize, germanWords.length);
       } else {
         start = 0;
         end = germanWords.length;
@@ -98,7 +116,7 @@ export default function GuessGermanWordMCQQuizGame() {
       // Filter available indices that haven't been seen yet
       let availableIndices = [];
       // If forceReset is true, we ignore seenIndices and consider all as available initially
-      const indicesToCheck = forceReset ? new Set() : seenIndices;
+      const indicesToCheck = forceReset ? new Set<number>() : seenIndices;
 
       for (let i = start; i < end; i++) {
         if (!indicesToCheck.has(i)) {
@@ -118,6 +136,8 @@ export default function GuessGermanWordMCQQuizGame() {
         }
       }
 
+      if (availableIndices.length === 0) return; // Safeguard
+
       // Pick random from available
       const randomIndex = Math.floor(Math.random() * availableIndices.length);
       const selectedOriginalIndex = availableIndices[randomIndex];
@@ -130,13 +150,14 @@ export default function GuessGermanWordMCQQuizGame() {
       });
 
       const newWord = germanWords[selectedOriginalIndex];
+      if (!newWord) return; // safeguard
 
       setCurrentWord(newWord);
       setOptions(generateOptions(newWord));
       setStatus("idle");
       setSelectedOptionIndex(null);
     },
-    [allIn, currentGroup, groupSize, seenIndices]
+    [allIn, currentGroup, groupSize, seenIndices, totalGroups, generateOptions]
   );
 
   // Sync state changes (Group/AllIn) -> Next Word
@@ -174,6 +195,13 @@ export default function GuessGermanWordMCQQuizGame() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA"
+      ) {
+        return;
+      }
+
       if (status !== "idle") return;
 
       const keyMap: { [key: string]: number } = {
@@ -439,19 +467,19 @@ export default function GuessGermanWordMCQQuizGame() {
                 status === "wrong" && index === selectedOptionIndex;
 
               const baseStyle =
-                "w-full p-3 md:p-4 text-left rounded-xl border-2 transition-all duration-200 text-base md:text-lg font-medium flex items-center justify-between";
+                "w-full p-3 md:p-4 text-left rounded-xl border-2 transition-all duration-200 text-base md:text-lg font-medium flex items-center justify-between z-10";
 
               const idleStyle =
-                "bg-white dark:bg-[#121212] border-gray-200 dark:border-[#444444] hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-[#444444] cursor-pointer text-gray-700 dark:text-[#E0E0E0]";
+                "bg-white dark:bg-[#121212] border-gray-200 dark:border-[#444444] hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-[#444444] cursor-pointer text-gray-700 dark:text-[#E0E0E0]  z-10";
 
               const correctStyle =
-                "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300";
+                "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300  z-10";
 
               const wrongStyle =
-                "border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300";
+                "border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300  z-10";
 
               const dimStyle =
-                "opacity-50 border-gray-200 dark:border-[#444444] text-gray-500 dark:text-[#888888]";
+                "border-gray-200 dark:grey-100 text-gray-500 dark:text-[#888888] z-10";
 
               const buttonStyle = isIdle
                 ? idleStyle
@@ -475,7 +503,7 @@ export default function GuessGermanWordMCQQuizGame() {
                   }
                   onClick={() => handleOptionClick(option, index)}
                   disabled={!isIdle}
-                  className={`${baseStyle} ${buttonStyle}`}
+                  className={`${baseStyle} ${buttonStyle} z-10`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="hidden md:flex items-center justify-center w-6 h-6 border-2 border-inherit rounded-md text-sm font-bold opacity-60">
@@ -498,10 +526,4 @@ export default function GuessGermanWordMCQQuizGame() {
       </div>
     </div>
   );
-}
-
-function convertArticleInHindiPronuncation(article: "der" | "die" | "das") {
-  if (article === "der") return "डेर ";
-  if (article === "die") return "डी ";
-  if (article === "das") return "डास ";
 }
