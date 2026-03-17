@@ -26,6 +26,14 @@ export default function Home() {
       badge: "Essential",
     },
     {
+      href: "/german-language-roadmap",
+      icon: Map,
+      title: "Roadmap",
+      description: "Learning path",
+      stat: "A1 to C2",
+      color: "amber",
+    },
+    {
       href: "/juwelen",
       icon: Gamepad2,
       title: "Quiz Games",
@@ -42,14 +50,6 @@ export default function Home() {
     //   stat: "300+ phrases",
     //   color: "emerald",
     //   badge: "Essential",
-    // },
-    // {
-    //   href: "/german-language-roadmap",
-    //   icon: Map,
-    //   title: "Roadmap",
-    //   description: "Learning path",
-    //   stat: "A1 to C2",
-    //   color: "amber",
     // },
     // {
     //   href: "/grammar-reference",
@@ -84,16 +84,14 @@ export default function Home() {
       {/* Top Panel: Branding & Text */}
       <section className="flex w-full justify-center items-center px-6 md:px-10 py-2 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-[#444444] shadow-sm z-10 transition-colors duration-300">
         <div className="w-full max-w-6xl flex justify-between items-center">
-          <div className="flex flex-col">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-[#E0E0E0] mb-3 bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-300 dark:to-white bg-clip-text">
-                mein Deutsch
-              </h1>
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-[#E0E0E0] mb-3 bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-300 dark:to-white bg-clip-text">
+              mein Deutsch
+            </h1>
 
-              <p className=" text-slate-600 dark:text-[#B0B0B0] md:pl-2 pl-0 leading-relaxed italic text-base md:text-lg mb-2 font-light">
-                &quot;My german learning project.&quot;
-              </p>
-            </div>
+            <p className="text-slate-600 dark:text-[#B0B0B0] leading-relaxed italic text-base md:text-lg mb-2 font-light">
+              &quot;My german learning project.&quot;
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggleButton />

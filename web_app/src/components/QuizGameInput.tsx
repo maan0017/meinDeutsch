@@ -158,7 +158,11 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
       >
         <span>Submit Answer</span>
         {!isTextArea && (
-          <span className="hidden md:inline-flex items-center px-2 py-0.5 text-xs font-mono bg-white/20 rounded border border-white/30">
+          <span
+            className="hidden md:inline-flex items-center px-2 py-0.5 text-xs font-mono 
+            bg-transparent text-gray-700 border border-gray-300 
+            dark:text-gray-300 dark:border-gray-600 rounded"
+          >
             ENTER
           </span>
         )}

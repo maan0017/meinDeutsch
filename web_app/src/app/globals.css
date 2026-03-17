@@ -1,16 +1,76 @@
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
 
+/* =============================================================================
+   Custom font utilities — required in Tailwind v4.
+   In v4, tailwind.config.ts fontFamily extensions are ignored.
+   All font-family utilities must be declared here with @utility.
+   ============================================================================= */
+
+/* --- Custom / Google fonts (resolved via CSS variables from FontProvider) --- */
+@utility font-literata {
+  font-family: var(--font-literata), Georgia, serif;
+}
+@utility font-fell {
+  font-family: var(--font-fell), Georgia, serif;
+}
+@utility font-courier {
+  font-family: var(--font-courier), "Courier New", Courier, monospace;
+}
+@utility font-roboto {
+  font-family: var(--font-roboto), Arial, sans-serif;
+}
+
+/* --- System generic families --- */
+@utility font-system-sans {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+@utility font-system-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+@utility font-system-mono {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+/* --- Named system fonts --- */
+@utility font-georgia {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+@utility font-times {
+  font-family: "Times New Roman", Times, serif;
+}
+@utility font-arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+@utility font-trebuchet {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+@utility font-verdana {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* =============================================================================
+   CSS custom properties / theme
+   ============================================================================= */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #3b82f6; /* Blue-500 */
-  --secondary: #64748b; /* Slate-500 */
+  --primary: #3b82f6;
+  --secondary: #64748b;
 }
 
 .dark {
   --background: #121212;
   --foreground: #e0e0e0;
-  --primary: #3b82f6; /* Keep Blue for semantic meaning, or adjust if needed */
+  --primary: #3b82f6;
   --secondary: #b0b0b0;
 }

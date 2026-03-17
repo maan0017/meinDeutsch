@@ -83,7 +83,7 @@ export const ThemeToggleButton = () => {
       <button
         ref={buttonRef}
         type="button"
-        title="Toggle Theme ( t )"
+        title="Toggle Theme ( alt + t )"
         onClick={handleLeftClick}
         onContextMenu={handleRightClick}
         className="p-2 rounded-full border border-slate-200 bg-gray-50 text-slate-500 hover:bg-slate-200 dark:border-[#333] dark:bg-[#1a1a1a] dark:text-[#B0B0B0] dark:hover:bg-[#262626] transition-all cursor-pointer"

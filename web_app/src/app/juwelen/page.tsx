@@ -13,6 +13,8 @@ import {
   BookMinus,
   BookUserIcon,
   BookMarked,
+  Group,
+  Calendar,
 } from "lucide-react";
 
 type ColorType = "blue" | "emerald" | "purple" | "indigo";
@@ -150,6 +152,20 @@ export default function QuizGamesHomePage() {
       description: "Infinite grammar drills without hints",
       color: "indigo",
       icon: BrainCircuit,
+    },
+    {
+      href: "/juwel/dativs-memory-game",
+      title: "Dativ Memory Game",
+      description: "Practice and memorize Dativs",
+      color: "indigo",
+      icon: Group,
+    },
+    {
+      href: "/juwel/calendar-memory-game",
+      title: "Calendar Memory Game",
+      description: "Practice and memorize calendar",
+      color: "emerald",
+      icon: Calendar,
     },
     {
       href: "/juwel/grammar-exercises",

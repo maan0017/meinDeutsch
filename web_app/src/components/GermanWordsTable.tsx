@@ -356,7 +356,7 @@ export default function GermanWordsTable() {
   return (
     <div className="w-full min-h-screen bg-gray-100 dark:bg-[#0a0a0a] flex flex-col items-center">
       <div
-        className="w-full h-full max-w-7xl flex flex-col bg-white dark:bg-[#121212] 
+        className="w-full h-full flex flex-col bg-white dark:bg-[#121212] 
         shadow-xl border z-10 border-slate-200 dark:border-[#333333] overflow-hidden"
       >
         {/* Top Bar / Header */}
@@ -364,6 +364,7 @@ export default function GermanWordsTable() {
           {/* Title Area */}
           <div className="flex items-center gap-3">
             <button
+              type="button"
               onClick={() => router.back()}
               className="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-[#2C2C2C] text-slate-500 dark:text-[#888888] transition-colors"
               title="Back to Home (Backspace)"
@@ -398,7 +399,7 @@ export default function GermanWordsTable() {
           {/* Search & Actions */}
           <div className="flex flex-col md:flex-row md:items-center gap-3 w-full xl:w-auto">
             <div className="flex flex-1 md:flex-initial gap-3 w-full xl:w-auto overflow-x-auto pb-1 md:pb-0 hide-scrollbar">
-              <div className="min-w-[200px] flex-1 md:w-64">
+              <div className="min-w-50 flex-1 md:w-64">
                 <SearchBar
                   placeholder="Search German term..."
                   inputRef={germanSearchBarRef}
@@ -410,7 +411,7 @@ export default function GermanWordsTable() {
                   onChange={(value: string) => setFilterGerman(value)}
                 />
               </div>
-              <div className="min-w-[200px] flex-1 md:w-64">
+              <div className="min-w-50 flex-1 md:w-64">
                 <SearchBar
                   placeholder="Search English meaning..."
                   inputRef={englishSearchBarRef}
@@ -426,8 +427,9 @@ export default function GermanWordsTable() {
 
             <div className="flex items-center gap-2">
               <button
+                type="button"
                 onClick={() => setIsSorted(!isSorted)}
-                className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all shadow-sm min-w-[110px]"
+                className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 dark:text-[#E0E0E0] bg-white dark:bg-[#1E1E1E] border border-slate-200 dark:border-[#444444] rounded-lg hover:bg-slate-50 dark:hover:bg-[#2C2C2C] active:translate-y-px transition-all shadow-sm min-w-27.5"
                 title={
                   isSorted
                     ? "Sorted Alphabetically (Click to unsort)"
@@ -460,6 +462,7 @@ export default function GermanWordsTable() {
               </button>
 
               <button
+                type="button"
                 onClick={() =>
                   import("@/helper/ExportPdf").then((mod) =>
                     mod.exportPdf(filteredWords)

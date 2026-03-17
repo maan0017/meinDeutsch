@@ -8,8 +8,8 @@ import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { germanSentences } from "@/data/germanSentences";
 import { RandomGermanSentenceSelector } from "@/helper/RandomGermanSentenceSelector";
 
-const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_sentence_current_group";
-const SAVED_STATE_ALL_IN = "gem_guess_german_sentence_all_in";
+// const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_sentence_current_group";
+// const SAVED_STATE_ALL_IN = "gem_guess_german_sentence_all_in";
 
 export const PracticeGermanSentencesExercise = () => {
   const { playSound } = useSoundEffects();
@@ -25,8 +25,8 @@ export const PracticeGermanSentencesExercise = () => {
 
   const handleNextSentence = useCallback(
     (forceReset = false) => {
-      let start = 0;
-      let end = germanSentences.length;
+      const start = 0;
+      const end = germanSentences.length;
 
       // Filter available indices that haven't been seen yet
       let availableIndices = [];
@@ -105,7 +105,7 @@ export const PracticeGermanSentencesExercise = () => {
     }
 
     return arr;
-  }, [currentSentence.germanSentence]);
+  }, [currentSentence]);
 
   if (!currentSentence) return null;
 
@@ -216,7 +216,7 @@ export const PracticeGermanSentencesExercise = () => {
               // Force cast to RefObject<HTMLInputElement | null> if needed by strict types,
               // but we updated the type in QuizGameInput to accept specific types or Union.
               // However, inputRef here is specifically TextArea.
-              inputRef={inputRef as any}
+              inputRef={inputRef}
               status={status}
               inputStyles={`${inputStyles} text-left`}
               userAnswer={userAnswer}

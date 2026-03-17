@@ -48,22 +48,30 @@ export default function GuessGermanWordQuizGame() {
   if (!word) return null;
 
   const currentGroupStart = allIn ? 0 : currentGroup * groupSize;
+
   const currentGroupEnd = allIn
     ? germanWords.length
     : Math.min((currentGroup + 1) * groupSize, germanWords.length);
-  const totalWordsInCurrentGroup = currentGroupEnd - currentGroupStart;
-  const seenWordsInCurrentGroupCount = Array.from(seenIndices).filter(
-    (index) => index >= currentGroupStart && index < currentGroupEnd
-  ).length;
-  const remainingWordsInGroup =
-    totalWordsInCurrentGroup - seenWordsInCurrentGroupCount;
 
-  const progressPercent =
-    totalWordsInCurrentGroup > 0
-      ? Math.round(
-          (seenWordsInCurrentGroupCount / totalWordsInCurrentGroup) * 100
-        )
-      : 0;
+  const totalWordsInCurrentGroup = currentGroupEnd - currentGroupStart;
+
+  let count = 0;
+  for (const i of seenIndices) {
+    if (i >= currentGroupStart && i < currentGroupEnd) count++;
+  }
+
+  // safer version (handles negatives)
+  const remainingWordsInGroup = Math.max(
+    0,
+    Math.min(
+      totalWordsInCurrentGroup - (count - 1),
+      totalWordsInCurrentGroup - 1
+    )
+  );
+
+  const progressPercent = totalWordsInCurrentGroup
+    ? Math.round(((count - 1) * 100) / totalWordsInCurrentGroup)
+    : 0;
 
   const statusConfig = {
     correct: {

@@ -1,86 +1,104 @@
 "use client";
 
 import { GetGermanWordsLenght } from "@/helper/RandomGermanWordSelector";
-
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export type FontFamily =
+  | "Literata"
+  | "IM_Fell_English"
+  | "Courier_Prime"
+  | "Roboto"
+  | "system-sans"
+  | "system-serif"
+  | "system-mono"
+  | "Georgia"
+  | "Times_New_Roman"
+  | "Arial"
+  | "Trebuchet_MS"
+  | "Verdana";
+
+export type SoundEffects = "ON" | "OFF";
 
 interface SettingsState {
-  soundEffects: "ON" | "OFF";
+  soundEffects: SoundEffects;
   groupSize: number;
+  fontFamily: FontFamily;
   toggleSoundEffects: () => void;
   changeGroupSize: (size: number) => void;
+  changeFontFamily: (font: FontFamily) => void;
   resetSettings: () => void;
 }
 
-const DefaultSettings = {
-  soundEffects: "ON" as "ON" | "OFF",
+// ---------------------------------------------------------------------------
+// Defaults
+// ---------------------------------------------------------------------------
+
+const DEFAULT_SETTINGS = {
+  soundEffects: "ON" as SoundEffects,
   groupSize: 20,
+  fontFamily: "Literata" as FontFamily,
 };
 
-const loadSavedSettings = (): {
-  soundEffects: "ON" | "OFF";
-  groupSize: number;
-} => {
-  if (typeof window === "undefined") return DefaultSettings;
+// ---------------------------------------------------------------------------
+// Store
+//
+// Using zustand/middleware `persist` instead of manual localStorage calls.
+// `persist` automatically:
+//   1. Reads from localStorage after hydration (fixes the refresh bug)
+//   2. Writes on every state change
+//   3. Handles SSR safely — the store starts with DEFAULT_SETTINGS on the
+//      server, then rehydrates from localStorage on the client after mount.
+// ---------------------------------------------------------------------------
 
-  try {
-    const saved = localStorage.getItem("settings");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      return { ...DefaultSettings, ...parsed };
+export const useSettingsStore = create<SettingsState>()(
+  persist(
+    (set, get) => ({
+      ...DEFAULT_SETTINGS,
+
+      toggleSoundEffects: () => {
+        const next: SoundEffects = get().soundEffects === "ON" ? "OFF" : "ON";
+
+        if (next === "ON") {
+          try {
+            const audio = new Audio("/sounds/correct.opus");
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+          } catch {
+            // Silently ignore – audio is non-critical
+          }
+        }
+
+        set({ soundEffects: next });
+      },
+
+      changeGroupSize: (size: number) => {
+        const max = GetGermanWordsLenght();
+        const clamped = Math.min(Math.max(size, 1), max);
+        set({ groupSize: clamped });
+      },
+
+      changeFontFamily: (font: FontFamily) => {
+        set({ fontFamily: font });
+      },
+
+      resetSettings: () => {
+        set(DEFAULT_SETTINGS);
+      },
+    }),
+    {
+      name: "settings", // localStorage key — same as before, no data loss
+      storage: createJSONStorage(() => localStorage),
+      // Only persist these three fields, not the action functions
+      partialize: (state) => ({
+        soundEffects: state.soundEffects,
+        groupSize: state.groupSize,
+        fontFamily: state.fontFamily,
+      }),
     }
-  } catch (error) {
-    console.error("Failed to load settings:", error);
-  }
-
-  return DefaultSettings;
-};
-
-const saveSettings = (settings: {
-  soundEffects: "ON" | "OFF";
-  groupSize: number;
-}) => {
-  if (typeof window === "undefined") return;
-
-  try {
-    localStorage.setItem("settings", JSON.stringify(settings));
-  } catch (error) {
-    console.error("Failed to save settings:", error);
-  }
-};
-
-export const useSettingsStore = create<SettingsState>((set, get) => {
-  // Load saved settings on initialization
-  const initialSettings = loadSavedSettings();
-  return {
-    soundEffects: initialSettings.soundEffects,
-    groupSize: initialSettings.groupSize,
-    toggleSoundEffects: () => {
-      const newValue = get().soundEffects === "ON" ? "OFF" : "ON";
-      if (newValue === "ON") {
-        try {
-          const audio = new Audio("/sounds/correct.opus");
-          audio.currentTime = 0;
-          audio.play().catch(() => {});
-        } catch {}
-      }
-      set({ soundEffects: newValue });
-      saveSettings({ soundEffects: newValue, groupSize: get().groupSize });
-    },
-    changeGroupSize: (size: number) => {
-      let newValue = size;
-      const maxLen = GetGermanWordsLenght();
-
-      // Enforce bounds
-      if (newValue < 1) newValue = 1;
-      if (newValue > maxLen) newValue = maxLen;
-
-      set({ groupSize: newValue });
-      saveSettings({ soundEffects: get().soundEffects, groupSize: newValue });
-    },
-    resetSettings: () => {
-      set(DefaultSettings);
-      saveSettings(DefaultSettings);
-    },
-  };
-});
+  )
+);
