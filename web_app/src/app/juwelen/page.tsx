@@ -161,6 +161,13 @@ export default function QuizGamesHomePage() {
       icon: Group,
     },
     {
+      href: "/juwel/modal-verbs-memory-game",
+      title: "Modal Verbs Memory Game",
+      description: "Practice and memorize modal verbs",
+      color: "indigo",
+      icon: Group,
+    },
+    {
       href: "/juwel/calendar-memory-game",
       title: "Calendar Memory Game",
       description: "Practice and memorize calendar",

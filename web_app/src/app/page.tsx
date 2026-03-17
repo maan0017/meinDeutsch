@@ -38,7 +38,7 @@ export default function Home() {
       icon: Gamepad2,
       title: "Quiz Games",
       description: "Practice German with games.",
-      stat: "8 game modes",
+      stat: "10+ game modes",
       color: "indigo",
       badge: "Practice",
     },
@@ -86,11 +86,11 @@ export default function Home() {
         <div className="w-full max-w-6xl flex justify-between items-center">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-[#E0E0E0] mb-3 bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-300 dark:to-white bg-clip-text">
-              mein Deutsch
+              Mein Deutsch
             </h1>
 
             <p className="text-slate-600 dark:text-[#B0B0B0] leading-relaxed italic text-base md:text-lg mb-2 font-light">
-              &quot;My german learning project.&quot;
+              &quot;german language learning project for practice.&quot;
             </p>
           </div>
           <div className="flex items-center gap-3">

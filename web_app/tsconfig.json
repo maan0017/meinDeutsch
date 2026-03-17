@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "src/app/juwel/modal-verbs-memory-game/page.tss"
   ],
   "exclude": ["node_modules"]
 }

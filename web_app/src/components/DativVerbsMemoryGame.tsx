@@ -14,6 +14,13 @@ type DativItem = {
 const DATIV_WORDS: DativItem[] = [
   { word: "ähneln", en: "to resemble", hi: "के समान होना", type: "Verb" },
   { word: "antworten", en: "to answer", hi: "जवाब देना", type: "Verb" },
+  {
+    word: "aus",
+    en: "from (origin/material)",
+    hi: "से (मूल/स्रोत)",
+    type: "Preposition",
+  },
+  { word: "außer", en: "except for", hi: "के अलावा", type: "Preposition" },
   { word: "befehlen", en: "to command/order", hi: "आदेश देना", type: "Verb" },
   {
     word: "begegnen",
@@ -21,6 +28,7 @@ const DATIV_WORDS: DativItem[] = [
     hi: "मिलना/सामना होना",
     type: "Verb",
   },
+  { word: "bei", en: "at/with", hi: "के पास/साथ", type: "Preposition" },
   { word: "danken", en: "to thank", hi: "धन्यवाद देना", type: "Verb" },
   { word: "drohen", en: "to threaten", hi: "धमकाना", type: "Verb" },
   {
@@ -49,6 +57,7 @@ const DATIV_WORDS: DativItem[] = [
     type: "Verb",
   },
   { word: "gefallen", en: "to please/like", hi: "पसंद आना", type: "Verb" },
+  { word: "gegenüber", en: "opposite", hi: "के सामने", type: "Preposition" },
   { word: "gehören", en: "to belong", hi: "का होना (अधिकार)", type: "Verb" },
   { word: "gehorchen", en: "to obey", hi: "आज्ञा मानना", type: "Verb" },
   { word: "gelingen", en: "to succeed", hi: "सफल होना", type: "Verb" },
@@ -56,6 +65,8 @@ const DATIV_WORDS: DativItem[] = [
   { word: "gleichen", en: "to equal/resemble", hi: "समान होना", type: "Verb" },
   { word: "gratulieren", en: "to congratulate", hi: "बधाई देना", type: "Verb" },
   { word: "helfen", en: "to help", hi: "मदद करना", type: "Verb" },
+  { word: "mit", en: "with", hi: "के साथ", type: "Preposition" },
+  { word: "nach", en: "to/after", hi: "की ओर/के बाद", type: "Preposition" },
   { word: "nützen", en: "to be of use", hi: "उपयोगी होना", type: "Verb" },
   {
     word: "passen",
@@ -79,13 +90,16 @@ const DATIV_WORDS: DativItem[] = [
   { word: "schenken", en: "to gift", hi: "उपहार देना", type: "Verb" },
   { word: "schicken", en: "to send", hi: "भेजना", type: "Verb" },
   { word: "schmecken", en: "to taste", hi: "स्वाद आना", type: "Verb" },
+  { word: "seit", en: "since/for", hi: "से (समय)", type: "Preposition" },
   { word: "senden", en: "to send", hi: "भेजना", type: "Verb" },
   { word: "telefonieren", en: "to telephone", hi: "फोन करना", type: "Verb" },
   { word: "trauen", en: "to trust/dare", hi: "भरोसा करना", type: "Verb" },
   { word: "vertrauen", en: "to trust", hi: "विश्वास करना", type: "Verb" },
   { word: "verzeihen", en: "to forgive", hi: "माफ करना", type: "Verb" },
+  { word: "von", en: "from/by", hi: "से/द्वारा", type: "Preposition" },
   { word: "wehtun", en: "to hurt", hi: "दर्द होना", type: "Verb" },
   { word: "wünschen", en: "to wish", hi: "कामना करना", type: "Verb" },
+  { word: "zu", en: "to", hi: "को/की ओर", type: "Preposition" },
   { word: "zuhören", en: "to listen to", hi: "ध्यान से सुनना", type: "Verb" },
   { word: "zustimmen", en: "to agree", hi: "सहमत होना", type: "Verb" },
 ];
