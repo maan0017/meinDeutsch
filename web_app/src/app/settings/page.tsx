@@ -19,7 +19,7 @@ const FONT_OPTIONS: {
   {
     group: "Custom & Google Fonts",
     options: [
-      { value: "Literata", label: "Literata" },
+      { value: "Literata", label: "Literata (Default)" },
       { value: "IM_Fell_English", label: "IM Fell English" },
       { value: "Courier_Prime", label: "Courier Prime" },
       { value: "Roboto", label: "Roboto" },
