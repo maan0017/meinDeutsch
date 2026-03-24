@@ -3,6 +3,7 @@
 import { useState, useRef, ChangeEvent, KeyboardEvent, useEffect } from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import Link from "next/link";
+import MemoryGameControls from "@/components/MemoryGameControls";
 
 type CalendarItem = {
   word: string;
@@ -61,7 +62,18 @@ export default function CalendarMemoryGameComp() {
   const [showAll, setShowAll] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { playKeyboardSound, playSound } = useSoundEffects();
+  const { playSound } = useSoundEffects();
+
+  const resetFunction = () => {
+    setGuessed(new Set());
+    setInput("");
+    setFlash(null);
+    setShake(false);
+    setShowAll(false);
+    inputRef.current?.focus();
+  };
+
+  const toggleShow = () => setShowAll(!showAll);
 
   // Optionally focus back gracefully to maintain game flow
   useEffect(() => {
@@ -216,61 +228,17 @@ export default function CalendarMemoryGameComp() {
           German Calendar Word Memory Game
         </p>
 
-        <div
-          className={`flex gap-2.5 mb-3 items-center flex-wrap justify-center ${shake ? "animate-shake" : ""}`}
-        >
-          <input
-            ref={inputRef}
-            className={`font-courier bg-white dark:bg-[#15151c] border border-slate-300 
-              dark:border-[#3a3a4a] rounded-md text-slate-900 dark:text-[#e8e2d6] z-10 
-              text-[0.95rem] py-2 px-4 w-[240px] outline-none transition-colors duration-200 
-              focus:border-green-500 dark:focus:border-[#7ec87e]`}
-            value={input}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setInput(e.target.value)
-            }
-            onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
-              playKeyboardSound(e.key);
-              e.key === "Enter" && handleGuess();
-            }}
-            placeholder="Type a word…"
-            autoFocus
-          />
-          <button
-            className="font-courier bg-green-100 dark:bg-[#1e3a1e] border z-10 
-            border-green-500 dark:border-[#3d6b3d] rounded-md text-green-700 
-            dark:text-[#7ec87e] text-[0.9rem] py-2 px-[1.2rem] cursor-pointer 
-            transition-colors duration-200 hover:bg-green-200 dark:hover:bg-[#2a4a2a]"
-            onClick={handleGuess}
-          >
-            Enter
-          </button>
-          <button
-            className="font-courier bg-slate-100 dark:bg-[#2a2a35] border z-10  
-            border-slate-300 dark:border-[#3a3a4a] rounded-md text-slate-700 
-            dark:text-[#c8c0b0] text-[0.9rem] py-2 px-[1.2rem] cursor-pointer 
-            transition-colors duration-200 hover:bg-slate-200 dark:hover:bg-[#3a3a4a]"
-            onClick={() => {
-              setGuessed(new Set());
-              setInput("");
-              setFlash(null);
-              setShake(false);
-              setShowAll(false);
-              inputRef.current?.focus();
-            }}
-          >
-            Reset
-          </button>
-          <button
-            className="font-courier bg-blue-50 dark:bg-[#1c2738] border z-10 
-            border-blue-400 dark:border-[#3d5b8b] rounded-md text-blue-700 
-            dark:text-[#7ba9e8] text-[0.9rem] py-2 px-[1.2rem] cursor-pointer 
-            transition-colors duration-200 hover:bg-blue-100 dark:hover:bg-[#26354b] ml-1"
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? "Hide All" : "Show All"}
-          </button>
-        </div>
+        <MemoryGameControls
+          input={input}
+          setInput={setInput}
+          handleGuess={handleGuess}
+          resetFunction={resetFunction}
+          showAll={showAll}
+          toggleShow={toggleShow}
+          shake={shake}
+          inputRef={inputRef}
+          placeholder="Type a word…"
+        />
 
         <p className="font-courier text-[0.75rem] text-slate-600 dark:text-[#555560] mb-1">
           <span className="text-green-600 dark:text-[#7ec87e]">

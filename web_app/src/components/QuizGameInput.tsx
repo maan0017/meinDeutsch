@@ -42,6 +42,7 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
 
   useEffect(() => {
     if (userAnswer.trim() === "" || userAnswer.split(" ").length > 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTrigger((prev) => prev + 1);
     }
   }, [userAnswer]);
@@ -74,21 +75,10 @@ export const QuizGameInput: FC<QuizGameInputProps> = ({
             placeholder={placeholder}
             disabled={status !== "idle"}
             rows={1}
-            className={`w-full px-3 py-2 pr-10 md:px-4 md:py-3 ${baseBg} 
-            rounded-lg md:rounded-xl border-2 shadow-sm
-            text-left leading-snug
-            text-sm md:text-lg font-medium
-            placeholder:text-gray-400 dark:placeholder:text-zinc-500
-            focus:outline-none focus:ring-2 focus:ring-blue-500
-            disabled:opacity-60 disabled:cursor-not-allowed
-            transition-all duration-200
-            resize-none overflow-hidden
-            ${inputStyles}`}
-            style={{
-              minHeight: "40px",
-              maxHeight: "200px",
-              height: "auto",
-            }}
+            className={`w-full px-3 py-2 pr-10 md:px-4 md:py-3 ${baseBg} rounded-lg md:rounded-xl border-2 shadow-sm 
+              text-left leading-snug text-sm md:text-lg font-medium placeholder:text-gray-400 dark:placeholder:text-zinc-500 
+              focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed 
+              transition-all duration-200 resize-none overflow-hidden min-h-10 max-h-50 h-auto ${inputStyles}`}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
               target.style.height = "40px";

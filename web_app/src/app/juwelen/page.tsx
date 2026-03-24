@@ -154,6 +154,13 @@ export default function QuizGamesHomePage() {
       icon: BrainCircuit,
     },
     {
+      href: "/juwel/grammar-cases-memory-game",
+      title: "Grammar Cases Memory Game",
+      description: "Practice and memorize grammar cases",
+      color: "purple",
+      icon: BrainCircuit,
+    },
+    {
       href: "/juwel/dativs-memory-game",
       title: "Dativ Memory Game",
       description: "Practice and memorize Dativs",

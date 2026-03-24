@@ -24,6 +24,7 @@ export default function GuessGermanNumberGame() {
   useEffect(() => {
     const savedReversed = localStorage.getItem(SAVED_STATE_IS_REVERSED);
     if (savedReversed) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsGameReversed(savedReversed === "true");
     }
     setIsInitialized(true);
@@ -46,6 +47,7 @@ export default function GuessGermanNumberGame() {
   // Initialize word on mount after hydration
   useEffect(() => {
     if (isInitialized) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       handleNextNumber();
     }
   }, [handleNextNumber, isInitialized]);

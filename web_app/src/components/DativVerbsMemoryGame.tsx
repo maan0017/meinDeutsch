@@ -1,8 +1,16 @@
 "use client";
 
-import { useState, useRef, ChangeEvent, KeyboardEvent } from "react";
+import {
+  useState,
+  useRef,
+  ChangeEvent,
+  KeyboardEvent,
+  useEffect,
+  useCallback,
+} from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import Link from "next/link";
+import MemoryGameControls from "@/components/MemoryGameControls";
 
 type DativItem = {
   word: string;
@@ -114,7 +122,7 @@ export function DativVerbsMemoryGameComp() {
   const [showAll, setShowAll] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { playKeyboardSound, playSound } = useSoundEffects();
+  const { playSound } = useSoundEffects();
 
   const rows: DativItem[][] = [];
   for (let i = 0; i < DATIV_WORDS.length; i += 10)
@@ -140,11 +148,26 @@ export function DativVerbsMemoryGameComp() {
 
   const progress = Math.round((guessed.size / DATIV_WORDS.length) * 100);
 
+  const toggleShow = useCallback(
+    () => setShowAll(!showAll),
+    [showAll, setShowAll]
+  );
+
+  const resetFunction = useCallback(() => {
+    setGuessed(new Set());
+    setInput("");
+    setFlash(null);
+    setShake(false);
+    setShowAll(false);
+    inputRef.current?.focus();
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0e0e12] text-slate-900 dark:text-[#e8e2d6] py-8 px-4 flex flex-col items-center relative">
       <Link
         href="/juwelen"
-        className="absolute top-4 left-4 p-1.5 md:p-2 rounded-full hover:bg-gray-200 dark:hover:bg-[#2a2a35] text-slate-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center z-50"
+        className="absolute top-4 left-4 p-1.5 md:p-2 rounded-full hover:bg-gray-200 dark:hover:bg-[#2a2a35] 
+        text-slate-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center z-50"
         title="Back to Menu"
       >
         <svg
@@ -175,61 +198,18 @@ export function DativVerbsMemoryGameComp() {
         German Dative Word Memory Game
       </p>
 
-      <div
-        className={`flex gap-2.5 mb-6 items-center flex-wrap justify-center ${shake ? "animate-shake" : ""}`}
-      >
-        <input
-          ref={inputRef}
-          className={`font-courier bg-white dark:bg-[#15151c] border border-slate-300 
-            dark:border-[#3a3a4a] rounded-md text-slate-900 dark:text-[#e8e2d6] z-10 
-            text-[1rem] py-[0.6rem] px-4 w-[260px] outline-none transition-colors duration-200 
-            focus:border-green-500 dark:focus:border-[#7ec87e]`}
-          value={input}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setInput(e.target.value)
-          }
-          onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
-            playKeyboardSound(e.key);
-            e.key === "Enter" && handleGuess();
-          }}
-          placeholder="Type a dativ word…"
-          autoFocus
-        />
-        <button
-          className={`font-courier bg-green-100 dark:bg-[#1e3a1e] border z-10 
-          border-green-500 dark:border-[#3d6b3d] rounded-md text-green-700 
-          dark:text-[#7ec87e] text-[0.95rem] py-[0.6rem] px-[1.4rem] cursor-pointer 
-          transition-colors duration-200 hover:bg-green-200 dark:hover:bg-[#2a4a2a]`}
-          onClick={handleGuess}
-        >
-          Enter
-        </button>
-        <button
-          className={`font-courier bg-slate-100 dark:bg-[#2a2a35] border z-10  
-          border-slate-300 dark:border-[#3a3a4a] rounded-md text-slate-700 
-          dark:text-[#c8c0b0] text-[0.95rem] py-[0.6rem] px-[1.4rem] cursor-pointer 
-          transition-colors duration-200 hover:bg-slate-200 dark:hover:bg-[#3a3a4a]`}
-          onClick={() => {
-            setGuessed(new Set());
-            setInput("");
-            setFlash(null);
-            setShake(false);
-            setShowAll(false);
-            inputRef.current?.focus();
-          }}
-        >
-          Reset
-        </button>
-        <button
-          className={`font-courier bg-blue-50 dark:bg-[#1c2738] border z-10 
-        border-blue-400 dark:border-[#3d5b8b] rounded-md text-blue-700 
-        dark:text-[#7ba9e8] text-[0.95rem] py-[0.6rem] px-[1.4rem] cursor-pointer 
-        transition-colors duration-200 hover:bg-blue-100 dark:hover:bg-[#26354b] ml-1`}
-          onClick={() => setShowAll(!showAll)}
-        >
-          {showAll ? "Hide All" : "Show All"}
-        </button>
-      </div>
+      <MemoryGameControls
+        input={input}
+        setInput={setInput}
+        handleGuess={handleGuess}
+        resetFunction={resetFunction}
+        showAll={showAll}
+        toggleShow={toggleShow}
+        shake={shake}
+        inputRef={inputRef}
+        placeholder="Type a dativ word…"
+        containerClassName="mb-6"
+      />
 
       <p
         className={`font-courier text-[0.8rem] text-slate-600 dark:text-[#555560] mb-1.5`}
@@ -240,14 +220,14 @@ export function DativVerbsMemoryGameComp() {
         / {DATIV_WORDS.length} guessed
       </p>
 
-      <div className="h-1 bg-slate-200 dark:bg-[#2a2a35] rounded-sm w-full max-w-[700px] overflow-hidden my-2 mb-8">
+      <div className="h-1 bg-slate-200 dark:bg-[#2a2a35] rounded-sm w-full max-w-175 overflow-hidden my-2 mb-8">
         <div
           className="h-full bg-linear-to-r from-green-500 to-green-400 dark:from-[#3d6b3d] dark:to-[#7ec87e] rounded-sm transition-all duration-400 ease-in-out"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <div className="max-w-[800px] w-full pb-8 relative">
+      <div className="max-w-200 w-full pb-8 relative">
         {guessed.size === DATIV_WORDS.length && (
           <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
             <div className="bg-white/90 dark:bg-[#15151c]/90 p-8 rounded-2xl shadow-2xl backdrop-blur-sm animate-popIn border border-green-200 dark:border-green-800">
@@ -301,7 +281,7 @@ export function DativVerbsMemoryGameComp() {
                       className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2
                     hidden group-hover:flex flex-col bg-white dark:bg-[#2a2a35] 
                     text-black dark:text-[#e8e2d6] text-xs rounded-md shadow-lg py-2 px-3 
-                    z-50 w-max min-w-[120px] pointer-events-none before:content-[''] 
+                    z-50 w-max min-w-30 pointer-events-none before:content-[''] 
                     before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 
                     before:border-4 before:border-transparent before:border-t-slate-800 
                     dark:before:border-t-[#2a2a35]"

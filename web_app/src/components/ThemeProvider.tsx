@@ -11,14 +11,13 @@ function ThemeEvents() {
   const { setTheme, resolvedTheme } = useTheme();
   useEffect(() => {
     function KeyJobs(event: KeyboardEvent) {
-      const target = event.target as HTMLElement;
-
+      // const target = event.target as HTMLElement;
       // Ignore typing in input, textarea, or editable elements
-      if (
-        ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
-        target.isContentEditable
-      )
-        return;
+      // if (
+      //   ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
+      //   target.isContentEditable
+      // )
+      //   return;
 
       if (
         !event.shiftKey &&
