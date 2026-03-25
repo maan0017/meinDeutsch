@@ -1,0 +1,2858 @@
+[
+  {
+    "germanWord": "aber",
+    "hindiPronunciation": "आ-बर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["but", "however"],
+    "hindiMeaning": ["लेकिन", "परन्तु"],
+    "description": "A fundamental conjunction used to connect two contrasting clauses or ideas.",
+    "tags": ["conjunction", "contrast"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["jedoch", "allein"],
+    "antonyms": ["und"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin müde, aber ich muss arbeiten.",
+        "english": "I am tired, but I have to work.",
+        "hindi": "मैं थका हुआ हूँ, लेकिन मुझे काम करना है।"
+      },
+      {
+        "german": "Das Auto ist alt, aber schnell.",
+        "english": "The car is old but fast.",
+        "hindi": "कार पुरानी है, लेकिन तेज़ है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "but",
+    "hindiLiteralTranslation": "लेकिन",
+    "usageContext": "Used daily in almost any conversation to introduce a contradiction or exception.",
+    "grammarNotes": "It is a coordinating conjunction (position 0), meaning it does not affect the word order of the following clause.",
+    "relatedWords": ["oder", "sondern", "und"]
+  },
+  {
+    "germanWord": "acht",
+    "hindiPronunciation": "आख़्त",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["eight"],
+    "hindiMeaning": ["आठ"],
+    "description": "The cardinal number following seven and preceding nine.",
+    "tags": ["number", "counting"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich habe acht Äpfel gekauft.",
+        "english": "I bought eight apples.",
+        "hindi": "मैंने आठ सेब खरीदे।"
+      },
+      {
+        "german": "Es ist acht Uhr morgens.",
+        "english": "It is eight o'clock in the morning.",
+        "hindi": "सुबह के आठ बजे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "eight",
+    "hindiLiteralTranslation": "आठ",
+    "usageContext": "Used for counting, time, ages, and quantities.",
+    "grammarNotes": "As a number, it remains indeclinable in most basic contexts.",
+    "relatedWords": ["achtzehn", "achtzig", "der Achte"]
+  },
+  {
+    "germanWord": "alle",
+    "hindiPronunciation": "आ-ले",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["all", "everyone", "empty/gone"],
+    "hindiMeaning": ["सब", "सभी", "खत्म"],
+    "description": "Used to refer to the whole quantity or every member of a group; can also colloquially mean something is finished/gone.",
+    "tags": ["pronoun", "quantity"],
+    "priority": 3,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["jeder", "ganz"],
+    "antonyms": ["keiner", "niemand"],
+    "exampleSentences": [
+      {
+        "german": "Alle Kinder spielen im Garten.",
+        "english": "All children are playing in the garden.",
+        "hindi": "सभी बच्चे बगीचे में खेल रहे हैं।"
+      },
+      {
+        "german": "Die Milch ist alle.",
+        "english": "The milk is all gone.",
+        "hindi": "दूध खत्म हो गया है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "all",
+    "hindiLiteralTranslation": "सब",
+    "usageContext": "Used for people (everyone) or as a determiner for plural nouns. Colloquially used to mean 'finished'.",
+    "grammarNotes": "When used as a determiner, it follows the declension of the definite article.",
+    "relatedWords": ["alles", "allein", "allgemein"]
+  },
+  {
+    "germanWord": "alles",
+    "hindiPronunciation": "आ-लेस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["everything", "all"],
+    "hindiMeaning": ["सब कुछ"],
+    "description": "An indefinite pronoun referring to every thing or the whole situation.",
+    "tags": ["pronoun", "indefinite"],
+    "priority": 3,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gesamt"],
+    "antonyms": ["nichts"],
+    "exampleSentences": [
+      {
+        "german": "Alles ist bereit für die Party.",
+        "english": "Everything is ready for the party.",
+        "hindi": "पार्टी के लिए सब कुछ तैयार है।"
+      },
+      {
+        "german": "Ist alles okay bei dir?",
+        "english": "Is everything okay with you?",
+        "hindi": "क्या तुम्हारे साथ सब ठीक है?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "everything",
+    "hindiLiteralTranslation": "सब कुछ",
+    "usageContext": "Used to summarize a situation or refer to a collective group of objects.",
+    "grammarNotes": "Used in the singular neuter form to encompass a whole concept or group of things.",
+    "relatedWords": ["alle", "allein", "allerdings"]
+  },
+  {
+    "germanWord": "als",
+    "hindiPronunciation": "आल्स",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["when", "than", "as"],
+    "hindiMeaning": ["जब", "से", "के रूप में"],
+    "description": "A versatile word used for past events (when), comparisons (than), or roles (as).",
+    "tags": ["conjunction", "comparison"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["wenn", "wie"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Er ist größer als sein Bruder.",
+        "english": "He is taller than his brother.",
+        "hindi": "वह अपने भाई से लंबा है।"
+      },
+      {
+        "german": "Als ich ein Kind war, wohnte ich in Berlin.",
+        "english": "When I was a child, I lived in Berlin.",
+        "hindi": "जब मैं बच्चा था, मैं बर्लिन में रहता था।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "as / than / when",
+    "hindiLiteralTranslation": "जब / से",
+    "usageContext": "Crucial for comparisons and for specific singular events in the past.",
+    "grammarNotes": "When used as 'when', it triggers subclause word order (verb at the end) and refers to the past.",
+    "relatedWords": ["wenn", "wann", "wie"]
+  },
+  {
+    "germanWord": "auf",
+    "hindiPronunciation": "आउफ़",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["on", "upon", "at"],
+    "hindiMeaning": ["पर", "के ऊपर"],
+    "description": "A two-way preposition used to describe location (on top of something) or direction (onto something).",
+    "tags": ["preposition", "location"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["oben", "an"],
+    "antonyms": ["unter"],
+    "exampleSentences": [
+      {
+        "german": "Das Buch liegt auf dem Tisch.",
+        "english": "The book is lying on the table.",
+        "hindi": "किताब मेज पर रखी है।"
+      },
+      {
+        "german": "Ich warte auf den Bus.",
+        "english": "I am waiting for the bus.",
+        "hindi": "मैं बस का इंतज़ार कर रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "on",
+    "hindiLiteralTranslation": "पर",
+    "usageContext": "Commonly used for horizontal surfaces or in fixed phrases like 'waiting for' (warten auf).",
+    "grammarNotes": "It is a Wechselpräposition; it takes the dative for location (where?) and accusative for movement (where to?).",
+    "relatedWords": ["oben", "darauf", "aufstehen"]
+  },
+  {
+    "germanWord": "aus",
+    "hindiPronunciation": "आउस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["out of", "from", "off"],
+    "hindiMeaning": ["से", "बाहर"],
+    "description": "Used to indicate origin (where someone is from) or moving out from inside a space.",
+    "tags": ["preposition", "origin"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["von"],
+    "antonyms": ["in", "nach"],
+    "exampleSentences": [
+      {
+        "german": "Ich komme aus Indien.",
+        "english": "I come from India.",
+        "hindi": "मैं भारत से हूँ।"
+      },
+      {
+        "german": "Geh aus dem Haus!",
+        "english": "Go out of the house!",
+        "hindi": "घर से बाहर जाओ!"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "out of",
+    "hindiLiteralTranslation": "से बाहर",
+    "usageContext": "Essential for stating nationality/origin and describing exiting an enclosed space.",
+    "grammarNotes": "Always requires the dative case.",
+    "relatedWords": ["ausgang", "außen", "ausmachen"]
+  },
+  {
+    "germanWord": "bei",
+    "hindiPronunciation": "बाइ",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["at", "with", "near", "at the house of"],
+    "hindiMeaning": ["के पास", "के यहाँ"],
+    "description": "Used to describe being at a person's home, a company, or a specific location/nearness.",
+    "tags": ["preposition", "location"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["neben", "mit"],
+    "antonyms": ["fern von"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin bei meinem Freund.",
+        "english": "I am at my friend's house.",
+        "hindi": "मैं अपने दोस्त के यहाँ हूँ।"
+      },
+      {
+        "german": "Er arbeitet bei Google.",
+        "english": "He works at Google.",
+        "hindi": "वह गूगल में काम करता है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "by / at",
+    "hindiLiteralTranslation": "के पास",
+    "usageContext": "Used when staying with someone or working for a specific company name.",
+    "grammarNotes": "Always requires the dative case. Often contracted with 'dem' to form 'beim'.",
+    "relatedWords": ["beim", "beieinander", "dabei"]
+  },
+  {
+    "germanWord": "bis",
+    "hindiPronunciation": "बिस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["until", "to", "as far as"],
+    "hindiMeaning": ["तक"],
+    "description": "Indicates a limit in time or space.",
+    "tags": ["preposition", "time", "limit"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["bis zu"],
+    "antonyms": ["ab", "seit"],
+    "exampleSentences": [
+      {
+        "german": "Bis morgen!",
+        "english": "Until tomorrow!",
+        "hindi": "कल तक!"
+      },
+      {
+        "german": "Der Zug fährt bis Berlin.",
+        "english": "The train goes as far as Berlin.",
+        "hindi": "ट्रेन बर्लिन तक जाती है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "until",
+    "hindiLiteralTranslation": "तक",
+    "usageContext": "Common in farewells (Bis bald, Bis dann) and for setting deadlines.",
+    "grammarNotes": "Usually takes the accusative case, though often used with other prepositions (bis zu).",
+    "relatedWords": ["bisher", "bis bald"]
+  },
+  {
+    "germanWord": "bitte",
+    "hindiPronunciation": "बि-टे",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["please", "you're welcome", "pardon?"],
+    "hindiMeaning": ["कृपया", "आपका स्वागत है"],
+    "description": "A multi-purpose politeness marker used for requests, responses to 'thanks', or asking for clarification.",
+    "tags": ["politeness", "etiquette"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gern geschehen"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ein Kaffee, bitte.",
+        "english": "A coffee, please.",
+        "hindi": "एक कॉफ़ी, कृपया।"
+      },
+      {
+        "german": "Wie bitte?",
+        "english": "Pardon? / What did you say?",
+        "hindi": "क्षमा करें, क्या कहा?"
+      }
+    ],
+    "category": "greeting",
+    "formality": "neutral",
+    "literalTranslation": "please / I ask",
+    "hindiLiteralTranslation": "कृपया",
+    "usageContext": "Essential for polite daily interaction. Used as a reply to 'Danke'.",
+    "grammarNotes": "Derived from the verb 'bitten' (to ask/request).",
+    "relatedWords": ["danke", "bitten", "bitteschön"]
+  },
+  {
+    "germanWord": "bitteschön",
+    "hindiPronunciation": "बिट्टे-शोन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["you're welcome", "here you go", "please"],
+    "hindiMeaning": ["आपका स्वागत है", "यह लीजिए"],
+    "description": "A polite response to 'Danke' or a phrase used when handing something to someone.",
+    "tags": ["etiquette", "politeness"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gern geschehen", "keine Ursache"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Bitteschön, hier ist Ihr Wechselgeld.",
+        "english": "Here you go, here is your change.",
+        "hindi": "यह लीजिए, ये रहे आपके खुले पैसे।"
+      },
+      {
+        "german": "Danke für die Hilfe! - Bitteschön!",
+        "english": "Thanks for the help! - You're welcome!",
+        "hindi": "मदद के लिए धन्यवाद! - आपका स्वागत है!"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "please beautiful",
+    "hindiLiteralTranslation": "कृपया सुंदर",
+    "usageContext": "Used commonly in service industries (waiters, shopkeepers) or as a polite reply to a thank you.",
+    "grammarNotes": "An intensified form of 'bitte'. Can be used as a question 'Bitteschön?' to mean 'Yes, how can I help you?'.",
+    "relatedWords": ["bitte", "dankeschön", "schön"]
+  },
+  {
+    "germanWord": "danke",
+    "hindiPronunciation": "दां-के",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["thank you", "thanks"],
+    "hindiMeaning": ["धन्यवाद", "शुक्रिया"],
+    "description": "The standard way to express gratitude in German.",
+    "tags": ["politeness", "etiquette"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["vielen Dank", "dankeschön"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Danke für das Geschenk!",
+        "english": "Thank you for the gift!",
+        "hindi": "तोहफे के लिए धन्यवाद!"
+      },
+      {
+        "german": "Möchten Sie Wasser? - Nein, danke.",
+        "english": "Would you like water? - No, thank you.",
+        "hindi": "क्या आप पानी लेना चाहेंगे? - नहीं, शुक्रिया।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "thanks",
+    "hindiLiteralTranslation": "धन्यवाद",
+    "usageContext": "Used in any situation where gratitude is expressed. Note: Saying 'Danke' when offered something often implies 'No, thank you'.",
+    "grammarNotes": "Derived from the verb 'danken'. In formal writing, 'Vielen Dank' is often preferred.",
+    "relatedWords": ["dankbar", "danken", "dankeschön"]
+  },
+  {
+    "germanWord": "dass",
+    "hindiPronunciation": "डास",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["that"],
+    "hindiMeaning": ["कि"],
+    "description": "A subordinating conjunction used to introduce a dependent clause.",
+    "tags": ["conjunction", "grammar"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich weiß, dass du recht hast.",
+        "english": "I know that you are right.",
+        "hindi": "मुझे पता है कि तुम सही हो।"
+      },
+      {
+        "german": "Es ist schön, dass du da bist.",
+        "english": "It is nice that you are here.",
+        "hindi": "यह अच्छा है कि तुम यहाँ हो।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "that",
+    "hindiLiteralTranslation": "कि",
+    "usageContext": "Used to link a main clause with a statement or fact in a subclause.",
+    "grammarNotes": "Always sends the conjugated verb to the very end of the sentence. Not to be confused with the relative pronoun 'das'.",
+    "relatedWords": ["das", "weil", "ob"]
+  },
+  {
+    "germanWord": "dein",
+    "hindiPronunciation": "दाइन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["your"],
+    "hindiMeaning": ["तुम्हारा"],
+    "description": "The informal possessive pronoun for 'du' (you).",
+    "tags": ["pronoun", "possessive"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["Euer (plural)"],
+    "antonyms": ["mein"],
+    "exampleSentences": [
+      {
+        "german": "Ist das dein Buch?",
+        "english": "Is that your book?",
+        "hindi": "क्या यह तुम्हारी किताब है?"
+      },
+      {
+        "german": "Wie ist dein Name?",
+        "english": "What is your name?",
+        "hindi": "तुम्हारा नाम क्या है?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "informal",
+    "literalTranslation": "your",
+    "hindiLiteralTranslation": "तुम्हारा",
+    "usageContext": "Used when speaking to friends, family, children, or people you are on familiar terms with.",
+    "grammarNotes": "It must be declined according to the gender, case, and number of the noun it precedes (e.g., deine Mutter, deinem Vater).",
+    "relatedWords": ["du", "dir", "dich", "Ihr"]
+  },
+  {
+    "germanWord": "denn",
+    "hindiPronunciation": "डेन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["because", "for", "then (modal particle)"],
+    "hindiMeaning": ["क्योंकि", "तो"],
+    "description": "A coordinating conjunction used to give a reason, or a modal particle used to soften questions.",
+    "tags": ["conjunction", "reason"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["weil", "da"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich bleibe zu Hause, denn ich bin krank.",
+        "english": "I am staying at home, because I am sick.",
+        "hindi": "मैं घर पर रह रहा हूँ क्योंकि मैं बीमार हूँ।"
+      },
+      {
+        "german": "Wie spät ist es denn?",
+        "english": "What time is it then? / Tell me, what time is it?",
+        "hindi": "तो फिर समय क्या हुआ है?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "because / for",
+    "hindiLiteralTranslation": "क्योंकि",
+    "usageContext": "Used to connect two main clauses. As a particle, it makes questions sound more curious and less like an interrogation.",
+    "grammarNotes": "As a conjunction, it occupies 'position 0' and does not change the word order. Unlike 'weil', which sends the verb to the end.",
+    "relatedWords": ["weil", "deshalb", "da"]
+  },
+  {
+    "germanWord": "dieser",
+    "hindiPronunciation": "दी-ज़र",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["this", "this one"],
+    "hindiMeaning": ["यह", "इस"],
+    "description": "A demonstrative pronoun or determiner used to point out a specific person or thing nearby.",
+    "tags": ["pronoun", "demonstrative"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["jener"],
+    "antonyms": ["jener"],
+    "exampleSentences": [
+      {
+        "german": "Dieser Wein schmeckt sehr gut.",
+        "english": "This wine tastes very good.",
+        "hindi": "यह वाइन बहुत अच्छी है।"
+      },
+      {
+        "german": "Dieser Mann ist mein Lehrer.",
+        "english": "This man is my teacher.",
+        "hindi": "यह आदमी मेरे शिक्षक हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "this",
+    "hindiLiteralTranslation": "यह",
+    "usageContext": "Used when identifying a specific object or person in sight or previously mentioned.",
+    "grammarNotes": "The ending changes based on gender and case (dieser, diese, dieses, diesen, etc.).",
+    "relatedWords": ["hier", "diese", "dieses"]
+  },
+  {
+    "germanWord": "drei",
+    "hindiPronunciation": "ड्राइ",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["three"],
+    "hindiMeaning": ["तीन"],
+    "description": "The cardinal number between two and four.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich habe drei Geschwister.",
+        "english": "I have three siblings.",
+        "hindi": "मेरे तीन भाई-बहन हैं।"
+      },
+      {
+        "german": "Das kostet drei Euro.",
+        "english": "That costs three euros.",
+        "hindi": "इसकी कीमत तीन यूरो है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "three",
+    "hindiLiteralTranslation": "तीन",
+    "usageContext": "Standard counting and expressing quantities.",
+    "grammarNotes": "Generally indeclinable unless used in rare archaic genitive forms.",
+    "relatedWords": ["dreizehn", "dreißig", "dritt-"]
+  },
+  {
+    "germanWord": "dreißig",
+    "hindiPronunciation": "ड्राइ-सिख",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["thirty"],
+    "hindiMeaning": ["तीस"],
+    "description": "The cardinal number representing 3 tens.",
+    "tags": ["number"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Er ist dreißig Jahre alt.",
+        "english": "He is thirty years old.",
+        "hindi": "वह तीस साल का है।"
+      },
+      {
+        "german": "Es sind dreißig Grad draußen.",
+        "english": "It is thirty degrees outside.",
+        "hindi": "बाहर तीस डिग्री तापमान है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "thirty",
+    "hindiLiteralTranslation": "तीस",
+    "usageContext": "Used for age, temperature, and large quantities.",
+    "grammarNotes": "Note the use of 'ß' in 'dreißig', unlike other tens like 'vierzig' or 'fünfzig' which use 'z'.",
+    "relatedWords": ["drei", "dreihundert"]
+  },
+  {
+    "germanWord": "du",
+    "hindiPronunciation": "दू",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["you"],
+    "hindiMeaning": ["तुम", "तू"],
+    "description": "The informal second-person singular personal pronoun.",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["Sie (formal)"],
+    "antonyms": ["ich"],
+    "exampleSentences": [
+      {
+        "german": "Wie heißt du?",
+        "english": "What is your name?",
+        "hindi": "तुम्हारा नाम क्या है?"
+      },
+      {
+        "german": "Kommst du aus Deutschland?",
+        "english": "Do you come from Germany?",
+        "hindi": "क्या तुम जर्मनी से हो?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "informal",
+    "literalTranslation": "you",
+    "hindiLiteralTranslation": "तुम",
+    "usageContext": "Used with friends, family, children, and peers.",
+    "grammarNotes": "Requires verbs to end in '-st' in the present tense (e.g., du machst).",
+    "relatedWords": ["dich", "dir", "dein"]
+  },
+  {
+    "germanWord": "durch",
+    "hindiPronunciation": "दुर्ख",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["through", "across", "by means of"],
+    "hindiMeaning": ["के ज़रिये", "के माध्यम से", "में से"],
+    "description": "Indicates movement from one side to another or the method/agent used to achieve something.",
+    "tags": ["preposition"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["mittels", "per"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wir gehen durch den Park.",
+        "english": "We are walking through the park.",
+        "hindi": "हम पार्क के बीच में से जा रहे हैं।"
+      },
+      {
+        "german": "Ich habe es durch das Internet gelernt.",
+        "english": "I learned it through the internet.",
+        "hindi": "मैंने इसे इंटरनेट के माध्यम से सीखा।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "through",
+    "hindiLiteralTranslation": "के ज़रिये",
+    "usageContext": "Used for physical passage or for defining an instrument/reason for an action.",
+    "grammarNotes": "Always takes the accusative case.",
+    "relatedWords": ["durchaus", "durchgehen", "dadurch"]
+  },
+  {
+    "germanWord": "einige",
+    "hindiPronunciation": "आइ-नि-गे",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["some", "several", "a few"],
+    "hindiMeaning": ["कुछ", "कई"],
+    "description": "An indefinite pronoun used to indicate an unspecified number of things or people.",
+    "tags": ["pronoun", "quantity"],
+    "priority": 3,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["manche", "ein paar"],
+    "antonyms": ["keine", "alle"],
+    "exampleSentences": [
+      {
+        "german": "Ich habe einige Fragen.",
+        "english": "I have some questions.",
+        "hindi": "मेरे पास कुछ सवाल हैं।"
+      },
+      {
+        "german": "Einige Leute sind schon gegangen.",
+        "english": "Several people have already left.",
+        "hindi": "कई लोग पहले ही जा चुके हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "some",
+    "hindiLiteralTranslation": "कुछ",
+    "usageContext": "Used when referring to more than one but not a large amount.",
+    "grammarNotes": "It functions as an adjective/pronoun and takes plural endings (einige, einiger, einigen).",
+    "relatedWords": ["einig", "einigen"]
+  },
+  {
+    "germanWord": "eins",
+    "hindiPronunciation": "आइन्स",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["one"],
+    "hindiMeaning": ["एक"],
+    "description": "The cardinal number 'one' used when counting or as a pronoun.",
+    "tags": ["number", "counting"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ein", "eine"],
+    "antonyms": ["null"],
+    "exampleSentences": [
+      {
+        "german": "Eins, zwei, drei, los!",
+        "english": "One, two, three, go!",
+        "hindi": "एक, दो, तीन, शुरू!"
+      },
+      {
+        "german": "Ich habe nur eins.",
+        "english": "I only have one (thing).",
+        "hindi": "मेरे पास केवल एक है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "one",
+    "hindiLiteralTranslation": "एक",
+    "usageContext": "Used for counting (abstractly) or as a replacement for a neuter noun (das Ding -> eins).",
+    "grammarNotes": "When followed by a noun, it changes to 'ein/eine/ein'. 'Eins' is used primarily for counting or standing alone.",
+    "relatedWords": ["einmal", "einig", "erst-"]
+  },
+  {
+    "germanWord": "entschuldigung",
+    "hindiPronunciation": "एन्ट-शुल-डि-गुंग",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["excuse me", "sorry", "apology"],
+    "hindiMeaning": ["माफ़ कीजिए", "क्षमा करें"],
+    "description": "The standard polite term for getting someone's attention or apologizing for a minor mistake.",
+    "tags": ["etiquette", "politeness"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["Verzeihung", "tut mir leid"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Entschuldigung, wo ist der Bahnhof?",
+        "english": "Excuse me, where is the train station?",
+        "hindi": "माफ़ कीजिए, रेलवे स्टेशन कहाँ है?"
+      },
+      {
+        "german": "Entschuldigung für die Verspätung.",
+        "english": "Sorry for the delay.",
+        "hindi": "देरी के लिए माफ़ी चाहता हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "ex-guilt-ing (de-guilting)",
+    "hindiLiteralTranslation": "क्षमा",
+    "usageContext": "Used both to interrupt someone politely and to apologize.",
+    "grammarNotes": "As a noun, it is feminine (die Entschuldigung). As an exclamation, the 'E' is capitalized.",
+    "relatedWords": ["entschuldigen", "schuld", "schuldig"]
+  },
+  {
+    "germanWord": "er",
+    "hindiPronunciation": "एर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["he", "it (masculine)"],
+    "hindiMeaning": ["वह"],
+    "description": "Third-person singular masculine personal pronoun.",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["sie"],
+    "exampleSentences": [
+      {
+        "german": "Er kommt aus Spanien.",
+        "english": "He comes from Spain.",
+        "hindi": "वह स्पेन से है।"
+      },
+      {
+        "german": "Der Tisch ist alt. Er ist kaputt.",
+        "english": "The table is old. It (he) is broken.",
+        "hindi": "मेज पुरानी है। वह टूटी हुई है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "he",
+    "hindiLiteralTranslation": "वह",
+    "usageContext": "Refers to a male person or any masculine noun (der-word).",
+    "grammarNotes": "In the nominative case. Changes to 'ihn' (accusative) and 'ihm' (dative).",
+    "relatedWords": ["ihn", "ihm", "sein"]
+  },
+  {
+    "germanWord": "es",
+    "hindiPronunciation": "एस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["it"],
+    "hindiMeaning": ["यह", "वह"],
+    "description": "Third-person singular neuter personal pronoun.",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wie geht es dir?",
+        "english": "How is it going with you?",
+        "hindi": "तुम कैसे हो?"
+      },
+      {
+        "german": "Das ist ein Kind. Es spielt.",
+        "english": "That is a child. It is playing.",
+        "hindi": "वह एक बच्चा है। वह खेल रहा है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "it",
+    "hindiLiteralTranslation": "यह",
+    "usageContext": "Refers to neuter nouns (das-words) or used as a placeholder (e.g., 'Es regnet' - It's raining).",
+    "grammarNotes": "Remains 'es' in both nominative and accusative cases.",
+    "relatedWords": ["sein", "das"]
+  },
+  {
+    "germanWord": "etwas",
+    "hindiPronunciation": "एत-वास",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["something", "a bit", "some"],
+    "hindiMeaning": ["कुछ", "थोड़ा"],
+    "description": "An indefinite pronoun used to refer to an unspecified object, situation, or a small amount of something.",
+    "tags": ["pronoun", "quantity"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ein bisschen", "was"],
+    "antonyms": ["nichts"],
+    "exampleSentences": [
+      {
+        "german": "Möchten Sie etwas trinken?",
+        "english": "Would you like something to drink?",
+        "hindi": "क्या आप कुछ पीना चाहेंगे?"
+      },
+      {
+        "german": "Das ist etwas teuer.",
+        "english": "That is a bit expensive.",
+        "hindi": "यह थोड़ा महँगा है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "something",
+    "hindiLiteralTranslation": "कुछ",
+    "usageContext": "Commonly used in offers, requests, or to soften an adjective (like 'a bit'). In casual speech, it is often shortened to 'was'.",
+    "grammarNotes": "It is indeclinable, meaning it never changes its form regardless of the case.",
+    "relatedWords": ["nichts", "irgendwas", "alles"]
+  },
+  {
+    "germanWord": "euer",
+    "hindiPronunciation": "ऑ-यर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["your", "yours"],
+    "hindiMeaning": ["तुम्हारा", "आपका"],
+    "description": "The informal possessive pronoun for a group of people (plural 'you' / ihr).",
+    "tags": ["pronoun", "possessive"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["Ihr (formal)"],
+    "antonyms": ["unser"],
+    "exampleSentences": [
+      {
+        "german": "Ist das euer Haus?",
+        "english": "Is that your house?",
+        "hindi": "क्या यह तुम्हारा घर है?"
+      },
+      {
+        "german": "Wo sind eure Kinder?",
+        "english": "Where are your children?",
+        "hindi": "तुम्हारे बच्चे कहाँ हैं?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "informal",
+    "literalTranslation": "your",
+    "hindiLiteralTranslation": "तुम्हारा",
+    "usageContext": "Used when addressing two or more people with whom you are on 'du' terms (friends, family).",
+    "grammarNotes": "It declines like 'mein'. Note: The 'e' before 'r' is often dropped when an ending is added (e.g., eure, eurer, eurem).",
+    "relatedWords": ["ihr", "euch", "dein"]
+  },
+  {
+    "germanWord": "fünf",
+    "hindiPronunciation": "फ़ुन्फ़",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["five"],
+    "hindiMeaning": ["पाँच"],
+    "description": "The cardinal number between four and six.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Es ist fünf Uhr.",
+        "english": "It is five o'clock.",
+        "hindi": "पाँच बजे हैं।"
+      },
+      {
+        "german": "Ich habe fünf Finger an einer Hand.",
+        "english": "I have five fingers on one hand.",
+        "hindi": "मेरे एक हाथ में पाँच उंगलियाँ हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "five",
+    "hindiLiteralTranslation": "पाँच",
+    "usageContext": "Standard counting for time, money, and quantities.",
+    "grammarNotes": "The pronunciation of the 'ü' (umlaut) is key here; it sounds like a tight 'ee' with rounded lips.",
+    "relatedWords": ["fünfzehn", "fünfzig", "fünft-"]
+  },
+  {
+    "germanWord": "für",
+    "hindiPronunciation": "फ़ुर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["for"],
+    "hindiMeaning": ["के लिए"],
+    "description": "A preposition used to indicate a recipient, a purpose, or a duration of time.",
+    "tags": ["preposition"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["gegen"],
+    "exampleSentences": [
+      {
+        "german": "Dieses Geschenk ist für dich.",
+        "english": "This gift is for you.",
+        "hindi": "यह तोहफा तुम्हारे लिए है।"
+      },
+      {
+        "german": "Ich lerne für die Prüfung.",
+        "english": "I am studying for the exam.",
+        "hindi": "मैं परीक्षा के लिए पढ़ रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "for",
+    "hindiLiteralTranslation": "के लिए",
+    "usageContext": "Essential for expressing benefit, exchange, or intent.",
+    "grammarNotes": "Always requires the accusative case.",
+    "relatedWords": ["dafür", "wofür"]
+  },
+  {
+    "germanWord": "gegen",
+    "hindiPronunciation": "गे-गन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["against", "around", "versus"],
+    "hindiMeaning": ["के विरुद्ध", "के खिलाफ", "लगभग"],
+    "description": "Used to show opposition, physical contact against something, or an approximate time.",
+    "tags": ["preposition", "time"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["wider"],
+    "antonyms": ["für", "mit"],
+    "exampleSentences": [
+      {
+        "german": "Wir spielen gegen eine starke Mannschaft.",
+        "english": "We are playing against a strong team.",
+        "hindi": "हम एक मजबूत टीम के खिलाफ खेल रहे हैं।"
+      },
+      {
+        "german": "Ich komme gegen acht Uhr.",
+        "english": "I'll come around eight o'clock.",
+        "hindi": "मैं लगभग आठ बजे आऊँगा।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "against",
+    "hindiLiteralTranslation": "के विरुद्ध",
+    "usageContext": "Used for sports rivalries, physical leaning, or stating an approximate time of arrival.",
+    "grammarNotes": "Always requires the accusative case.",
+    "relatedWords": ["dagegen", "Gegenteil", "Gegner"]
+  },
+  {
+    "germanWord": "geradeaus",
+    "hindiPronunciation": "गे-रा-डे-आउस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["straight ahead", "straightforward"],
+    "hindiMeaning": ["सीधा आगे"],
+    "description": "An adverb used to give directions, indicating movement in a straight line without turning.",
+    "tags": ["direction", "navigation"],
+    "priority": 3,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["direkt", "stracks"],
+    "antonyms": ["links", "rechts", "zurück"],
+    "exampleSentences": [
+      {
+        "german": "Gehen Sie immer geradeaus bis zur Ampel.",
+        "english": "Go straight ahead until the traffic light.",
+        "hindi": "ट्रैफिक लाइट तक सीधे चलते रहें।"
+      },
+      {
+        "german": "Fahren Sie an der Kreuzung geradeaus.",
+        "english": "Go straight at the intersection.",
+        "hindi": "चौराहे से सीधे आगे बढ़ें।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "straight out",
+    "hindiLiteralTranslation": "सीधा बाहर",
+    "usageContext": "Essential for giving or following travel directions on foot or by car.",
+    "grammarNotes": "It is an adverb and does not decline.",
+    "relatedWords": ["gerade", "aus", "der Weg"]
+  },
+  {
+    "germanWord": "hallo",
+    "hindiPronunciation": "हा-लो",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["hello", "hi"],
+    "hindiMeaning": ["नमस्ते", "हेलो"],
+    "description": "The most common and versatile informal greeting in German.",
+    "tags": ["greeting", "basics"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["hi", "guten Tag", "moin"],
+    "antonyms": ["tschüss", "auf Wiedersehen"],
+    "exampleSentences": [
+      {
+        "german": "Hallo, wie geht es dir?",
+        "english": "Hello, how are you?",
+        "hindi": "नमस्ते, तुम कैसे हो?"
+      },
+      {
+        "german": "Hallo zusammen!",
+        "english": "Hello everyone!",
+        "hindi": "सबको नमस्ते!"
+      }
+    ],
+    "category": "greeting",
+    "formality": "informal",
+    "literalTranslation": "hello",
+    "hindiLiteralTranslation": "नमस्ते",
+    "usageContext": "Used with friends, family, and colleagues. In very formal business settings, 'Guten Tag' is preferred.",
+    "grammarNotes": "It can be used at any time of the day.",
+    "relatedWords": ["hallo", "grüßen"]
+  },
+  {
+    "germanWord": "hinter",
+    "hindiPronunciation": "हिन-टर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["behind", "at the back of"],
+    "hindiMeaning": ["के पीछे"],
+    "description": "A two-way preposition indicating a position at the rear of something.",
+    "tags": ["preposition", "location"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["hinten"],
+    "antonyms": ["vor"],
+    "exampleSentences": [
+      {
+        "german": "Das Auto parkt hinter dem Haus.",
+        "english": "The car is parked behind the house.",
+        "hindi": "कार घर के पीछे खड़ी है।"
+      },
+      {
+        "german": "Stell dich hinter mich.",
+        "english": "Stand behind me.",
+        "hindi": "मेरे पीछे खड़े हो जाओ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "behind",
+    "hindiLiteralTranslation": "के पीछे",
+    "usageContext": "Used to describe physical location or relative position.",
+    "grammarNotes": "A 'Wechselpräposition': uses Dative for location (where?) and Accusative for movement (where to?).",
+    "relatedWords": ["hinten", "hinterher", "vorder-"]
+  },
+  {
+    "germanWord": "hundert",
+    "hindiPronunciation": "हुन-डर्ट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["hundred"],
+    "hindiMeaning": ["सौ"],
+    "description": "The cardinal number 100.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["einhundert"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Das Ticket kostet hundert Euro.",
+        "english": "The ticket costs a hundred euros.",
+        "hindi": "टिकट की कीमत सौ यूरो है।"
+      },
+      {
+        "german": "Es waren fast hundert Leute da.",
+        "english": "There were almost a hundred people there.",
+        "hindi": "वहाँ लगभग सौ लोग थे।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "hundred",
+    "hindiLiteralTranslation": "सौ",
+    "usageContext": "Used for prices, quantities, and centuries.",
+    "grammarNotes": "Can be used as 'hundert' or 'einhundert' interchangeably.",
+    "relatedWords": ["tausend", "hunderte", "hunderteins"]
+  },
+  {
+    "germanWord": "ich",
+    "hindiPronunciation": "इख",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["I"],
+    "hindiMeaning": ["मैं"],
+    "description": "The first-person singular personal pronoun.",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["du", "er", "sie", "es"],
+    "exampleSentences": [
+      {
+        "german": "Ich heiße Rahul.",
+        "english": "My name is Rahul (I am called Rahul).",
+        "hindi": "मेरा नाम राहुल है।"
+      },
+      {
+        "german": "Ich lerne Deutsch.",
+        "english": "I am learning German.",
+        "hindi": "मैं जर्मन सीख रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "I",
+    "hindiLiteralTranslation": "मैं",
+    "usageContext": "The subject used to refer to oneself.",
+    "grammarNotes": "In the Nominative case. Changes to 'mich' (Accusative) and 'mir' (Dative). Verbs usually end in '-e'.",
+    "relatedWords": ["mich", "mir", "mein"]
+  },
+  {
+    "germanWord": "ihr",
+    "hindiPronunciation": "ईर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["her", "their", "you (plural)", "your (formal)"],
+    "hindiMeaning": ["उसका", "उनका", "तुम लोग"],
+    "description": "A very versatile word that can act as a personal pronoun (you all) or a possessive pronoun (her/their/your).",
+    "tags": ["pronoun", "possessive"],
+    "priority": 1,
+    "difficulty": 3,
+    "germanLevel": "a1",
+    "synonyms": ["euer", "sein"],
+    "antonyms": ["unser", "mein"],
+    "exampleSentences": [
+      {
+        "german": "Ihr seid sehr freundlich.",
+        "english": "You (all) are very friendly.",
+        "hindi": "तुम लोग बहुत दयालु हो।"
+      },
+      {
+        "german": "Das ist ihr Buch.",
+        "english": "That is her book (or their book).",
+        "hindi": "यह उसकी किताब है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "her / their / you all",
+    "hindiLiteralTranslation": "उसका / उनका / तुम सब",
+    "usageContext": "Used to address a group informally, or to indicate possession for a female or a group.",
+    "grammarNotes": "As a personal pronoun, it takes specific verb endings (-t). As a possessive, it must decline based on the noun it follows.",
+    "relatedWords": ["ihre", "ihrem", "euch"]
+  },
+  {
+    "germanWord": "in",
+    "hindiPronunciation": "इन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["in", "into", "at"],
+    "hindiMeaning": ["में", "के अंदर"],
+    "description": "A two-way preposition indicating location inside a space or movement into a space.",
+    "tags": ["preposition", "location"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["drinnen"],
+    "antonyms": ["aus", "außerhalb"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin in der Küche.",
+        "english": "I am in the kitchen.",
+        "hindi": "मैं रसोई में हूँ।"
+      },
+      {
+        "german": "Wir gehen in das Kino.",
+        "english": "We are going into the cinema.",
+        "hindi": "हम सिनेमा हॉल जा रहे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "in",
+    "hindiLiteralTranslation": "में",
+    "usageContext": "Used for physical locations, cities, and countries (with articles), or time periods (in a week).",
+    "grammarNotes": "Takes the dative case for static location (Wo?) and accusative case for movement (Wohin?).",
+    "relatedWords": ["im", "ins", "innen"]
+  },
+  {
+    "germanWord": "jeder",
+    "hindiPronunciation": "ये-डर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["everyone", "each", "every"],
+    "hindiMeaning": ["हर कोई", "प्रत्येक"],
+    "description": "Used to refer to every single person or thing in a group.",
+    "tags": ["pronoun", "indefinite"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["alle", "jedermann"],
+    "antonyms": ["niemand", "keiner"],
+    "exampleSentences": [
+      {
+        "german": "Jeder braucht Liebe.",
+        "english": "Everyone needs love.",
+        "hindi": "हर किसी को प्यार की ज़रूरत होती है।"
+      },
+      {
+        "german": "Ich gehe jeden Tag spazieren.",
+        "english": "I go for a walk every day.",
+        "hindi": "मैं हर दिन सैर पर जाता हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "each one",
+    "hindiLiteralTranslation": "हर एक",
+    "usageContext": "Used to generalize or emphasize that no one/nothing is excluded.",
+    "grammarNotes": "Declines like the definite article 'der' (jeder, jede, jedes).",
+    "relatedWords": ["jedesmal", "jedermann", "jemals"]
+  },
+  {
+    "germanWord": "jemand",
+    "hindiPronunciation": "ये-मान्ड",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["somebody", "someone"],
+    "hindiMeaning": ["कोई", "कोई व्यक्ति"],
+    "description": "Refers to an unspecified person.",
+    "tags": ["pronoun", "indefinite"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a2",
+    "synonyms": ["irgendwer"],
+    "antonyms": ["niemand"],
+    "exampleSentences": [
+      {
+        "german": "Ist jemand da?",
+        "english": "Is someone there?",
+        "hindi": "क्या कोई वहाँ है?"
+      },
+      {
+        "german": "Jemand hat mich angerufen.",
+        "english": "Someone called me.",
+        "hindi": "किसी ने मुझे फोन किया।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "someone",
+    "hindiLiteralTranslation": "कोई",
+    "usageContext": "Used when the identity of the person is unknown or irrelevant.",
+    "grammarNotes": "Can be used with or without case endings in the dative/accusative (jemandem/jemanden).",
+    "relatedWords": ["niemand", "irgendjemand"]
+  },
+  {
+    "germanWord": "jener",
+    "hindiPronunciation": "ये-नर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["that one", "the former", "those"],
+    "hindiMeaning": ["वह", "उस"],
+    "description": "A demonstrative pronoun used to point out a person or thing further away, or to contrast with 'dieser' (this).",
+    "tags": ["pronoun", "demonstrative"],
+    "priority": 4,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["der da", "jener dort"],
+    "antonyms": ["dieser"],
+    "exampleSentences": [
+      {
+        "german": "An jenem Tag war es sehr kalt.",
+        "english": "On that (particular) day, it was very cold.",
+        "hindi": "उस दिन बहुत ठंड थी।"
+      },
+      {
+        "german": "Dieser Film ist gut, aber jener ist besser.",
+        "english": "This movie is good, but that one is better.",
+        "hindi": "यह फिल्म अच्छी है, लेकिन वह वाली बेहतर है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "that one",
+    "hindiLiteralTranslation": "वह",
+    "usageContext": "Less common in spoken German than 'der/die/das da', but frequent in literature and formal writing.",
+    "grammarNotes": "Declines exactly like 'dieser' (jener, jene, jenes).",
+    "relatedWords": ["dieser", "derjenige"]
+  },
+  {
+    "germanWord": "mein",
+    "hindiPronunciation": "माइन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["my", "mine"],
+    "hindiMeaning": ["मेरा", "मेरे", "मेरी"],
+    "description": "The first-person singular possessive pronoun used to indicate ownership or relationship by the speaker.",
+    "tags": ["pronoun", "possessive"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["meine", "meines"],
+    "antonyms": ["dein", "euer"],
+    "exampleSentences": [
+      {
+        "german": "Das ist mein Auto.",
+        "english": "That is my car.",
+        "hindi": "यह मेरी कार है।"
+      },
+      {
+        "german": "Mein Bruder wohnt in Berlin.",
+        "english": "My brother lives in Berlin.",
+        "hindi": "मेरा भाई बर्लिन में रहता है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "my",
+    "hindiLiteralTranslation": "मेरा",
+    "usageContext": "Used constantly in daily life to describe personal belongings, family members, or personal attributes.",
+    "grammarNotes": "Follows 'ein-word' declension; endings change based on the gender and case of the noun that follows (e.g., meine Mutter, meinem Vater).",
+    "relatedWords": ["ich", "mir", "mich", "meins"]
+  },
+  {
+    "germanWord": "mit",
+    "hindiPronunciation": "मिट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["with", "by"],
+    "hindiMeaning": ["के साथ", "से"],
+    "description": "A preposition used to indicate company, instrument, or means of transport.",
+    "tags": ["preposition"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["zusammen mit"],
+    "antonyms": ["ohne"],
+    "exampleSentences": [
+      {
+        "german": "Ich gehe mit meiner Freundin ins Kino.",
+        "english": "I am going to the cinema with my girlfriend.",
+        "hindi": "मैं अपनी सहेली के साथ सिनेमा जा रहा हूँ।"
+      },
+      {
+        "german": "Ich fahre mit dem Zug.",
+        "english": "I am traveling by train.",
+        "hindi": "मैं ट्रेन से जा रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "with",
+    "hindiLiteralTranslation": "के साथ",
+    "usageContext": "Used when doing something together with someone or using a tool/vehicle.",
+    "grammarNotes": "Always requires the dative case.",
+    "relatedWords": ["mitkommen", "mitmachen", "damit"]
+  },
+  {
+    "germanWord": "nach",
+    "hindiPronunciation": "नाख",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["after", "to", "according to"],
+    "hindiMeaning": ["के बाद", "की ओर", "के अनुसार"],
+    "description": "A preposition used for directions toward cities/countries, time (after), or citing a source.",
+    "tags": ["preposition", "direction", "time"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["später", "gemäß"],
+    "antonyms": ["vor"],
+    "exampleSentences": [
+      {
+        "german": "Nach dem Essen trinke ich einen Tee.",
+        "english": "After eating, I drink a tea.",
+        "hindi": "खाने के बाद मैं चाय पीता हूँ।"
+      },
+      {
+        "german": "Ich fliege nach Deutschland.",
+        "english": "I am flying to Germany.",
+        "hindi": "मैं जर्मनी जा रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "after / to",
+    "hindiLiteralTranslation": "के बाद",
+    "usageContext": "Used for travel to specific geographical names (cities, countries without articles) and for telling time (minutes 'after' the hour).",
+    "grammarNotes": "Always requires the dative case.",
+    "relatedWords": ["nacher", "nächste", "nachmittags"]
+  },
+  {
+    "germanWord": "neben",
+    "hindiPronunciation": "ने-बन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["next to", "beside", "alongside"],
+    "hindiMeaning": ["बगल में", "के पास"],
+    "description": "A two-way preposition indicating physical proximity or side-by-side position.",
+    "tags": ["preposition", "location"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["nebenan", "bei"],
+    "antonyms": ["weit weg"],
+    "exampleSentences": [
+      {
+        "german": "Die Post ist neben der Bank.",
+        "english": "The post office is next to the bank.",
+        "hindi": "डाकघर बैंक के बगल में है।"
+      },
+      {
+        "german": "Setz dich neben mich.",
+        "english": "Sit down next to me.",
+        "hindi": "मेरे बगल में बैठ जाओ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "next to",
+    "hindiLiteralTranslation": "बगल में",
+    "usageContext": "Used to describe the location of objects or people in relation to each other.",
+    "grammarNotes": "A 'Wechselpräposition': takes the dative for location (Wo?) and accusative for movement (Wohin?).",
+    "relatedWords": ["nebenan", "nebeneinander"]
+  },
+  {
+    "germanWord": "neun",
+    "hindiPronunciation": "नॉयन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["nine"],
+    "hindiMeaning": ["नौ"],
+    "description": "The cardinal number between eight and ten.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Es ist neun Uhr abends.",
+        "english": "It is nine o'clock in the evening.",
+        "hindi": "शाम के नौ बजे हैं।"
+      },
+      {
+        "german": "Ich habe neun Euro übrig.",
+        "english": "I have nine euros left.",
+        "hindi": "मेरे पास नौ यूरो बचे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "nine",
+    "hindiLiteralTranslation": "नौ",
+    "usageContext": "Standard counting, time, and quantities.",
+    "grammarNotes": "The 'eu' diphthong is pronounced like 'oy' in English.",
+    "relatedWords": ["neunzehn", "neunzig", "neunte"]
+  },
+  {
+    "germanWord": "nichts",
+    "hindiPronunciation": "निख़्त्स",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["nothing", "not anything"],
+    "hindiMeaning": ["कुछ नहीं"],
+    "description": "An indefinite pronoun used to indicate the absence of any thing or object.",
+    "tags": ["pronoun", "negation"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gar nichts", "nix"],
+    "antonyms": ["alles", "etwas"],
+    "exampleSentences": [
+      {
+        "german": "Ich habe nichts zu essen.",
+        "english": "I have nothing to eat.",
+        "hindi": "मेरे पास खाने के लिए कुछ नहीं है।"
+      },
+      {
+        "german": "Das macht nichts.",
+        "english": "That doesn't matter (literally: That makes nothing).",
+        "hindi": "कोई बात नहीं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "nothing",
+    "hindiLiteralTranslation": "कुछ नहीं",
+    "usageContext": "Used to negate the existence of objects or ideas. 'Nichts' is never capitalized unless it's at the start of a sentence or used as a noun (das Nichts).",
+    "grammarNotes": "It is indeclinable and remains 'nichts' in all cases.",
+    "relatedWords": ["nicht", "nichtig", "gar nichts"]
+  },
+  {
+    "germanWord": "niemand",
+    "hindiPronunciation": "नी-मान्ड",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["nobody", "no one"],
+    "hindiMeaning": ["कोई नहीं"],
+    "description": "An indefinite pronoun used to refer to the absence of any person.",
+    "tags": ["pronoun", "negation"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["keiner"],
+    "antonyms": ["jemand", "alle"],
+    "exampleSentences": [
+      {
+        "german": "Niemand ist zu Hause.",
+        "english": "Nobody is at home.",
+        "hindi": "घर पर कोई नहीं है।"
+      },
+      {
+        "german": "Ich habe niemandem davon erzählt.",
+        "english": "I told nobody about it.",
+        "hindi": "मैंने इसके बारे में किसी को नहीं बताया।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "no man",
+    "hindiLiteralTranslation": "कोई नहीं",
+    "usageContext": "Used when referring to people specifically. In casual speech, 'keiner' is often used instead.",
+    "grammarNotes": "Can be used with or without case endings (niemandem for dative, niemanden for accusative), though endings are more common in formal writing.",
+    "relatedWords": ["jemand", "nie", "nimmer"]
+  },
+  {
+    "germanWord": "ob",
+    "hindiPronunciation": "ओब",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["whether", "if"],
+    "hindiMeaning": ["कि (क्या)", "चाहे"],
+    "description": "A subordinating conjunction used to introduce indirect questions or doubts.",
+    "tags": ["conjunction", "grammar"],
+    "priority": 3,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["falls"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich weiß nicht, ob er kommt.",
+        "english": "I don't know whether he is coming.",
+        "hindi": "मुझे नहीं पता कि वह आएगा या नहीं।"
+      },
+      {
+        "german": "Frag ihn, ob er Zeit hat.",
+        "english": "Ask him if he has time.",
+        "hindi": "उससे पूछो कि क्या उसके पास समय है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "whether",
+    "hindiLiteralTranslation": "कि क्या",
+    "usageContext": "Used for 'yes/no' type indirect questions. Not to be confused with 'wenn' (if/when).",
+    "grammarNotes": "As a subordinating conjunction, it sends the conjugated verb to the very end of the clause.",
+    "relatedWords": ["oder", "obwohl", "als ob"]
+  },
+  {
+    "germanWord": "oder",
+    "hindiPronunciation": "ओ-डर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["or"],
+    "hindiMeaning": ["या", "अथवा"],
+    "description": "A coordinating conjunction used to connect two or more alternatives.",
+    "tags": ["conjunction"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["beziehungsweise"],
+    "antonyms": ["und"],
+    "exampleSentences": [
+      {
+        "german": "Möchtest du Tee oder Kaffee?",
+        "english": "Would you like tea or coffee?",
+        "hindi": "क्या आप चाय लेंगे या कॉफ़ी?"
+      },
+      {
+        "german": "Wir gehen heute oder morgen.",
+        "english": "We are going today or tomorrow.",
+        "hindi": "हम आज या कल जाएंगे।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "or",
+    "hindiLiteralTranslation": "या",
+    "usageContext": "Commonly used in questions or to offer choices. Often added to the end of a sentence as a tag question like '...right?'.",
+    "grammarNotes": "Occupies 'position 0' in a sentence; it does not change the word order of the following clause.",
+    "relatedWords": ["entweder", "weder", "noch"]
+  },
+  {
+    "germanWord": "ohne",
+    "hindiPronunciation": "ओ-ने",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["without"],
+    "hindiMeaning": ["बिना", "के बिना"],
+    "description": "A preposition indicating the absence or exclusion of someone or something.",
+    "tags": ["preposition"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["mit"],
+    "exampleSentences": [
+      {
+        "german": "Ich trinke Kaffee ohne Zucker.",
+        "english": "I drink coffee without sugar.",
+        "hindi": "मैं बिना चीनी के कॉफ़ी पीता हूँ।"
+      },
+      {
+        "german": "Ohne dich gehe ich nicht.",
+        "english": "I won't go without you.",
+        "hindi": "तुम्हारे बिना मैं नहीं जाऊँगा।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "without",
+    "hindiLiteralTranslation": "के बिना",
+    "usageContext": "Used for both physical items and people.",
+    "grammarNotes": "Always requires the accusative case.",
+    "relatedWords": ["obgleich", "ohnemächtig", "sonst"]
+  },
+  {
+    "germanWord": "sechs",
+    "hindiPronunciation": "ज़ेक्स",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["six"],
+    "hindiMeaning": ["छह"],
+    "description": "The cardinal number between five and seven.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wir sind sechs Personen.",
+        "english": "We are six people.",
+        "hindi": "हम छह लोग हैं।"
+      },
+      {
+        "german": "Das Kind ist sechs Jahre alt.",
+        "english": "The child is six years old.",
+        "hindi": "बच्चा छह साल का है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "six",
+    "hindiLiteralTranslation": "छह",
+    "usageContext": "Standard counting for time, quantity, or age.",
+    "grammarNotes": "The 's' at the beginning is voiced (like a 'z'), and 'chs' is pronounced like 'ks'.",
+    "relatedWords": ["sechzehn", "sechzig", "sechste"]
+  },
+  {
+    "germanWord": "seit",
+    "hindiPronunciation": "ज़ाइट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["since", "for"],
+    "hindiMeaning": ["से"],
+    "description": "A temporal preposition used to describe an action that started in the past and is still continuing.",
+    "tags": ["preposition", "time"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["bis"],
+    "exampleSentences": [
+      {
+        "german": "Ich wohne seit zwei Jahren in Berlin.",
+        "english": "I have been living in Berlin for two years.",
+        "hindi": "मैं दो साल से बर्लिन में रह रहा हूँ।"
+      },
+      {
+        "german": "Seit wann lernst du Deutsch?",
+        "english": "Since when have you been learning German?",
+        "hindi": "तुम कब से जर्मन सीख रहे हो?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "since",
+    "hindiLiteralTranslation": "से",
+    "usageContext": "Unlike English 'for', 'seit' is used with the present tense in German if the action is still ongoing.",
+    "grammarNotes": "Always requires the dative case.",
+    "relatedWords": ["seither", "seitdem"]
+  },
+  {
+    "germanWord": "senkrecht",
+    "hindiPronunciation": "ज़ेन-क्रेश्ट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["vertical", "upright", "perpendicular"],
+    "hindiMeaning": ["लंबवत", "खड़ा"],
+    "description": "An adjective or adverb describing a direction that is at a right angle to the horizon.",
+    "tags": ["direction", "geometry"],
+    "priority": 5,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["vertikal", "lotrecht"],
+    "antonyms": ["waagerecht", "horizontal"],
+    "exampleSentences": [
+      {
+        "german": "Die Linie verläuft senkrecht.",
+        "english": "The line runs vertically.",
+        "hindi": "रेखा लंबवत चलती है।"
+      },
+      {
+        "german": "Halten Sie die Flasche bitte senkrecht.",
+        "english": "Please hold the bottle upright.",
+        "hindi": "कृपया बोतल को सीधा खड़ा रखें।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "sink-right",
+    "hindiLiteralTranslation": "लंबवत",
+    "usageContext": "Used in technical contexts, giving directions for placement, or solving crosswords.",
+    "grammarNotes": "As an adverb, it does not change; as an adjective, it takes standard endings.",
+    "relatedWords": ["die Senkrechte", "waagerecht"]
+  },
+  {
+    "germanWord": "sie",
+    "hindiPronunciation": "ज़ी",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["she", "they"],
+    "hindiMeaning": ["वह", "वे"],
+    "description": "Personal pronoun for third-person singular feminine (she) or third-person plural (they).",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["er", "es"],
+    "exampleSentences": [
+      {
+        "german": "Sie ist meine Schwester.",
+        "english": "She is my sister.",
+        "hindi": "वह मेरी बहन है।"
+      },
+      {
+        "german": "Sie wohnen in München.",
+        "english": "They live in Munich.",
+        "hindi": "वे म्यूनिख में रहते हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "she / they",
+    "hindiLiteralTranslation": "वह / वे",
+    "usageContext": "Must be distinguished from 'Sie' (formal you) by the context and verb conjugation.",
+    "grammarNotes": "For 'she', the verb ends in '-t'. For 'they', the verb ends in '-en'. Written in lowercase unless at start of sentence.",
+    "relatedWords": ["ihr", "ihre", "ihnen"]
+  },
+  {
+    "germanWord": "Sie",
+    "hindiPronunciation": "ज़ी",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["you (formal)"],
+    "hindiMeaning": ["आप"],
+    "description": "The formal second-person pronoun used for both singular and plural 'you'.",
+    "tags": ["pronoun", "politeness"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["du", "ihr"],
+    "exampleSentences": [
+      {
+        "german": "Wie heißen Sie?",
+        "english": "What is your name? (formal)",
+        "hindi": "आपका नाम क्या है?"
+      },
+      {
+        "german": "Können Sie mir helfen?",
+        "english": "Can you help me?",
+        "hindi": "क्या आप मेरी मदद कर सकते हैं?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "formal",
+    "literalTranslation": "you",
+    "hindiLiteralTranslation": "आप",
+    "usageContext": "Used with strangers, superiors, or in professional settings to show respect.",
+    "grammarNotes": "Always capitalized in German. Verbs always end in '-en' (same as plural 'they').",
+    "relatedWords": ["Ihnen", "Ihr"]
+  },
+  {
+    "germanWord": "sieben",
+    "hindiPronunciation": "ज़ी-बन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["seven"],
+    "hindiMeaning": ["सात"],
+    "description": "The cardinal number following six and preceding eight.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "In einer Woche gibt es sieben Tage.",
+        "english": "There are seven days in a week.",
+        "hindi": "एक सप्ताह में सात दिन होते हैं।"
+      },
+      {
+        "german": "Wir treffen uns um sieben Uhr.",
+        "english": "We are meeting at seven o'clock.",
+        "hindi": "हम सात बजे मिल रहे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "seven",
+    "hindiLiteralTranslation": "सात",
+    "usageContext": "Used for counting, time-telling, and expressing quantities.",
+    "grammarNotes": "The initial 's' is voiced like a 'z'.",
+    "relatedWords": ["siebzehn", "siebzig", "siebte"]
+  },
+  {
+    "germanWord": "stimmt",
+    "hindiPronunciation": "श्टिम्ट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["that's right", "correct", "true"],
+    "hindiMeaning": ["सही है", "सच है", "ठीक बात है"],
+    "description": "Used to agree with a statement or confirm that something is correct.",
+    "tags": ["agreement", "confirmation"],
+    "priority": 2,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["richtig", "das ist wahr", "genau"],
+    "antonyms": ["falsch", "stimmt nicht"],
+    "exampleSentences": [
+      {
+        "german": "Das ist dein Auto, oder? - Ja, stimmt.",
+        "english": "That's your car, right? - Yes, correct.",
+        "hindi": "यह तुम्हारी कार है, न? - हाँ, सही है।"
+      },
+      {
+        "german": "Das Wetter ist heute toll! - Stimmt!",
+        "english": "The weather is great today! - True!",
+        "hindi": "आज मौसम बहुत बढ़िया है! - बिल्कुल सही!"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "it tunes / it is right",
+    "hindiLiteralTranslation": "सही है",
+    "usageContext": "Commonly used as a quick response to agree with someone or confirm a fact.",
+    "grammarNotes": "Third-person singular form of the verb 'stimmen'.",
+    "relatedWords": ["stimmen", "die Stimme", "bestimmt"]
+  },
+  {
+    "germanWord": "tausend",
+    "hindiPronunciation": "ताउ-ज़ेन्ड",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["thousand"],
+    "hindiMeaning": ["हज़ार"],
+    "description": "The cardinal number 1,000.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["eintausend"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Das Dorf hat etwa tausend Einwohner.",
+        "english": "The village has about a thousand inhabitants.",
+        "hindi": "गाँव में लगभग एक हज़ार निवासी हैं।"
+      },
+      {
+        "german": "Vielen Dank! - Tausend Dank!",
+        "english": "Thank you very much! - A thousand thanks!",
+        "hindi": "बहुत बहुत धन्यवाद! - हज़ारों धन्यवाद!"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "thousand",
+    "hindiLiteralTranslation": "हज़ार",
+    "usageContext": "Used for large quantities, prices, and as an intensifier in expressions like 'Tausend Dank'.",
+    "grammarNotes": "Can be used as 'tausend' or 'eintausend' interchangeably when referring to the number 1,000.",
+    "relatedWords": ["tausende", "million", "hunderte"]
+  },
+  {
+    "germanWord": "trotz",
+    "hindiPronunciation": "ट्रोत्स",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["despite", "in spite of"],
+    "hindiMeaning": ["के बावजूद"],
+    "description": "A preposition indicating that something happened even though there was a reason for it not to.",
+    "tags": ["preposition", "contrast"],
+    "priority": 3,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["ungeachtet"],
+    "antonyms": ["wegen"],
+    "exampleSentences": [
+      {
+        "german": "Trotz des Regens gehen wir spazieren.",
+        "english": "Despite the rain, we are going for a walk.",
+        "hindi": "बारिश के बावजूद हम सैर पर जा रहे हैं।"
+      },
+      {
+        "german": "Er lacht trotz seiner Probleme.",
+        "english": "He laughs despite his problems.",
+        "hindi": "अपनी समस्याओं के बावजूद वह हँसता है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "defiance / in spite of",
+    "hindiLiteralTranslation": "के बावजूद",
+    "usageContext": "Used to connect a circumstance with an unexpected result.",
+    "grammarNotes": "Standardly requires the genitive case, though dative is common in spoken, informal German.",
+    "relatedWords": ["trotzdem", "trotzig"]
+  },
+  {
+    "germanWord": "tschüss",
+    "hindiPronunciation": "चुस",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["bye", "goodbye"],
+    "hindiMeaning": ["अलविदा", "बाय-बाय"],
+    "description": "The most common informal way to say goodbye in Germany.",
+    "tags": ["farewell", "greeting"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ciao", "bis bald", "auf Wiedersehen"],
+    "antonyms": ["hallo"],
+    "exampleSentences": [
+      {
+        "german": "Ich gehe jetzt. Tschüss!",
+        "english": "I'm leaving now. Bye!",
+        "hindi": "मैं अब जा रहा हूँ। अलविदा!"
+      },
+      {
+        "german": "Tschüss, bis morgen!",
+        "english": "Bye, see you tomorrow!",
+        "hindi": "बाय, कल मिलते हैं!"
+      }
+    ],
+    "category": "conversational",
+    "formality": "informal",
+    "literalTranslation": "bye",
+    "hindiLiteralTranslation": "अलविदा",
+    "usageContext": "Used with friends, family, and in most casual daily encounters (shops, cafes).",
+    "grammarNotes": "Can also be spelled 'tschüs'. It originated from the Low German 'adjüs'.",
+    "relatedWords": ["auf Wiedersehen", "ciao"]
+  },
+  {
+    "germanWord": "um",
+    "hindiPronunciation": "उम",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["at", "around", "surrounding"],
+    "hindiMeaning": ["बजे", "के चारों ओर"],
+    "description": "Used specifically for exact clock times and physical movement around an object.",
+    "tags": ["preposition", "time", "location"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gegen", "circa"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Der Film beginnt um acht Uhr.",
+        "english": "The movie starts at eight o'clock.",
+        "hindi": "फिल्म आठ बजे शुरू होती है।"
+      },
+      {
+        "german": "Wir laufen um den See.",
+        "english": "We are walking around the lake.",
+        "hindi": "हम झील के चारों ओर घूम रहे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "around",
+    "hindiLiteralTranslation": "के चारों ओर",
+    "usageContext": "Essential for making appointments and describing physical position relative to a center point.",
+    "grammarNotes": "Always requires the accusative case.",
+    "relatedWords": ["umher", "darum", "Uhrzeit"]
+  },
+  {
+    "germanWord": "und",
+    "hindiPronunciation": "उन्ड",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["and"],
+    "hindiMeaning": ["और"],
+    "description": "The basic coordinating conjunction used to join words, phrases, or clauses.",
+    "tags": ["conjunction"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["sowie"],
+    "antonyms": ["oder", "aber"],
+    "exampleSentences": [
+      {
+        "german": "Ich hätte gerne Brot und Butter.",
+        "english": "I would like bread and butter.",
+        "hindi": "मुझे ब्रेड और मक्खन चाहिए।"
+      },
+      {
+        "german": "Er spielt Fußball und sie spielt Tennis.",
+        "english": "He plays football and she plays tennis.",
+        "hindi": "वह फुटबॉल खेलता है और वह टेनिस खेलती है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "and",
+    "hindiLiteralTranslation": "और",
+    "usageContext": "Used in almost every conversation to list items or connect thoughts.",
+    "grammarNotes": "Occupies 'position 0'; it does not affect the word order of the following clause.",
+    "relatedWords": ["verbunden", "zusammen"]
+  },
+  {
+    "germanWord": "unser",
+    "hindiPronunciation": "उन-ज़र",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["our"],
+    "hindiMeaning": ["हमारा"],
+    "description": "The possessive pronoun for 'wir' (we).",
+    "tags": ["pronoun", "possessive"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["euer"],
+    "exampleSentences": [
+      {
+        "german": "Das ist unser Haus.",
+        "english": "That is our house.",
+        "hindi": "यह हमारा घर है।"
+      },
+      {
+        "german": "Wo ist unsere Lehrerin?",
+        "english": "Where is our teacher?",
+        "hindi": "हमारी शिक्षिका कहाँ हैं?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "our",
+    "hindiLiteralTranslation": "हमारा",
+    "usageContext": "Used to denote shared ownership or relationship.",
+    "grammarNotes": "Declines according to the gender, case, and number of the noun it precedes (unser, unsere, unserem, etc.).",
+    "relatedWords": ["wir", "uns"]
+  },
+  {
+    "germanWord": "unter",
+    "hindiPronunciation": "उन-टर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["under", "below", "among"],
+    "hindiMeaning": ["के नीचे", "के बीच"],
+    "description": "A two-way preposition indicating a position beneath something or being part of a group.",
+    "tags": ["preposition", "location"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["darunter"],
+    "antonyms": ["über", "auf"],
+    "exampleSentences": [
+      {
+        "german": "Die Katze schläft unter dem Bett.",
+        "english": "The cat is sleeping under the bed.",
+        "hindi": "बिल्ली बिस्तर के नीचे सो रही है।"
+      },
+      {
+        "german": "Er ist unter den Gästen.",
+        "english": "He is among the guests.",
+        "hindi": "वह मेहमानों के बीच है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "under",
+    "hindiLiteralTranslation": "के नीचे",
+    "usageContext": "Used for physical locations and social groupings.",
+    "grammarNotes": "A 'Wechselpräposition': takes dative for location (where?) and accusative for movement (where to?).",
+    "relatedWords": ["unten", "unterhalb", "darunter"]
+  },
+  {
+    "germanWord": "viele",
+    "hindiPronunciation": "फ़ी-ले",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["many", "lots of"],
+    "hindiMeaning": ["बहुत", "कई"],
+    "description": "Used to describe a large quantity of countable items.",
+    "tags": ["adjective", "quantity"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["zahlreiche", "viele"],
+    "antonyms": ["wenige"],
+    "exampleSentences": [
+      {
+        "german": "Ich habe viele Freunde.",
+        "english": "I have many friends.",
+        "hindi": "मेरे बहुत सारे दोस्त हैं।"
+      },
+      {
+        "german": "Es gibt viele Autos in der Stadt.",
+        "english": "There are many cars in the city.",
+        "hindi": "शहर में बहुत सारी कारें हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "many",
+    "hindiLiteralTranslation": "बहुत",
+    "usageContext": "Commonly used for people, objects, and any countable plural nouns.",
+    "grammarNotes": "It is the plural form of 'viel'. Use 'viele' for countable things and 'viel' for uncountable things (like water/time).",
+    "relatedWords": ["viel", "vielleicht", "Vielzahl"]
+  },
+  {
+    "germanWord": "vier",
+    "hindiPronunciation": "फ़ीर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["four"],
+    "hindiMeaning": ["चार"],
+    "description": "The cardinal number following three and preceding five.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wir haben vier Katzen.",
+        "english": "We have four cats.",
+        "hindi": "हमारे पास चार बिल्लियाँ हैं।"
+      },
+      {
+        "german": "Es ist vier Uhr nachmittags.",
+        "english": "It is four o'clock in the afternoon.",
+        "hindi": "दोपहर के चार बजे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "four",
+    "hindiLiteralTranslation": "चार",
+    "usageContext": "Used for counting, expressing age, time, and quantities.",
+    "grammarNotes": "The 'v' is pronounced like an 'f' in English.",
+    "relatedWords": ["vierzehn", "vierzig", "vierte"]
+  },
+  {
+    "germanWord": "von",
+    "hindiPronunciation": "फ़ोन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["from", "of", "by"],
+    "hindiMeaning": ["से", "का", "के द्वारा"],
+    "description": "A preposition indicating origin, possession (replacing the genitive), or the agent in passive sentences.",
+    "tags": ["preposition", "origin"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["aus"],
+    "antonyms": ["zu", "nach"],
+    "exampleSentences": [
+      {
+        "german": "Das ist das Auto von meinem Vater.",
+        "english": "That is my father's car (the car of my father).",
+        "hindi": "यह मेरे पिता की कार है।"
+      },
+      {
+        "german": "Ich komme gerade von der Arbeit.",
+        "english": "I am just coming from work.",
+        "hindi": "मैं अभी काम से आ रहा हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "from / of",
+    "hindiLiteralTranslation": "से / का",
+    "usageContext": "Used to show where someone/something is from or to show belonging in casual speech.",
+    "grammarNotes": "Always requires the dative case. Often contracts with 'dem' to form 'vom'.",
+    "relatedWords": ["vom", "voneinander", "davon"]
+  },
+  {
+    "germanWord": "vor",
+    "hindiPronunciation": "फ़ोर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["before", "in front of", "ago"],
+    "hindiMeaning": ["के सामने", "पहले"],
+    "description": "A two-way preposition indicating physical position (in front of) or time (before/ago).",
+    "tags": ["preposition", "location", "time"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["vorher"],
+    "antonyms": ["nach", "hinter"],
+    "exampleSentences": [
+      {
+        "german": "Ich warte vor dem Kino.",
+        "english": "I am waiting in front of the cinema.",
+        "hindi": "मैं सिनेमा हॉल के सामने इंतज़ार कर रहा हूँ।"
+      },
+      {
+        "german": "Vor zwei Jahren war ich in Indien.",
+        "english": "Two years ago I was in India.",
+        "hindi": "दो साल पहले मैं भारत में था।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "before / in front of",
+    "hindiLiteralTranslation": "के सामने / पहले",
+    "usageContext": "Crucial for describing spatial relationships and past timeframes ('ago').",
+    "grammarNotes": "As a 'Wechselpräposition', it takes dative for location and accusative for movement. For time, it always takes the dative.",
+    "relatedWords": ["vorher", "vorgestern", "vorbei"]
+  },
+  {
+    "germanWord": "waagerecht",
+    "hindiPronunciation": "वा-गे-रेश्ट",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["horizontal", "level"],
+    "hindiMeaning": ["क्षैतिज", "आड़ा"],
+    "description": "Describes a line or surface parallel to the horizon.",
+    "tags": ["direction", "geometry"],
+    "priority": 5,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["horizontal"],
+    "antonyms": ["senkrecht", "vertikal"],
+    "exampleSentences": [
+      {
+        "german": "Zeichnen Sie eine waagerechte Linie.",
+        "english": "Draw a horizontal line.",
+        "hindi": "एक क्षैतिज रेखा खींचें।"
+      },
+      {
+        "german": "Der Tisch muss waagerecht stehen.",
+        "english": "The table must stand level/horizontal.",
+        "hindi": "मेज को बिल्कुल सीधा (आड़ा) खड़ा होना चाहिए।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "scale-right",
+    "hindiLiteralTranslation": "क्षैतिज",
+    "usageContext": "Used in technical contexts, architecture, or when giving specific spatial instructions.",
+    "grammarNotes": "Often used in contrast with 'senkrecht'.",
+    "relatedWords": ["die Waage", "waagrecht"]
+  },
+  {
+    "germanWord": "was",
+    "hindiPronunciation": "वास",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["what", "something"],
+    "hindiMeaning": ["क्या", "कुछ"],
+    "description": "An interrogative pronoun used to ask about things, or an informal replacement for 'etwas'.",
+    "tags": ["question", "pronoun"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["etwas"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Was machst du heute?",
+        "english": "What are you doing today?",
+        "hindi": "तुम आज क्या कर रहे हो?"
+      },
+      {
+        "german": "Ich habe was für dich.",
+        "english": "I have something for you.",
+        "hindi": "मेरे पास तुम्हारे लिए कुछ है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "what",
+    "hindiLiteralTranslation": "क्या",
+    "usageContext": "Standard word for asking questions about objects, actions, or situations.",
+    "grammarNotes": "As a question word, it usually starts the sentence and triggers the verb in second position.",
+    "relatedWords": ["warum", "weshalb", "etwas"]
+  },
+  {
+    "germanWord": "wegen",
+    "hindiPronunciation": "वे-गन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["because of", "due to", "on account of"],
+    "hindiMeaning": ["की वजह से", "के कारण"],
+    "description": "A preposition used to indicate the reason or cause for something.",
+    "tags": ["preposition", "reason"],
+    "priority": 2,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["aufgrund", "infolge"],
+    "antonyms": ["trotz"],
+    "exampleSentences": [
+      {
+        "german": "Wegen des Regens bleiben wir zu Hause.",
+        "english": "Because of the rain, we are staying at home.",
+        "hindi": "बारिश की वजह से हम घर पर रह रहे हैं।"
+      },
+      {
+        "german": "Ich bin wegen dir hier.",
+        "english": "I am here because of you.",
+        "hindi": "मैं तुम्हारी वजह से यहाँ हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "because of",
+    "hindiLiteralTranslation": "की वजह से",
+    "usageContext": "Used to explain the cause of a situation. Common in both daily speech and formal writing.",
+    "grammarNotes": "Grammatically requires the genitive case (e.g., wegen des Regens), but in informal spoken German, the dative is very common (e.g., wegen dem Regen).",
+    "relatedWords": ["weshalb", "deswegen", "der Weg"]
+  },
+  {
+    "germanWord": "weil",
+    "hindiPronunciation": "वाइल",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["because"],
+    "hindiMeaning": ["क्योंकि"],
+    "description": "A subordinating conjunction used to introduce a clause that gives a reason.",
+    "tags": ["conjunction", "reason"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["da", "denn"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.",
+        "english": "I am learning German because I want to work in Germany.",
+        "hindi": "मैं जर्मन सीख रहा हूँ क्योंकि मैं जर्मनी में काम करना चाहता हूँ।"
+      },
+      {
+        "german": "Er ist glücklich, weil er Geburtstag hat.",
+        "english": "He is happy because it is his birthday.",
+        "hindi": "वह खुश है क्योंकि उसका जन्मदिन है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "because",
+    "hindiLiteralTranslation": "क्योंकि",
+    "usageContext": "Essential for answering 'Warum' (Why) questions.",
+    "grammarNotes": "It is a subordinating conjunction, which means it sends the conjugated verb to the very end of the clause.",
+    "relatedWords": ["da", "warum", "weshalb"]
+  },
+  {
+    "germanWord": "welche",
+    "hindiPronunciation": "वेल्-खे",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["which", "what kind of", "some"],
+    "hindiMeaning": ["कौन सा", "कौन सी"],
+    "description": "An interrogative pronoun used to ask for a choice among a specific group.",
+    "tags": ["question", "pronoun"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["was für ein"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Welche Farbe gefällt dir am besten?",
+        "english": "Which color do you like best?",
+        "hindi": "तुम्हें कौन सा रंग सबसे ज्यादा पसंद है?"
+      },
+      {
+        "german": "Welches Buch liest du gerade?",
+        "english": "Which book are you reading right now?",
+        "hindi": "तुम अभी कौन सी किताब पढ़ रहे हो?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "which",
+    "hindiLiteralTranslation": "कौन सा",
+    "usageContext": "Used when picking from a defined set of options.",
+    "grammarNotes": "The ending changes based on the gender, case, and number of the noun (welcher, welche, welches, welchen).",
+    "relatedWords": ["wer", "was", "solche"]
+  },
+  {
+    "germanWord": "wenige",
+    "hindiPronunciation": "वे-नि-गे",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["few", "a few", "not many"],
+    "hindiMeaning": ["कम", "कुछ ही"],
+    "description": "Used to describe a small number of countable things or people.",
+    "tags": ["adjective", "quantity"],
+    "priority": 3,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["ein paar", "selten"],
+    "antonyms": ["viele", "alle"],
+    "exampleSentences": [
+      {
+        "german": "Nur wenige Leute kamen zur Party.",
+        "english": "Only a few people came to the party.",
+        "hindi": "पार्टी में केवल कुछ ही लोग आए।"
+      },
+      {
+        "german": "Ich habe nur wenige Minuten Zeit.",
+        "english": "I only have a few minutes of time.",
+        "hindi": "मेरे पास केवल कुछ ही मिनट का समय है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "few",
+    "hindiLiteralTranslation": "कम",
+    "usageContext": "Used for countable plural nouns to emphasize a small quantity.",
+    "grammarNotes": "It is the plural form of 'wenig'. Use 'wenige' for countable items and 'wenig' for uncountable quantities (e.g., wenig Wasser).",
+    "relatedWords": ["wenig", "wenigstens", "minder"]
+  },
+  {
+    "germanWord": "wenn",
+    "hindiPronunciation": "वेन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["when", "if", "whenever"],
+    "hindiMeaning": ["जब", "अगर", "यदि"],
+    "description": "A subordinating conjunction used for conditions (if) or repeated/future events (when).",
+    "tags": ["conjunction", "condition", "time"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["falls", "sofern"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wenn es regnet, bleibe ich zu Hause.",
+        "english": "If it rains, I stay at home.",
+        "hindi": "अगर बारिश होती है, तो मैं घर पर रहता हूँ।"
+      },
+      {
+        "german": "Sag mir Bescheid, wenn du bereit bist.",
+        "english": "Let me know when you are ready.",
+        "hindi": "जब तुम तैयार हो जाओ तो मुझे बता देना।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "if / when",
+    "hindiLiteralTranslation": "अगर / जब",
+    "usageContext": "Used for conditional 'if' and for 'when' in the present or future, or repeated past events.",
+    "grammarNotes": "As a subordinating conjunction, it sends the verb to the end of the clause.",
+    "relatedWords": ["wann", "als", "falls"]
+  },
+  {
+    "germanWord": "wer",
+    "hindiPronunciation": "वेर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["who"],
+    "hindiMeaning": ["कौन"],
+    "description": "An interrogative pronoun used to ask about the identity of a person.",
+    "tags": ["question", "pronoun"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wer ist der Mann dort?",
+        "english": "Who is the man there?",
+        "hindi": "वहाँ वह आदमी कौन है?"
+      },
+      {
+        "german": "Wer hat das Fenster geöffnet?",
+        "english": "Who opened the window?",
+        "hindi": "खिड़की किसने खोली?"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "who",
+    "hindiLiteralTranslation": "कौन",
+    "usageContext": "Used as the subject of a sentence to identify people.",
+    "grammarNotes": "It declines for case: wer (nom), wen (acc), wem (dat), wessen (gen).",
+    "relatedWords": ["was", "wie", "wo"]
+  },
+  {
+    "germanWord": "wir",
+    "hindiPronunciation": "वीर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["we"],
+    "hindiMeaning": ["हम"],
+    "description": "First-person plural personal pronoun.",
+    "tags": ["pronoun", "personal"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["ihr"],
+    "exampleSentences": [
+      {
+        "german": "Wir gehen heute ins Kino.",
+        "english": "We are going to the cinema today.",
+        "hindi": "हम आज सिनेमा जा रहे हैं।"
+      },
+      {
+        "german": "Wir sind glücklich hier.",
+        "english": "We are happy here.",
+        "hindi": "हम यहाँ खुश हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "we",
+    "hindiLiteralTranslation": "हम",
+    "usageContext": "Used when the speaker is part of a group.",
+    "grammarNotes": "In the nominative case. Changes to 'uns' in both accusative and dative cases.",
+    "relatedWords": ["unser", "uns"]
+  },
+  {
+    "germanWord": "während",
+    "hindiPronunciation": "वे-रेन्ड",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["during", "while"],
+    "hindiMeaning": ["के दौरान", "जबकि"],
+    "description": "Used to describe two events happening at the same time, either as a preposition or a conjunction.",
+    "tags": ["preposition", "conjunction", "time"],
+    "priority": 3,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["solange"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Während des Urlaubs hat es viel geregnet.",
+        "english": "During the holiday, it rained a lot.",
+        "hindi": "छुट्टियों के दौरान बहुत बारिश हुई।"
+      },
+      {
+        "german": "Ich höre Musik, während ich koche.",
+        "english": "I listen to music while I cook.",
+        "hindi": "जब मैं खाना बनाता हूँ, तो मैं संगीत सुनता हूँ।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "during / while",
+    "hindiLiteralTranslation": "के दौरान",
+    "usageContext": "Used for simultaneous actions or time periods.",
+    "grammarNotes": "As a preposition, it requires the genitive case. As a conjunction, it sends the verb to the end.",
+    "relatedWords": ["die Zeit", "damals"]
+  },
+  {
+    "germanWord": "zehn",
+    "hindiPronunciation": "त्सेहन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["ten"],
+    "hindiMeaning": ["दस"],
+    "description": "The cardinal number 10.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Es ist zehn Uhr.",
+        "english": "It is ten o'clock.",
+        "hindi": "दस बजे हैं।"
+      },
+      {
+        "german": "Das kostet zehn Euro.",
+        "english": "That costs ten euros.",
+        "hindi": "इसकी कीमत दस यूरो है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "ten",
+    "hindiLiteralTranslation": "दस",
+    "usageContext": "Standard counting and quantities.",
+    "grammarNotes": "The 'z' is pronounced like 'ts' in English.",
+    "relatedWords": ["zwanzig", "zehnte", "null"]
+  },
+  {
+    "germanWord": "zu",
+    "hindiPronunciation": "त्सू",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["to", "too", "closed"],
+    "hindiMeaning": ["को", "की तरफ", "बहुत ज्यादा"],
+    "description": "A very versatile word used as a preposition of direction, an intensifier for adjectives, or to mean 'closed'.",
+    "tags": ["preposition", "adverb"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["nach", "geschlossen"],
+    "antonyms": ["auf"],
+    "exampleSentences": [
+      {
+        "german": "Ich gehe zu meinem Bruder.",
+        "english": "I am going to my brother's house.",
+        "hindi": "मैं अपने भाई के पास जा रहा हूँ।"
+      },
+      {
+        "german": "Die Suppe ist zu heiß.",
+        "english": "The soup is too hot.",
+        "hindi": "सूप बहुत ज़्यादा गर्म है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "to / too",
+    "hindiLiteralTranslation": "को / की तरफ",
+    "usageContext": "Used for going to people/specific places, or indicating an excess (too much).",
+    "grammarNotes": "As a preposition, it always requires the dative case. Often contracts to 'zum' (zu + dem) or 'zur' (zu + der).",
+    "relatedWords": ["zum", "zur", "zusammen"]
+  },
+  {
+    "germanWord": "zwanzig",
+    "hindiPronunciation": "त्स्वान्-त्सिख",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["twenty"],
+    "hindiMeaning": ["बीस"],
+    "description": "The cardinal number representing two tens (20).",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Das Buch kostet zwanzig Euro.",
+        "english": "The book costs twenty euros.",
+        "hindi": "किताब की कीमत बीस यूरो है।"
+      },
+      {
+        "german": "Er ist zwanzig Jahre alt.",
+        "english": "He is twenty years old.",
+        "hindi": "वह बीस साल का है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "twenty",
+    "hindiLiteralTranslation": "बीस",
+    "usageContext": "Used for age, prices, quantities, and time (e.g., 20 minutes).",
+    "grammarNotes": "The 'ig' ending in German is often pronounced like a soft 'ch' (ich-laut) in many regions.",
+    "relatedWords": ["zwei", "zwanzigste", "zweihundert"]
+  },
+  {
+    "germanWord": "zwei",
+    "hindiPronunciation": "त्स्वाइ",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["two"],
+    "hindiMeaning": ["दो"],
+    "description": "The cardinal number between one and three.",
+    "tags": ["number"],
+    "priority": 1,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["zwo"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich habe zwei Schwestern.",
+        "english": "I have two sisters.",
+        "hindi": "मेरी दो बहनें हैं।"
+      },
+      {
+        "german": "Es ist zwei Uhr.",
+        "english": "It is two o'clock.",
+        "hindi": "दो बजे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "two",
+    "hindiLiteralTranslation": "दो",
+    "usageContext": "Standard counting. Sometimes pronounced as 'zwo' on the phone to avoid confusion with 'drei'.",
+    "grammarNotes": "The 'z' is a sharp 'ts' sound. Diphthong 'ei' is always 'ai'.",
+    "relatedWords": ["zweite", "zwanzig", "zweitens"]
+  },
+  {
+    "germanWord": "zwischen",
+    "hindiPronunciation": "त्स्वि-शन",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["between", "among"],
+    "hindiMeaning": ["के बीच", "के मध्य"],
+    "description": "A two-way preposition indicating a position in the middle of two or more points/people.",
+    "tags": ["preposition", "location"],
+    "priority": 2,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["mitten"],
+    "antonyms": ["außerhalb"],
+    "exampleSentences": [
+      {
+        "german": "Der Tisch steht zwischen den Stühlen.",
+        "english": "The table stands between the chairs.",
+        "hindi": "मेज कुर्सियों के बीच में है।"
+      },
+      {
+        "german": "Zwischen acht und neun Uhr habe ich Zeit.",
+        "english": "I have time between eight and nine o'clock.",
+        "hindi": "मेरे पास आठ और नौ बजे के बीच समय है।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "between",
+    "hindiLiteralTranslation": "के बीच",
+    "usageContext": "Used for both spatial (physical gap) and temporal (time gap) relationships.",
+    "grammarNotes": "A 'Wechselpräposition': takes dative for location (Wo?) and accusative for movement (Wohin?).",
+    "relatedWords": ["dazwischen", "Zwischenraum"]
+  },
+  {
+    "germanWord": "über",
+    "hindiPronunciation": "उ-बर",
+    "type": "phrase",
+    "audioUrl": "",
+    "englishMeaning": ["over", "above", "about"],
+    "hindiMeaning": ["के ऊपर", "के बारे में"],
+    "description": "A versatile preposition used for physical location (above) or to indicate a topic (about).",
+    "tags": ["preposition", "location", "topic"],
+    "priority": 1,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["oberhalb", "bezüglich"],
+    "antonyms": ["unter"],
+    "exampleSentences": [
+      {
+        "german": "Das Bild hängt über dem Sofa.",
+        "english": "The picture hangs above the sofa.",
+        "hindi": "तस्वीर सोफे के ऊपर टंगी है।"
+      },
+      {
+        "german": "Wir sprechen über den Film.",
+        "english": "We are talking about the movie.",
+        "hindi": "हम फिल्म के बारे में बात कर रहे हैं।"
+      }
+    ],
+    "category": "conversational",
+    "formality": "neutral",
+    "literalTranslation": "over / above",
+    "hindiLiteralTranslation": "के ऊपर",
+    "usageContext": "Used physically for things not touching the surface below, or figuratively to discuss a subject.",
+    "grammarNotes": "A 'Wechselpräposition' for location. When used to mean 'about', it always takes the accusative case.",
+    "relatedWords": ["überall", "überhaupt", "darüber"]
+  }
+]

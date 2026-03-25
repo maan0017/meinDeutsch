@@ -1,43 +1,3 @@
-export type NounCategory =
-  // --- ANIMALS (Expanded) ---
-  | "animal_mammal" // Mammals (Hund, Katze, Löwe, Elefant)
-  | "animal_bird" // Birds (Vogel, Ente, Adler)
-  | "animal_fish" // Fish & Marine Life (Fisch, Hai, Wal)
-  | "animal_insect" // Insects & Spiders (Biene, Spinne, Ameise)
-  | "animal_reptile" // Reptiles & Amphibians (Schlange, Frosch, Schildkröte)
-
-  // --- Living & People ---
-  | "person" // Family, generic people
-  | "profession" // Jobs
-  | "body_part" // Anatomy
-
-  // --- Food & Kitchen ---
-  | "fruit"
-  | "vegetable"
-  | "food_drink" // General meals, dairy, meat
-
-  // --- Objects & Daily Life ---
-  | "clothing"
-  | "furniture"
-  | "household"
-  | "electronics"
-  | "technology"
-  | "tool"
-
-  // --- Places & Nature ---
-  | "place"
-  | "transport"
-  | "geography"
-  | "nature" // Trees, flowers, weather
-
-  // --- Abstract ---
-  | "time"
-  | "education"
-  | "health"
-  | "finance"
-  | "concept"
-  | "measurement";
-
 export interface NounWord {
   type: "noun";
   germanWord: string;
@@ -62,6 +22,4 @@ export interface NounWord {
 
   priority: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   difficulty: 1 | 2 | 3;
-
-  category: NounCategory;
 }

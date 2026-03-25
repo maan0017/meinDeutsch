@@ -1,0 +1,200 @@
+[
+  {
+    "germanWord": "ach",
+    "hindiPronunciation": "आख़",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["oh", "ah", "I see"],
+    "hindiMeaning": ["ओह", "अच्छा", "अरे"],
+    "description": "A versatile interjection used to express surprise, realization, regret, or dismissal depending on the tone.",
+    "tags": ["exclamation", "realization", "surprise"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["oh", "ach so"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ach, das wusste ich nicht!",
+        "english": "Oh, I didn't know that!",
+        "hindi": "ओह, मुझे यह नहीं पता था!"
+      },
+      {
+        "german": "Ach, lass mich in Ruhe!",
+        "english": "Oh, leave me alone!",
+        "hindi": "अरे, मुझे अकेला छोड़ दो!"
+      }
+    ],
+    "emotionalContext": "other",
+    "formality": "neutral",
+    "isOnomatopoeia": false,
+    "usageContext": "Commonly used to acknowledge new information ('Ach so!') or to express a sigh-like dismissal.",
+    "pronunciationNotes": "The 'ch' is the soft ich-laut or hard ach-laut depending on the preceding vowel; usually a short, breathy exhale.",
+    "relatedWords": ["ach so", "tja"]
+  },
+  {
+    "germanWord": "igitt",
+    "hindiPronunciation": "इ-गिट",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["yuck", "ew", "gross"],
+    "hindiMeaning": ["छी", "घिनौना"],
+    "description": "An exclamation of disgust or revulsion towards something unpleasant.",
+    "tags": ["disgust", "reaction"],
+    "priority": 8,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["pfui", "bäh"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Igitt! Da ist eine Spinne in meiner Suppe!",
+        "english": "Yuck! There's a spider in my soup!",
+        "hindi": "छी! मेरी सूप में एक मकड़ी है!"
+      },
+      {
+        "german": "Igitt, das riecht ja schrecklich!",
+        "english": "Ew, that smells terrible!",
+        "hindi": "छी, इसकी गंध बहुत खराब है!"
+      }
+    ],
+    "emotionalContext": "disgust",
+    "formality": "informal",
+    "isOnomatopoeia": false,
+    "usageContext": "Used when seeing, smelling, or tasting something repulsive.",
+    "pronunciationNotes": "Short vowels with a sharp emphasis on the second syllable.",
+    "relatedWords": ["eklig", "der Ekel"]
+  },
+  {
+    "germanWord": "huch",
+    "hindiPronunciation": "हुख़",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["oops", "whoops", "oh!"],
+    "hindiMeaning": ["ओह", "अरे"],
+    "description": "Used to express mild surprise, a small startle, or a minor mistake.",
+    "tags": ["surprise", "accident"],
+    "priority": 7,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["upsi", "hoppla"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Huch! Du hast mich erschreckt!",
+        "english": "Oh! You startled me!",
+        "hindi": "अरे! तुमने मुझे डरा दिया!"
+      },
+      {
+        "german": "Huch, das wollte ich nicht umwerfen.",
+        "english": "Oops, I didn't mean to knock that over.",
+        "hindi": "ओह, मैं इसे गिराना नहीं चाहता था।"
+      }
+    ],
+    "emotionalContext": "surprise",
+    "formality": "informal",
+    "isOnomatopoeia": false,
+    "usageContext": "Often used when someone bumps into something or is surprised by someone entering a room.",
+    "pronunciationNotes": "A sudden, short burst of air, often with a rising pitch.",
+    "relatedWords": ["erschrecken", "überrascht"]
+  },
+  {
+    "germanWord": "na ja",
+    "hindiPronunciation": "ना या",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["well", "anyway", "so-so"],
+    "hindiMeaning": ["खैर", "ठीक है", "हाँ पर"],
+    "description": "A filler or interjection used to express hesitation, doubt, or to transition in conversation.",
+    "tags": ["hesitation", "filler"],
+    "priority": 9,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["nun ja", "schon"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Na ja, es könnte schlimmer sein.",
+        "english": "Well, it could be worse.",
+        "hindi": "खैर, यह और भी बुरा हो सकता था।"
+      },
+      {
+        "german": "Wie war der Film? - Na ja, geht so.",
+        "english": "How was the movie? - Well, it was okay.",
+        "hindi": "फिल्म कैसी थी? - ठीक-ठाक थी।"
+      }
+    ],
+    "emotionalContext": "hesitation",
+    "formality": "neutral",
+    "isOnomatopoeia": false,
+    "usageContext": "Used to soften a statement or express that a situation is not ideal but acceptable.",
+    "pronunciationNotes": "The 'na' is often drawn out, followed by a slight pause before 'ja'.",
+    "relatedWords": ["naja", "vielleicht"]
+  },
+  {
+    "germanWord": "Prost",
+    "hindiPronunciation": "प्रोस्ट",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["Cheers!", "Bottoms up!"],
+    "hindiMeaning": ["चीयर्स!", "आपकी सेहत के लिए!", "जय हो!"],
+    "description": "The standard German toast used before drinking, usually with beer or wine.",
+    "tags": ["toast", "drinking", "social"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["Prosit", "Zum Wohl"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Prost! Auf unsere Freundschaft!",
+        "english": "Cheers! To our friendship!",
+        "hindi": "चीयर्स! हमारी दोस्ती के नाम!"
+      },
+      {
+        "german": "Ein Bier bitte. - Hier, bitte sehr. - Danke, Prost!",
+        "english": "A beer please. - Here you go. - Thanks, cheers!",
+        "hindi": "एक बीयर देना। - ये लीजिए। - शुक्रिया, चीयर्स!"
+      }
+    ],
+    "emotionalContext": "joy",
+    "formality": "informal",
+    "isOnomatopoeia": false,
+    "usageContext": "Used in social settings like bars, parties, or dinners when clinking glasses.",
+    "pronunciationNotes": "The 'r' is often rolled or tapped, and the 'o' is long.",
+    "relatedWords": ["anstoßen", "das Bier", "trinken"]
+  },
+  {
+    "germanWord": "hoppla",
+    "hindiPronunciation": "हॉप-ला",
+    "type": "interjection",
+    "audioUrl": "",
+    "englishMeaning": ["oops", "whoops", "upsy-daisy"],
+    "hindiMeaning": ["ओह", "अरे", "गलती से हो गया"],
+    "description": "An exclamation used when someone makes a minor mistake, trips, or drops something.",
+    "tags": ["accident", "mistake", "reaction"],
+    "priority": 8,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["upsi", "huch"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Hoppla! Das Glas ist mir fast aus der Hand gerutscht.",
+        "english": "Oops! The glass almost slipped out of my hand.",
+        "hindi": "ओह! गिलास लगभग मेरे हाथ से फिसल गया था।"
+      },
+      {
+        "german": "Hoppla, ich habe deinen Namen vergessen.",
+        "english": "Whoops, I forgot your name.",
+        "hindi": "अरे, मैं तुम्हारा नाम भूल गया।"
+      }
+    ],
+    "emotionalContext": "surprise",
+    "formality": "informal",
+    "isOnomatopoeia": false,
+    "usageContext": "Used for small physical mishaps or minor social blunders.",
+    "pronunciation": "Short 'o', with the stress on the first syllable and a light, bouncy tone.",
+    "relatedWords": ["stolpern", "fallenlassen"]
+  }
+]

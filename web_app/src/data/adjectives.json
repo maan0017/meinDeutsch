@@ -1,0 +1,2699 @@
+[
+  {
+    "germanWord": "alt",
+    "hindiPronunciation": "आल्ट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["old", "aged"],
+    "hindiMeaning": ["पुराना", "बूढ़ा"],
+    "description": "Used for both objects (old) and people (aged).",
+    "tags": ["age", "description", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["bejahrt", "antik"],
+    "antonyms": ["jung", "neu"],
+    "exampleSentences": [
+      {
+        "german": "Mein Auto ist sehr alt.",
+        "english": "My car is very old.",
+        "hindi": "मेरी कार बहुत पुरानी है।"
+      },
+      {
+        "german": "Wie alt bist du?",
+        "english": "How old are you?",
+        "hindi": "तुम्हारी उम्र क्या है?"
+      }
+    ],
+    "comparativeForm": "älter",
+    "superlativeForm": "am ältesten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Alter"],
+    "relatedVerbs": ["altern"]
+  },
+  {
+    "germanWord": "anstrengend",
+    "hindiPronunciation": "आन-श्ट्रेन-गंड",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["exhausting", "strenuous", "tiring"],
+    "hindiMeaning": ["थका देने वाला", "कष्टसाध्य"],
+    "description": "Refers to physical or mental effort that is draining.",
+    "tags": ["work", "feelings", "effort"],
+    "priority": 8,
+    "difficulty": 3,
+    "germanLevel": "a2",
+    "synonyms": ["mühsam", "ermüdend"],
+    "antonyms": ["erholsam", "leicht"],
+    "exampleSentences": [
+      {
+        "german": "Der Job ist sehr anstrengend.",
+        "english": "The job is very exhausting.",
+        "hindi": "काम बहुत थका देने वाला है।"
+      },
+      {
+        "german": "Es war ein anstrengender Tag.",
+        "english": "It was a strenuous day.",
+        "hindi": "यह एक थका देने वाला दिन था।"
+      }
+    ],
+    "comparativeForm": "anstrengender",
+    "superlativeForm": "am anstrengendsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Anstrengung"],
+    "relatedVerbs": ["sich anstrengen"]
+  },
+  {
+    "germanWord": "arm",
+    "hindiPronunciation": "आर्म",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["poor"],
+    "hindiMeaning": ["ग़रीब", "बेचारा"],
+    "description": "Used for lack of money or to express sympathy (e.g., 'poor soul').",
+    "tags": ["finance", "description"],
+    "priority": 9,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["mittellos"],
+    "antonyms": ["reich"],
+    "exampleSentences": [
+      {
+        "german": "Er kommt aus einer armen Familie.",
+        "english": "He comes from a poor family.",
+        "hindi": "वह एक गरीब परिवार से आता है।"
+      },
+      {
+        "german": "Du armer Kerl!",
+        "english": "You poor fellow!",
+        "hindi": "तुम बेचारे!"
+      }
+    ],
+    "comparativeForm": "ärmer",
+    "superlativeForm": "am ärmsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      {
+        "preposition": "an",
+        "case": "dativ",
+        "meaning": "poor in (e.g. vitamins)"
+      }
+    ],
+    "relatedNouns": ["die Armut"],
+    "relatedVerbs": ["verarmen"]
+  },
+  {
+    "germanWord": "billig",
+    "hindiPronunciation": "बिलिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["cheap", "inexpensive"],
+    "hindiMeaning": ["सस्ता"],
+    "description": "Refers to low price; can sometimes imply low quality.",
+    "tags": ["shopping", "money"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["günstig", "preiswert"],
+    "antonyms": ["teuer"],
+    "exampleSentences": [
+      {
+        "german": "Das Brot ist hier sehr billig.",
+        "english": "The bread is very cheap here.",
+        "hindi": "यहाँ ब्रेड बहुत सस्ती है।"
+      },
+      {
+        "german": "Ich suche ein billiges Hotel.",
+        "english": "I am looking for a cheap hotel.",
+        "hindi": "मैं एक सस्ते होटल की तलाश में हूँ।"
+      }
+    ],
+    "comparativeForm": "billiger",
+    "superlativeForm": "am billigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "blau",
+    "hindiPronunciation": "ब्लाउ",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["blue", "drunk"],
+    "hindiMeaning": ["नीला", "नशे में"],
+    "description": "Common color; colloquially also used to mean 'drunk'.",
+    "tags": ["colors", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["azurblau", "betrunken"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Der Himmel ist heute sehr blau.",
+        "english": "The sky is very blue today.",
+        "hindi": "आज आसमान बहुत नीला है।"
+      },
+      {
+        "german": "Sie hat blaue Augen.",
+        "english": "She has blue eyes.",
+        "hindi": "उसकी आँखें नीली हैं।"
+      }
+    ],
+    "comparativeForm": "blauer",
+    "superlativeForm": "am blauesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Blau"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "bunt",
+    "hindiPronunciation": "बुन्ट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["colorful", "multicolored", "bright"],
+    "hindiMeaning": ["रंग-बिरंगा", "रंगीन", "बहुरंगी"],
+    "description": "Refers to a variety of colors or being multi-colored.",
+    "tags": ["colors", "description"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["farbenfroh", "vielfarbig"],
+    "antonyms": ["einfarbig", "grau"],
+    "exampleSentences": [
+      {
+        "german": "Die Blumen im Garten sind sehr bunt.",
+        "english": "The flowers in the garden are very colorful.",
+        "hindi": "बगीचे के फूल बहुत रंग-बिरंगे हैं।"
+      },
+      {
+        "german": "Kinder malen gerne bunte Bilder.",
+        "english": "Children like to paint colorful pictures.",
+        "hindi": "बच्चे रंगीन चित्र बनाना पसंद करते हैं।"
+      }
+    ],
+    "comparativeForm": "bunter",
+    "superlativeForm": "am buntesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Buntheit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "dunkel",
+    "hindiPronunciation": "डुंकेल",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["dark", "dim"],
+    "hindiMeaning": ["अंधेरा", "गहरा"],
+    "description": "Used for lack of light or for deep shades of colors.",
+    "tags": ["light", "colors", "basics"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["finster", "düster"],
+    "antonyms": ["hell", "licht"],
+    "exampleSentences": [
+      {
+        "german": "Im Winter wird es früh dunkel.",
+        "english": "In winter it gets dark early.",
+        "hindi": "सर्दियों में जल्दी अंधेरा हो जाता है।"
+      },
+      {
+        "german": "Ich mag das dunkelblaue Hemd.",
+        "english": "I like the dark blue shirt.",
+        "hindi": "मुझे गहरे नीले रंग की कमीज पसंद है।"
+      }
+    ],
+    "comparativeForm": "dunkler",
+    "superlativeForm": "am dunkelsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Dunkelheit"],
+    "relatedVerbs": ["abdunkeln"]
+  },
+  {
+    "germanWord": "durstig",
+    "hindiPronunciation": "दुर्स्टिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["thirsty"],
+    "hindiMeaning": ["प्यासा"],
+    "description": "The physical sensation of needing to drink.",
+    "tags": ["body", "daily_life", "feelings"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["satt (for hunger)", "keinen Durst haben"],
+    "exampleSentences": [
+      {
+        "german": "Nach dem Sport bin ich immer sehr durstig.",
+        "english": "After sports, I am always very thirsty.",
+        "hindi": "खेल के बाद मुझे हमेशा बहुत प्यास लगती है।"
+      },
+      {
+        "german": "Hast du Wasser? Das Kind ist durstig.",
+        "english": "Do you have water? The child is thirsty.",
+        "hindi": "क्या तुम्हारे पास पानी है? बच्चा प्यासा है।"
+      }
+    ],
+    "comparativeForm": "durstiger",
+    "superlativeForm": "am durstigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Durst"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "einfach",
+    "hindiPronunciation": "आइन-फाख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["simple", "easy", "plain"],
+    "hindiMeaning": ["आसान", "सरल", "साधारण"],
+    "description": "Can mean 'not difficult' or 'not complicated'.",
+    "tags": ["difficulty", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["leicht", "simpel"],
+    "antonyms": ["schwierig", "kompliziert"],
+    "exampleSentences": [
+      {
+        "german": "Deutsch ist nicht immer einfach.",
+        "english": "German is not always easy.",
+        "hindi": "जर्मन हमेशा आसान नहीं होती।"
+      },
+      {
+        "german": "Das ist eine einfache Lösung.",
+        "english": "That is a simple solution.",
+        "hindi": "यह एक सरल समाधान है।"
+      }
+    ],
+    "comparativeForm": "einfacher",
+    "superlativeForm": "am einfachsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Einfachheit"],
+    "relatedVerbs": ["vereinfachen"]
+  },
+  {
+    "germanWord": "elegant",
+    "hindiPronunciation": "एलेगांट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["elegant", "stylish", "graceful"],
+    "hindiMeaning": ["शानदार", "सुरुचिपूर्ण", "सुंदर"],
+    "description": "Used to describe refined style in clothing, behavior, or design. Note: Base form provided.",
+    "tags": ["fashion", "appearance"],
+    "priority": 7,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["schick", "stilvoll"],
+    "antonyms": ["unelegant", "geschmacklos"],
+    "exampleSentences": [
+      {
+        "german": "Sie trägt ein elegantes Kleid.",
+        "english": "She is wearing an elegant dress.",
+        "hindi": "उसने एक शानदार पोशाक पहनी है।"
+      },
+      {
+        "german": "Das Restaurant ist sehr elegant eingerichtet.",
+        "english": "The restaurant is very elegantly furnished.",
+        "hindi": "रेस्तरां को बहुत सुंदर तरीके से सजाया गया है।"
+      }
+    ],
+    "comparativeForm": "eleganter",
+    "superlativeForm": "am elegantesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Eleganz"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "frei",
+    "hindiPronunciation": "फ्राई",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["free", "vacant", "available"],
+    "hindiMeaning": ["मुक्त", "खाली", "आज़ाद"],
+    "description": "Refers to liberty, available space, or being off from work.",
+    "tags": ["status", "daily_life", "freedom"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["unbesetzt", "unabhängig"],
+    "antonyms": ["besetzt", "gefangen"],
+    "exampleSentences": [
+      {
+        "german": "Ist dieser Platz noch frei?",
+        "english": "Is this seat still free?",
+        "hindi": "क्या यह सीट अभी खाली है?"
+      },
+      {
+        "german": "Am Wochenende habe ich endlich frei.",
+        "english": "I'm finally free on the weekend.",
+        "hindi": "सप्ताहांत में मैं आखिरकार खाली हूँ।"
+      }
+    ],
+    "comparativeForm": "freier",
+    "superlativeForm": "am freiesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "von", "case": "dativ", "meaning": "free of/from" }
+    ],
+    "relatedNouns": ["die Freiheit"],
+    "relatedVerbs": ["befreien"]
+  },
+  {
+    "germanWord": "froh",
+    "hindiPronunciation": "फ्रो",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["happy", "glad", "merry"],
+    "hindiMeaning": ["खुश", "आनंदित"],
+    "description": "Used to express relief or joy about a specific situation. Note: 'frohes' is a declined form.",
+    "tags": ["feelings", "greetings"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["glücklich", "erfreut"],
+    "antonyms": ["traurig", "sauer"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin froh, dass du hier bist.",
+        "english": "I am glad that you are here.",
+        "hindi": "मुझे खुशी है कि तुम यहाँ हो।"
+      },
+      {
+        "german": "Frohe Weihnachten!",
+        "english": "Merry Christmas!",
+        "hindi": "क्रिसमस की शुभकामनाएँ!"
+      }
+    ],
+    "comparativeForm": "froher",
+    "superlativeForm": "am frohesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "über", "case": "akkusativ", "meaning": "happy about" }
+    ],
+    "relatedNouns": ["die Frohnatur"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "gelb",
+    "hindiPronunciation": "गेल्ब",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["yellow"],
+    "hindiMeaning": ["पीला"],
+    "description": "Standard color adjective.",
+    "tags": ["colors", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["zitronengelb"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Die Zitrone ist gelb.",
+        "english": "The lemon is yellow.",
+        "hindi": "नींबू पीला होता है।"
+      },
+      {
+        "german": "Er trägt ein gelbes T-Shirt.",
+        "english": "He is wearing a yellow t-shirt.",
+        "hindi": "उसने पीली टी-शर्ट पहनी है।"
+      }
+    ],
+    "comparativeForm": "gelber",
+    "superlativeForm": "am gelbsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Gelb"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "gesund",
+    "hindiPronunciation": "गेज़ुन्ड",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["healthy", "well"],
+    "hindiMeaning": ["स्वस्थ", "तंदुरुस्त"],
+    "description": "Refers to physical health or things that promote health.",
+    "tags": ["health", "lifestyle"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["fit", "vital"],
+    "antonyms": ["krank", "ungesund"],
+    "exampleSentences": [
+      {
+        "german": "Obst ist sehr gesund.",
+        "english": "Fruit is very healthy.",
+        "hindi": "फल बहुत स्वास्थ्यवर्धक होते हैं।"
+      },
+      {
+        "german": "Ich hoffe, du wirst schnell wieder gesund.",
+        "english": "I hope you get healthy again soon.",
+        "hindi": "मुझे आशा है कि आप जल्द ही फिर से स्वस्थ हो जाएंगे।"
+      }
+    ],
+    "comparativeForm": "gesünder",
+    "superlativeForm": "am gesündesten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Gesundheit"],
+    "relatedVerbs": ["gesunden"]
+  },
+  {
+    "germanWord": "glücklich",
+    "hindiPronunciation": "ग्लुकलिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["happy", "lucky", "fortunate"],
+    "hindiMeaning": ["खुश", "भाग्यशाली"],
+    "description": "Covers both emotional happiness and being lucky.",
+    "tags": ["feelings", "luck"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["froh", "beglückt"],
+    "antonyms": ["unglücklich", "traurig"],
+    "exampleSentences": [
+      {
+        "german": "Sie ist eine glückliche Frau.",
+        "english": "She is a happy woman.",
+        "hindi": "वह एक खुशहाल महिला है।"
+      },
+      {
+        "german": "Das war eine glückliche Entscheidung.",
+        "english": "That was a lucky decision.",
+        "hindi": "वह एक भाग्यशाली निर्णय था।"
+      }
+    ],
+    "comparativeForm": "glücklicher",
+    "superlativeForm": "am glücklichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "über", "case": "akkusativ", "meaning": "happy about" }
+    ],
+    "relatedNouns": ["das Glück"],
+    "relatedVerbs": ["beglücken"]
+  },
+  {
+    "germanWord": "groß",
+    "hindiPronunciation": "ग्रोस",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["big", "large", "tall"],
+    "hindiMeaning": ["बड़ा", "लंबा"],
+    "description": "Used for size, height of people, and abstract greatness.",
+    "tags": ["size", "description", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["riesig", "bedeutend"],
+    "antonyms": ["klein"],
+    "exampleSentences": [
+      {
+        "german": "Mein Bruder ist sehr groß.",
+        "english": "My brother is very tall.",
+        "hindi": "मेरा भाई बहुत लंबा है।"
+      },
+      {
+        "german": "Berlin ist eine große Stadt.",
+        "english": "Berlin is a big city.",
+        "hindi": "बर्लिन एक बड़ा शहर है।"
+      }
+    ],
+    "comparativeForm": "größer",
+    "superlativeForm": "am größten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Größe"],
+    "relatedVerbs": ["vergrößern"]
+  },
+  {
+    "germanWord": "grün",
+    "hindiPronunciation": "ग्रुन",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["green"],
+    "hindiMeaning": ["हरा"],
+    "description": "Standard color; also used for nature or political parties.",
+    "tags": ["colors", "nature"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Das Gras ist grün.",
+        "english": "The grass is green.",
+        "hindi": "घास हरी है।"
+      },
+      {
+        "german": "Ich fahre gerne ins Grüne.",
+        "english": "I like to go into the countryside.",
+        "hindi": "मुझे हरियाली में जाना पसंद है।"
+      }
+    ],
+    "comparativeForm": "grüner",
+    "superlativeForm": "am grünsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Grün"],
+    "relatedVerbs": ["begrünen"]
+  },
+  {
+    "germanWord": "gut",
+    "hindiPronunciation": "गुट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["good", "well"],
+    "hindiMeaning": ["अच्छा"],
+    "description": "Fundamental adjective for quality and well-being.",
+    "tags": ["quality", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["prima", "toll"],
+    "antonyms": ["schlecht", "böse"],
+    "exampleSentences": [
+      {
+        "german": "Das Essen schmeckt sehr gut.",
+        "english": "The food tastes very good.",
+        "hindi": "खाना बहुत अच्छा है।"
+      },
+      {
+        "german": "Mir geht es gut.",
+        "english": "I am doing well.",
+        "hindi": "मैं ठीक हूँ।"
+      }
+    ],
+    "comparativeForm": "besser",
+    "superlativeForm": "am besten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "in", "case": "dativ", "meaning": "good at something" }
+    ],
+    "relatedNouns": ["das Gute"],
+    "relatedVerbs": ["verbessern"]
+  },
+  {
+    "germanWord": "günstig",
+    "hindiPronunciation": "ग्युन्स्टिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["favorable", "cheap", "convenient"],
+    "hindiMeaning": ["सस्ता", "किफायती", "अनुकूल"],
+    "description": "Refers to a good price or a favorable opportunity/moment.",
+    "tags": ["shopping", "money", "status"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["preiswert", "vorteilhaft"],
+    "antonyms": ["ungünstig", "teuer"],
+    "exampleSentences": [
+      {
+        "german": "Das ist ein günstiger Preis.",
+        "english": "That is a favorable price.",
+        "hindi": "यह एक किफायती कीमत है।"
+      },
+      {
+        "german": "Der Moment ist gerade sehr günstig.",
+        "english": "The moment is very convenient right now.",
+        "hindi": "यह समय अभी बहुत अनुकूल है।"
+      }
+    ],
+    "comparativeForm": "günstiger",
+    "superlativeForm": "am günstigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Gunst"],
+    "relatedVerbs": ["begünstigen"]
+  },
+  {
+    "germanWord": "heilig",
+    "hindiPronunciation": "हाई-लिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["holy", "sacred", "saintly"],
+    "hindiMeaning": ["पवित्र", "पावन"],
+    "description": "Related to religion or things considered extremely important.",
+    "tags": ["religion", "culture"],
+    "priority": 7,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["sakral", "göttlich"],
+    "antonyms": ["profan", "weltlich"],
+    "exampleSentences": [
+      {
+        "german": "Die Kuh ist in Indien heilig.",
+        "english": "The cow is sacred in India.",
+        "hindi": "भारत में गाय पवित्र है।"
+      },
+      {
+        "german": "Das ist ein heiliger Ort.",
+        "english": "That is a holy place.",
+        "hindi": "यह एक पवित्र स्थान है।"
+      }
+    ],
+    "comparativeForm": "heiliger",
+    "superlativeForm": "am heiligsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Heilige", "die Heiligkeit"],
+    "relatedVerbs": ["heiligen"]
+  },
+  {
+    "germanWord": "heiß",
+    "hindiPronunciation": "हाइस",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["hot"],
+    "hindiMeaning": ["गरम", "तप्त"],
+    "description": "Used for high temperatures of objects, weather, or spicy food.",
+    "tags": ["weather", "temperature", "food"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["glühend", "siedend"],
+    "antonyms": ["kalt", "eisig"],
+    "exampleSentences": [
+      {
+        "german": "Der Tee ist noch sehr heiß.",
+        "english": "The tea is still very hot.",
+        "hindi": "चाय अभी बहुत गरम है।"
+      },
+      {
+        "german": "Heute ist ein heißer Sommertag.",
+        "english": "Today is a hot summer day.",
+        "hindi": "आज गर्मी का एक गरम दिन है।"
+      }
+    ],
+    "comparativeForm": "heißer",
+    "superlativeForm": "am heißesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Hitze"],
+    "relatedVerbs": ["heizen"]
+  },
+  {
+    "germanWord": "hell",
+    "hindiPronunciation": "हेल",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["bright", "light", "clear"],
+    "hindiMeaning": ["उजला", "साफ", "हल्का"],
+    "description": "Refers to the intensity of light or light shades of a color.",
+    "tags": ["light", "colors", "description"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["licht", "leuchtend"],
+    "antonyms": ["dunkel"],
+    "exampleSentences": [
+      {
+        "german": "Es ist schon hell draußen.",
+        "english": "It is already bright outside.",
+        "hindi": "बाहर पहले से ही उजाला है।"
+      },
+      {
+        "german": "Ich hätte gerne ein hellblaues Hemd.",
+        "english": "I would like a light blue shirt.",
+        "hindi": "मुझे एक हल्की नीली कमीज चाहिए।"
+      }
+    ],
+    "comparativeForm": "heller",
+    "superlativeForm": "am hellsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Helligkeit"],
+    "relatedVerbs": ["aufhellen"]
+  },
+  {
+    "germanWord": "hoch",
+    "hindiPronunciation": "होख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["high", "tall"],
+    "hindiMeaning": ["ऊँचा"],
+    "description": "Refers to elevation or distance from the ground. Note: the 'ch' changes to 'h' when declined (e.g., ein hoher Berg).",
+    "tags": ["dimension", "nature", "basics"],
+    "priority": 10,
+    "difficulty": 3,
+    "germanLevel": "a1",
+    "synonyms": ["erhaben", "steil"],
+    "antonyms": ["niedrig", "tief"],
+    "exampleSentences": [
+      {
+        "german": "Der Mount Everest ist sehr hoch.",
+        "english": "Mount Everest is very high.",
+        "hindi": "माउंट एवरेस्ट बहुत ऊँचा है।"
+      },
+      {
+        "german": "Die Miete in München ist hoch.",
+        "english": "The rent in Munich is high.",
+        "hindi": "म्यूनिख में किराया ऊँचा है।"
+      }
+    ],
+    "comparativeForm": "höher",
+    "superlativeForm": "am höchsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Höhe"],
+    "relatedVerbs": ["erhöhen"]
+  },
+  {
+    "germanWord": "hungrig",
+    "hindiPronunciation": "हुंगरिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["hungry"],
+    "hindiMeaning": ["भूखा"],
+    "description": "The physical need for food.",
+    "tags": ["feelings", "body", "daily_life"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["ausgehungert"],
+    "antonyms": ["satt"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin so hungrig, ich könnte ein Pferd essen.",
+        "english": "I am so hungry I could eat a horse.",
+        "hindi": "मुझे इतनी भूख लगी है कि मैं एक घोड़ा खा सकता हूँ।"
+      },
+      {
+        "german": "Die hungrigen Kinder warten auf das Abendessen.",
+        "english": "The hungry children are waiting for dinner.",
+        "hindi": "भूखे बच्चे रात के खाने का इंतज़ार कर रहे हैं।"
+      }
+    ],
+    "comparativeForm": "hungriger",
+    "superlativeForm": "am hungrigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Hunger"],
+    "relatedVerbs": ["hungern"]
+  },
+  {
+    "germanWord": "hässlich",
+    "hindiPronunciation": "हेस्लिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["ugly", "nasty"],
+    "hindiMeaning": ["बदसूरत", "भद्दा"],
+    "description": "Used to describe appearance or an unpleasant situation.",
+    "tags": ["appearance", "description"],
+    "priority": 7,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["unattraktiv", "scheußlich"],
+    "antonyms": ["schön", "hübsch"],
+    "exampleSentences": [
+      {
+        "german": "Das ist ein hässliches Gebäude.",
+        "english": "That is an ugly building.",
+        "hindi": "यह एक बदसूरत इमारत है।"
+      },
+      {
+        "german": "Sie haben sich hässlich gestritten.",
+        "english": "They had a nasty argument.",
+        "hindi": "उनका बहुत बुरा झगड़ा हुआ।"
+      }
+    ],
+    "comparativeForm": "hässlicher",
+    "superlativeForm": "am hässlichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Hässlichkeit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "hübsch",
+    "hindiPronunciation": "ह्युब्श",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["pretty", "handsome", "cute"],
+    "hindiMeaning": ["सुंदर", "प्यारा"],
+    "description": "Used to describe attractive people, objects, or pleasant sights.",
+    "tags": ["appearance", "description"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["schön", "attraktiv"],
+    "antonyms": ["hässlich"],
+    "exampleSentences": [
+      {
+        "german": "Das ist ein hübsches Kleid.",
+        "english": "That is a pretty dress.",
+        "hindi": "यह एक सुंदर पोशाक है।"
+      },
+      {
+        "german": "Sie hat ein hübsches Gesicht.",
+        "english": "She has a pretty face.",
+        "hindi": "उसका चेहरा सुंदर है।"
+      }
+    ],
+    "comparativeForm": "hübscher",
+    "superlativeForm": "am hübschesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Hübschheit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "jung",
+    "hindiPronunciation": "युंग",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["young"],
+    "hindiMeaning": ["जवान", "युवा"],
+    "description": "Refers to living beings or organizations that haven't existed long.",
+    "tags": ["age", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["jugendlich"],
+    "antonyms": ["alt"],
+    "exampleSentences": [
+      {
+        "german": "Er ist noch sehr jung.",
+        "english": "He is still very young.",
+        "hindi": "वह अभी बहुत जवान है।"
+      },
+      {
+        "german": "Junge Leute reisen gerne.",
+        "english": "Young people like to travel.",
+        "hindi": "युवा लोग यात्रा करना पसंद करते हैं।"
+      }
+    ],
+    "comparativeForm": "jünger",
+    "superlativeForm": "am jüngsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Jugend"],
+    "relatedVerbs": ["verjüngen"]
+  },
+  {
+    "germanWord": "kalt",
+    "hindiPronunciation": "काल्ट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["cold"],
+    "hindiMeaning": ["ठंडा"],
+    "description": "Used for weather, temperature, and sometimes emotional detachment.",
+    "tags": ["weather", "temperature", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["kühl", "frostig"],
+    "antonyms": ["heiß", "warm"],
+    "exampleSentences": [
+      {
+        "german": "Im Winter ist es sehr kalt.",
+        "english": "It is very cold in winter.",
+        "hindi": "सर्दियों में बहुत ठंड होती है।"
+      },
+      {
+        "german": "Mir ist kalt.",
+        "english": "I am cold.",
+        "hindi": "मुझे ठंड लग रही है।"
+      }
+    ],
+    "comparativeForm": "kälter",
+    "superlativeForm": "am kältesten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Kälte"],
+    "relatedVerbs": ["erkälten"]
+  },
+  {
+    "germanWord": "klein",
+    "hindiPronunciation": "क्लाइन",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["small", "little", "short"],
+    "hindiMeaning": ["छोटा"],
+    "description": "Refers to physical size or short stature in people.",
+    "tags": ["size", "description", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["winzig", "gering"],
+    "antonyms": ["groß"],
+    "exampleSentences": [
+      {
+        "german": "Die Wohnung ist klein, aber gemütlich.",
+        "english": "The apartment is small but cozy.",
+        "hindi": "अपार्टमेंट छोटा है लेकिन आरामदायक है।"
+      },
+      {
+        "german": "Das Kind ist noch zu klein.",
+        "english": "The child is still too small.",
+        "hindi": "बच्चा अभी बहुत छोटा है।"
+      }
+    ],
+    "comparativeForm": "kleiner",
+    "superlativeForm": "am kleinsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Kleinigkeit"],
+    "relatedVerbs": ["verkleinern"]
+  },
+  {
+    "germanWord": "krank",
+    "hindiPronunciation": "क्रांक",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["sick", "ill"],
+    "hindiMeaning": ["बीमार"],
+    "description": "Refers to physical or mental ill health.",
+    "tags": ["health", "body"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["unwohl", "erkrankt"],
+    "antonyms": ["gesund"],
+    "exampleSentences": [
+      {
+        "german": "Ich kann heute nicht kommen, ich bin krank.",
+        "english": "I can't come today, I am sick.",
+        "hindi": "मैं आज नहीं आ सकता, मैं बीमार हूँ।"
+      },
+      {
+        "german": "Er war lange Zeit schwer krank.",
+        "english": "He was seriously ill for a long time.",
+        "hindi": "वह लंबे समय तक गंभीर रूप से बीमार थे।"
+      }
+    ],
+    "comparativeForm": "kränker",
+    "superlativeForm": "am kränksten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Krankheit"],
+    "relatedVerbs": ["erkranken"]
+  },
+  {
+    "germanWord": "kurz",
+    "hindiPronunciation": "कुर्त्स",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["short", "brief"],
+    "hindiMeaning": ["छोटा", "संक्षिप्त"],
+    "description": "Refers to length or duration.",
+    "tags": ["dimension", "time", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["knapp", "bündig"],
+    "antonyms": ["lang"],
+    "exampleSentences": [
+      {
+        "german": "Der Rock ist zu kurz.",
+        "english": "The skirt is too short.",
+        "hindi": "स्कर्ट बहुत छोटी है।"
+      },
+      {
+        "german": "Wir machen eine kurze Pause.",
+        "english": "We are taking a short break.",
+        "hindi": "हम एक छोटा सा ब्रेक ले रहे हैं।"
+      }
+    ],
+    "comparativeForm": "kürzer",
+    "superlativeForm": "am kürzesten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Kürze"],
+    "relatedVerbs": ["kürzen"]
+  },
+  {
+    "germanWord": "lang",
+    "hindiPronunciation": "लांग",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["long"],
+    "hindiMeaning": ["लंबा"],
+    "description": "Used for distance, physical length, or periods of time.",
+    "tags": ["dimension", "time", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ausgedehnt"],
+    "antonyms": ["kurz"],
+    "exampleSentences": [
+      {
+        "german": "Der Weg zum Bahnhof ist lang.",
+        "english": "The way to the station is long.",
+        "hindi": "स्टेशन का रास्ता लंबा है।"
+      },
+      {
+        "german": "Sie hat lange Haare.",
+        "english": "She has long hair.",
+        "hindi": "उसके बाल लंबे हैं।"
+      }
+    ],
+    "comparativeForm": "länger",
+    "superlativeForm": "am längsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Länge"],
+    "relatedVerbs": ["verlängern"]
+  },
+  {
+    "germanWord": "langsam",
+    "hindiPronunciation": "लांग्ज़ाम",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["slow"],
+    "hindiMeaning": ["धीमा", "धीरे"],
+    "description": "Refers to low speed or a gradual process.",
+    "tags": ["speed", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gemächlich", "träge"],
+    "antonyms": ["schnell"],
+    "exampleSentences": [
+      {
+        "german": "Bitte sprechen Sie langsam.",
+        "english": "Please speak slowly.",
+        "hindi": "कृपया धीरे बोलें।"
+      },
+      {
+        "german": "Die Schildkröte ist sehr langsam.",
+        "english": "The turtle is very slow.",
+        "hindi": "कछुआ बहुत धीमा है।"
+      }
+    ],
+    "comparativeForm": "langsamer",
+    "superlativeForm": "am langsamsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Langsamkeit"],
+    "relatedVerbs": ["verlangsamen"]
+  },
+  {
+    "germanWord": "laut",
+    "hindiPronunciation": "लाउट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["loud", "noisy"],
+    "hindiMeaning": ["ज़ोर से", "तेज़", "शोर"],
+    "description": "Refers to volume or a noisy environment.",
+    "tags": ["sound", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["geräuschvoll", "lärmend"],
+    "antonyms": ["leise", "still"],
+    "exampleSentences": [
+      {
+        "german": "Die Musik ist zu laut.",
+        "english": "The music is too loud.",
+        "hindi": "संगीत बहुत तेज़ है।"
+      },
+      {
+        "german": "Hörst du den lauten Knall?",
+        "english": "Do you hear the loud bang?",
+        "hindi": "क्या तुम वो तेज़ धमाका सुन रहे हो?"
+      }
+    ],
+    "comparativeForm": "lauter",
+    "superlativeForm": "am lautesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Laut", "die Lautstärke"],
+    "relatedVerbs": ["läuten"]
+  },
+  {
+    "germanWord": "lecker",
+    "hindiPronunciation": "लेकर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["delicious", "tasty", "yummy"],
+    "hindiMeaning": ["स्वादिष्ट", "लज़ीज़"],
+    "description": "Common word to describe food that tastes good.",
+    "tags": ["food", "daily_life"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["köstlich", "schmackhaft"],
+    "antonyms": ["ungenießbar", "eklig"],
+    "exampleSentences": [
+      {
+        "german": "Das Abendessen war sehr lecker.",
+        "english": "The dinner was very delicious.",
+        "hindi": "रात का खाना बहुत स्वादिष्ट था।"
+      },
+      {
+        "german": "Ich habe einen leckeren Kuchen gebacken.",
+        "english": "I baked a tasty cake.",
+        "hindi": "मैंने एक स्वादिष्ट केक बनाया।"
+      }
+    ],
+    "comparativeForm": "leckerer",
+    "superlativeForm": "am leckersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Leckerei"],
+    "relatedVerbs": ["schmecken"]
+  },
+  {
+    "germanWord": "leer",
+    "hindiPronunciation": "लेयर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["empty", "vacant", "blank"],
+    "hindiMeaning": ["खाली"],
+    "description": "Used for containers, rooms, or abstract things like promises that contain nothing.",
+    "tags": ["status", "description"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["inhaltlos", "vakat"],
+    "antonyms": ["voll", "besetzt"],
+    "exampleSentences": [
+      {
+        "german": "Die Flasche ist leer.",
+        "english": "The bottle is empty.",
+        "hindi": "बोतल खाली है।"
+      },
+      {
+        "german": "Das Haus steht seit Jahren leer.",
+        "english": "The house has been empty for years.",
+        "hindi": "घर सालों से खाली पड़ा है।"
+      }
+    ],
+    "comparativeForm": "leerer",
+    "superlativeForm": "am leersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Leere"],
+    "relatedVerbs": ["leeren"]
+  },
+  {
+    "germanWord": "leicht",
+    "hindiPronunciation": "लाइख़्त",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["easy", "light", "slight"],
+    "hindiMeaning": ["आसान", "हल्का"],
+    "description": "Refers to both low weight and low level of difficulty.",
+    "tags": ["weight", "difficulty", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["einfach", "mühelos"],
+    "antonyms": ["schwer", "schwierig"],
+    "exampleSentences": [
+      {
+        "german": "Diese Aufgabe ist sehr leicht.",
+        "english": "This task is very easy.",
+        "hindi": "यह कार्य बहुत आसान है।"
+      },
+      {
+        "german": "Der Koffer ist erstaunlich leicht.",
+        "english": "The suitcase is surprisingly light.",
+        "hindi": "सूटकेस आश्चर्यजनक रूप से हल्का है।"
+      }
+    ],
+    "comparativeForm": "leichter",
+    "superlativeForm": "am leichtesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Leichtigkeit"],
+    "relatedVerbs": ["erleichtern"]
+  },
+  {
+    "germanWord": "leise",
+    "hindiPronunciation": "लाइज़ा",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["quiet", "soft", "low"],
+    "hindiMeaning": ["शांत", "धीमा"],
+    "description": "Refers to low volume or a quiet environment.",
+    "tags": ["sound", "basics"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["still", "geräuscharm"],
+    "antonyms": ["laut"],
+    "exampleSentences": [
+      {
+        "german": "Sei bitte leise, das Baby schläft.",
+        "english": "Please be quiet, the baby is sleeping.",
+        "hindi": "कृपया शांत रहें, बच्चा सो रहा है।"
+      },
+      {
+        "german": "Sie spricht mit einer leisen Stimme.",
+        "english": "She speaks with a soft voice.",
+        "hindi": "वह धीमी आवाज़ में बोलती है।"
+      }
+    ],
+    "comparativeForm": "leiser",
+    "superlativeForm": "am leisesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "lila",
+    "hindiPronunciation": "लीला",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["purple", "violet"],
+    "hindiMeaning": ["बैंगनी"],
+    "description": "A color adjective that is traditionally undeclinable in casual speech, though inflected forms exist in formal writing.",
+    "tags": ["colors"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["violett"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Sie trägt ein lila T-Shirt.",
+        "english": "She is wearing a purple t-shirt.",
+        "hindi": "उसने बैंगनी टी-शर्ट पहनी है।"
+      },
+      {
+        "german": "Lila ist meine Lieblingsfarbe.",
+        "english": "Purple is my favorite color.",
+        "hindi": "बैंगनी मेरा पसंदीदा रंग है।"
+      }
+    ],
+    "comparativeForm": "lilaer",
+    "superlativeForm": "am lilaesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": true,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Lila"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "männlich",
+    "hindiPronunciation": "मैन-लिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["male", "masculine", "manly"],
+    "hindiMeaning": ["नर", "पुरुष", "मर्दाना"],
+    "description": "Refers to biological sex or characteristics associated with men.",
+    "tags": ["gender", "description"],
+    "priority": 7,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["maskulin"],
+    "antonyms": ["weiblich"],
+    "exampleSentences": [
+      {
+        "german": "Der Vorname ist männlich.",
+        "english": "The first name is masculine.",
+        "hindi": "पहला नाम पुल्लिंग है।"
+      },
+      {
+        "german": "Er hat sehr männliche Gesichtszüge.",
+        "english": "He has very masculine facial features.",
+        "hindi": "उसके चेहरे के नैन-नक्श बहुत मर्दाना हैं।"
+      }
+    ],
+    "comparativeForm": "männlicher",
+    "superlativeForm": "am männlichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Männlichkeit", "der Mann"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "müde",
+    "hindiPronunciation": "म्यूडे",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["tired", "weary", "sleepy"],
+    "hindiMeaning": ["थका", "निद्रालु"],
+    "description": "Refers to the physical or mental state of needing rest or sleep.",
+    "tags": ["feelings", "body", "daily_life"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["erschöpft", "matt"],
+    "antonyms": ["wach", "munter"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin nach der Arbeit immer sehr müde.",
+        "english": "I am always very tired after work.",
+        "hindi": "मैं काम के बाद हमेशा बहुत थका होता हूँ।"
+      },
+      {
+        "german": "Das Kind ist müde und will schlafen.",
+        "english": "The child is tired and wants to sleep.",
+        "hindi": "बच्चा थका हुआ है और सोना चाहता है।"
+      }
+    ],
+    "comparativeForm": "müder",
+    "superlativeForm": "am müdesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      {
+        "preposition": "von",
+        "case": "dativ",
+        "meaning": "tired of (physical)"
+      }
+    ],
+    "relatedNouns": ["die Müdigkeit"],
+    "relatedVerbs": ["ermüden"]
+  },
+  {
+    "germanWord": "natürlich",
+    "hindiPronunciation": "नात्यूर्लिख़",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["natural", "of course", "innate"],
+    "hindiMeaning": ["प्राकृतिक", "बेशक", "स्वाभाविक"],
+    "description": "Used for things relating to nature, or as a very common adverbial confirmation.",
+    "tags": ["nature", "conversational", "description"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["selbstverständlich", "biologisch"],
+    "antonyms": ["künstlich", "unnatürlich"],
+    "exampleSentences": [
+      {
+        "german": "Das ist ein natürliches Produkt.",
+        "english": "That is a natural product.",
+        "hindi": "यह एक प्राकृतिक उत्पाद है।"
+      },
+      {
+        "german": "Kommst du mit? - Ja, natürlich!",
+        "english": "Are you coming along? - Yes, of course!",
+        "hindi": "क्या तुम साथ आ रहे हो? - हाँ, बेशक!"
+      }
+    ],
+    "comparativeForm": "natürlicher",
+    "superlativeForm": "am natürlichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Natur"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "neblig",
+    "hindiPronunciation": "नेब्लिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["foggy", "misty"],
+    "hindiMeaning": ["धुंधला", "कोहरे वाला"],
+    "description": "Weather term used when visibility is low due to fog.",
+    "tags": ["weather", "nature"],
+    "priority": 7,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["dunstig"],
+    "antonyms": ["klar", "wolkenlos"],
+    "exampleSentences": [
+      {
+        "german": "Fahr vorsichtig, es ist heute sehr neblig.",
+        "english": "Drive carefully, it is very foggy today.",
+        "hindi": "सावधानी से गाड़ी चलाएं, आज बहुत कोहरा है।"
+      },
+      {
+        "german": "Der Morgen war grau und neblig.",
+        "english": "The morning was gray and misty.",
+        "hindi": "सुबह धूसर और धुंधली थी।"
+      }
+    ],
+    "comparativeForm": "nebliger",
+    "superlativeForm": "am nebligsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Nebel"],
+    "relatedVerbs": ["nebeln"]
+  },
+  {
+    "germanWord": "negativ",
+    "hindiPronunciation": "नेगा-टीव",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["negative"],
+    "hindiMeaning": ["नकारात्मक"],
+    "description": "Used for attitudes, medical test results, or mathematical values.",
+    "tags": ["description", "science", "attitude"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["ablehnend", "verneinend"],
+    "antonyms": ["positiv"],
+    "exampleSentences": [
+      {
+        "german": "Er hat eine negative Einstellung zur Arbeit.",
+        "english": "He has a negative attitude toward work.",
+        "hindi": "काम के प्रति उसका रवैया नकारात्मक है।"
+      },
+      {
+        "german": "Der Corona-Test war negativ.",
+        "english": "The Corona test was negative.",
+        "hindi": "कोरोना टेस्ट नेगेटिव था।"
+      }
+    ],
+    "comparativeForm": "negativer",
+    "superlativeForm": "am negativsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Negativität"],
+    "relatedVerbs": ["negieren"]
+  },
+  {
+    "germanWord": "nervös",
+    "hindiPronunciation": "नेर-वोस",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["nervous", "edgy", "jittery"],
+    "hindiMeaning": ["घबराया हुआ", "बेचैन"],
+    "description": "The state of being worried or anxious about something.",
+    "tags": ["feelings", "emotions"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["unruhig", "angespannt"],
+    "antonyms": ["ruhig", "gelassen"],
+    "exampleSentences": [
+      {
+        "german": "Vor der Prüfung war ich sehr nervös.",
+        "english": "I was very nervous before the exam.",
+        "hindi": "परीक्षा से पहले मैं बहुत घबराया हुआ था।"
+      },
+      {
+        "german": "Warum bist du so nervös? Alles wird gut.",
+        "english": "Why are you so nervous? Everything will be fine.",
+        "hindi": "तुम इतने बेचैन क्यों हो? सब ठीक हो जाएगा।"
+      }
+    ],
+    "comparativeForm": "nervöser",
+    "superlativeForm": "am nervösesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Nervosität", "der Nerv"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "neu",
+    "hindiPronunciation": "नॉय",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["new", "recent", "modern"],
+    "hindiMeaning": ["नया", "आधुनिक"],
+    "description": "Used for newly created objects, recent events, or fresh ideas.",
+    "tags": ["age", "description", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["frisch", "modern", "aktuell"],
+    "antonyms": ["alt"],
+    "exampleSentences": [
+      {
+        "german": "Ich habe ein neues Handy gekauft.",
+        "english": "I bought a new mobile phone.",
+        "hindi": "मैंने एक नया मोबाइल खरीदा है।"
+      },
+      {
+        "german": "Alles Gute im neuen Jahr!",
+        "english": "All the best in the new year!",
+        "hindi": "नए साल की ढेर सारी शुभकामनाएँ!"
+      }
+    ],
+    "comparativeForm": "neuer",
+    "superlativeForm": "am neuesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Neuheit", "das Neue"],
+    "relatedVerbs": ["erneuern"]
+  },
+  {
+    "germanWord": "niedrig",
+    "hindiPronunciation": "नीड्रिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["low", "base"],
+    "hindiMeaning": ["नीचा", "कम"],
+    "description": "Refers to low height, temperature, or levels (like prices or water).",
+    "tags": ["dimension", "measurement"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["tief", "gering"],
+    "antonyms": ["hoch"],
+    "exampleSentences": [
+      {
+        "german": "Der Tisch ist sehr niedrig.",
+        "english": "The table is very low.",
+        "hindi": "मेज़ बहुत नीची है।"
+      },
+      {
+        "german": "Die Zinsen sind zurzeit sehr niedrig.",
+        "english": "The interest rates are very low at the moment.",
+        "hindi": "ब्याज दरें फिलहाल बहुत कम हैं।"
+      }
+    ],
+    "comparativeForm": "niedriger",
+    "superlativeForm": "am niedrigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Niedrigkeit"],
+    "relatedVerbs": ["erniedrigen"]
+  },
+  {
+    "germanWord": "notwendig",
+    "hindiPronunciation": "नॉट-वेन्डिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["necessary", "essential", "required"],
+    "hindiMeaning": ["ज़रूरी", "आवश्यक", "अनिवार्य"],
+    "description": "Describes something that is indispensable or required to achieve a goal.",
+    "tags": ["importance", "necessity"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "b1",
+    "synonyms": ["erforderlich", "unentbehrlich", "nötig"],
+    "antonyms": ["unnötig", "überflüssig"],
+    "exampleSentences": [
+      {
+        "german": "Vitamine sind notwendig für die Gesundheit.",
+        "english": "Vitamins are necessary for health.",
+        "hindi": "स्वास्थ्य के लिए विटामिन आवश्यक हैं।"
+      },
+      {
+        "german": "Es ist notwendig, dass wir jetzt gehen.",
+        "english": "It is necessary that we leave now.",
+        "hindi": "यह ज़रूरी है कि हम अभी निकलें।"
+      }
+    ],
+    "comparativeForm": "notwendiger",
+    "superlativeForm": "am notwendigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "für", "case": "akkusativ", "meaning": "necessary for" }
+    ],
+    "relatedNouns": ["die Notwendigkeit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "reich",
+    "hindiPronunciation": "राइख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["rich", "wealthy", "abundant"],
+    "hindiMeaning": ["अमीर", "धनी", "समृद्ध"],
+    "description": "Having a lot of money, or being abundant in something (like resources).",
+    "tags": ["finance", "status"],
+    "priority": 9,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["wohlhabend", "vermögend"],
+    "antonyms": ["arm"],
+    "exampleSentences": [
+      {
+        "german": "Er ist ein sehr reicher Mann.",
+        "english": "He is a very rich man.",
+        "hindi": "वह बहुत अमीर आदमी है।"
+      },
+      {
+        "german": "Das Land ist reich an Bodenschätzen.",
+        "english": "The country is rich in natural resources.",
+        "hindi": "देश प्राकृतिक संसाधनों से समृद्ध है।"
+      }
+    ],
+    "comparativeForm": "reicher",
+    "superlativeForm": "am reichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      {
+        "preposition": "an",
+        "case": "dativ",
+        "meaning": "rich in (e.g. minerals)"
+      }
+    ],
+    "relatedNouns": ["der Reichtum"],
+    "relatedVerbs": ["bereichern"]
+  },
+  {
+    "germanWord": "rot",
+    "hindiPronunciation": "रोट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["red"],
+    "hindiMeaning": ["लाल"],
+    "description": "Basic color adjective.",
+    "tags": ["colors", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Die Ampel ist rot.",
+        "english": "The traffic light is red.",
+        "hindi": "ट्रैफिक लाइट लाल है।"
+      },
+      {
+        "german": "Sie hat rote Wangen.",
+        "english": "She has red cheeks.",
+        "hindi": "उसके गाल लाल हैं।"
+      }
+    ],
+    "comparativeForm": "röter",
+    "superlativeForm": "am rötesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Rot"],
+    "relatedVerbs": ["erröten"]
+  },
+  {
+    "germanWord": "ruhig",
+    "hindiPronunciation": "रू-हिश",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["quiet", "calm", "peaceful"],
+    "hindiMeaning": ["शांत", "चुप"],
+    "description": "Refers to a low level of noise or a state of inner tranquility.",
+    "tags": ["personality", "sound", "environment"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["still", "gelassen"],
+    "antonyms": ["laut", "unruhig"],
+    "exampleSentences": [
+      {
+        "german": "Es ist heute sehr ruhig im Büro.",
+        "english": "It is very quiet in the office today.",
+        "hindi": "आज ऑफिस में बहुत शांति है।"
+      },
+      {
+        "german": "Bleib ganz ruhig, alles ist okay.",
+        "english": "Stay very calm, everything is okay.",
+        "hindi": "बिल्कुल शांत रहो, सब ठीक है।"
+      }
+    ],
+    "comparativeForm": "ruhiger",
+    "superlativeForm": "am ruhigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Ruhe"],
+    "relatedVerbs": ["beruhigen"]
+  },
+  {
+    "germanWord": "satt",
+    "hindiPronunciation": "ज़ाट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["full", "satisfied", "fed up"],
+    "hindiMeaning": ["पेट भरा हुआ", "तृप्त"],
+    "description": "The feeling of being full after eating; colloquially 'etwas satt haben' means to be fed up.",
+    "tags": ["food", "feelings"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["voll"],
+    "antonyms": ["hungrig"],
+    "exampleSentences": [
+      {
+        "german": "Nein danke, ich bin schon satt.",
+        "english": "No thank you, I am already full.",
+        "hindi": "जी नहीं धन्यवाद, मेरा पेट भर गया है।"
+      },
+      {
+        "german": "Bist du sicher, dass du satt bist?",
+        "english": "Are you sure that you are full?",
+        "hindi": "क्या तुम पक्का तृप्त हो?"
+      }
+    ],
+    "comparativeForm": "satter",
+    "superlativeForm": "am sattesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Sättigung"],
+    "relatedVerbs": ["sättigen"]
+  },
+  {
+    "germanWord": "sauber",
+    "hindiPronunciation": "ज़ाउबर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["clean", "tidy", "neat"],
+    "hindiMeaning": ["साफ़", "स्वच्छ"],
+    "description": "Used for hygiene or general tidiness of objects and places.",
+    "tags": ["daily_life", "hygiene"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["rein", "gepflegt"],
+    "antonyms": ["schmutzig", "dreckig"],
+    "exampleSentences": [
+      {
+        "german": "Das Zimmer ist jetzt endlich sauber.",
+        "english": "The room is finally clean now.",
+        "hindi": "कमरा अब आखिरकार साफ है।"
+      },
+      {
+        "german": "Hast du saubere Hände?",
+        "english": "Do you have clean hands?",
+        "hindi": "क्या तुम्हारे हाथ साफ हैं?"
+      }
+    ],
+    "comparativeForm": "sauberer",
+    "superlativeForm": "am saubersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Sauberkeit"],
+    "relatedVerbs": ["säubern"]
+  },
+  {
+    "germanWord": "schlecht",
+    "hindiPronunciation": "श्लेख़्त",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["bad", "poor", "unwell"],
+    "hindiMeaning": ["बुरा", "खराब"],
+    "description": "Opposite of 'gut'; used for quality, behavior, or feeling ill.",
+    "tags": ["quality", "feelings", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["minderwertig", "übel"],
+    "antonyms": ["gut"],
+    "exampleSentences": [
+      {
+        "german": "Das Wetter ist heute wirklich schlecht.",
+        "english": "The weather is really bad today.",
+        "hindi": "आज मौसम वाकई खराब है।"
+      },
+      {
+        "german": "Mir ist schlecht.",
+        "english": "I feel sick/unwell.",
+        "hindi": "मेरी तबीयत खराब लग रही है।"
+      }
+    ],
+    "comparativeForm": "schlechter",
+    "superlativeForm": "am schlechtesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Schlechtigkeit"],
+    "relatedVerbs": ["verschlechtern"]
+  },
+  {
+    "germanWord": "schmutzig",
+    "hindiPronunciation": "श्मुत्सिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["dirty", "filthy", "messy"],
+    "hindiMeaning": ["गंदा"],
+    "description": "Refers to physical dirt or soil on something.",
+    "tags": ["daily_life", "description"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["dreckig", "unsauber"],
+    "antonyms": ["sauber"],
+    "exampleSentences": [
+      {
+        "german": "Deine Schuhe sind ganz schmutzig.",
+        "english": "Your shoes are completely dirty.",
+        "hindi": "तुम्हारे जूते बिल्कुल गंदे हैं।"
+      },
+      {
+        "german": "Wirf das schmutzige Hemd in die Wäsche.",
+        "english": "Throw the dirty shirt into the laundry.",
+        "hindi": "गंदी कमीज को धोने के लिए डाल दो।"
+      }
+    ],
+    "comparativeForm": "schmutziger",
+    "superlativeForm": "am schmutzigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["der Schmutz"],
+    "relatedVerbs": ["beschmutzen"]
+  },
+  {
+    "germanWord": "schnell",
+    "hindiPronunciation": "श्नेल",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["fast", "quick", "rapid"],
+    "hindiMeaning": ["तेज़", "जल्दी"],
+    "description": "Refers to high speed or performing an action in a short time.",
+    "tags": ["speed", "daily_life"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["rasch", "flott"],
+    "antonyms": ["langsam"],
+    "exampleSentences": [
+      {
+        "german": "Das Auto fährt sehr schnell.",
+        "english": "The car drives very fast.",
+        "hindi": "कार बहुत तेज़ चलती है।"
+      },
+      {
+        "german": "Wir müssen schnell nach Hause gehen.",
+        "english": "We must go home quickly.",
+        "hindi": "हमें जल्दी घर जाना चाहिए।"
+      }
+    ],
+    "comparativeForm": "schneller",
+    "superlativeForm": "am schnellsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Schnelligkeit"],
+    "relatedVerbs": ["beschleunigen"]
+  },
+  {
+    "germanWord": "schwach",
+    "hindiPronunciation": "श्वाख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["weak", "faint", "feeble"],
+    "hindiMeaning": ["कमज़ोर", "दुर्बल"],
+    "description": "Refers to a lack of physical strength, influence, or intensity.",
+    "tags": ["health", "strength", "description"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["kraftlos", "matt"],
+    "antonyms": ["stark", "kräftig"],
+    "exampleSentences": [
+      {
+        "german": "Nach der Krankheit fühlte er sich sehr schwach.",
+        "english": "After the illness, he felt very weak.",
+        "hindi": "बीमारी के बाद वह बहुत कमज़ोर महसूस कर रहा था।"
+      },
+      {
+        "german": "Das Licht in der Küche ist zu schwach.",
+        "english": "The light in the kitchen is too faint.",
+        "hindi": "रसोई की रोशनी बहुत कम है।"
+      }
+    ],
+    "comparativeForm": "schwächer",
+    "superlativeForm": "am schwächsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Schwäche"],
+    "relatedVerbs": ["schwächen"]
+  },
+  {
+    "germanWord": "schwarz",
+    "hindiPronunciation": "श्वार्त्स",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["black", "dark"],
+    "hindiMeaning": ["काला"],
+    "description": "Standard color adjective for black; also used for 'dark' in certain contexts.",
+    "tags": ["colors", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["weiß"],
+    "exampleSentences": [
+      {
+        "german": "Er trägt einen schwarzen Anzug.",
+        "english": "He is wearing a black suit.",
+        "hindi": "उसने काला सूट पहना है।"
+      },
+      {
+        "german": "Die Nacht war schwarz und ohne Sterne.",
+        "english": "The night was black and without stars.",
+        "hindi": "रात काली और बिना सितारों वाली थी।"
+      }
+    ],
+    "comparativeForm": "schwäzer",
+    "superlativeForm": "am schwärzesten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Schwarz"],
+    "relatedVerbs": ["schwärzen"]
+  },
+  {
+    "germanWord": "schwer",
+    "hindiPronunciation": "श्वेर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["difficult", "heavy", "hard"],
+    "hindiMeaning": ["मुश्किल", "भारी", "कठिन"],
+    "description": "Used for both physical weight and the difficulty level of a task.",
+    "tags": ["weight", "difficulty", "basics"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["schwierig", "massiv"],
+    "antonyms": ["leicht", "einfach"],
+    "exampleSentences": [
+      {
+        "german": "Diese Kiste ist viel zu schwer.",
+        "english": "This box is way too heavy.",
+        "hindi": "यह बक्सा बहुत ज़्यादा भारी है।"
+      },
+      {
+        "german": "Deutsch zu lernen ist am Anfang schwer.",
+        "english": "Learning German is difficult at the beginning.",
+        "hindi": "शुरुआत में जर्मन सीखना कठिन होता है।"
+      }
+    ],
+    "comparativeForm": "schwerer",
+    "superlativeForm": "am schwersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Schwere", "die Schwierigkeit"],
+    "relatedVerbs": ["erschweren"]
+  },
+  {
+    "germanWord": "schön",
+    "hindiPronunciation": "शेन",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["beautiful", "nice", "lovely"],
+    "hindiMeaning": ["सुंदर", "खूबसूरत", "अच्छा"],
+    "description": "Universal adjective for aesthetic beauty or pleasant experiences.",
+    "tags": ["appearance", "feelings", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["hübsch", "wundervoll"],
+    "antonyms": ["hässlich", "schlecht"],
+    "exampleSentences": [
+      {
+        "german": "Wir haben heute einen schönen Tag.",
+        "english": "We are having a nice day today.",
+        "hindi": "आज हमारा दिन अच्छा है।"
+      },
+      {
+        "german": "Du hast wirklich schöne Augen.",
+        "english": "You have really beautiful eyes.",
+        "hindi": "तुम्हारी आँखें सचमुच बहुत सुंदर हैं।"
+      }
+    ],
+    "comparativeForm": "schöner",
+    "superlativeForm": "am schönsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Schönheit"],
+    "relatedVerbs": ["verschönern"]
+  },
+  {
+    "germanWord": "spät",
+    "hindiPronunciation": "श्पेट",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["late"],
+    "hindiMeaning": ["देर", "विलंब"],
+    "description": "Refers to time occurring after the expected or usual moment.",
+    "tags": ["time", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["verspätet"],
+    "antonyms": ["früh"],
+    "exampleSentences": [
+      {
+        "german": "Es ist schon sehr spät.",
+        "english": "It is already very late.",
+        "hindi": "अब बहुत देर हो चुकी है।"
+      },
+      {
+        "german": "Warum kommst du so spät?",
+        "english": "Why are you coming so late?",
+        "hindi": "तुम इतनी देर से क्यों आ रहे हो?"
+      }
+    ],
+    "comparativeForm": "später",
+    "superlativeForm": "am spätesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Verspätung"],
+    "relatedVerbs": ["verspäten"]
+  },
+  {
+    "germanWord": "stark",
+    "hindiPronunciation": "श्टार्क",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["strong", "powerful", "intense"],
+    "hindiMeaning": ["मज़बूत", "शक्तिशाली", "तेज़"],
+    "description": "Used for physical strength, powerful influence, or high intensity (like rain or wind).",
+    "tags": ["strength", "weather", "description"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["kräftig", "mächtig"],
+    "antonyms": ["schwach"],
+    "exampleSentences": [
+      {
+        "german": "Er ist ein starker Mann.",
+        "english": "He is a strong man.",
+        "hindi": "वह एक मज़बूत आदमी है।"
+      },
+      {
+        "german": "Es regnet heute sehr stark.",
+        "english": "It is raining very heavily today.",
+        "hindi": "आज बहुत तेज़ बारिश हो रही है।"
+      }
+    ],
+    "comparativeForm": "stärker",
+    "superlativeForm": "am stärksten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Stärke"],
+    "relatedVerbs": ["stärken"]
+  },
+  {
+    "germanWord": "super",
+    "hindiPronunciation": "ज़ूपर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["super", "great", "awesome"],
+    "hindiMeaning": ["बहुत बढ़िया", "शानदार"],
+    "description": "A very common colloquial adjective used to express high approval.",
+    "tags": ["conversational", "approval"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["toll", "klasse", "prima"],
+    "antonyms": ["schlecht", "doof"],
+    "exampleSentences": [
+      {
+        "german": "Das war eine super Party!",
+        "english": "That was a great party!",
+        "hindi": "वह एक शानदार पार्टी थी!"
+      },
+      {
+        "german": "Deine Idee ist echt super.",
+        "english": "Your idea is really awesome.",
+        "hindi": "तुम्हारा विचार वाकई बहुत बढ़िया है।"
+      }
+    ],
+    "comparativeForm": "super",
+    "superlativeForm": "am supersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": true,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "süß",
+    "hindiPronunciation": "ज़्यूस",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["sweet", "cute"],
+    "hindiMeaning": ["मीठा", "प्यारा"],
+    "description": "Refers to the taste of sugar or the appearance of something charming.",
+    "tags": ["food", "appearance"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["niedlich", "zuckerhaltig"],
+    "antonyms": ["sauer", "salzig", "bitter"],
+    "exampleSentences": [
+      {
+        "german": "Der Kuchen schmeckt sehr süß.",
+        "english": "The cake tastes very sweet.",
+        "hindi": "केक बहुत मीठा है।"
+      },
+      {
+        "german": "Das Baby ist so süß!",
+        "english": "The baby is so cute!",
+        "hindi": "बच्चा बहुत प्यारा है!"
+      }
+    ],
+    "comparativeForm": "süßer",
+    "superlativeForm": "am süßesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Süße", "die Süßigkeit"],
+    "relatedVerbs": ["süßen"]
+  },
+  {
+    "germanWord": "teuer",
+    "hindiPronunciation": "टॉयर",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["expensive", "costly"],
+    "hindiMeaning": ["महंगा"],
+    "description": "Used when something costs a lot of money.",
+    "tags": ["shopping", "money"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["kostspielig"],
+    "antonyms": ["billig", "günstig"],
+    "exampleSentences": [
+      {
+        "german": "Das Auto ist mir zu teuer.",
+        "english": "The car is too expensive for me.",
+        "hindi": "कार मेरे लिए बहुत महंगी है।"
+      },
+      {
+        "german": "München ist eine teure Stadt.",
+        "english": "Munich is an expensive city.",
+        "hindi": "म्यूनिख एक महंगा शहर है।"
+      }
+    ],
+    "comparativeForm": "teurer",
+    "superlativeForm": "am teuersten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Teuerung"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "traurig",
+    "hindiPronunciation": "ट्राउरिख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["sad", "sorrowful"],
+    "hindiMeaning": ["उदास", "दुखी"],
+    "description": "Refers to the emotional state of sadness or something that causes sorrow.",
+    "tags": ["feelings", "emotions"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["betrübt", "unglücklich"],
+    "antonyms": ["glücklich", "froh"],
+    "exampleSentences": [
+      {
+        "german": "Warum bist du so traurig?",
+        "english": "Why are you so sad?",
+        "hindi": "तुम इतने उदास क्यों हो?"
+      },
+      {
+        "german": "Das war ein trauriger Film.",
+        "english": "That was a sad movie.",
+        "hindi": "वह एक दुखद फिल्म थी।"
+      }
+    ],
+    "comparativeForm": "trauriger",
+    "superlativeForm": "am traurigsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "über", "case": "akkusativ", "meaning": "sad about" }
+    ],
+    "relatedNouns": ["die Traurigkeit", "die Trauer"],
+    "relatedVerbs": ["trauern"]
+  },
+  {
+    "germanWord": "vage",
+    "hindiPronunciation": "वागे",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["vague", "indistinct", "unclear"],
+    "hindiMeaning": ["अस्पष्ट", "धुंधला"],
+    "description": "Used for statements, descriptions, or shapes that lack precision or clarity.",
+    "tags": ["description", "communication"],
+    "priority": 6,
+    "difficulty": 3,
+    "germanLevel": "b1",
+    "synonyms": ["unklar", "unpräzise"],
+    "antonyms": ["genau", "klar", "präzise"],
+    "exampleSentences": [
+      {
+        "german": "Seine Antwort war sehr vage.",
+        "english": "His answer was very vague.",
+        "hindi": "उसका जवाब बहुत अस्पष्ट था।"
+      },
+      {
+        "german": "Ich habe nur eine vage Erinnerung daran.",
+        "english": "I only have a vague memory of it.",
+        "hindi": "मुझे इसकी बस धुंधली सी याद है।"
+      }
+    ],
+    "comparativeForm": "vager",
+    "superlativeForm": "am vagesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "viel",
+    "hindiPronunciation": "फ़ील",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["much", "many", "a lot of"],
+    "hindiMeaning": ["बहुत", "अनेक"],
+    "description": "Indicates a large quantity. Note: 'vielen' is the dative plural or accusative masculine form.",
+    "tags": ["quantity", "basics"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["zahlreich", "mengenweise"],
+    "antonyms": ["wenig"],
+    "exampleSentences": [
+      {
+        "german": "Ich habe viel Arbeit.",
+        "english": "I have a lot of work.",
+        "hindi": "मेरे पास बहुत काम है।"
+      },
+      {
+        "german": "Vielen Dank für deine Hilfe!",
+        "english": "Many thanks for your help!",
+        "hindi": "आपकी मदद के लिए बहुत-बहुत धन्यवाद!"
+      }
+    ],
+    "comparativeForm": "mehr",
+    "superlativeForm": "am meisten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Vielheit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "voll",
+    "hindiPronunciation": "फ़ोल",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["full", "crowded", "complete"],
+    "hindiMeaning": ["भरा", "पूरा"],
+    "description": "Refers to a container reaching capacity or a place filled with people.",
+    "tags": ["status", "description"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gefüllt", "besetzt"],
+    "antonyms": ["leer"],
+    "exampleSentences": [
+      {
+        "german": "Das Glas ist halb voll.",
+        "english": "The glass is half full.",
+        "hindi": "ग्लास आधा भरा हुआ है।"
+      },
+      {
+        "german": "Der Bus war heute Morgen sehr voll.",
+        "english": "The bus was very full this morning.",
+        "hindi": "आज सुबह बस बहुत भरी हुई थी।"
+      }
+    ],
+    "comparativeForm": "voller",
+    "superlativeForm": "am vollsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [
+      { "preposition": "von", "case": "dativ", "meaning": "full of" },
+      { "preposition": "mit", "case": "dativ", "meaning": "filled with" }
+    ],
+    "relatedNouns": ["die Fülle"],
+    "relatedVerbs": ["füllen"]
+  },
+  {
+    "germanWord": "wach",
+    "hindiPronunciation": "वाख",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["awake", "alert"],
+    "hindiMeaning": ["जागा", "सचेत"],
+    "description": "The state of not being asleep or being mentally alert.",
+    "tags": ["status", "body"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["munter", "aufgeweckt"],
+    "antonyms": ["müde", "schlafend"],
+    "exampleSentences": [
+      {
+        "german": "Bist du schon wach?",
+        "english": "Are you already awake?",
+        "hindi": "क्या तुम पहले से ही जागे हुए हो?"
+      },
+      {
+        "german": "Ich bin die ganze Nacht wach geblieben.",
+        "english": "I stayed awake all night.",
+        "hindi": "मैं पूरी रात जागा रहा।"
+      }
+    ],
+    "comparativeForm": "wacher",
+    "superlativeForm": "am wachsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": [],
+    "relatedVerbs": ["aufwachen", "wecken"]
+  },
+  {
+    "germanWord": "warm",
+    "hindiPronunciation": "वार्म",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["warm"],
+    "hindiMeaning": ["गरम", "गुदगुदा"],
+    "description": "Used for pleasant temperatures, between cold and hot.",
+    "tags": ["weather", "temperature", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["lauwarm", "herzlich"],
+    "antonyms": ["kalt", "kühl"],
+    "exampleSentences": [
+      {
+        "german": "Das Wasser ist angenehm warm.",
+        "english": "The water is pleasantly warm.",
+        "hindi": "पानी सुखद रूप से गरम है।"
+      },
+      {
+        "german": "Zieh dich warm an!",
+        "english": "Dress warmly!",
+        "hindi": "गरम कपड़े पहनो!"
+      }
+    ],
+    "comparativeForm": "wärmer",
+    "superlativeForm": "am wärmsten",
+    "isIrregular": true,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Wärme"],
+    "relatedVerbs": ["wärmen"]
+  },
+  {
+    "germanWord": "weiß",
+    "hindiPronunciation": "वाइस",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["white"],
+    "hindiMeaning": ["सफ़ेद"],
+    "description": "Standard color adjective; also used for 'blank' in some contexts.",
+    "tags": ["colors", "basics"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["schneeweiß"],
+    "antonyms": ["schwarz"],
+    "exampleSentences": [
+      {
+        "german": "Das Blatt Papier ist weiß.",
+        "english": "The sheet of paper is white.",
+        "hindi": "कागज का पन्ना सफेद है।"
+      },
+      {
+        "german": "Sie hat ein weißes Auto.",
+        "english": "She has a white car.",
+        "hindi": "उसके पास एक सफेद कार है।"
+      }
+    ],
+    "comparativeForm": "weißer",
+    "superlativeForm": "am weißesten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["das Weiß"],
+    "relatedVerbs": ["weißen"]
+  },
+  {
+    "germanWord": "wirklich",
+    "hindiPronunciation": "विर्क्लिख़",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["really", "truly", "real", "actual"],
+    "hindiMeaning": ["सचमुच", "वाकई", "असली"],
+    "description": "Used to emphasize truth or reality; functions frequently as an adverb.",
+    "tags": ["emphasis", "conversational"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["tatsächlich", "echt"],
+    "antonyms": ["unwirklich", "scheinbar"],
+    "exampleSentences": [
+      {
+        "german": "Ist das dein wirklicher Name?",
+        "english": "Is that your real name?",
+        "hindi": "क्या यह तुम्हारा असली नाम है?"
+      },
+      {
+        "german": "Das ist wirklich eine gute Idee.",
+        "english": "That is really a good idea.",
+        "hindi": "यह वाकई एक अच्छा विचार है।"
+      }
+    ],
+    "comparativeForm": "wirklicher",
+    "superlativeForm": "am wirklichsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Wirklichkeit"],
+    "relatedVerbs": ["verwirklichen"]
+  },
+  {
+    "germanWord": "zentral",
+    "hindiPronunciation": "त़्सेन-ट्राल",
+    "type": "adjective",
+    "audioUrl": "",
+    "englishMeaning": ["central", "pivotal"],
+    "hindiMeaning": ["केंद्रीय", "मुख्य"],
+    "description": "Relates to the middle of a place or the most important part of a topic.",
+    "tags": ["location", "importance"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["mittig", "wesentlich"],
+    "antonyms": ["dezentral", "peripher"],
+    "exampleSentences": [
+      {
+        "german": "Das Hotel liegt sehr zentral.",
+        "english": "The hotel is located very centrally.",
+        "hindi": "होटल बहुत केंद्र में स्थित है।"
+      },
+      {
+        "german": "Das ist ein zentrales Thema.",
+        "english": "This is a central theme.",
+        "hindi": "यह एक मुख्य विषय है।"
+      }
+    ],
+    "comparativeForm": "zentraler",
+    "superlativeForm": "am zentralsten",
+    "isIrregular": false,
+    "predicativeOnly": false,
+    "undeclinable": false,
+    "requiresCase": [],
+    "prepositions": [],
+    "relatedNouns": ["die Zentrale", "das Zentrum"],
+    "relatedVerbs": ["zentralisieren"]
+  }
+]

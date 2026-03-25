@@ -1,0 +1,1165 @@
+[
+  {
+    "germanWord": "auch",
+    "hindiPronunciation": "आउख",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["also", "too", "as well"],
+    "hindiMeaning": ["भी"],
+    "description": "Used to indicate addition or inclusion. When used as a modal particle, it can add emphasis to a question or statement.",
+    "tags": ["addition", "emphasis"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ebenso", "ebenfalls"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich komme auch mit.",
+        "english": "I am coming along too.",
+        "hindi": "मैं भी साथ आ रहा हूँ।"
+      },
+      {
+        "german": "Hast du auch Hunger?",
+        "english": "Are you hungry as well?",
+        "hindi": "क्या तुम्हें भी भूख लगी है?"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "da",
+    "hindiPronunciation": "डा",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["there", "here", "since", "because"],
+    "hindiMeaning": ["वहाँ", "यहाँ", "चूँकि"],
+    "description": "Highly versatile word. It primarily indicates a location already mentioned (there) or acts as a conjunction to provide a reason (since/because).",
+    "tags": ["location", "reason", "conjunction"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["dort", "weil"],
+    "antonyms": ["hier"],
+    "exampleSentences": [
+      {
+        "german": "Da ist mein Schlüssel.",
+        "english": "There is my key.",
+        "hindi": "वहाँ मेरी चाबी है।"
+      },
+      {
+        "german": "Da ich müde bin, gehe ich schlafen.",
+        "english": "Since I am tired, I am going to sleep.",
+        "hindi": "चूँकि मैं थका हुआ हूँ, मैं सोने जा रहा हूँ।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "darüber",
+    "hindiPronunciation": "दार-यूबर",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["about that", "over it", "across it"],
+    "hindiMeaning": ["उसके बारे में", "उसके ऊपर"],
+    "description": "A pronominal adverb combining 'da' (there/it) and 'über' (over/about). Used to refer back to a previously mentioned topic or physical location.",
+    "tags": ["pronominal", "prepositional-adverb"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": [],
+    "antonyms": ["darunter"],
+    "exampleSentences": [
+      {
+        "german": "Wir haben darüber gesprochen.",
+        "english": "We spoke about that.",
+        "hindi": "हमने उसके बारे में बात की।"
+      },
+      {
+        "german": "Die Brücke führt darüber.",
+        "english": "The bridge leads over it.",
+        "hindi": "पुल उसके ऊपर से जाता है।"
+      }
+    ],
+    "category": "pronominal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": {
+      "basePreposition": "über",
+      "basePronoun": "da",
+      "usageCase": "akkusativ/dativ"
+    },
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "dort",
+    "hindiPronunciation": "डोर्ट",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["there"],
+    "hindiMeaning": ["वहाँ"],
+    "description": "Specifies a location that is distant from the speaker. More specific than 'da'.",
+    "tags": ["location", "place"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["da"],
+    "antonyms": ["hier"],
+    "exampleSentences": [
+      {
+        "german": "Dort steht das Auto.",
+        "english": "The car is standing there.",
+        "hindi": "कार वहाँ खड़ी है।"
+      },
+      {
+        "german": "Ich war noch nie dort.",
+        "english": "I have never been there.",
+        "hindi": "मैं पहले कभी वहाँ नहीं गया।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "dran",
+    "hindiPronunciation": "ड्रान",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["next", "at it", "on it"],
+    "hindiMeaning": ["बारी", "उस पर"],
+    "description": "Short form of 'daran'. Frequently used in idiomatic expressions regarding turns or proximity.",
+    "tags": ["turn", "position"],
+    "priority": 8,
+    "difficulty": 2,
+    "germanLevel": "a2",
+    "synonyms": ["daran"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wer ist jetzt dran?",
+        "english": "Whose turn is it now?",
+        "hindi": "अब किसकी बारी है?"
+      },
+      {
+        "german": "Ich bin gleich dran.",
+        "english": "It's almost my turn.",
+        "hindi": "बस मेरी बारी आने वाली है।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": {
+      "basePreposition": "an",
+      "basePronoun": "da",
+      "usageCase": "akkusativ/dativ"
+    },
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "gern",
+    "hindiPronunciation": "गेर्न",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["gladly", "willingly", "like to"],
+    "hindiMeaning": ["खुशी से", "शौक से"],
+    "description": "Used to express that someone enjoys doing an activity. It functions like the verb 'to like' in English when paired with another verb.",
+    "tags": ["preference", "liking"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gerne", "freudig"],
+    "antonyms": ["ungern"],
+    "exampleSentences": [
+      {
+        "german": "Ich spiele gern Fußball.",
+        "english": "I like playing football.",
+        "hindi": "मुझे फुटबॉल खेलना पसंद है।"
+      },
+      {
+        "german": "Wir essen gern Pizza.",
+        "english": "We like eating pizza.",
+        "hindi": "हमें पिज्जा खाना अच्छा लगता है।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": true,
+    "comparativeForm": "lieber",
+    "superlativeForm": "am liebsten",
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": ["mögen"]
+  },
+  {
+    "germanWord": "gestern",
+    "hindiPronunciation": "गेस्टर्न",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["yesterday"],
+    "hindiMeaning": ["कल (बीता हुआ)"],
+    "description": "Refers to the day before today. Used with past tenses (Präteritum or Perfekt).",
+    "tags": ["time", "past"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["morgen"],
+    "exampleSentences": [
+      {
+        "german": "Gestern war das Wetter schön.",
+        "english": "Yesterday the weather was beautiful.",
+        "hindi": "कल मौसम सुहावना था।"
+      },
+      {
+        "german": "Ich habe ihn gestern gesehen.",
+        "english": "I saw him yesterday.",
+        "hindi": "मैंने उसे कल देखा था।"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["gestrig"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "heute",
+    "hindiPronunciation": "हॉयटे",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["today"],
+    "hindiMeaning": ["आज"],
+    "description": "Refers to the current day. Can also refer to 'nowadays' in a broader sense.",
+    "tags": ["time", "present"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["heutzutage"],
+    "antonyms": ["gestern", "morgen"],
+    "exampleSentences": [
+      {
+        "german": "Heute habe ich keine Zeit.",
+        "english": "Today I have no time.",
+        "hindi": "आज मेरे पास समय नहीं है।"
+      },
+      {
+        "german": "Was machen wir heute?",
+        "english": "What are we doing today?",
+        "hindi": "आज हम क्या कर रहे हैं?"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["heutig"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "hier",
+    "hindiPronunciation": "हीर",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["here"],
+    "hindiMeaning": ["यहाँ"],
+    "description": "Indicates the current location of the speaker.",
+    "tags": ["location", "place"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["dort", "da"],
+    "exampleSentences": [
+      {
+        "german": "Hier ist es sehr laut.",
+        "english": "It is very loud here.",
+        "hindi": "यहाँ बहुत शोर है।"
+      },
+      {
+        "german": "Bleib bitte hier.",
+        "english": "Please stay here.",
+        "hindi": "कृपया यहाँ रुकें।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["hiesig"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "hinten",
+    "hindiPronunciation": "हिन्टन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["back", "behind", "at the rear"],
+    "hindiMeaning": ["पीछे"],
+    "description": "Indicates a position at the back or rear of something. Distinct from 'hinter' (preposition).",
+    "tags": ["location", "position"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["rückwärts"],
+    "antonyms": ["vorn", "vorne"],
+    "exampleSentences": [
+      {
+        "german": "Der Garten ist hinten.",
+        "english": "The garden is at the back.",
+        "hindi": "बगीचा पीछे है।"
+      },
+      {
+        "german": "Bitte setzen Sie sich nach hinten.",
+        "english": "Please sit in the back.",
+        "hindi": "कृपया पीछे बैठिए।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["hintere"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "immer",
+    "hindiPronunciation": "इमर",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["always", "ever"],
+    "hindiMeaning": ["हमेशा"],
+    "description": "Indicates that an action or state occurs at all times without exception.",
+    "tags": ["time", "frequency"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["stets", "allzeit"],
+    "antonyms": ["nie", "nimmer"],
+    "exampleSentences": [
+      {
+        "german": "Du bist immer so pünktlich.",
+        "english": "You are always so punctual.",
+        "hindi": "तुम हमेशा बहुत समय के पाबंद रहते हो।"
+      },
+      {
+        "german": "Ich werde dich immer lieben.",
+        "english": "I will always love you.",
+        "hindi": "मैं तुम्हें हमेशा प्यार करूँगा।"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "ja",
+    "hindiPronunciation": "या",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["yes", "indeed", "certainly"],
+    "hindiMeaning": ["हाँ", "तो"],
+    "description": "Primarily used for affirmation. As a modal particle, it can express surprise or emphasize something already known to the listener.",
+    "tags": ["affirmation", "emphasis"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["doch"],
+    "antonyms": ["nein"],
+    "exampleSentences": [
+      {
+        "german": "Ja, das ist richtig.",
+        "english": "Yes, that is correct.",
+        "hindi": "हाँ, यह सही है।"
+      },
+      {
+        "german": "Das ist ja toll!",
+        "english": "That is indeed great!",
+        "hindi": "यह तो वाकई बहुत अच्छा है!"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "jetzt",
+    "hindiPronunciation": "येत्स्ट",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["now", "at the moment"],
+    "hindiMeaning": ["अभी", "अब"],
+    "description": "Refers to the immediate present moment.",
+    "tags": ["time", "present"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["nun", "momentan"],
+    "antonyms": ["dann", "später"],
+    "exampleSentences": [
+      {
+        "german": "Jetzt habe ich Zeit.",
+        "english": "Now I have time.",
+        "hindi": "अब मेरे पास समय है।"
+      },
+      {
+        "german": "Wir müssen jetzt gehen.",
+        "english": "We must go now.",
+        "hindi": "हमें अभी जाना होगा।"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["jetzig"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "leider",
+    "hindiPronunciation": "लाइडर",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["unfortunately", "sadly", "regrettably"],
+    "hindiMeaning": ["दुर्भाग्य से", "अफ़सोस"],
+    "description": "Used to express regret about a situation or fact.",
+    "tags": ["emotion", "regret"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["bedauerlicherweise", "unglücklicherweise"],
+    "antonyms": ["glücklicherweise"],
+    "exampleSentences": [
+      {
+        "german": "Leider kann ich nicht kommen.",
+        "english": "Unfortunately, I cannot come.",
+        "hindi": "दुर्भाग्य से मैं नहीं आ सकता।"
+      },
+      {
+        "german": "Es regnet leider heute.",
+        "english": "Sadly, it is raining today.",
+        "hindi": "अफ़सोस कि आज बारिश हो रही है।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": ["das Leid"],
+    "relatedVerbs": ["leiden"]
+  },
+  {
+    "germanWord": "links",
+    "hindiPronunciation": "लिंक्स",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["left", "on the left"],
+    "hindiMeaning": ["बायाँ", "बाईं ओर"],
+    "description": "Indicates direction or location toward the left side.",
+    "tags": ["direction", "location"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["rechts"],
+    "exampleSentences": [
+      {
+        "german": "Biegen Sie nach links ab.",
+        "english": "Turn to the left.",
+        "hindi": "बाईं ओर मुड़िए।"
+      },
+      {
+        "german": "Das Haus ist auf der linken Seite.",
+        "english": "The house is on the left side.",
+        "hindi": "घर बाईं ओर है।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["linke"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "manchmal",
+    "hindiPronunciation": "मान्ख्माल",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["sometimes", "occasionally"],
+    "hindiMeaning": ["कभी-कभी"],
+    "description": "Indicates that an action happens at certain times but not always or regularly.",
+    "tags": ["time", "frequency"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["ab und zu", "bisweilen"],
+    "antonyms": ["immer", "nie"],
+    "exampleSentences": [
+      {
+        "german": "Manchmal gehe ich im Park spazieren.",
+        "english": "Sometimes I go for a walk in the park.",
+        "hindi": "कभी-कभी मैं पार्क में टहलने जाता हूँ।"
+      },
+      {
+        "german": "Das Wetter ist manchmal sehr wechselhaft.",
+        "english": "The weather is sometimes very changeable.",
+        "hindi": "मौसम कभी-कभी बहुत परिवर्तनशील होता है।"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "morgen",
+    "hindiPronunciation": "मॉर्गन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["tomorrow"],
+    "hindiMeaning": ["कल (आने वाला)"],
+    "description": "Refers to the day after today. Not to be confused with 'der Morgen' (the morning).",
+    "tags": ["time", "future"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["gestern", "heute"],
+    "exampleSentences": [
+      {
+        "german": "Morgen wird es regnen.",
+        "english": "It will rain tomorrow.",
+        "hindi": "कल बारिश होगी।"
+      },
+      {
+        "german": "Bis morgen!",
+        "english": "See you tomorrow!",
+        "hindi": "कल मिलते हैं!"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["morgig"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "nein",
+    "hindiPronunciation": "नाइन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["no"],
+    "hindiMeaning": ["नहीं"],
+    "description": "Used to express a negative answer to a question or to contradict a statement.",
+    "tags": ["negation", "answer"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["keineswegs"],
+    "antonyms": ["ja"],
+    "exampleSentences": [
+      {
+        "german": "Nein, das habe ich nicht gesagt.",
+        "english": "No, I didn't say that.",
+        "hindi": "नहीं, मैंने ऐसा नहीं कहा।"
+      },
+      {
+        "german": "Kommst du mit? Nein.",
+        "english": "Are you coming along? No.",
+        "hindi": "क्या तुम साथ आ रहे हो? नहीं।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "nicht",
+    "hindiPronunciation": "निख़्त",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["not"],
+    "hindiMeaning": ["नहीं"],
+    "description": "The primary word used for negating verbs, adjectives, or entire sentences.",
+    "tags": ["negation", "grammar"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["keineswegs"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Ich verstehe das nicht.",
+        "english": "I don't understand that.",
+        "hindi": "मैं यह नहीं समझता हूँ।"
+      },
+      {
+        "german": "Das ist nicht mein Auto.",
+        "english": "That is not my car.",
+        "hindi": "यह मेरी कार नहीं है।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": ["das Nicht"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "nie",
+    "hindiPronunciation": "नी",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["never"],
+    "hindiMeaning": ["कभी नहीं"],
+    "description": "Indicates that an action or state does not occur at any point in time.",
+    "tags": ["time", "negation"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["niemals", "nimmer"],
+    "antonyms": ["immer"],
+    "exampleSentences": [
+      {
+        "german": "Ich war noch nie in Berlin.",
+        "english": "I have never been to Berlin.",
+        "hindi": "मैं कभी बर्लिन नहीं गया हूँ।"
+      },
+      {
+        "german": "Das werde ich nie vergessen.",
+        "english": "I will never forget that.",
+        "hindi": "मैं यह कभी नहीं भूलूँगा।"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "noch",
+    "hindiPronunciation": "नोख़",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["still", "yet", "else", "more"],
+    "hindiMeaning": ["अभी भी", "अभी तक", "और"],
+    "description": "Used to indicate that a situation continues to exist. It is also used to add to a quantity or to express 'yet' when paired with 'nicht'.",
+    "tags": ["time", "continuation", "addition"],
+    "priority": 10,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["weiterhin"],
+    "antonyms": ["nicht mehr"],
+    "exampleSentences": [
+      {
+        "german": "Ich bin noch bei der Arbeit.",
+        "english": "I am still at work.",
+        "hindi": "मैं अभी भी काम पर हूँ।"
+      },
+      {
+        "german": "Möchtest du noch einen Kaffee?",
+        "english": "Would you like another coffee?",
+        "hindi": "क्या आप एक और कॉफी चाहेंगे?"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "oben",
+    "hindiPronunciation": "ओबन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["above", "up", "upstairs"],
+    "hindiMeaning": ["ऊपर"],
+    "description": "Indicates a position at a higher level or on an upper floor.",
+    "tags": ["location", "place"],
+    "priority": 9,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["oberhalb"],
+    "antonyms": ["unten"],
+    "exampleSentences": [
+      {
+        "german": "Meine Wohnung ist oben.",
+        "english": "My apartment is upstairs.",
+        "hindi": "मेरा अपार्टमेंट ऊपर है।"
+      },
+      {
+        "german": "Schau mal nach oben!",
+        "english": "Look up!",
+        "hindi": "ऊपर देखो!"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["obere"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "oft",
+    "hindiPronunciation": "ऑफ़्ट",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["often", "frequently"],
+    "hindiMeaning": ["अक्सर"],
+    "description": "Indicates a high frequency of an event or action.",
+    "tags": ["frequency", "time"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["häufig"],
+    "antonyms": ["selten", "nie"],
+    "exampleSentences": [
+      {
+        "german": "Wir gehen oft ins Kino.",
+        "english": "We often go to the cinema.",
+        "hindi": "हम अक्सर सिनेमा जाते हैं।"
+      },
+      {
+        "german": "Wie oft trainierst du?",
+        "english": "How often do you work out?",
+        "hindi": "तुम कितनी बार व्यायाम करते हो?"
+      }
+    ],
+    "category": "temporal",
+    "isIrregular": false,
+    "comparativeForm": "öfter",
+    "superlativeForm": "am öftesten",
+    "pronominalDetails": null,
+    "relatedAdjectives": ["häufig"],
+    "relatedNouns": ["die Häufigkeit"],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "rechts",
+    "hindiPronunciation": "रेख़्त्स",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["right", "on the right"],
+    "hindiMeaning": ["दायाँ", "दाईं ओर"],
+    "description": "Indicates direction or location toward the right side.",
+    "tags": ["direction", "location"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": ["links"],
+    "exampleSentences": [
+      {
+        "german": "Das Badezimmer ist rechts.",
+        "english": "The bathroom is on the right.",
+        "hindi": "बाथरूम दाईं ओर है।"
+      },
+      {
+        "german": "Fahren Sie nach rechts.",
+        "english": "Drive to the right.",
+        "hindi": "दाईं ओर मुड़ें।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["rechte"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "sehr",
+    "hindiPronunciation": "ज़ेर",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["very", "greatly", "much"],
+    "hindiMeaning": ["बहुत"],
+    "description": "Used to intensify an adjective, adverb, or verb.",
+    "tags": ["intensifier", "degree"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["besonders", "extrem"],
+    "antonyms": ["kaum", "wenig"],
+    "exampleSentences": [
+      {
+        "german": "Das ist sehr wichtig.",
+        "english": "That is very important.",
+        "hindi": "यह बहुत महत्वपूर्ण है।"
+      },
+      {
+        "german": "Ich danke dir sehr.",
+        "english": "I thank you very much.",
+        "hindi": "मैं आपका बहुत-बहुत धन्यवाद करता हूँ।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "unten",
+    "hindiPronunciation": "उन्टन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["below", "down", "downstairs"],
+    "hindiMeaning": ["नीचे"],
+    "description": "Indicates a position at a lower level, on a lower floor, or at the bottom of something.",
+    "tags": ["location", "place"],
+    "priority": 9,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["unterhalb"],
+    "antonyms": ["oben"],
+    "exampleSentences": [
+      {
+        "german": "Die Garage ist unten.",
+        "english": "The garage is downstairs.",
+        "hindi": "गैरेज नीचे है।"
+      },
+      {
+        "german": "Bitte lesen Sie den Text unten.",
+        "english": "Please read the text below.",
+        "hindi": "कृपया नीचे दिया गया टेक्स्ट पढ़ें।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["untere"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "vielleicht",
+    "hindiPronunciation": "फ़ीलाइख़्त",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["maybe", "perhaps"],
+    "hindiMeaning": ["शायद"],
+    "description": "Used to express possibility or uncertainty about a statement.",
+    "tags": ["possibility", "uncertainty"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["eventuell", "womöglich"],
+    "antonyms": ["sicher", "bestimmt"],
+    "exampleSentences": [
+      {
+        "german": "Vielleicht komme ich morgen vorbei.",
+        "english": "Maybe I'll stop by tomorrow.",
+        "hindi": "शायद मैं कल आऊँगा।"
+      },
+      {
+        "german": "Hast du vielleicht einen Stift?",
+        "english": "Do you perhaps have a pen?",
+        "hindi": "क्या तुम्हारे पास शायद एक पेन है?"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "vorne",
+    "hindiPronunciation": "फ़ोर्ने",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["front", "at the front"],
+    "hindiMeaning": ["सामने", "आगे"],
+    "description": "Indicates a position at the front or in the leading part of something.",
+    "tags": ["location", "position"],
+    "priority": 9,
+    "difficulty": 2,
+    "germanLevel": "a1",
+    "synonyms": ["vorn"],
+    "antonyms": ["hinten"],
+    "exampleSentences": [
+      {
+        "german": "Er sitzt ganz vorne.",
+        "english": "He is sitting right at the front.",
+        "hindi": "वह बिल्कुल आगे बैठा है।"
+      },
+      {
+        "german": "Der Eingang ist vorne am Gebäude.",
+        "english": "The entrance is at the front of the building.",
+        "hindi": "प्रवेश द्वार इमारत के सामने है।"
+      }
+    ],
+    "category": "lokal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": ["vordere"],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "wann",
+    "hindiPronunciation": "वान",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["when"],
+    "hindiMeaning": ["कब"],
+    "description": "Interrogative adverb used to ask about a point in time or a period.",
+    "tags": ["question", "time"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wann beginnt der Film?",
+        "english": "When does the movie start?",
+        "hindi": "फिल्म कब शुरू होगी?"
+      },
+      {
+        "german": "Seit wann lernst du Deutsch?",
+        "english": "Since when have you been learning German?",
+        "hindi": "तुम कब से जर्मन सीख रहे हो?"
+      }
+    ],
+    "category": "interrogativ",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "warum",
+    "hindiPronunciation": "वारुम",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["why"],
+    "hindiMeaning": ["क्यों"],
+    "description": "Interrogative adverb used to ask for a reason, cause, or purpose.",
+    "tags": ["question", "reason"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["weshalb", "wieso"],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Warum bist du so spät?",
+        "english": "Why are you so late?",
+        "hindi": "तुम इतनी देर से क्यों आए?"
+      },
+      {
+        "german": "Ich weiß nicht, warum er das macht.",
+        "english": "I don't know why he is doing that.",
+        "hindi": "मुझे नहीं पता कि वह ऐसा क्यों कर रहा है।"
+      }
+    ],
+    "category": "interrogativ",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "wie",
+    "hindiPronunciation": "वी",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["how", "like", "as"],
+    "hindiMeaning": ["कैसे", "जैसा"],
+    "description": "Used as an interrogative adverb to ask about the manner or quality, and as a comparative particle to show equality.",
+    "tags": ["question", "manner", "comparison"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wie geht es dir?",
+        "english": "How are you?",
+        "hindi": "तुम कैसे हो?"
+      },
+      {
+        "german": "Er ist so groß wie ich.",
+        "english": "He is as tall as I am.",
+        "hindi": "वह मेरे जितना ही लंबा है।"
+      }
+    ],
+    "category": "interrogativ",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "wo",
+    "hindiPronunciation": "वो",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["where"],
+    "hindiMeaning": ["कहाँ"],
+    "description": "Interrogative adverb used to ask about a static location or place.",
+    "tags": ["question", "location", "place"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": [],
+    "antonyms": [],
+    "exampleSentences": [
+      {
+        "german": "Wo wohnst du?",
+        "english": "Where do you live?",
+        "hindi": "तुम कहाँ रहते हो?"
+      },
+      {
+        "german": "Wo ist der Bahnhof?",
+        "english": "Where is the train station?",
+        "hindi": "रेलवे स्टेशन कहाँ है?"
+      }
+    ],
+    "category": "interrogativ",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": [],
+    "relatedVerbs": []
+  },
+  {
+    "germanWord": "zusammen",
+    "hindiPronunciation": "त्सुज़ामन",
+    "type": "adverb",
+    "audioUrl": "",
+    "englishMeaning": ["together", "jointly"],
+    "hindiMeaning": ["साथ में", "मिलकर"],
+    "description": "Indicates that multiple people or things are doing something as a group or in the same place.",
+    "tags": ["social", "manner"],
+    "priority": 10,
+    "difficulty": 1,
+    "germanLevel": "a1",
+    "synonyms": ["gemeinsam"],
+    "antonyms": ["allein", "getrennt"],
+    "exampleSentences": [
+      {
+        "german": "Wir lernen zusammen Deutsch.",
+        "english": "We are learning German together.",
+        "hindi": "हम साथ में जर्मन सीख रहे हैं।"
+      },
+      {
+        "german": "Das macht zusammen zehn Euro.",
+        "english": "That comes to ten euros altogether.",
+        "hindi": "कुल मिलाकर दस यूरो हुए।"
+      }
+    ],
+    "category": "modal",
+    "isIrregular": false,
+    "comparativeForm": null,
+    "superlativeForm": null,
+    "pronominalDetails": null,
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Zusammenhalt"],
+    "relatedVerbs": ["zusammenarbeiten"]
+  }
+]

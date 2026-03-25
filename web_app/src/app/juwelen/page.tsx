@@ -202,6 +202,13 @@ export default function QuizGamesHomePage() {
       color: "indigo",
       icon: BookUserIcon,
     },
+    {
+      href: "/juwel/verb-forms-challange",
+      title: "Verb Forms Challange",
+      description: "Challenge your verb forms knowledge",
+      color: "purple",
+      icon: GraduationCap,
+    },
   ];
 
   return (
