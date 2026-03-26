@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import Link from "next/link";
 import MemoryGameControls from "@/components/MemoryGameControls";
 import verbsDataRaw from "@/data/verbs.json";
 import { VerbWord } from "@/models/verb";
 
-// Only pick verbs that have the required 4 fields
-const VERBS: VerbWord[] = (verbsDataRaw as any[]).filter(
+const VERBS: VerbWord[] = (verbsDataRaw as VerbWord[]).filter(
   (v) =>
     v.germanWord && v.thirdPersonSingular && v.simplePast && v.pastParticiple
 );
@@ -21,263 +20,267 @@ const HEADINGS = [
 ];
 
 type TargetForm = {
-  original: string;
-  normalized: string;
-  type: string;
+  display: string;
+  variants: string[];
+  slot: string;
 };
 
-type HistoryItem = {
-  verb: VerbWord;
-  status: "success" | "failed";
-};
+type HistoryItem = { verb: VerbWord; status: "success" | "failed" };
 
 const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
 
-function shuffleArray<T>(array: T[]): T[] {
-  const newArr = [...array];
-  for (let i = newArr.length - 1; i > 0; i--) {
+const parseVariants = (raw: string): string[] =>
+  raw.includes("/")
+    ? raw
+        .split("/")
+        .map((p) => normalize(p))
+        .filter(Boolean)
+    : [normalize(raw)];
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    [a[i], a[j]] = [a[j], a[i]];
   }
-  return newArr;
+  return a;
+}
+
+function buildTargets(verb: VerbWord): TargetForm[] {
+  return [
+    {
+      display: verb.germanWord.trim(),
+      variants: parseVariants(verb.germanWord),
+      slot: "inf",
+    },
+    {
+      display: verb.simplePast!.trim(),
+      variants: parseVariants(verb.simplePast!),
+      slot: "past",
+    },
+    {
+      display: verb.pastParticiple!.trim(),
+      variants: parseVariants(verb.pastParticiple!),
+      slot: "perf",
+    },
+  ];
 }
 
 export default function VerbFormsChallangeComp() {
+  // SSR-safe: start with empty array so server and client initial render match.
+  // The mount effect below populates it with a shuffled list on the client only.
   const [activeVerbs, setActiveVerbs] = useState<VerbWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [history, setHistory] = useState<HistoryItem[]>([]);
-
-  const [guessed, setGuessed] = useState<Set<string>>(new Set());
+  const [guessedSlots, setGuessedSlots] = useState<Set<string>>(new Set());
   const [input, setInput] = useState("");
   const [shake, setShake] = useState(false);
-  const [flash, setFlash] = useState<string | null>(null);
+  const [flashSlot, setFlashSlot] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // Overall game progress (guessed forms total across the game)
-  const [totalGuessedForms, setTotalGuessedForms] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const giveUpScheduled = useRef(false);
   const { playSound } = useSoundEffects();
 
-  const startNewGame = () => {
-    // Play with ALL verbs in a random order
-    const shuffled = shuffleArray(VERBS);
-    setActiveVerbs(shuffled);
-    setCurrentIndex(0);
-    setHistory([]);
-    setGuessed(new Set());
-    setTotalGuessedForms(0);
-    setInput("");
-    setFlash(null);
-    setShake(false);
-    setShowAll(false);
-    inputRef.current?.focus();
-  };
+  const currentVerb = activeVerbs[currentIndex] ?? null;
 
+  const currentTargets = useMemo<TargetForm[]>(
+    () => (currentVerb ? buildTargets(currentVerb) : []),
+    [currentVerb]
+  );
+
+  // ── Mount: shuffle and start (client-only, avoids hydration mismatch) ─────
   useEffect(() => {
-    setIsClient(true);
-    startNewGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setMounted(true);
+    setActiveVerbs(shuffleArray(VERBS));
+    inputRef.current?.focus();
   }, []);
 
+  // ── Navigation ────────────────────────────────────────────────────────────
+
+  const resetRound = useCallback(() => {
+    setGuessedSlots(new Set());
+    setShowAll(false);
+    setFlashSlot(null);
+    setInput("");
+    setTimeout(() => inputRef.current?.focus(), 50);
+  }, []);
+
+  const startNewGame = useCallback(() => {
+    setActiveVerbs(shuffleArray(VERBS));
+    setCurrentIndex(0);
+    setHistory([]);
+    setGuessedSlots(new Set());
+    setInput("");
+    setFlashSlot(null);
+    setShake(false);
+    setShowAll(false);
+    setTimeout(() => inputRef.current?.focus(), 50);
+  }, []);
+
+  const advanceToNext = useCallback(
+    (verbs: VerbWord[], idx: number) => {
+      if (idx + 1 >= verbs.length) {
+        startNewGame();
+      } else {
+        setCurrentIndex(idx + 1);
+        resetRound();
+      }
+    },
+    [startNewGame, resetRound]
+  );
+
+  // ── Give-up effect (all setState inside setTimeout — never synchronous) ───
   useEffect(() => {
-    if (!shake) {
-      inputRef.current?.focus();
-    }
-  }, [shake, guessed]);
+    if (!showAll || giveUpScheduled.current || !currentVerb) return;
+    giveUpScheduled.current = true;
 
-  const currentVerb = activeVerbs[currentIndex];
-  // Game never ends now, so it loops automatically.
-  const isGameOver = false;
+    const verb = currentVerb;
+    const verbs = activeVerbs;
+    const idx = currentIndex;
 
-  // Derive targets for the current verb ONLY
-  let currentTargets: TargetForm[] = [];
-  if (currentVerb) {
-    currentTargets = [
-      {
-        original: currentVerb.germanWord,
-        normalized: normalize(currentVerb.germanWord),
-        type: "Inf.",
-      },
-      {
-        original: currentVerb.simplePast || "",
-        normalized: normalize(currentVerb.simplePast || ""),
-        type: "Prät.",
-      },
-      {
-        original: currentVerb.pastParticiple || "",
-        normalized: normalize(currentVerb.pastParticiple || ""),
-        type: "Perf.",
-      },
-    ];
-  }
-
-  // Handle advancing logic via effect when showAll goes true (simulating "Give Up")
-  useEffect(() => {
-    if (showAll && currentVerb) {
+    const outerTimer = setTimeout(() => {
       playSound("wrong");
-      // Add red history item
-      setHistory((prev) => [{ verb: currentVerb, status: "failed" }, ...prev]);
+      setHistory((prev) => [{ verb, status: "failed" }, ...prev]);
 
-      const timer = setTimeout(() => {
-        advanceToNext();
+      const innerTimer = setTimeout(() => {
+        advanceToNext(verbs, idx);
+        giveUpScheduled.current = false;
       }, 2000);
-      return () => clearTimeout(timer);
-    }
+
+      return () => clearTimeout(innerTimer);
+    }, 0);
+
+    return () => clearTimeout(outerTimer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAll]);
 
-  const advanceToNext = () => {
-    let shouldRestart = false;
-    setCurrentIndex((prev) => {
-      if (prev + 1 >= activeVerbs.length) {
-        shouldRestart = true;
-        return prev;
-      }
-      return prev + 1;
-    });
+  // Reset give-up guard on verb change
+  useEffect(() => {
+    giveUpScheduled.current = false;
+  }, [currentIndex]);
 
-    if (shouldRestart) {
-      startNewGame();
-    } else {
-      setGuessed(new Set());
-      setShowAll(false);
-      setFlash(null);
-      setInput("");
-    }
-  };
+  // ── Guess handler ─────────────────────────────────────────────────────────
 
-  const handleGuess = () => {
+  const handleGuess = useCallback(() => {
     const val = normalize(input);
-    if (!val || showAll || isGameOver) return;
+    if (!val || showAll || !currentVerb) return;
 
-    // Check against CURRENT verb targets
-    const matches = currentTargets.filter((t) => t.normalized === val);
+    const newSlots = new Set(guessedSlots);
+    let madeNewGuess = false;
+    let newFlashSlot: string | null = null;
 
-    if (matches.length > 0) {
-      let madeNewGuess = false;
-      const newGuessedSet = new Set(guessed);
+    for (const target of currentTargets) {
+      if (!newSlots.has(target.slot) && target.variants.includes(val)) {
+        newSlots.add(target.slot);
+        madeNewGuess = true;
+        newFlashSlot = target.slot;
+        break;
+      }
+    }
 
-      matches.forEach((match) => {
-        if (!newGuessedSet.has(match.normalized)) {
-          madeNewGuess = true;
-          newGuessedSet.add(match.normalized);
-          setFlash(match.normalized);
-        }
-      });
+    if (madeNewGuess) {
+      const verb = currentVerb;
+      const verbs = activeVerbs;
+      const idx = currentIndex;
+      const totalSlots = currentTargets.length;
 
-      if (madeNewGuess) {
-        setGuessed(newGuessedSet);
-        playSound("correct");
-        setInput("");
-        setTotalGuessedForms((prev) => prev + 1);
+      setGuessedSlots(newSlots);
+      playSound("correct");
+      setInput("");
+      setFlashSlot(newFlashSlot);
+      setTimeout(() => setFlashSlot(null), 800);
 
-        // Success condition for current verb
-        const requiredCount = new Set(currentTargets.map((t) => t.normalized))
-          .size;
-        if (newGuessedSet.size === requiredCount) {
-          setHistory((prev) => [
-            { verb: currentVerb, status: "success" },
-            ...prev,
-          ]);
-          setTimeout(() => {
-            advanceToNext();
-          }, 1200);
-        } else {
-          setTimeout(() => setFlash(null), 800);
-        }
-      } else {
-        // Already guessed
-        setShake(true);
-        setTimeout(() => setShake(false), 500);
-        playSound("wrong");
+      if (newSlots.size === totalSlots) {
+        setHistory((prev) => [{ verb, status: "success" }, ...prev]);
+        setTimeout(() => advanceToNext(verbs, idx), 1200);
       }
     } else {
       setShake(true);
       setTimeout(() => setShake(false), 500);
       playSound("wrong");
     }
-  };
+  }, [
+    input,
+    showAll,
+    currentVerb,
+    currentTargets,
+    guessedSlots,
+    playSound,
+    advanceToNext,
+    activeVerbs,
+    currentIndex,
+  ]);
 
-  const resetFunction = () => {
-    // We repurpose "reset" on MemoryGameControls to simply clear the text box
-    setInput("");
-    inputRef.current?.focus();
-  };
+  // ── Render helpers ────────────────────────────────────────────────────────
 
-  const toggleShow = () => {
-    if (isGameOver || showAll) return;
-    setShowAll(true);
-  };
+  const renderHeading = (text: string) => (
+    <div
+      key={text}
+      className="w-full px-2 py-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b border-gray-300 dark:border-gray-700 mb-1"
+    >
+      {text}
+    </div>
+  );
 
-  if (!isClient) return null;
+  const renderMeaningCell = (v: VerbWord) => (
+    <div
+      key={"meaning-" + v.germanWord}
+      className="flex flex-col items-center justify-center w-full px-2 py-1.5 rounded-lg mb-1.5 min-h-11 bg-slate-100 border-2 border-slate-300 dark:bg-[#1a1a24] dark:border-[#3a3a4a] text-center shadow-sm"
+    >
+      <span className="font-sans font-bold text-slate-800 dark:text-[#e8e2d6] text-[0.8rem] leading-tight">
+        {v.englishMeaning[0]}
+      </span>
+      <span className="font-sans text-slate-600 dark:text-[#a0a0aa] text-[0.7rem] leading-tight mt-0.5">
+        {v.hindiMeaning[0]}
+      </span>
+    </div>
+  );
 
-  const totalPossibleForms = activeVerbs.length * 4;
-  const progress =
-    totalPossibleForms > 0
-      ? Math.round((totalGuessedForms / totalPossibleForms) * 100)
-      : 0;
-
-  const renderHeading = (text: string) => {
-    return (
-      <div
-        key={text}
-        className="w-full px-2 py-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b border-gray-300 dark:border-gray-700 mb-1"
-      >
-        {text}
-      </div>
-    );
-  };
-
-  const renderMeaningCell = (v: VerbWord) => {
-    return (
-      <div
-        key={"meaning-" + v.germanWord}
-        className="flex flex-col items-center justify-center w-full px-2 py-1.5 rounded-lg mb-1.5 min-h-[44px] bg-slate-100 border-2 border-slate-300 dark:bg-[#1a1a24] dark:border-[#3a3a4a] text-center shadow-sm"
-      >
-        <span className="font-sans font-bold text-slate-800 dark:text-[#e8e2d6] text-[0.8rem] leading-tight">
-          {v.englishMeaning[0]}
-        </span>
-        <span className="font-sans text-slate-600 dark:text-[#a0a0aa] text-[0.7rem] leading-tight mt-0.5">
-          {v.hindiMeaning[0]}
-        </span>
-      </div>
-    );
-  };
-
-  const renderGuessableCell = (original: string, titleType: string) => {
-    const norm = normalize(original);
-    const isRevealed = guessed.has(norm);
+  const renderGuessableCell = (target: TargetForm) => {
+    const isRevealed = guessedSlots.has(target.slot);
     const isVisible = isRevealed || showAll;
-    const isFlashing = flash === norm;
+    const isFlashing = flashSlot === target.slot;
 
     let cellClasses =
-      "font-courier group inline-flex items-center justify-center w-full px-2 rounded-lg text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border min-h-[44px] mb-1.5 ";
+      "font-courier inline-flex items-center justify-center w-full px-2 rounded-lg text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border min-h-[44px] mb-1.5 ";
 
     if (isVisible) {
-      if (isRevealed) {
-        cellClasses +=
-          "bg-green-50 z-10 border-green-400 text-green-700 shadow-[0_0_12px_rgba(34,197,94,0.3)] dark:bg-[#1a2a1a] dark:border-[#3d6b3d] dark:text-[#7ec87e] dark:shadow-[0_0_12px_rgba(126,200,126,0.15)] ";
-      } else {
-        cellClasses +=
-          "bg-slate-50 z-10 border-slate-300 text-slate-600 dark:bg-[#15151c] dark:border-[#3a3a4a] dark:text-[#9a9aa0] ";
-      }
+      cellClasses += isRevealed
+        ? "bg-green-50 z-10 border-green-400 text-green-700 shadow-[0_0_12px_rgba(34,197,94,0.3)] dark:bg-[#1a2a1a] dark:border-[#3d6b3d] dark:text-[#7ec87e] dark:shadow-[0_0_12px_rgba(126,200,126,0.15)] "
+        : "bg-slate-50 z-10 border-slate-300 text-slate-600 dark:bg-[#15151c] dark:border-[#3a3a4a] dark:text-[#9a9aa0] ";
     } else {
       cellClasses +=
         "text-transparent z-10 border-slate-200 dark:border-[#2a2a35] bg-white dark:bg-[#0e0e12] after:content-[''] after:absolute after:inset-y-[8px] after:inset-x-3 after:rounded-md after:bg-slate-200 dark:after:bg-[#2a2a35] ";
     }
 
-    if (isFlashing) {
+    if (isFlashing)
       cellClasses += " animate-popIn dark:bg-[#2a4a2a] bg-green-200 z-20 ";
-    }
 
     return (
-      <div key={titleType + "-" + original} className={cellClasses}>
-        {original}
+      <div key={target.slot} className={cellClasses}>
+        {target.display}
       </div>
     );
   };
+
+  // Render a skeleton grid while waiting for client mount to avoid layout shift
+  const renderSkeleton = () => (
+    <div className="flex flex-col z-10 w-full mb-4">
+      <div className="grid grid-cols-4 gap-x-3 mb-0.5">
+        {HEADINGS.map(renderHeading)}
+      </div>
+      <div className="grid grid-cols-4 gap-x-3">
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="w-full rounded-lg mb-1.5 min-h-11 bg-slate-200 dark:bg-[#1a1a24] animate-pulse"
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="h-dvh w-full overflow-hidden flex flex-col items-center bg-slate-50 dark:bg-[#0e0e12] text-slate-900 dark:text-[#e8e2d6] pt-2 pb-6 px-4 relative">
@@ -304,7 +307,7 @@ export default function VerbFormsChallangeComp() {
         </span>
       </Link>
 
-      <div className="flex-none flex flex-col items-center w-full max-w-[1000px]">
+      <div className="flex-none flex flex-col items-center w-full max-w-250">
         <h1 className="font-fell text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
           Verbformen
         </h1>
@@ -316,37 +319,38 @@ export default function VerbFormsChallangeComp() {
           input={input}
           setInput={setInput}
           handleGuess={handleGuess}
-          resetFunction={resetFunction}
+          resetFunction={() => {
+            setInput("");
+            inputRef.current?.focus();
+          }}
           showAll={showAll}
-          toggleShow={toggleShow}
+          toggleShow={() => {
+            if (!showAll) setShowAll(true);
+          }}
           shake={shake}
           inputRef={inputRef}
           placeholder="Type a verb form..."
         />
       </div>
 
-      <div className="flex-none w-full max-w-[1000px] flex flex-col items-center relative">
-        {/* ONE VERB AT A TIME DISPLAY */}
-        {currentVerb && (
-          <div className="flex flex-col z-10 w-full transition-opacity duration-300 animate-fadeIn mb-4">
-            {/* Header Row */}
-            <div className="grid grid-cols-4 gap-x-3 mb-[2px]">
-              {HEADINGS.map((h) => renderHeading(h))}
-            </div>
-
-            {/* Current Verb Row */}
-            <div className="grid grid-cols-4 gap-x-3">
-              {renderMeaningCell(currentVerb)}
-              {renderGuessableCell(currentVerb.germanWord, "inf")}
-              {renderGuessableCell(currentVerb.simplePast!, "past")}
-              {renderGuessableCell(currentVerb.pastParticiple!, "perf")}
-            </div>
-          </div>
-        )}
+      <div className="flex-none w-full max-w-250 flex flex-col items-center relative">
+        {!mounted
+          ? renderSkeleton()
+          : currentVerb && (
+              <div className="flex flex-col z-10 w-full transition-opacity duration-300 animate-fadeIn mb-4">
+                <div className="grid grid-cols-4 gap-x-3 mb-0.5">
+                  {HEADINGS.map(renderHeading)}
+                </div>
+                <div className="grid grid-cols-4 gap-x-3">
+                  {renderMeaningCell(currentVerb)}
+                  {currentTargets.map(renderGuessableCell)}
+                </div>
+              </div>
+            )}
       </div>
 
-      {/* DYNAMIC HISTORY PANEL BELOW VERBS */}
-      <div className="flex-1 min-h-0 w-full max-w-[1000px] flex flex-col border-t z-10 border-slate-300 dark:border-[#2a2a35] overflow-hidden mt-2 bg-slate-100 dark:bg-[#15151c] rounded-b-xl shadow-inner">
+      {/* History Panel */}
+      <div className="flex-1 min-h-0 w-full max-w-250 flex flex-col border-t z-10 border-slate-300 dark:border-[#2a2a35] overflow-hidden mt-2 bg-slate-100 dark:bg-[#15151c] rounded-b-xl shadow-inner">
         <div className="px-4 py-2 border-b border-slate-300 dark:border-zinc-800 flex justify-between items-center shrink-0 bg-slate-200 dark:bg-[#1a1a24]">
           <h3 className="font-extrabold text-slate-700 dark:text-zinc-300 text-[10px] tracking-widest uppercase">
             Verb History ({history.length}/{activeVerbs.length})
@@ -398,7 +402,6 @@ export default function VerbFormsChallangeComp() {
                   </div>
                 </div>
 
-                {/* inf -> past -> perf format with green and red */}
                 <div
                   className={`mt-0.5 sm:mt-0 font-courier text-sm font-bold flex flex-wrap items-center gap-x-2 leading-tight ${
                     item.status === "success"

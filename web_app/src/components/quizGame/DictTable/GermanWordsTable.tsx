@@ -1,57 +1,12 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect, ReactNode } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { germanWords } from "@/data/germanWords";
 import { TableVirtuoso } from "react-virtuoso";
-import { SearchBar } from "./searchBar";
+import { SearchBar } from "../../searchBar";
 import { useRouter } from "next/navigation";
 import { useGoBack } from "@/hooks/useGoBack";
-
-// Highlight matching text
-const HighlightText = (text: string, searchQuery: string) => {
-  if (!searchQuery.trim()) return text;
-
-  const searchTerms = searchQuery.toLowerCase().split(" ").filter(Boolean);
-  const parts: ReactNode[] = [];
-  let remaining = text;
-  let lowerRemaining = text.toLowerCase();
-
-  while (remaining) {
-    let matchIndex = -1;
-    let matchTerm = "";
-
-    for (const term of searchTerms) {
-      const idx = lowerRemaining.indexOf(term);
-      if (idx >= 0 && (matchIndex === -1 || idx < matchIndex)) {
-        matchIndex = idx;
-        matchTerm = term;
-      }
-    }
-
-    if (matchIndex === -1) {
-      parts.push(remaining);
-      break;
-    }
-
-    if (matchIndex > 0) {
-      parts.push(remaining.slice(0, matchIndex));
-    }
-
-    parts.push(
-      <span
-        key={parts.length}
-        className="bg-amber-200 dark:bg-amber-600 text-amber-950 dark:text-white rounded px-0.5 font-medium box-decoration-clone"
-      >
-        {remaining.slice(matchIndex, matchIndex + matchTerm.length)}
-      </span>
-    );
-
-    remaining = remaining.slice(matchIndex + matchTerm.length);
-    lowerRemaining = remaining.toLowerCase();
-  }
-
-  return parts;
-};
+import { HighlightText } from "./highlightText";
 
 const getVal = (val: string | string[] | undefined) => {
   if (!val) return "";
