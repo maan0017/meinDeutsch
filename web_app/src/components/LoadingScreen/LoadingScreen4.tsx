@@ -59,29 +59,28 @@ export default function LoadingScreen4() {
 
       {/* Progress bar + status label */}
       <div className="flex w-56 flex-col items-center gap-2.5">
-        <div className="relative h-2.5 w-full overflow-hidden rounded-full">
-          {/* Track background separated out to properly inherit alpha safely */}
+        {/* <div className="relative h-2.5 w-full overflow-hidden rounded-full">
           <div className="absolute inset-0 bg-foreground opacity-15" />
           <div
             className="absolute top-0 left-0 h-full rounded-full bg-foreground transition-all duration-75 ease-linear"
             style={{ width: `${progress}%` }}
           />
-        </div>
+        </div> */}
         <span className="text-xs text-foreground opacity-60">
           Loading fonts…
         </span>
       </div>
 
       {/* Pulsing dots */}
-      <div className="flex gap-1.5">
+      {/* <div className="flex gap-1.5">
         {[0, 1, 2].map((i) => (
           <span
             key={i}
-            className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"
+            className="h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 animate-pulse"
             style={{ animationDelay: `${i * 0.2}s` }}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

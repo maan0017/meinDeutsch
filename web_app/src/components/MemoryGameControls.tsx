@@ -2,6 +2,7 @@
 
 import { ChangeEvent, KeyboardEvent, useEffect } from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
+import { Bookmark } from "lucide-react";
 
 type MemoryGameControlsProps = {
   input: string;
@@ -14,6 +15,8 @@ type MemoryGameControlsProps = {
   inputRef: React.RefObject<HTMLInputElement | null>;
   placeholder?: string;
   containerClassName?: string;
+  isBookmarked?: boolean;
+  onBookmarkToggle?: () => void;
 };
 
 export default function MemoryGameControls({
@@ -27,6 +30,8 @@ export default function MemoryGameControls({
   inputRef,
   placeholder = "Type a word…",
   containerClassName = "mb-3",
+  isBookmarked,
+  onBookmarkToggle,
 }: MemoryGameControlsProps) {
   const { playKeyboardSound } = useSoundEffects();
 
@@ -49,6 +54,16 @@ export default function MemoryGameControls({
       ) {
         e.preventDefault();
         resetFunction();
+      }
+      if (
+        e.key.toLowerCase() === "d" &&
+        e.altKey &&
+        !e.ctrlKey &&
+        !e.shiftKey &&
+        onBookmarkToggle
+      ) {
+        e.preventDefault();
+        onBookmarkToggle();
       }
 
       const target = e.target as HTMLElement;
@@ -80,12 +95,33 @@ export default function MemoryGameControls({
 
     document.addEventListener("keydown", KeyJobs);
     return () => document.removeEventListener("keydown", KeyJobs);
-  }, [toggleShow, resetFunction, inputRef]);
+  }, [toggleShow, resetFunction, inputRef, onBookmarkToggle]);
 
   return (
     <div
       className={`flex gap-2.5 items-center flex-wrap justify-center ${containerClassName} ${shake ? "animate-shake" : ""}`}
     >
+      {onBookmarkToggle && (
+        <button
+          type="button"
+          onClick={onBookmarkToggle}
+          className={`p-2.5 rounded-md transition-all shadow-sm border z-10 flex items-center justify-center ${
+            isBookmarked
+              ? "bg-amber-100 border-amber-300 dark:bg-amber-900/60 dark:border-amber-700/50"
+              : "bg-white border-slate-300 dark:bg-[#15151c] dark:border-[#3a3a4a] text-slate-400 hover:text-slate-600 dark:hover:text-[#a0a0aa]"
+          }`}
+          title="Alt + D to Bookmark"
+        >
+          <Bookmark
+            size={18}
+            className={
+              isBookmarked
+                ? "fill-amber-500 text-amber-600 dark:fill-amber-400 dark:text-amber-400"
+                : "text-inherit"
+            }
+          />
+        </button>
+      )}
       <input
         ref={inputRef}
         className={`bg-white dark:bg-[#15151c] border border-slate-300 
