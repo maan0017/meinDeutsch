@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { FontProvider } from "@/components/FontProvider";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "Mein Deutsch",
@@ -21,6 +22,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <FontProvider>
+            <NextTopLoader />
             {children}
             <div
               aria-hidden="true"

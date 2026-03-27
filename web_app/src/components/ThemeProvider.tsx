@@ -25,7 +25,11 @@ function ThemeEvents() {
         event.altKey &&
         event.key.toLowerCase() === "t"
       ) {
+        event.preventDefault();
         setTheme(resolvedTheme === "dark" ? "light" : "dark");
+      }
+      if (event.altKey) {
+        event.preventDefault();
       }
     }
 

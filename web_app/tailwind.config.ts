@@ -34,6 +34,11 @@ const config: Config = {
           "60%": { transform: "translateX(-4px)" },
           "80%": { transform: "translateX(4px)" },
         },
+        progress: {
+          "0%": { width: "0%", marginLeft: "0%" },
+          "50%": { width: "70%", marginLeft: "15%" },
+          "100%": { width: "0%", marginLeft: "100%" },
+        },
       },
       animation: {
         popIn: "popIn 0.5s ease forwards",
