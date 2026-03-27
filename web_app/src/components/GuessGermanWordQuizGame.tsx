@@ -128,7 +128,7 @@ export default function GuessGermanWordQuizGame() {
               style={{ width: `${progressPercent}%` }}
             />
           </div>
-          <span className="shrink-0 font-mono text-[10px] font-medium uppercase tracking-widest text-gray-400 dark:text-white/25">
+          <span className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-gray-400 dark:text-white/25">
             {seenWordsInCurrentGroupCount}/{totalWordsInCurrentGroup}
           </span>
         </div> */}

@@ -17,11 +17,16 @@ const FONT_OPTIONS: {
   options: { value: FontFamily; label: string }[];
 }[] = [
   {
-    group: "Custom & Google Fonts",
+    group: "Professional & Modern (Google Fonts)",
     options: [
+      { value: "Inter", label: "Inter (Clean UI)" },
+      { value: "Outfit", label: "Outfit (Geometric)" },
+      { value: "Fredoka", label: "Fredoka (Friendly & Rounded)" },
+      { value: "Lora", label: "Lora (Elegant Serif)" },
+      { value: "Playfair_Display", label: "Playfair Display (Premium Serif)" },
       { value: "Literata", label: "Literata (Default)" },
-      { value: "IM_Fell_English", label: "IM Fell English" },
-      { value: "Courier_Prime", label: "Courier Prime" },
+      { value: "IM_Fell_English", label: "IM Fell English (Vintage)" },
+      { value: "Courier_Prime", label: "Courier Prime (Typewriter)" },
       { value: "Roboto", label: "Roboto" },
     ],
   },

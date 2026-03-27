@@ -235,7 +235,7 @@ export default function QuizGamesHomePage() {
               >
                 <path d="m15 18-6-6 6-6" />
               </svg>
-              <span className="hidden md:inline text-sm font-semibold font-serif">
+              <span className="hidden md:inline text-sm font-semibold ">
                 Back To Main Menu
               </span>
             </Link>

@@ -102,13 +102,13 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                               {p.hindi.split("/")[0]}
                             </span>
                           </td>
-                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] font-mono font-bold bg-blue-50/30 dark:bg-blue-900/10">
+                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] font-bold bg-blue-50/30 dark:bg-blue-900/10">
                             {p.nominative}
                           </td>
-                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] font-mono">
+                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] ">
                             {p.accusative}
                           </td>
-                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] font-mono">
+                          <td className="px-4 py-2.5 text-slate-600 dark:text-[#B0B0B0] ">
                             {p.dative}
                           </td>
                         </tr>
@@ -143,7 +143,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                               <span className="text-slate-400 uppercase text-[9px] mb-0.5">
                                 {gender}
                               </span>
-                              <span className="font-mono bg-slate-50 dark:bg-[#1a1a1a] py-1 rounded text-slate-700 dark:text-[#ccc] border border-slate-100 dark:border-[#222]">
+                              <span className="bg-slate-50 dark:bg-[#1a1a1a] py-1 rounded text-slate-700 dark:text-[#ccc] border border-slate-100 dark:border-[#222]">
                                 {word}
                               </span>
                             </div>
@@ -214,7 +214,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                 <Section title="Definite Articles (The)">
                   <div className="bg-white dark:bg-[#121212] rounded-xl border border-slate-200 dark:border-[#333] shadow-sm flex flex-col h-full">
                     <div className="bg-slate-50 dark:bg-[#1a1a1a] px-4 py-2 border-b border-slate-100 dark:border-[#333]">
-                      <span className="text-xs font-mono text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Der, Die, Das
                       </span>
                     </div>
@@ -229,7 +229,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                 <Section title="Indefinite Articles (A/An)">
                   <div className="bg-white dark:bg-[#121212] rounded-xl border border-slate-200 dark:border-[#333] shadow-sm flex flex-col h-full">
                     <div className="bg-slate-50 dark:bg-[#1a1a1a] px-4 py-2 border-b border-slate-100 dark:border-[#333]">
-                      <span className="text-xs font-mono text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Ein, Eine
                       </span>
                     </div>
@@ -244,7 +244,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                 <Section title="Negative Articles (None)">
                   <div className="bg-white dark:bg-[#121212] rounded-xl border border-slate-200 dark:border-[#333] shadow-sm flex flex-col h-full">
                     <div className="bg-slate-50 dark:bg-[#1a1a1a] px-4 py-2 border-b border-slate-100 dark:border-[#333]">
-                      <span className="text-xs font-mono text-slate-500">
+                      <span className="text-xs text-slate-500">
                         Kein, Keine
                       </span>
                     </div>
@@ -271,7 +271,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                     <p className="text-slate-600 dark:text-[#B0B0B0] text-base leading-relaxed">
                       {germanGrammar.sentenceStructure.NVDA.description}
                     </p>
-                    <div className="bg-slate-50 dark:bg-[#1a1a1a] p-5 rounded-xl font-mono text-base space-y-3 border border-slate-100 dark:border-[#333]">
+                    <div className="bg-slate-50 dark:bg-[#1a1a1a] p-5 rounded-xl text-base space-y-3 border border-slate-100 dark:border-[#333]">
                       <div className="grid grid-cols-[80px_1fr] gap-2">
                         <span className="text-slate-400">German:</span>
                         <span className="text-blue-600 dark:text-blue-400 font-bold">
@@ -314,7 +314,7 @@ export default function GrammarCheatSheet({ onClose }: Props) {
                           <span className="font-medium text-slate-700 dark:text-[#E0E0E0] text-lg">
                             {item.pronoun}
                           </span>
-                          <span className="font-bold text-blue-600 dark:text-blue-400 font-mono text-xl">
+                          <span className="font-bold text-blue-600 dark:text-blue-400 text-xl">
                             {item.ending}
                           </span>
                         </div>
@@ -382,16 +382,16 @@ const ArticleTable = ({
               <td className="px-2 py-4 text-left font-bold capitalize text-slate-700 dark:text-[#ccc] text-xs sm:text-sm">
                 {c.substring(0, 3)}.
               </td>
-              <td className="px-2 py-4 font-mono font-medium text-slate-900 dark:text-white">
+              <td className="px-2 py-4 font-medium text-slate-900 dark:text-white">
                 {data[c].M}
               </td>
-              <td className="px-2 py-4 font-mono font-medium text-slate-900 dark:text-white">
+              <td className="px-2 py-4 font-medium text-slate-900 dark:text-white">
                 {data[c].F}
               </td>
-              <td className="px-2 py-4 font-mono font-medium text-slate-900 dark:text-white">
+              <td className="px-2 py-4 font-medium text-slate-900 dark:text-white">
                 {data[c].N}
               </td>
-              <td className="px-2 py-4 font-mono font-medium text-slate-900 dark:text-white">
+              <td className="px-2 py-4 font-medium text-slate-900 dark:text-white">
                 {data[c].Pl}
               </td>
             </tr>

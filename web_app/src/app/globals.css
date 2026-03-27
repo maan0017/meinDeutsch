@@ -21,6 +21,23 @@
   font-family: var(--font-roboto), Arial, sans-serif;
 }
 
+/* --- Professional & Modern Fonts --- */
+@utility font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+@utility font-outfit {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+@utility font-lora {
+  font-family: var(--font-lora), Georgia, serif;
+}
+@utility font-playfair {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+@utility font-fredoka {
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+}
+
 /* --- System generic families --- */
 @utility font-system-sans {
   font-family:

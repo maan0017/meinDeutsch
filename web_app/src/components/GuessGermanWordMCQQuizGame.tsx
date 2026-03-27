@@ -327,7 +327,7 @@ export default function GuessGermanWordMCQQuizGame() {
 
                   <span
                     title="Splits German words in groups of 50 so that words can learned easily."
-                    className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono"
+                    className="text-xs font-semibold text-gray-500 dark:text-gray-400 "
                   >
                     Group {currentGroup + 1} / {totalGroups}
                   </span>

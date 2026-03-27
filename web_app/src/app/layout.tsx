@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { FontProvider } from "@/components/FontProvider";
 import NextTopLoader from "nextjs-toploader";
+import { ALL_FONT_VARIABLES } from "@/utils/fonts";
+import { FontScript } from "@/components/FontScript";
 
 export const metadata: Metadata = {
   title: "Mein Deutsch",
@@ -16,10 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <head />
       <body
         suppressHydrationWarning={true}
-        className={`antialiased min-h-screen bg-background text-foreground relative`}
+        className={`${ALL_FONT_VARIABLES} antialiased min-h-screen bg-background text-foreground relative`}
       >
+        <FontScript />
         <ThemeProvider>
           <FontProvider>
             <NextTopLoader />
@@ -28,8 +32,6 @@ export default function RootLayout({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 overflow-hidden z-0"
             >
-              {/* <div className="absolute -top-1/4 left-1/4 h-[500px] w-[500px] rounded-full bg-sky-600/6 blur-[120px]" /> */}
-              {/* <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[120px]" /> */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[64px_64px] dark:bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)]" />
             </div>
           </FontProvider>

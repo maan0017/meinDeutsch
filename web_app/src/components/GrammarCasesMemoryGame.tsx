@@ -188,7 +188,7 @@ export default function GrammarCasesMemoryGameComp() {
     const isExpected =
       !isHeading && id === ALL_PRONOUNS[guessed.size]?.id && !showAll;
 
-    let cellClasses = `font-courier group inline-flex items-center justify-center w-full px-2.5 rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border `;
+    let cellClasses = `group inline-flex items-center justify-center w-full px-2.5 rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border `;
 
     if (isHeading) {
       cellClasses +=
@@ -250,17 +250,17 @@ export default function GrammarCasesMemoryGameComp() {
             before:border-4 before:border-transparent before:border-t-slate-800 
             dark:before:border-t-[#2a2a35]"
             >
-              <span className="font-bold text-green-600 dark:text-[#7ec87e] mb-1 font-sans tracking-wide uppercase text-[0.65rem] border-b border-slate-200 dark:border-[#4a4a5a] pb-1">
+              <span className="font-bold text-green-600 dark:text-[#7ec87e] mb-1 tracking-wide uppercase text-[0.65rem] border-b border-slate-200 dark:border-[#4a4a5a] pb-1">
                 {item.type}
               </span>
               <span
-                className="font-sans mt-0.5"
+                className="mt-0.5"
                 style={{ fontFamily: "sans-serif" }}
               >
                 {item.en}
               </span>
               <span
-                className="font-sans mt-0.5"
+                className="mt-0.5"
                 style={{ fontFamily: "sans-serif" }}
               >
                 {item.hi}
@@ -302,10 +302,10 @@ export default function GrammarCasesMemoryGameComp() {
         </span>
       </Link>
       <div className="flex-none flex flex-col items-center w-full max-w-[800px]">
-        <h1 className="font-fell text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
+        <h1 className="text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
           Grammatik-Fälle
         </h1>
-        <p className="font-courier text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-2 text-center">
+        <p className="text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-2 text-center">
           German Grammar Cases Memory Game
         </p>
 
@@ -321,7 +321,7 @@ export default function GrammarCasesMemoryGameComp() {
           placeholder="Type a word…"
         />
 
-        <p className="font-courier text-[0.75rem] text-slate-600 dark:text-[#555560] mb-1">
+        <p className="text-[0.75rem] text-slate-600 dark:text-[#555560] mb-1">
           <span className="text-green-600 dark:text-[#7ec87e]">
             {guessed.size}
           </span>{" "}
@@ -340,10 +340,10 @@ export default function GrammarCasesMemoryGameComp() {
         {guessed.size === ALL_PRONOUNS.length && (
           <div className="absolute top-10 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
             <div className="bg-white/95 dark:bg-[#15151c]/95 p-6 rounded-xl shadow-2xl backdrop-blur-md animate-popIn border border-green-200 dark:border-green-800">
-              <div className="font-fell text-[1.8rem] text-green-600 dark:text-[#7ec87e] tracking-[0.05em] text-center mb-1">
+              <div className="text-[1.8rem] text-green-600 dark:text-[#7ec87e] tracking-[0.05em] text-center mb-1">
                 ✦ Ausgezeichnet! ✦
               </div>
-              <div className="font-courier text-slate-600 dark:text-[#9a9aa0] text-center tracking-widest text-[0.9rem]">
+              <div className="text-slate-600 dark:text-[#9a9aa0] text-center tracking-widest text-[0.9rem]">
                 All words found.
               </div>
             </div>

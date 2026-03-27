@@ -188,12 +188,12 @@ export function DativVerbsMemoryGameComp() {
         </span>
       </Link>
       <h1
-        className={`font-fell text-[2rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-1 text-center`}
+        className={`text-[2rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-1 text-center`}
       >
         Dativ Wörter
       </h1>
       <p
-        className={`font-courier text-[0.75rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-6 text-center`}
+        className={`text-[0.75rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-6 text-center`}
       >
         German Dative Word Memory Game
       </p>
@@ -212,7 +212,7 @@ export function DativVerbsMemoryGameComp() {
       />
 
       <p
-        className={`font-courier text-[0.8rem] text-slate-600 dark:text-[#555560] mb-1.5`}
+        className={`text-[0.8rem] text-slate-600 dark:text-[#555560] mb-1.5`}
       >
         <span className="text-green-600 dark:text-[#7ec87e]">
           {guessed.size}
@@ -231,10 +231,10 @@ export function DativVerbsMemoryGameComp() {
         {guessed.size === DATIV_WORDS.length && (
           <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
             <div className="bg-white/90 dark:bg-[#15151c]/90 p-8 rounded-2xl shadow-2xl backdrop-blur-sm animate-popIn border border-green-200 dark:border-green-800">
-              <div className="font-fell text-[2rem] text-green-600 dark:text-[#7ec87e] tracking-[0.05em] text-center mb-2">
+              <div className="text-[2rem] text-green-600 dark:text-[#7ec87e] tracking-[0.05em] text-center mb-2">
                 ✦ Ausgezeichnet! ✦
               </div>
-              <div className="font-courier text-slate-600 dark:text-[#9a9aa0] text-center tracking-widest">
+              <div className="text-slate-600 dark:text-[#9a9aa0] text-center tracking-widest">
                 All words found.
               </div>
             </div>
@@ -251,7 +251,7 @@ export function DativVerbsMemoryGameComp() {
               const isVisible = isRevealed || showAll;
               const isFlashing = flash === item.word;
 
-              let cellClasses = `font-courier group inline-flex items-center justify-center min-w-[100px] h-9 border rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out px-2.5 relative cursor-default `;
+              let cellClasses = `group inline-flex items-center justify-center min-w-[100px] h-9 border rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out px-2.5 relative cursor-default `;
 
               if (isVisible) {
                 if (isRevealed) {
@@ -286,17 +286,17 @@ export function DativVerbsMemoryGameComp() {
                     before:border-4 before:border-transparent before:border-t-slate-800 
                     dark:before:border-t-[#2a2a35]"
                     >
-                      <span className="font-bold text-green-300 dark:text-[#7ec87e] mb-1 font-sans tracking-wide uppercase text-[0.65rem] border-b border-slate-600 dark:border-[#3a3a4a] pb-1">
+                      <span className="font-bold text-green-300 dark:text-[#7ec87e] mb-1 tracking-wide uppercase text-[0.65rem] border-b border-slate-600 dark:border-[#3a3a4a] pb-1">
                         {item.type}
                       </span>
                       <span
-                        className="font-sans mt-0.5"
+                        className="mt-0.5"
                         style={{ fontFamily: "sans-serif" }}
                       >
                         {item.en}
                       </span>
                       <span
-                        className="font-sans mt-0.5"
+                        className="mt-0.5"
                         style={{ fontFamily: "sans-serif" }}
                       >
                         {item.hi}

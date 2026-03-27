@@ -35,7 +35,7 @@ export default function GermanLanguageRoadmapPage() {
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </div>
-            <span className="hidden sm:inline text-sm font-semibold font-sans">
+            <span className="hidden sm:inline text-sm font-semibold ">
               Main Menu
             </span>
           </Link>
@@ -88,7 +88,7 @@ export default function GermanLanguageRoadmapPage() {
             B1, B2, C1, C2
           </h2>
           <div className="h-px w-16 bg-slate-200 dark:bg-[#444] mx-auto"></div>
-          <p className="font-sans text-slate-500 dark:text-[#888888] font-medium tracking-wide uppercase text-xs md:text-sm">
+          <p className="text-slate-500 dark:text-[#888888] font-medium tracking-wide uppercase text-xs md:text-sm">
             Mastery Content Coming Soon
           </p>
         </div>

@@ -90,7 +90,7 @@ export default function AboutGermanKeyboard() {
               </h3>
               <p className="text-sm text-gray-500 dark:text-[#888888]">
                 Hold{" "}
-                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#333333] border border-gray-200 dark:border-[#444444] font-mono text-xs text-gray-700 dark:text-gray-300">
+                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#333333] border border-gray-200 dark:border-[#444444] text-xs text-gray-700 dark:text-gray-300">
                   Alt
                 </kbd>{" "}
                 and type the number on your numeric keypad.
@@ -127,7 +127,7 @@ export default function AboutGermanKeyboard() {
                       <td className="px-4 py-3 text-lg font-medium text-gray-900 dark:text-white">
                         {item.char}
                       </td>
-                      <td className="px-4 py-3 text-right font-mono text-gray-600 dark:text-[#AAAAAA]">
+                      <td className="px-4 py-3 text-right text-gray-600 dark:text-[#AAAAAA]">
                         {item.code}
                       </td>
                     </tr>
@@ -161,7 +161,7 @@ export default function AboutGermanKeyboard() {
               </h3>
               <p className="text-sm text-gray-500 dark:text-[#888888]">
                 Hold{" "}
-                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#333333] border border-gray-200 dark:border-[#444444] font-mono text-xs text-gray-700 dark:text-gray-300">
+                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#333333] border border-gray-200 dark:border-[#444444] text-xs text-gray-700 dark:text-gray-300">
                   Option
                 </kbd>{" "}
                 (or Alt), then press <code>u</code>, release, and type the
@@ -195,7 +195,7 @@ export default function AboutGermanKeyboard() {
                       <td className="px-4 py-3 text-lg font-medium text-gray-900 dark:text-white">
                         {item.char}
                       </td>
-                      <td className="px-4 py-3 text-right font-mono text-gray-600 dark:text-[#AAAAAA]">
+                      <td className="px-4 py-3 text-right text-gray-600 dark:text-[#AAAAAA]">
                         {item.code}
                       </td>
                     </tr>

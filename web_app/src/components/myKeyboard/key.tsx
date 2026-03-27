@@ -105,7 +105,7 @@ export const Key = memo(
         relative
         flex items-center justify-center
         select-none cursor-pointer
-        font-sans text-sm
+        text-sm
         transition-all duration-75
         
         bg-linear-to-b from-[#e8e8e8] to-[#d0d0d0]

@@ -310,7 +310,7 @@ export default function MyKeyboard() {
 
       {/* Compact Output */}
       <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-3">
-        <output className="font-mono text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-all min-h-[60px] max-h-[120px] overflow-auto block">
+        <output className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-all min-h-[60px] max-h-[120px] overflow-auto block">
           {output || <span className="text-gray-400">Type something...</span>}
         </output>
       </div>

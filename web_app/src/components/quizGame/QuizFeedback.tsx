@@ -34,7 +34,7 @@ export const QuizFeedback = ({ status, word }: QuizFeedbackProps) => {
           German Word
           {word.germanWord && (
             <span
-              className="text-[10px] font-mono font-semibold
+              className="text-[10px] font-semibold
           text-gray-400 dark:text-gray-500 leading-none
           px-1.5 py-0.5 rounded"
             >

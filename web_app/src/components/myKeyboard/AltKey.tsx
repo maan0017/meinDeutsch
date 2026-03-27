@@ -19,7 +19,7 @@ export default function AltKey({
         relative
         flex items-center justify-center
         select-none cursor-pointer
-        font-sans font-medium text-sm
+        font-medium text-sm
         transition-all duration-75
         
         bg-linear-to-b from-[#e8e8e8] to-[#d0d0d0]

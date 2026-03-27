@@ -269,7 +269,7 @@ export const ReadParagraph = () => {
 
         {/* Paragraph Display */}
         <div className="relative pb-32">
-          <p className="text-lg md:text-xl leading-loose md:leading-loose text-gray-400 dark:text-gray-600 font-serif italic text-justify">
+          <p className="text-lg md:text-xl leading-loose md:leading-loose text-gray-400 dark:text-gray-600 italic text-justify">
             {words.map((word, index) => (
               <Word key={index} word={word} status={getWordStatus(index)} />
             ))}

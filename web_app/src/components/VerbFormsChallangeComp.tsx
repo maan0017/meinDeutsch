@@ -229,10 +229,10 @@ export default function VerbFormsChallangeComp() {
       key={"meaning-" + v.germanWord}
       className="flex flex-col items-center justify-center w-full px-2 py-1.5 rounded-lg mb-1.5 min-h-11 bg-slate-100 border-2 border-slate-300 dark:bg-[#1a1a24] dark:border-[#3a3a4a] text-center shadow-sm"
     >
-      <span className="font-sans font-bold text-slate-800 dark:text-[#e8e2d6] text-[0.8rem] leading-tight">
+      <span className="font-bold text-slate-800 dark:text-[#e8e2d6] text-[0.8rem] leading-tight">
         {v.englishMeaning[0]}
       </span>
-      <span className="font-sans text-slate-600 dark:text-[#a0a0aa] text-[0.7rem] leading-tight mt-0.5">
+      <span className="text-slate-600 dark:text-[#a0a0aa] text-[0.7rem] leading-tight mt-0.5">
         {v.hindiMeaning[0]}
       </span>
     </div>
@@ -244,7 +244,7 @@ export default function VerbFormsChallangeComp() {
     const isFlashing = flashSlot === target.slot;
 
     let cellClasses =
-      "font-courier inline-flex items-center justify-center w-full px-2 rounded-lg text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border min-h-[44px] mb-1.5 ";
+      "inline-flex items-center justify-center w-full px-2 rounded-lg text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border min-h-[44px] mb-1.5 ";
 
     if (isVisible) {
       cellClasses += isRevealed
@@ -308,10 +308,10 @@ export default function VerbFormsChallangeComp() {
       </Link>
 
       <div className="flex-none flex flex-col items-center w-full max-w-250">
-        <h1 className="font-fell text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
+        <h1 className="text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
           Verbformen
         </h1>
-        <p className="font-courier text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-2 text-center">
+        <p className="text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-2 text-center">
           Verb Forms Challenge Game
         </p>
 
@@ -369,7 +369,7 @@ export default function VerbFormsChallangeComp() {
                 className="w-full shrink-0 py-3 px-4 border-y border-black dark:border-zinc-800 -mt-px first:mt-0 flex flex-col sm:flex-row sm:items-center justify-between bg-white dark:bg-[#0e0e12]"
               >
                 <div className="flex items-center gap-2 sm:w-1/3 overflow-hidden pb-1 sm:pb-0 pr-2">
-                  <div className="text-[10px] font-bold font-sans uppercase truncate text-slate-500 dark:text-slate-400 shrink min-w-0">
+                  <div className="text-[10px] font-bold uppercase truncate text-slate-500 dark:text-slate-400 shrink min-w-0">
                     {item.verb.englishMeaning[0]}
                   </div>
                   <div className="flex items-center gap-1 shrink-0">
@@ -403,18 +403,18 @@ export default function VerbFormsChallangeComp() {
                 </div>
 
                 <div
-                  className={`mt-0.5 sm:mt-0 font-courier text-sm font-bold flex flex-wrap items-center gap-x-2 leading-tight ${
+                  className={`mt-0.5 sm:mt-0 text-sm font-bold flex flex-wrap items-center gap-x-2 leading-tight ${
                     item.status === "success"
                       ? "text-green-600 dark:text-[#7ec87e]"
                       : "text-red-600 dark:text-[#ff7e7e]"
                   }`}
                 >
                   <span>{item.verb.germanWord}</span>
-                  <span className="opacity-70 text-[11px] font-sans">
+                  <span className="opacity-70 text-[11px] ">
                     {"->"}
                   </span>
                   <span>{item.verb.simplePast}</span>
-                  <span className="opacity-70 text-[11px] font-sans">
+                  <span className="opacity-70 text-[11px] ">
                     {"->"}
                   </span>
                   <span>{item.verb.pastParticiple}</span>

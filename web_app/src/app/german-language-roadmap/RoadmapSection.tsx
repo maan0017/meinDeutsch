@@ -264,10 +264,10 @@ export function RoadmapSection({ level, title, nodes, color, accent }: Props) {
 
                       {/* Static Label below node */}
                       <div className="absolute top-full mt-2 w-[80px] md:w-[100px] text-center pointer-events-none">
-                        <p className="font-sans font-semibold text-[10px] md:text-xs text-slate-700 dark:text-[#E0E0E0] leading-tight">
+                        <p className="font-semibold text-[10px] md:text-xs text-slate-700 dark:text-[#E0E0E0] leading-tight">
                           {node.title}
                         </p>
-                        <p className="font-sans text-[8px] md:text-[9px] text-slate-400 dark:text-[#888888] font-medium mt-0.5">
+                        <p className="text-[8px] md:text-[9px] text-slate-400 dark:text-[#888888] font-medium mt-0.5">
                           {node.type.charAt(0).toUpperCase() +
                             node.type.slice(1)}
                         </p>

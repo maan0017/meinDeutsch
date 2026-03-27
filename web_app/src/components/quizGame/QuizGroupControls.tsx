@@ -38,7 +38,7 @@ export const QuizGroupControls = ({
         {/* Left — Words Remaining */}
         <span
           className="flex items-center justify-center w-10 h-10
-               text-sm font-semibold font-mono rounded-full
+               text-sm font-semibold rounded-full
                bg-gray-50 dark:bg-gray-700
                text-gray-800 dark:text-gray-100"
           title="Words remaining in this group"
