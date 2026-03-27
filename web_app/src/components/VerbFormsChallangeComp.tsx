@@ -7,7 +7,7 @@ import MemoryGameControls from "@/components/MemoryGameControls";
 import verbsDataRaw from "@/data/verbs.json";
 import { VerbWord } from "@/models/verb";
 
-const VERBS: VerbWord[] = (verbsDataRaw as VerbWord[]).filter(
+const VERBS: VerbWord[] = (verbsDataRaw as unknown as VerbWord[]).filter(
   (v) =>
     v.germanWord && v.thirdPersonSingular && v.simplePast && v.pastParticiple
 );
