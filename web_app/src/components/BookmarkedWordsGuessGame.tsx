@@ -3,22 +3,27 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
-import { BookmarkComp } from "./BookmarkComp";
 import { GermanWord } from "@/models/germanWord";
-import { getBookmarks } from "@/hooks/useBookmark";
 import { germanWords } from "@/data/germanWords";
 import { QuizGameInput } from "./QuizGameInput";
+import { useBookmark } from "@/hooks/useBookmark";
+import { BookmarkComp } from "./BookmarkComp";
+
+const BOOKMARK_NAME = "GUESS_GERMAN_WORD_QUIZ_GAME_BOOKMARKED_WORDS";
 
 export const BookmarkedWordsGuessGame = () => {
   const { playSound } = useSoundEffects();
   const [word, setWord] = useState<GermanWord | null>(null);
-  const [bookmarkedWords, setBookmarkedWords] = useState<GermanWord[]>([]);
+
+  const { getBookmarks } = useBookmark(BOOKMARK_NAME);
+  const [bookmarkedWords] = useState<GermanWord[]>(getBookmarks() || []);
+
   const [userAnswer, setUserAnswer] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [strictMode, setStrictMode] = useState<boolean>(false);
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const [isInitialized] = useState<boolean>(true);
 
   // logic to track unseen words - storing indices of bookmarkedWords array
   const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
@@ -70,16 +75,10 @@ export const BookmarkedWordsGuessGame = () => {
     [bookmarkedWords, seenIndices]
   );
 
-  // Initial Load
-  useEffect(() => {
-    const words = getBookmarks();
-    setBookmarkedWords(words);
-    setIsInitialized(true);
-  }, []);
-
   // Trigger first word after initialization if bookmarks exist
   useEffect(() => {
     if (isInitialized && !word && bookmarkedWords.length > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       handleNextWord(true); // Treat as a reset to start fresh
     }
   }, [isInitialized, bookmarkedWords, handleNextWord, word]);
@@ -154,9 +153,9 @@ export const BookmarkedWordsGuessGame = () => {
               No Bookmarked Words
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6">
-              You haven't bookmarked any words yet. Go to the practice/search
+              {`You haven't bookmarked any words yet. Go to the practice/search
               pages and click the bookmark icon to save words here for focused
-              practice.
+              practice.`}
             </p>
             <div className="flex justify-center gap-3">
               <Link
@@ -262,6 +261,7 @@ export const BookmarkedWordsGuessGame = () => {
                   <div className="justify-self-end">
                     <BookmarkComp
                       word={word.germanWord}
+                      BOOKMARK_NAME={BOOKMARK_NAME}
                       // When a bookmark is toggled here (removed), we might want to refresh the list?
                       // The current getBookmarks() hook likely syncs with local storage, but this component
                       // holds local state `bookmarkedWords`. Real-time removal might be tricky without a callback

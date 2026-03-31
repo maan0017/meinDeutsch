@@ -3,10 +3,10 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { germanWords } from "@/data/germanWords";
 import { TableVirtuoso } from "react-virtuoso";
-import { SearchBar } from "../../searchBar";
 import { useRouter } from "next/navigation";
 import { useGoBack } from "@/hooks/useGoBack";
 import { HighlightText } from "./highlightText";
+import { SearchBar } from "../searchBar";
 
 const getVal = (val: string | string[] | undefined) => {
   if (!val) return "";

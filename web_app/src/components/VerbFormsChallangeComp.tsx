@@ -96,8 +96,7 @@ export default function VerbFormsChallangeComp() {
 
   const { groupSize } = useSettingsStore();
   const { getBookmarkStrings, toggleBookmark } = useBookmark(BOOKMARK_NAME);
-  const [bookmarkedVerbs, setBookmarkedVerbs] =
-    useState<string[]>(getBookmarkStrings());
+  const [bookmarkedVerbs] = useState<string[]>(getBookmarkStrings());
 
   const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState<boolean>(false);
   const [allIn, setAllIn] = useState<boolean>(false);
@@ -265,10 +264,6 @@ export default function VerbFormsChallangeComp() {
   useEffect(() => {
     giveUpScheduled.current = false;
   }, [currentIndex]);
-
-  useEffect(() => {
-    setBookmarkedVerbs(getBookmarkStrings());
-  }, []);
 
   // ── Guess handler ─────────────────────────────────────────────────────────
 

@@ -1,4 +1,4 @@
-import GermanWordsTable from "@/components/quizGame/DictTable/GermanWordsTable";
+import GermanWordsTable from "@/components/DictTable/GermanWordsTable";
 
 export default function ShowAllGermanWords() {
   return (
