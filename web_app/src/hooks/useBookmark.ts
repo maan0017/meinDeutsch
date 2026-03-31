@@ -53,14 +53,11 @@ export const useBookmark = (BOOKMARK_KEY: string) => {
   };
 
   const toggleBookmark = (word: string) => {
-    console.log("bookmark triggered");
     const isExists = checkBookmarkExists(word);
     if (isExists) {
-      console.log("removing bookmark");
       removeBookmark(word);
       return;
     }
-    console.log("bookmark added");
     addBookmark(word);
   };
 

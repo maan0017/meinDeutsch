@@ -76,10 +76,10 @@ function buildTargets(verb: VerbWord): TargetForm[] {
 }
 
 const BOOKMARK_NAME = "VERB_FORMS_CHALLANGE_GAME_BOOKMARKED_VERBS";
-// const CURRENT_GROUP_SAVED_STATE = "CURRENT_GROUP_SAVED_STATE";
-// const ALL_IN_SAVED_STATE = "ALL_IN_SAVED_STATE";
-// const PLAY_BOOKMARKED_ONLY_SAVED_STATE = "PLAY_BOOKMARKED_ONLY_SAVED_STATE";
-// const STRICT_MODE_SAVED_STATE = "STRICT_MODE_SAVED_STATE";
+const CURRENT_GROUP_SAVED_STATE = "CURRENT_GROUP_SAVED_STATE";
+const ALL_IN_SAVED_STATE = "ALL_IN_SAVED_STATE";
+const PLAY_BOOKMARKED_ONLY_SAVED_STATE = "PLAY_BOOKMARKED_ONLY_SAVED_STATE";
+const STRICT_MODE_SAVED_STATE = "STRICT_MODE_SAVED_STATE";
 
 export default function VerbFormsChallangeComp() {
   // SSR-safe: start with empty array so server and client initial render match.
@@ -96,7 +96,7 @@ export default function VerbFormsChallangeComp() {
 
   const { groupSize } = useSettingsStore();
   const { getBookmarkStrings, toggleBookmark } = useBookmark(BOOKMARK_NAME);
-  const [bookmarkedVerbs] = useState<string[]>(getBookmarkStrings());
+  const [bookmarkedVerbs, setBookmarkedVerbs] = useState<string[]>([]);
 
   const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState<boolean>(false);
   const [allIn, setAllIn] = useState<boolean>(false);
@@ -135,12 +135,45 @@ export default function VerbFormsChallangeComp() {
   useEffect(() => {
     if (!mounted) {
       setMounted(true);
+      if (typeof window !== "undefined") {
+        setBookmarkedVerbs(getBookmarkStrings());
+
+        const savedCurrentGroup = localStorage.getItem(
+          CURRENT_GROUP_SAVED_STATE
+        );
+        if (savedCurrentGroup) setCurrentGroup(Number(savedCurrentGroup));
+
+        const savedAllIn = localStorage.getItem(ALL_IN_SAVED_STATE);
+        if (savedAllIn) setAllIn(savedAllIn === "true");
+
+        const savedPlayBookmarkedOnly = localStorage.getItem(
+          PLAY_BOOKMARKED_ONLY_SAVED_STATE
+        );
+        if (savedPlayBookmarkedOnly)
+          setPlayBookmarkedOnly(savedPlayBookmarkedOnly === "true");
+
+        const savedStrictMode = localStorage.getItem(STRICT_MODE_SAVED_STATE);
+        if (savedStrictMode) setStrictMode(savedStrictMode === "true");
+      }
       return;
     }
     startNewGame();
     // Intentionally omit startNewGame so random bookmarking doesn't reset the live loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mounted, playBookmarkedOnly, currentGroup, allIn, groupSize]);
+
+  // ── Save State to LocalStorage (client-only) ──────────────────────────────
+  useEffect(() => {
+    if (mounted && typeof window !== "undefined") {
+      localStorage.setItem(CURRENT_GROUP_SAVED_STATE, currentGroup.toString());
+      localStorage.setItem(ALL_IN_SAVED_STATE, allIn.toString());
+      localStorage.setItem(
+        PLAY_BOOKMARKED_ONLY_SAVED_STATE,
+        playBookmarkedOnly.toString()
+      );
+      localStorage.setItem(STRICT_MODE_SAVED_STATE, strictMode.toString());
+    }
+  }, [currentGroup, allIn, playBookmarkedOnly, strictMode, mounted]);
 
   // ── Keyboard Group Navigation Shortcuts ───────────────────────────────────
   useEffect(() => {
@@ -157,6 +190,7 @@ export default function VerbFormsChallangeComp() {
       if (
         e.key === "ArrowRight" &&
         !allIn &&
+        !playBookmarkedOnly &&
         e.altKey &&
         !e.shiftKey &&
         !e.ctrlKey
@@ -167,6 +201,7 @@ export default function VerbFormsChallangeComp() {
       if (
         e.key === "ArrowLeft" &&
         !allIn &&
+        !playBookmarkedOnly &&
         e.altKey &&
         !e.shiftKey &&
         !e.ctrlKey
@@ -193,7 +228,7 @@ export default function VerbFormsChallangeComp() {
 
   const startNewGame = useCallback(() => {
     let sliceToPlay = baseVerbs;
-    if (!allIn) {
+    if (!allIn && !playBookmarkedOnly) {
       const g = Math.min(currentGroup, Math.max(0, totalGroups - 1));
       const start = g * groupSize;
       const end = start + groupSize;
@@ -479,7 +514,7 @@ export default function VerbFormsChallangeComp() {
             <div className="flex flex-1 items-center justify-center min-w-0 z-50">
               <div
                 className={`flex items-center justify-between h-8 md:h-10 w-full max-w-85 bg-white dark:bg-[#15151c] border border-slate-300 dark:border-[#3a3a4a] rounded-full transition-opacity duration-200 mx-auto shadow-sm ${
-                  allIn
+                  allIn || playBookmarkedOnly
                     ? "opacity-50 pointer-events-none select-none grayscale"
                     : "opacity-100"
                 }`}
@@ -585,18 +620,31 @@ export default function VerbFormsChallangeComp() {
           <div className="flex flex-wrap items-center justify-center gap-2 w-full mt-1">
             {/* All In Toggle */}
             <label
-              className={`flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${allIn ? "bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/40 dark:text-blue-400 dark:border-blue-800" : "bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"}`}
+              className={`flex items-center gap-1.5 select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${
+                playBookmarkedOnly
+                  ? "opacity-50 cursor-not-allowed bg-slate-100 text-slate-500 border-slate-300 dark:bg-[#1a1a24] dark:text-slate-500 dark:border-[#3a3a4a]"
+                  : allIn
+                    ? "cursor-pointer bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/40 dark:text-blue-400 dark:border-blue-800"
+                    : "cursor-pointer bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"
+              }`}
             >
               <input
                 type="checkbox"
-                checked={allIn && !playBookmarkedOnly}
+                checked={allIn}
                 onChange={(e) => setAllIn(e.target.checked)}
+                disabled={playBookmarkedOnly}
                 className="sr-only"
               />
               <div
-                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${allIn && !playBookmarkedOnly ? "bg-blue-500 border-blue-500" : "border-slate-400 dark:border-slate-500 bg-transparent"}`}
+                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${
+                  playBookmarkedOnly
+                    ? "border-slate-300 dark:border-slate-500 bg-transparent"
+                    : allIn
+                      ? "bg-blue-500 border-blue-500"
+                      : "border-slate-400 dark:border-slate-500 bg-transparent"
+                }`}
               >
-                {allIn && !playBookmarkedOnly && (
+                {!playBookmarkedOnly && allIn && (
                   <svg
                     className="w-2.5 h-2.5 text-white"
                     viewBox="0 0 24 24"
@@ -713,7 +761,12 @@ export default function VerbFormsChallangeComp() {
               ? bookmarkedVerbs.includes(currentVerb.germanWord)
               : false
           }
-          onBookmarkToggle={() => toggleBookmark(currentVerb.germanWord)}
+          onBookmarkToggle={() => {
+            if (currentVerb) {
+              toggleBookmark(currentVerb.germanWord);
+              setBookmarkedVerbs(getBookmarkStrings());
+            }
+          }}
         />
       </div>
 
