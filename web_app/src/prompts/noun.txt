@@ -1,0 +1,30 @@
+Generate a complete JSON object for the provided German noun, ensuring accurate grammar, high-quality translations, and precise adherence to the following data structure. Return ONLY valid JSON, no markdown formatting.
+
+Data Structure & Requirements:
+- "germanWord" (string): The German noun (capitalized).
+- "hindiPronunciation" (string): Hindi transliteration for exact pronunciation.
+- "englishMeaning" (list of strings): Precise English meanings.
+- "hindiMeaning" (list of strings): Precise Hindi translations.
+- "description" (string, optional): Context or nuance of the word.
+- "type" (string): MUST be "noun".
+- "audioUrl" (string, optional): Omit or leave empty.
+- "tags" (list of strings): Broad contextual categories (e.g., "family", "office").
+- "priority" (integer): Usage frequency (1-10, where 10 is most common).
+- "difficulty" (integer): Learning difficulty (1-10).
+- "germanLevel" (string): CEFR level ("a1", "a2", "b1", "b2", "c1", "c2").
+- "synonyms" (list of strings, optional): German synonyms.
+- "antonyms" (list of strings, optional): German antonyms.
+- "exampleSentences" (list of objects): Provide 2 to 3 contextual examples. Each object needs:
+  - "german" (string)
+  - "english" (string)
+  - "hindi" (string)
+- "article" (string): "der", "die", or "das".
+- "pluralForm" (string, optional): The plural word (e.g., "Äpfel").
+- "genitiveSingular" (string, optional): Genitive form (e.g., "Apfels").
+- "isWeakMasculine" (boolean, optional): true if it follows N-declension (e.g., der Junge).
+- "isPluralOnly" (boolean): true if the word has no singular.
+- "isSingularOnly" (boolean, optional): true if uncountable/no plural.
+- "relatedVerbs" (list of strings, optional): Related German verbs (e.g., for "Glaube" -> ["glauben"]).
+- "relatedAdjectives" (list of strings, optional): Related German adjectives.
+
+Noun:  

@@ -1,0 +1,25 @@
+Return a raw, unmarkdown-wrapped JSON object (no ```) for the German adverb below. Provide rich, accurate data.
+
+{
+  "germanWord": "oft", "hindiPronunciation": "ओफ़्ट", "type": "adverb", "audioUrl": "", 
+  "englishMeaning": ["often", "frequently"], "hindiMeaning": ["अक्सर"],
+  "description": "Educational usage description.",
+  "tags": ["time", "frequency"], "priority": 10, "difficulty": 1, "germanLevel": "a1",
+  "synonyms": ["häufig"], "antonyms": ["selten", "nie"],
+  "exampleSentences": [
+    {"german": "Ich gehe oft ins Kino.", "english": "I often go to the cinema.", "hindi": "मैं अक्सर सिनेमा जाता हूँ।"}
+  ],
+  "category": "temporal",
+  "isIrregular": false, "comparativeForm": "öfter", "superlativeForm": "am öftesten",
+  "pronominalDetails": null,
+  "relatedAdjectives": ["häufig"], "relatedNouns": ["die Häufigkeit"], "relatedVerbs": []
+}
+
+RULES:
+- Provide 2+ realistic exampleSentences.
+- category options: "temporal" (time), "lokal" (place), "kausal" (reason), "modal" (manner), "pronominal" (da-/wo- words), "interrogativ" (question words), "konjunktional" (connectors).
+- isIrregular: true for gern/lieber, viel/mehr, gut/besser.
+- comparativeForm/superlativeForm: ONLY if the adverb can be compared (leave null/empty if not applicable, like for 'heute' or 'dort').
+- pronominalDetails: ONLY for pronominal adverbs like 'damit' (e.g., {"basePreposition": "mit", "basePronoun": "da", "usageCase": "dativ"}).
+
+Adverb: 

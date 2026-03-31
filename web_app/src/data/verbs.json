@@ -67,6 +67,199 @@
     "type": "verb"
   },
   {
+    "antonyms": ["angewöhnen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst abgewöhnen",
+        "erSieEs": "wird abgewöhnen",
+        "ich": "werde abgewöhnen",
+        "ihr": "werdet abgewöhnen",
+        "sieSie": "werden abgewöhnen",
+        "wir": "werden abgewöhnen"
+      },
+      "konjunktiv1": {
+        "du": "gewöhnest ab",
+        "erSieEs": "gewöhne ab",
+        "ich": "gewöhne ab",
+        "ihr": "gewöhnet ab",
+        "sieSie": "gewöhnen ab",
+        "wir": "gewöhnen ab"
+      },
+      "konjunktiv2": {
+        "du": "gewöhntest ab",
+        "erSieEs": "gewöhnte ab",
+        "ich": "gewöhnte ab",
+        "ihr": "gewöhntet ab",
+        "sieSie": "gewöhnten ab",
+        "wir": "gewöhnten ab"
+      },
+      "past": {
+        "du": "gewöhntest ab",
+        "erSieEs": "gewöhnte ab",
+        "ich": "gewöhnte ab",
+        "ihr": "gewöhntet ab",
+        "sieSie": "gewöhnten ab",
+        "wir": "gewöhnten ab"
+      },
+      "perfect": {
+        "du": "hast abgewöhnt",
+        "erSieEs": "hat abgewöhnt",
+        "ich": "habe abgewöhnt",
+        "ihr": "habt abgewöhnt",
+        "sieSie": "haben abgewöhnt",
+        "wir": "haben abgewöhnt"
+      },
+      "present": {
+        "du": "gewöhnst ab",
+        "erSieEs": "gewöhnt ab",
+        "ich": "gewöhne ab",
+        "ihr": "gewöhnt ab",
+        "sieSie": "gewöhnen ab",
+        "wir": "gewöhnen ab"
+      }
+    },
+    "description": "Usually used reflexively with the dative case (sich etwas abgewöhnen) meaning to rid oneself of a habit.",
+    "difficulty": 5,
+    "englishMeaning": ["to break a habit", "to give up (doing something)"],
+    "exampleSentences": [
+      {
+        "english": "I am trying to break the habit of smoking.",
+        "german": "Ich versuche, mir das Rauchen abzugewöhnen.",
+        "hindi": "मैं धूम्रपान की आदत छोड़ने की कोशिश कर रहा हूँ।"
+      },
+      {
+        "english": "He broke the habit of eating late.",
+        "german": "Er hat sich das späte Essen abgewöhnt.",
+        "hindi": "उसने देर से खाने की आदत छोड़ दी है।"
+      }
+    ],
+    "germanLevel": "b2",
+    "germanWord": "abgewöhnen",
+    "hindiMeaning": ["आदत छोड़ना", "आदत छुड़ाना"],
+    "hindiPronunciation": "आबगेवोनन",
+    "imperative": {
+      "du": "gewöhn(e) ab",
+      "ihr": "gewöhnt ab",
+      "sie": "gewöhnen Sie ab",
+      "wir": "gewöhnen wir ab"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "abgewöhnt",
+    "prefix": "ab",
+    "prepositions": [],
+    "priority": 5,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Gewohnheit"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "gewöhnte ab",
+    "synonyms": ["aufgeben", "sein lassen"],
+    "tags": ["behavior", "habit", "lifestyle"],
+    "thirdPersonSingular": "gewöhnt ab",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["nass machen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst abtrocknen",
+        "erSieEs": "wird abtrocknen",
+        "ich": "werde abtrocknen",
+        "ihr": "werdet abtrocknen",
+        "sieSie": "werden abtrocknen",
+        "wir": "werden abtrocknen"
+      },
+      "konjunktiv1": {
+        "du": "trocknest ab",
+        "erSieEs": "trockne ab",
+        "ich": "trockne ab",
+        "ihr": "trocknet ab",
+        "sieSie": "trocknen ab",
+        "wir": "trocknen ab"
+      },
+      "konjunktiv2": {
+        "du": "trocknetest ab",
+        "erSieEs": "trocknete ab",
+        "ich": "trocknete ab",
+        "ihr": "trocknetet ab",
+        "sieSie": "trockneten ab",
+        "wir": "trockneten ab"
+      },
+      "past": {
+        "du": "trocknetest ab",
+        "erSieEs": "trocknete ab",
+        "ich": "trocknete ab",
+        "ihr": "trocknetet ab",
+        "sieSie": "trockneten ab",
+        "wir": "trockneten ab"
+      },
+      "perfect": {
+        "du": "hast abgetrocknet",
+        "erSieEs": "hat abgetrocknet",
+        "ich": "habe abgetrocknet",
+        "ihr": "habt abgetrocknet",
+        "sieSie": "haben abgetrocknet",
+        "wir": "haben abgetrocknet"
+      },
+      "present": {
+        "du": "trocknest ab",
+        "erSieEs": "trocknet ab",
+        "ich": "trockne ab",
+        "ihr": "trocknet ab",
+        "sieSie": "trocknen ab",
+        "wir": "trocknen ab"
+      }
+    },
+    "description": "Corrected from 'abtrocken'. Often used for drying oneself with a towel or drying dishes.",
+    "difficulty": 3,
+    "englishMeaning": ["to dry off", "to dry (dishes)"],
+    "exampleSentences": [
+      {
+        "english": "Don't forget to dry the dishes.",
+        "german": "Vergiss nicht, das Geschirr abzutrocknen.",
+        "hindi": "बर्तनों को पोंछना मत भूलना।"
+      },
+      {
+        "english": "After showering, I dry myself off quickly.",
+        "german": "Nach dem Duschen trockne ich mich schnell ab.",
+        "hindi": "शॉवर लेने के बाद मैं जल्दी से खुद को पोंछ लेता हूँ।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "abtrocknen",
+    "hindiMeaning": ["पोंछना", "सुखाना"],
+    "hindiPronunciation": "आबट्रोकनन",
+    "imperative": {
+      "du": "trockne ab",
+      "ihr": "trocknet ab",
+      "sie": "trocknen Sie ab",
+      "wir": "trocknen wir ab"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "abgetrocknet",
+    "prefix": "ab",
+    "prepositions": [],
+    "priority": 7,
+    "relatedAdjectives": ["trocken"],
+    "relatedNouns": ["das Handtuch", "das Abtrocknen"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "trocknete ab",
+    "synonyms": ["trocknen"],
+    "tags": ["chores", "hygiene", "daily_routine"],
+    "thirdPersonSingular": "trocknet ab",
+    "type": "verb"
+  },
+  {
     "antonyms": ["beschmutzen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -159,6 +352,108 @@
     "synonyms": ["spülen", "reinigen"],
     "tags": ["household", "daily_life", "cleaning"],
     "thirdPersonSingular": "wäscht ab",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["sich langweilen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst amüsieren",
+        "erSieEs": "wird amüsieren",
+        "ich": "werde amüsieren",
+        "ihr": "werdet amüsieren",
+        "sieSie": "werden amüsieren",
+        "wir": "werden amüsieren"
+      },
+      "konjunktiv1": {
+        "du": "amüsierest",
+        "erSieEs": "amüsiere",
+        "ich": "amüsiere",
+        "ihr": "amüsieret",
+        "sieSie": "amüsieren",
+        "wir": "amüsieren"
+      },
+      "konjunktiv2": {
+        "du": "amüsiertest",
+        "erSieEs": "amüsierte",
+        "ich": "amüsierte",
+        "ihr": "amüsiertet",
+        "sieSie": "amüsierten",
+        "wir": "amüsierten"
+      },
+      "past": {
+        "du": "amüsiertest",
+        "erSieEs": "amüsierte",
+        "ich": "amüsierte",
+        "ihr": "amüsiertet",
+        "sieSie": "amüsierten",
+        "wir": "amüsierten"
+      },
+      "perfect": {
+        "du": "hast amüsiert",
+        "erSieEs": "hat amüsiert",
+        "ich": "habe amüsiert",
+        "ihr": "habt amüsiert",
+        "sieSie": "haben amüsiert",
+        "wir": "haben amüsiert"
+      },
+      "present": {
+        "du": "amüsierst",
+        "erSieEs": "amüsiert",
+        "ich": "amüsiere",
+        "ihr": "amüsiert",
+        "sieSie": "amüsieren",
+        "wir": "amüsieren"
+      }
+    },
+    "description": "Used reflexively (sich amüsieren) to mean having a good time or having fun.",
+    "difficulty": 3,
+    "englishMeaning": ["to amuse", "to entertain", "to have fun"],
+    "exampleSentences": [
+      {
+        "english": "We had a lot of fun at the party.",
+        "german": "Wir haben uns auf der Party sehr amüsiert.",
+        "hindi": "हमने पार्टी में बहुत मज़े किए।"
+      },
+      {
+        "english": "The clown amused the children.",
+        "german": "Der Clown hat die Kinder amüsiert.",
+        "hindi": "जोकर ने बच्चों का मनोरंजन किया।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "amüsieren",
+    "hindiMeaning": ["मनोरंजन करना", "मज़े करना"],
+    "hindiPronunciation": "अम्यूज़ीरन",
+    "imperative": {
+      "du": "amüsiere",
+      "ihr": "amüsiert",
+      "sie": "amüsieren Sie",
+      "wir": "amüsieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "amüsiert",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to be amused by/about",
+        "preposition": "über"
+      }
+    ],
+    "priority": 6,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["amüsant"],
+    "relatedNouns": ["das Amüsement"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "amüsierte",
+    "synonyms": ["Spaß haben", "unterhalten", "erheitern"],
+    "tags": ["leisure", "emotion", "entertainment"],
+    "thirdPersonSingular": "amüsiert",
     "type": "verb"
   },
   {
@@ -554,6 +849,104 @@
     "type": "verb"
   },
   {
+    "antonyms": ["ausziehen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst anziehen",
+        "erSieEs": "wird anziehen",
+        "ich": "werde anziehen",
+        "ihr": "werdet anziehen",
+        "sieSie": "werden anziehen",
+        "wir": "werden anziehen"
+      },
+      "konjunktiv1": {
+        "du": "ziehest an",
+        "erSieEs": "ziehe an",
+        "ich": "ziehe an",
+        "ihr": "ziehet an",
+        "sieSie": "ziehen an",
+        "wir": "ziehen an"
+      },
+      "konjunktiv2": {
+        "du": "zögest an",
+        "erSieEs": "zöge an",
+        "ich": "zöge an",
+        "ihr": "zöget an",
+        "sieSie": "zögen an",
+        "wir": "zögen an"
+      },
+      "past": {
+        "du": "zogst an",
+        "erSieEs": "zog an",
+        "ich": "zog an",
+        "ihr": "zogt an",
+        "sieSie": "zogen an",
+        "wir": "zogen an"
+      },
+      "perfect": {
+        "du": "hast angezogen",
+        "erSieEs": "hat angezogen",
+        "ich": "habe angezogen",
+        "ihr": "habt angezogen",
+        "sieSie": "haben angezogen",
+        "wir": "haben angezogen"
+      },
+      "present": {
+        "du": "ziehst an",
+        "erSieEs": "zieht an",
+        "ich": "ziehe an",
+        "ihr": "zieht an",
+        "sieSie": "ziehen an",
+        "wir": "ziehen an"
+      }
+    },
+    "description": "Very common verb. Used reflexively (sich anziehen) for getting dressed generally, or non-reflexively for putting on a specific piece of clothing.",
+    "difficulty": 3,
+    "englishMeaning": ["to put on (clothes)", "to dress", "to attract"],
+    "exampleSentences": [
+      {
+        "english": "I am putting on a jacket.",
+        "german": "Ich ziehe mir eine Jacke an.",
+        "hindi": "मैं एक जैकेट पहन रहा हूँ।"
+      },
+      {
+        "english": "You need to dress more warmly.",
+        "german": "Du musst dich wärmer anziehen.",
+        "hindi": "तुम्हें और गर्म कपड़े पहनने चाहिए।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "anziehen",
+    "hindiMeaning": ["कपड़े पहनना", "आकर्षित करना"],
+    "hindiPronunciation": "आनज़ीहन",
+    "imperative": {
+      "du": "zieh(e) an",
+      "ihr": "zieht an",
+      "sie": "ziehen Sie an",
+      "wir": "ziehen wir an"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "angezogen",
+    "prefix": "an",
+    "prepositions": [],
+    "priority": 9,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["angezogen", "anziehend"],
+    "relatedNouns": ["der Anzug", "die Anziehung"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "zog an",
+    "stemVowelChange": "ie -\u003e o",
+    "synonyms": ["sich bekleiden"],
+    "tags": ["clothing", "daily_routine", "action"],
+    "thirdPersonSingular": "zieht an",
+    "type": "verb"
+  },
+  {
     "antonyms": ["ausruhen", "faulenzen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -752,6 +1145,109 @@
     "synonyms": ["öffnen"],
     "tags": ["daily_life", "action"],
     "thirdPersonSingular": "macht auf",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["beruhigen", "entspannen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst aufregen",
+        "erSieEs": "wird aufregen",
+        "ich": "werde aufregen",
+        "ihr": "werdet aufregen",
+        "sieSie": "werden aufregen",
+        "wir": "werden aufregen"
+      },
+      "konjunktiv1": {
+        "du": "regest auf",
+        "erSieEs": "rege auf",
+        "ich": "rege auf",
+        "ihr": "reget auf",
+        "sieSie": "regen auf",
+        "wir": "regen auf"
+      },
+      "konjunktiv2": {
+        "du": "regtest auf",
+        "erSieEs": "regte auf",
+        "ich": "regte auf",
+        "ihr": "regtet auf",
+        "sieSie": "regten auf",
+        "wir": "regten auf"
+      },
+      "past": {
+        "du": "regtest auf",
+        "erSieEs": "regte auf",
+        "ich": "regte auf",
+        "ihr": "regtet auf",
+        "sieSie": "regten auf",
+        "wir": "regten auf"
+      },
+      "perfect": {
+        "du": "hast aufgeregt",
+        "erSieEs": "hat aufgeregt",
+        "ich": "habe aufgeregt",
+        "ihr": "habt aufgeregt",
+        "sieSie": "haben aufgeregt",
+        "wir": "haben aufgeregt"
+      },
+      "present": {
+        "du": "regst auf",
+        "erSieEs": "regt auf",
+        "ich": "rege auf",
+        "ihr": "regt auf",
+        "sieSie": "regen auf",
+        "wir": "regen auf"
+      }
+    },
+    "description": "Often used reflexively (sich aufregen) to mean getting stressed, upset, or agitated about something.",
+    "difficulty": 4,
+    "englishMeaning": ["to get worked up", "to upset", "to excite"],
+    "exampleSentences": [
+      {
+        "english": "Don't get worked up over such little things!",
+        "german": "Reg dich nicht über solche Kleinigkeiten auf!",
+        "hindi": "ऐसी छोटी-छोटी बातों पर परेशान मत हो!"
+      },
+      {
+        "english": "This movie upsets/excites me a lot.",
+        "german": "Dieser Film regt mich sehr auf.",
+        "hindi": "यह फिल्म मुझे बहुत उत्तेजित/परेशान करती है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "aufregen",
+    "hindiMeaning": ["उत्तेजित होना", "परेशान होना"],
+    "hindiPronunciation": "आउफ़रेगन",
+    "imperative": {
+      "du": "reg(e) auf",
+      "ihr": "regt auf",
+      "sie": "regen Sie auf",
+      "wir": "regen wir auf"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "aufgeregt",
+    "prefix": "auf",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to get worked up/upset about",
+        "preposition": "über"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["aufgeregt"],
+    "relatedNouns": ["die Aufregung"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "regte auf",
+    "synonyms": ["ärgern", "erregen"],
+    "tags": ["emotion", "stress"],
+    "thirdPersonSingular": "regt auf",
     "type": "verb"
   },
   {
@@ -1128,6 +1624,110 @@
     "type": "verb"
   },
   {
+    "antonyms": ["anziehen", "einziehen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst ausziehen",
+        "erSieEs": "wird ausziehen",
+        "ich": "werde ausziehen",
+        "ihr": "werdet ausziehen",
+        "sieSie": "werden ausziehen",
+        "wir": "werden ausziehen"
+      },
+      "konjunktiv1": {
+        "du": "ziehest aus",
+        "erSieEs": "ziehe aus",
+        "ich": "ziehe aus",
+        "ihr": "ziehet aus",
+        "sieSie": "ziehen aus",
+        "wir": "ziehen aus"
+      },
+      "konjunktiv2": {
+        "du": "zögest aus",
+        "erSieEs": "zöge aus",
+        "ich": "zöge aus",
+        "ihr": "zöget aus",
+        "sieSie": "zögen aus",
+        "wir": "zögen aus"
+      },
+      "past": {
+        "du": "zogst aus",
+        "erSieEs": "zog aus",
+        "ich": "zog aus",
+        "ihr": "zogt aus",
+        "sieSie": "zogen aus",
+        "wir": "zogen aus"
+      },
+      "perfect": {
+        "du": "hast ausgezogen",
+        "erSieEs": "hat ausgezogen",
+        "ich": "habe ausgezogen",
+        "ihr": "habt ausgezogen",
+        "sieSie": "haben ausgezogen",
+        "wir": "haben ausgezogen"
+      },
+      "present": {
+        "du": "ziehst aus",
+        "erSieEs": "zieht aus",
+        "ich": "ziehe aus",
+        "ihr": "zieht aus",
+        "sieSie": "ziehen aus",
+        "wir": "ziehen aus"
+      }
+    },
+    "description": "Like 'umziehen', it takes 'haben' for clothing contexts (often reflexive) and 'sein' for moving out of a home. Conjugations default to 'haben' for clothing.",
+    "difficulty": 3,
+    "englishMeaning": ["to take off (clothes)", "to undress", "to move out"],
+    "exampleSentences": [
+      {
+        "english": "Please take off your wet shoes.",
+        "german": "Zieh bitte deine nassen Schuhe aus.",
+        "hindi": "कृपया अपने गीले जूते उतार दें।"
+      },
+      {
+        "english": "He undresses before sleeping.",
+        "german": "Er zieht sich vor dem Schlafen aus.",
+        "hindi": "वह सोने से पहले कपड़े उतारता है।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "ausziehen",
+    "hindiMeaning": ["कपड़े उतारना", "घर खाली करना"],
+    "hindiPronunciation": "आउसज़ीहन",
+    "imperative": {
+      "du": "zieh(e) aus",
+      "ihr": "zieht aus",
+      "sie": "ziehen Sie aus",
+      "wir": "ziehen wir aus"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "ausgezogen",
+    "prefix": "aus",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to move out of (a place)",
+        "preposition": "aus"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Auszug"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "zog aus",
+    "stemVowelChange": "ie -\u003e o",
+    "synonyms": ["entkleiden"],
+    "tags": ["clothing", "housing", "daily_routine"],
+    "thirdPersonSingular": "zieht aus",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -1217,6 +1817,107 @@
     "synonyms": ["braten"],
     "tags": ["cooking", "household", "food"],
     "thirdPersonSingular": "backt / bäckt",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst baden",
+        "erSieEs": "wird baden",
+        "ich": "werde baden",
+        "ihr": "werdet baden",
+        "sieSie": "werden baden",
+        "wir": "werden baden"
+      },
+      "konjunktiv1": {
+        "du": "badest",
+        "erSieEs": "bade",
+        "ich": "bade",
+        "ihr": "badet",
+        "sieSie": "baden",
+        "wir": "baden"
+      },
+      "konjunktiv2": {
+        "du": "badetest",
+        "erSieEs": "badete",
+        "ich": "badete",
+        "ihr": "badetet",
+        "sieSie": "badeten",
+        "wir": "badeten"
+      },
+      "past": {
+        "du": "badetest",
+        "erSieEs": "badete",
+        "ich": "badete",
+        "ihr": "badetet",
+        "sieSie": "badeten",
+        "wir": "badeten"
+      },
+      "perfect": {
+        "du": "hast gebadet",
+        "erSieEs": "hat gebadet",
+        "ich": "habe gebadet",
+        "ihr": "habt gebadet",
+        "sieSie": "haben gebadet",
+        "wir": "haben gebadet"
+      },
+      "present": {
+        "du": "badest",
+        "erSieEs": "badet",
+        "ich": "bade",
+        "ihr": "badet",
+        "sieSie": "baden",
+        "wir": "baden"
+      }
+    },
+    "description": "Used for taking a bath in a bathtub or swimming in a natural body of water (like a lake or sea).",
+    "difficulty": 2,
+    "englishMeaning": ["to bathe", "to swim", "to take a bath"],
+    "exampleSentences": [
+      {
+        "english": "The children are bathing/swimming in the lake.",
+        "german": "Die Kinder baden im See.",
+        "hindi": "बच्चे झील में नहा रहे हैं।"
+      },
+      {
+        "english": "I want to take a hot bath in the evening.",
+        "german": "Ich möchte am Abend heiß baden.",
+        "hindi": "मैं शाम को गर्म पानी से नहाना चाहता हूँ।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "baden",
+    "hindiMeaning": ["नहाना", "स्नान करना"],
+    "hindiPronunciation": "बाडन",
+    "imperative": {
+      "du": "bade",
+      "ihr": "badet",
+      "sie": "baden Sie",
+      "wir": "baden wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gebadet",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to bathe in (a location)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": [],
+    "relatedNouns": ["das Bad", "das Badezimmer", "die Badewanne"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "badete",
+    "synonyms": ["schwimmen", "plantschen"],
+    "tags": ["daily_routine", "hygiene", "leisure", "sports"],
+    "thirdPersonSingular": "badet",
     "type": "verb"
   },
   {
@@ -1321,6 +2022,311 @@
     "synonyms": ["errichten", "konstruieren"],
     "tags": ["construction", "action", "work"],
     "thirdPersonSingular": "baut",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst bedanken",
+        "erSieEs": "wird bedanken",
+        "ich": "werde bedanken",
+        "ihr": "werdet bedanken",
+        "sieSie": "werden bedanken",
+        "wir": "werden bedanken"
+      },
+      "konjunktiv1": {
+        "du": "bedankest",
+        "erSieEs": "bedanke",
+        "ich": "bedanke",
+        "ihr": "bedanket",
+        "sieSie": "bedanken",
+        "wir": "bedanken"
+      },
+      "konjunktiv2": {
+        "du": "bedanktest",
+        "erSieEs": "bedankte",
+        "ich": "bedankte",
+        "ihr": "bedanktet",
+        "sieSie": "bedankten",
+        "wir": "bedankten"
+      },
+      "past": {
+        "du": "bedanktest",
+        "erSieEs": "bedankte",
+        "ich": "bedankte",
+        "ihr": "bedanktet",
+        "sieSie": "bedankten",
+        "wir": "bedankten"
+      },
+      "perfect": {
+        "du": "hast bedankt",
+        "erSieEs": "hat bedankt",
+        "ich": "habe bedankt",
+        "ihr": "habt bedankt",
+        "sieSie": "haben bedankt",
+        "wir": "haben bedankt"
+      },
+      "present": {
+        "du": "bedankst",
+        "erSieEs": "bedankt",
+        "ich": "bedanke",
+        "ihr": "bedankt",
+        "sieSie": "bedanken",
+        "wir": "bedanken"
+      }
+    },
+    "description": "Corrected from 'bendenkan'. Always used reflexively (sich bedanken). It implies formally expressing gratitude, whereas 'danken' is non-reflexive.",
+    "difficulty": 3,
+    "englishMeaning": ["to thank", "to express gratitude"],
+    "exampleSentences": [
+      {
+        "english": "I would like to sincerely thank you.",
+        "german": "Ich möchte mich herzlich bei Ihnen bedanken.",
+        "hindi": "मैं आपको दिल से धन्यवाद देना चाहता हूँ।"
+      },
+      {
+        "english": "She expressed her gratitude for the help.",
+        "german": "Sie hat sich für die Hilfe bedankt.",
+        "hindi": "उसने मदद के लिए धन्यवाद दिया।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "bedanken",
+    "hindiMeaning": ["धन्यवाद देना", "आभार व्यक्त करना"],
+    "hindiPronunciation": "बेडांकन",
+    "imperative": {
+      "du": "bedanke",
+      "ihr": "bedankt",
+      "sie": "bedanken Sie",
+      "wir": "bedanken wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "bedankt",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to thank (someone)",
+        "preposition": "bei"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "to thank for (something)",
+        "preposition": "für"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["dankbar"],
+    "relatedNouns": ["der Dank"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "bedankte",
+    "synonyms": ["danken", "seinen Dank aussprechen"],
+    "tags": ["communication", "politeness", "social"],
+    "thirdPersonSingular": "bedankt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["sich Zeit lassen", "trödeln"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst beeilen",
+        "erSieEs": "wird beeilen",
+        "ich": "werde beeilen",
+        "ihr": "werdet beeilen",
+        "sieSie": "werden beeilen",
+        "wir": "werden beeilen"
+      },
+      "konjunktiv1": {
+        "du": "beeilest",
+        "erSieEs": "beeile",
+        "ich": "beeile",
+        "ihr": "beeilet",
+        "sieSie": "beeilen",
+        "wir": "beeilen"
+      },
+      "konjunktiv2": {
+        "du": "beeiltest",
+        "erSieEs": "beeilte",
+        "ich": "beeilte",
+        "ihr": "beeiltet",
+        "sieSie": "beeilten",
+        "wir": "beeilten"
+      },
+      "past": {
+        "du": "beeiltest",
+        "erSieEs": "beeilte",
+        "ich": "beeilte",
+        "ihr": "beeiltet",
+        "sieSie": "beeilten",
+        "wir": "beeilten"
+      },
+      "perfect": {
+        "du": "hast beeilt",
+        "erSieEs": "hat beeilt",
+        "ich": "habe beeilt",
+        "ihr": "habt beeilt",
+        "sieSie": "haben beeilt",
+        "wir": "haben beeilt"
+      },
+      "present": {
+        "du": "beeilst",
+        "erSieEs": "beeilt",
+        "ich": "beeile",
+        "ihr": "beeilt",
+        "sieSie": "beeilen",
+        "wir": "beeilen"
+      }
+    },
+    "description": "Almost exclusively used reflexively (sich beeilen) to mean 'to hurry up'.",
+    "difficulty": 3,
+    "englishMeaning": ["to hurry", "to hasten"],
+    "exampleSentences": [
+      {
+        "english": "We have to hurry, otherwise we will miss the train.",
+        "german": "Wir müssen uns beeilen, sonst verpassen wir den Zug.",
+        "hindi": "हमें जल्दी करनी होगी, वरना हमारी ट्रेन छूट जाएगी।"
+      },
+      {
+        "english": "Hurry up!",
+        "german": "Beeil dich!",
+        "hindi": "जल्दी करो!"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "beeilen",
+    "hindiMeaning": ["जल्दी करना"],
+    "hindiPronunciation": "बेआलन",
+    "imperative": {
+      "du": "beeil(e)",
+      "ihr": "beeilt",
+      "sie": "beeilen Sie",
+      "wir": "beeilen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "beeilt",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to hurry with (something)",
+        "preposition": "mit"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["eilig"],
+    "relatedNouns": ["die Eile"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "beeilte",
+    "synonyms": ["sich eilen", "Gas geben"],
+    "tags": ["action", "time", "movement"],
+    "thirdPersonSingular": "beeilt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["gehorchen", "bitten"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst befehlen",
+        "erSieEs": "wird befehlen",
+        "ich": "werde befehlen",
+        "ihr": "werdet befehlen",
+        "sieSie": "werden befehlen",
+        "wir": "werden befehlen"
+      },
+      "konjunktiv1": {
+        "du": "befehlest",
+        "erSieEs": "befehle",
+        "ich": "befehle",
+        "ihr": "befeholet",
+        "sieSie": "befehlen",
+        "wir": "befehlen"
+      },
+      "konjunktiv2": {
+        "du": "befählest",
+        "erSieEs": "befähle",
+        "ich": "befähle",
+        "ihr": "befählet",
+        "sieSie": "befählen",
+        "wir": "befählen"
+      },
+      "past": {
+        "du": "befahlst",
+        "erSieEs": "befahl",
+        "ich": "befahl",
+        "ihr": "befahlt",
+        "sieSie": "befahlen",
+        "wir": "befahlen"
+      },
+      "perfect": {
+        "du": "hast befohlen",
+        "erSieEs": "hat befohlen",
+        "ich": "habe befohlen",
+        "ihr": "habt befohlen",
+        "sieSie": "haben befohlen",
+        "wir": "haben befohlen"
+      },
+      "present": {
+        "du": "befiehlst",
+        "erSieEs": "befiehlt",
+        "ich": "befehle",
+        "ihr": "befehlt",
+        "sieSie": "befehlen",
+        "wir": "befehlen"
+      }
+    },
+    "description": "Used in the context of military or strict authoritative orders. It requires a Dative object (the person receiving the order).",
+    "difficulty": 4,
+    "englishMeaning": ["to command", "to order"],
+    "exampleSentences": [
+      {
+        "english": "The officer orders the soldiers to retreat.",
+        "german": "Der Offizier befiehlt den Soldaten den Rückzug.",
+        "hindi": "अधिकारी सैनिकों को पीछे हटने का आदेश देता है।"
+      },
+      {
+        "english": "He ordered me to leave the house immediately.",
+        "german": "Er befahl mir, sofort das Haus zu verlassen.",
+        "hindi": "उसने मुझे तुरंत घर छोड़ने का आदेश दिया।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "befehlen",
+    "hindiMeaning": ["आदेश देना", "हुक्म देना"],
+    "hindiPronunciation": "बेफ़ेलन",
+    "imperative": {
+      "du": "befiehl",
+      "ihr": "befehlt",
+      "sie": "befehlen Sie",
+      "wir": "befehlen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "befohlen",
+    "prepositions": [],
+    "priority": 5,
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Befehl", "der Befehlshaber"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "befahl",
+    "stemVowelChange": "e -\u003e ie",
+    "synonyms": ["anordnen", "kommandieren"],
+    "tags": ["communication", "authority", "action"],
+    "thirdPersonSingular": "befiehlt",
     "type": "verb"
   },
   {
@@ -1515,6 +2521,108 @@
     "synonyms": ["verstehen", "nachvollziehen", "erfassen"],
     "tags": ["mental_activity", "education"],
     "thirdPersonSingular": "begreift",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst beißen",
+        "erSieEs": "wird beißen",
+        "ich": "werde beißen",
+        "ihr": "werdet beißen",
+        "sieSie": "werden beißen",
+        "wir": "werden beißen"
+      },
+      "konjunktiv1": {
+        "du": "beißest",
+        "erSieEs": "beiße",
+        "ich": "beiße",
+        "ihr": "beißet",
+        "sieSie": "beißen",
+        "wir": "beißen"
+      },
+      "konjunktiv2": {
+        "du": "bissest",
+        "erSieEs": "bisse",
+        "ich": "bisse",
+        "ihr": "bisset",
+        "sieSie": "bissen",
+        "wir": "bissen"
+      },
+      "past": {
+        "du": "bissest",
+        "erSieEs": "biss",
+        "ich": "biss",
+        "ihr": "bisst",
+        "sieSie": "bissen",
+        "wir": "bissen"
+      },
+      "perfect": {
+        "du": "hast gebissen",
+        "erSieEs": "hat gebissen",
+        "ich": "habe gebissen",
+        "ihr": "habt gebissen",
+        "sieSie": "haben gebissen",
+        "wir": "haben gebissen"
+      },
+      "present": {
+        "du": "beißt",
+        "erSieEs": "beißt",
+        "ich": "beiße",
+        "ihr": "beißt",
+        "sieSie": "beißen",
+        "wir": "beißen"
+      }
+    },
+    "description": "Used when animals or humans bite something or someone. Can also be used figuratively (z. B. in den sauren Apfel beißen - to bite the bullet).",
+    "difficulty": 3,
+    "englishMeaning": ["to bite"],
+    "exampleSentences": [
+      {
+        "english": "Careful, the dog bites!",
+        "german": "Vorsicht, der Hund beißt!",
+        "hindi": "सावधान, कुत्ता काटता है!"
+      },
+      {
+        "english": "He bit into an apple.",
+        "german": "Er hat in einen Apfel gebissen.",
+        "hindi": "उसने एक सेब में दांत गड़ाया/काटा।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "beißen",
+    "hindiMeaning": ["काटना (दांत से)"],
+    "hindiPronunciation": "बाइसन",
+    "imperative": {
+      "du": "beiß(e)",
+      "ihr": "beißt",
+      "sie": "beißen Sie",
+      "wir": "beißen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gebissen",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to bite into",
+        "preposition": "in"
+      }
+    ],
+    "priority": 6,
+    "relatedAdjectives": ["bissig"],
+    "relatedNouns": ["der Biss"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "biss",
+    "stemVowelChange": "ei -\u003e i",
+    "synonyms": ["zubeißen", "knabbern"],
+    "tags": ["action", "body", "animals"],
+    "thirdPersonSingular": "beißt",
     "type": "verb"
   },
   {
@@ -2820,6 +3928,101 @@
     "type": "verb"
   },
   {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst duschen",
+        "erSieEs": "wird duschen",
+        "ich": "werde duschen",
+        "ihr": "werdet duschen",
+        "sieSie": "werden duschen",
+        "wir": "werden duschen"
+      },
+      "konjunktiv1": {
+        "du": "duschest",
+        "erSieEs": "dusche",
+        "ich": "dusche",
+        "ihr": "duschet",
+        "sieSie": "duschen",
+        "wir": "duschen"
+      },
+      "konjunktiv2": {
+        "du": "duschtest",
+        "erSieEs": "duschte",
+        "ich": "duschte",
+        "ihr": "duschtet",
+        "sieSie": "duschten",
+        "wir": "duschten"
+      },
+      "past": {
+        "du": "duschtest",
+        "erSieEs": "duschte",
+        "ich": "duschte",
+        "ihr": "duschtet",
+        "sieSie": "duschten",
+        "wir": "duschten"
+      },
+      "perfect": {
+        "du": "hast geduscht",
+        "erSieEs": "hat geduscht",
+        "ich": "habe geduscht",
+        "ihr": "habt geduscht",
+        "sieSie": "haben geduscht",
+        "wir": "haben geduscht"
+      },
+      "present": {
+        "du": "duschst",
+        "erSieEs": "duscht",
+        "ich": "dusche",
+        "ihr": "duscht",
+        "sieSie": "duschen",
+        "wir": "duschen"
+      }
+    },
+    "description": "Corrected from 'duchen'. Refers specifically to taking a shower, as opposed to taking a bath (baden).",
+    "difficulty": 1,
+    "englishMeaning": ["to shower", "to take a shower"],
+    "exampleSentences": [
+      {
+        "english": "I really like to take cold showers in the morning.",
+        "german": "Ich dusche morgens sehr gerne kalt.",
+        "hindi": "मुझे सुबह ठंडे पानी से शॉवर लेना बहुत पसंद है।"
+      },
+      {
+        "english": "He took a shower immediately after sports.",
+        "german": "Nach dem Sport hat er sofort geduscht.",
+        "hindi": "खेल के तुरंत बाद उसने शॉवर लिया।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "duschen",
+    "hindiMeaning": ["शॉवर लेना", "नहाना (शॉवर से)"],
+    "hindiPronunciation": "डूशन",
+    "imperative": {
+      "du": "dusche",
+      "ihr": "duscht",
+      "sie": "duschen Sie",
+      "wir": "duschen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geduscht",
+    "prepositions": [],
+    "priority": 9,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Dusche", "das Duschgel"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "duschte",
+    "synonyms": ["sich abbrausen"],
+    "tags": ["daily_routine", "hygiene"],
+    "thirdPersonSingular": "duscht",
+    "type": "verb"
+  },
+  {
     "antonyms": ["verbieten", "müssen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -2902,6 +4105,103 @@
     "synonyms": ["erlaubt sein"],
     "tags": ["modal_verb", "permission", "daily_life"],
     "thirdPersonSingular": "darf",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["abwaschen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst eincremen",
+        "erSieEs": "wird eincremen",
+        "ich": "werde eincremen",
+        "ihr": "werdet eincremen",
+        "sieSie": "werden eincremen",
+        "wir": "werden eincremen"
+      },
+      "konjunktiv1": {
+        "du": "cremest ein",
+        "erSieEs": "creme ein",
+        "ich": "creme ein",
+        "ihr": "cremet ein",
+        "sieSie": "cremen ein",
+        "wir": "cremen ein"
+      },
+      "konjunktiv2": {
+        "du": "cremtest ein",
+        "erSieEs": "cremte ein",
+        "ich": "cremte ein",
+        "ihr": "cremtet ein",
+        "sieSie": "cremten ein",
+        "wir": "cremten ein"
+      },
+      "past": {
+        "du": "cremtest ein",
+        "erSieEs": "cremte ein",
+        "ich": "cremte ein",
+        "ihr": "cremtet ein",
+        "sieSie": "cremten ein",
+        "wir": "cremten ein"
+      },
+      "perfect": {
+        "du": "hast eingecremt",
+        "erSieEs": "hat eingecremt",
+        "ich": "habe eingecremt",
+        "ihr": "habt eingecremt",
+        "sieSie": "haben eingecremt",
+        "wir": "haben eingecremt"
+      },
+      "present": {
+        "du": "cremst ein",
+        "erSieEs": "cremt ein",
+        "ich": "creme ein",
+        "ihr": "cremt ein",
+        "sieSie": "cremen ein",
+        "wir": "cremen ein"
+      }
+    },
+    "description": "Corrected from 'einkremen'. Used when applying sunscreen, lotion, or cream to the skin. Often used reflexively (sich eincremen).",
+    "difficulty": 3,
+    "englishMeaning": ["to apply lotion", "to cream"],
+    "exampleSentences": [
+      {
+        "english": "Don't forget to put on sunscreen/lotion in the summer.",
+        "german": "Vergiss nicht, dich im Sommer einzucremen.",
+        "hindi": "गर्मियों में खुद को क्रीम/सनस्क्रीन लगाना मत भूलना।"
+      },
+      {
+        "english": "I apply cream to my face every evening.",
+        "german": "Ich creme mir jeden Abend das Gesicht ein.",
+        "hindi": "मैं हर शाम अपने चेहरे पर क्रीम लगाता हूँ।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "eincremen",
+    "hindiMeaning": ["क्रीम लगाना", "लोशन लगाना"],
+    "hindiPronunciation": "आइनक्रेमन",
+    "imperative": {
+      "du": "creme ein",
+      "ihr": "cremt ein",
+      "sie": "cremen Sie ein",
+      "wir": "cremen wir ein"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "eingecremt",
+    "prefix": "ein",
+    "prepositions": [],
+    "priority": 6,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Creme"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "cremte ein",
+    "synonyms": ["einschmieren"],
+    "tags": ["body_care", "grooming", "daily_routine", "health"],
+    "thirdPersonSingular": "cremt ein",
     "type": "verb"
   },
   {
@@ -3513,73 +4813,181 @@
         "wir": "entschieden"
       },
       "perfect": {
-        "du": "hast (dich) entschieden",
-        "erSieEs": "hat (sich) entschieden",
-        "ich": "habe (mich) entschieden",
-        "ihr": "habt (euch) entschieden",
-        "sieSie": "haben (sich) entschieden",
-        "wir": "haben (uns) entschieden"
+        "du": "hast entschieden",
+        "erSieEs": "hat entschieden",
+        "ich": "habe entschieden",
+        "ihr": "habt entschieden",
+        "sieSie": "haben entschieden",
+        "wir": "haben entschieden"
       },
       "present": {
-        "du": "entscheidest (dich)",
-        "erSieEs": "entscheidet (sich)",
-        "ich": "entscheide (mich)",
-        "ihr": "entscheidet (euch)",
-        "sieSie": "entscheiden (sich)",
-        "wir": "entscheiden (uns)"
+        "du": "entscheidest",
+        "erSieEs": "entscheidet",
+        "ich": "entscheide",
+        "ihr": "entscheidet",
+        "sieSie": "entscheiden",
+        "wir": "entscheiden"
       }
     },
-    "description": "Often used reflexively as 'sich entscheiden' (to make up one's mind).",
-    "difficulty": 4,
-    "englishMeaning": ["To decide", "To determine"],
+    "description": "Often used reflexively (sich entscheiden) when making a personal choice, or non-reflexively when deciding a matter or outcome.",
+    "difficulty": 3,
+    "englishMeaning": ["to decide", "to determine"],
     "exampleSentences": [
       {
-        "english": "I cannot decide.",
-        "german": "Ich kann mich nicht entscheiden.",
-        "hindi": "मैं फैसला नहीं कर पा रहा हूँ।"
+        "english": "I have to decide quickly.",
+        "german": "Ich muss mich schnell entscheiden.",
+        "hindi": "मुझे जल्दी निर्णय लेना है।"
       },
       {
-        "english": "The court must decide.",
-        "german": "Das Gericht muss entscheiden.",
-        "hindi": "अदालत को फैसला करना होगा।"
+        "english": "We decided to stay home.",
+        "german": "Wir haben entschieden, zu Hause zu bleiben.",
+        "hindi": "हमने घर पर रहने का फैसला किया।"
       }
     ],
-    "germanLevel": "b1",
+    "germanLevel": "a2",
     "germanWord": "entscheiden",
-    "hindiMeaning": ["निर्णय लेना", "फैसला करना"],
+    "hindiMeaning": ["निर्णय लेना", "तय करना"],
     "hindiPronunciation": "एंटशाइडन",
     "imperative": {
-      "du": "entscheide dich",
-      "ihr": "entscheidet euch",
-      "sie": "entscheiden Sie sich",
-      "wir": "entscheiden wir uns"
+      "du": "entscheide",
+      "ihr": "entscheidet",
+      "sie": "entscheiden Sie",
+      "wir": "entscheiden wir"
     },
     "irregular": true,
+    "isModalVerb": false,
     "isReflexive": true,
     "pastParticiple": "entschieden",
     "prepositions": [
       {
         "case": "akkusativ",
-        "meaning": "to decide in favor of/for something",
+        "meaning": "to decide on / for",
         "preposition": "für"
       },
       {
         "case": "akkusativ",
-        "meaning": "to decide on something",
-        "preposition": "über"
+        "meaning": "to decide against",
+        "preposition": "gegen"
       }
     ],
     "priority": 9,
     "reflexiveCase": "akkusativ",
-    "relatedAdjectives": ["entscheidend"],
+    "relatedAdjectives": ["entscheidend", "entschlossen"],
     "relatedNouns": ["die Entscheidung"],
     "requiresCase": ["akkusativ"],
     "separable": false,
     "simplePast": "entschied",
     "stemVowelChange": "ei -\u003e ie",
     "synonyms": ["beschließen", "festlegen"],
-    "tags": ["mental_activity", "daily_life"],
+    "tags": ["decision", "cognition", "action"],
     "thirdPersonSingular": "entscheidet",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["beschuldigen", "anklagen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst entschuldigen",
+        "erSieEs": "wird entschuldigen",
+        "ich": "werde entschuldigen",
+        "ihr": "werdet entschuldigen",
+        "sieSie": "werden entschuldigen",
+        "wir": "werden entschuldigen"
+      },
+      "konjunktiv1": {
+        "du": "entschuldigest",
+        "erSieEs": "entschuldige",
+        "ich": "entschuldige",
+        "ihr": "entschuldiget",
+        "sieSie": "entschuldigen",
+        "wir": "entschuldigen"
+      },
+      "konjunktiv2": {
+        "du": "entschuldigtest",
+        "erSieEs": "entschuldigte",
+        "ich": "entschuldigte",
+        "ihr": "entschuldigtet",
+        "sieSie": "entschuldigten",
+        "wir": "entschuldigten"
+      },
+      "past": {
+        "du": "entschuldigtest",
+        "erSieEs": "entschuldigte",
+        "ich": "entschuldigte",
+        "ihr": "entschuldigtet",
+        "sieSie": "entschuldigten",
+        "wir": "entschuldigten"
+      },
+      "perfect": {
+        "du": "hast entschuldigt",
+        "erSieEs": "hat entschuldigt",
+        "ich": "habe entschuldigt",
+        "ihr": "habt entschuldigt",
+        "sieSie": "haben entschuldigt",
+        "wir": "haben entschuldigt"
+      },
+      "present": {
+        "du": "entschuldigst",
+        "erSieEs": "entschuldigt",
+        "ich": "entschuldige",
+        "ihr": "entschuldigt",
+        "sieSie": "entschuldigen",
+        "wir": "entschuldigen"
+      }
+    },
+    "description": "Corrected from 'antschuldigen'. Often used reflexively (sich entschuldigen) meaning 'to apologize'. Can also be used non-reflexively to mean 'to excuse someone/something'.",
+    "difficulty": 3,
+    "englishMeaning": ["to apologize", "to excuse"],
+    "exampleSentences": [
+      {
+        "english": "I would like to apologize for my mistake.",
+        "german": "Ich möchte mich für meinen Fehler entschuldigen.",
+        "hindi": "मैं अपनी गलती के लिए माफ़ी माँगना चाहता हूँ।"
+      },
+      {
+        "english": "Please excuse the delay.",
+        "german": "Entschuldigen Sie bitte die Verspätung.",
+        "hindi": "कृपया देरी के लिए क्षमा करें।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "entschuldigen",
+    "hindiMeaning": ["माफ़ी माँगना", "क्षमा करना"],
+    "hindiPronunciation": "एंटशुल्डिगन",
+    "imperative": {
+      "du": "entschuldige",
+      "ihr": "entschuldigt",
+      "sie": "entschuldigen Sie",
+      "wir": "entschuldigen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "entschuldigt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to apologize for",
+        "preposition": "für"
+      },
+      {
+        "case": "dativ",
+        "meaning": "to apologize to (someone)",
+        "preposition": "bei"
+      }
+    ],
+    "priority": 9,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["unentschuldbar"],
+    "relatedNouns": ["die Entschuldigung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "entschuldigte",
+    "synonyms": ["um Verzeihung bitten", "verzeihen"],
+    "tags": ["communication", "politeness", "social"],
+    "thirdPersonSingular": "entschuldigt",
     "type": "verb"
   },
   {
@@ -3712,35 +5120,35 @@
         "wir": "erinnerten"
       },
       "perfect": {
-        "du": "hast (dich) erinnert",
-        "erSieEs": "hat (sich) erinnert",
-        "ich": "habe (mich) erinnert",
-        "ihr": "habt (euch) erinnert",
-        "sieSie": "haben (sich) erinnert",
-        "wir": "haben (uns) erinnert"
+        "du": "hast erinnert",
+        "erSieEs": "hat erinnert",
+        "ich": "habe erinnert",
+        "ihr": "habt erinnert",
+        "sieSie": "haben erinnert",
+        "wir": "haben erinnert"
       },
       "present": {
-        "du": "erinnerst (dich)",
-        "erSieEs": "erinnert (sich)",
-        "ich": "erinnere (mich)",
-        "ihr": "erinnert (euch)",
-        "sieSie": "erinnern (sich)",
-        "wir": "erinnern (uns)"
+        "du": "erinnerst",
+        "erSieEs": "erinnert",
+        "ich": "erinnere",
+        "ihr": "erinnert",
+        "sieSie": "erinnern",
+        "wir": "erinnern"
       }
     },
-    "description": "Reflexive 'sich erinnern' means to remember; transitive 'erinnern' means to remind someone.",
+    "description": "Corrected from 'erinnem'. Used reflexively (sich erinnern an) to mean 'to remember'. Used non-reflexively (jemanden erinnern an) to mean 'to remind someone'.",
     "difficulty": 4,
-    "englishMeaning": ["To remember", "To remind"],
+    "englishMeaning": ["to remember", "to remind"],
     "exampleSentences": [
       {
-        "english": "I remember our vacation.",
-        "german": "Ich erinnere mich an unseren Urlaub.",
-        "hindi": "मुझे हमारी छुट्टियों की याद है।"
+        "english": "I like to remember my childhood.",
+        "german": "Ich erinnere mich gern an meine Kindheit.",
+        "hindi": "मुझे अपना बचपन याद करना अच्छा लगता है।"
       },
       {
-        "english": "Please remind me of the appointment.",
-        "german": "Bitte erinnere mich an den Termin.",
-        "hindi": "कृपया मुझे अपॉइंटमेंट की याद दिलाएं।"
+        "english": "Can you remind me of the appointment tomorrow?",
+        "german": "Kannst du mich morgen an den Termin erinnern?",
+        "hindi": "क्या तुम मुझे कल अपॉइंटमेंट की याद दिला सकते हो?"
       }
     ],
     "germanLevel": "a2",
@@ -3748,28 +5156,31 @@
     "hindiMeaning": ["याद करना", "याद दिलाना"],
     "hindiPronunciation": "एरिनर्न",
     "imperative": {
-      "du": "erinnere dich",
-      "ihr": "erinnert euch",
-      "sie": "erinnern Sie sich",
-      "wir": "erinnern wir uns"
+      "du": "erinnere",
+      "ihr": "erinnert",
+      "sie": "erinnern Sie",
+      "wir": "erinnern wir"
     },
     "irregular": false,
+    "isModalVerb": false,
     "isReflexive": true,
     "pastParticiple": "erinnert",
     "prepositions": [
       {
         "case": "akkusativ",
-        "meaning": "to remember/remind of someone/something",
+        "meaning": "to remember / to remind of",
         "preposition": "an"
       }
     ],
-    "priority": 10,
+    "priority": 9,
     "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["erinnerlich"],
     "relatedNouns": ["die Erinnerung"],
+    "requiresCase": ["akkusativ"],
     "separable": false,
     "simplePast": "erinnerte",
-    "synonyms": ["gedenken", "behalten"],
-    "tags": ["mental_activity", "daily_life"],
+    "synonyms": ["gedenken", "mahnen"],
+    "tags": ["cognition", "memory", "thought"],
     "thirdPersonSingular": "erinnert",
     "type": "verb"
   },
@@ -3865,6 +5276,102 @@
     "type": "verb"
   },
   {
+    "antonyms": ["gesund werden"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst erkälten",
+        "erSieEs": "wird erkälten",
+        "ich": "werde erkälten",
+        "ihr": "werdet erkälten",
+        "sieSie": "werden erkälten",
+        "wir": "werden erkälten"
+      },
+      "konjunktiv1": {
+        "du": "erkältest",
+        "erSieEs": "erkälte",
+        "ich": "erkälte",
+        "ihr": "erkältet",
+        "sieSie": "erkälten",
+        "wir": "erkälten"
+      },
+      "konjunktiv2": {
+        "du": "erkältetest",
+        "erSieEs": "erkältete",
+        "ich": "erkältete",
+        "ihr": "erkältetet",
+        "sieSie": "erkälteten",
+        "wir": "erkälteten"
+      },
+      "past": {
+        "du": "erkältetest",
+        "erSieEs": "erkältete",
+        "ich": "erkältete",
+        "ihr": "erkältetet",
+        "sieSie": "erkälteten",
+        "wir": "erkälteten"
+      },
+      "perfect": {
+        "du": "hast erkältet",
+        "erSieEs": "hat erkältet",
+        "ich": "habe erkältet",
+        "ihr": "habt erkältet",
+        "sieSie": "haben erkältet",
+        "wir": "haben erkältet"
+      },
+      "present": {
+        "du": "erkältest",
+        "erSieEs": "erkältet",
+        "ich": "erkälte",
+        "ihr": "erkältet",
+        "sieSie": "erkälten",
+        "wir": "erkälten"
+      }
+    },
+    "description": "Almost exclusively used reflexively (sich erkälten) to mean catching a cold.",
+    "difficulty": 3,
+    "englishMeaning": ["to catch a cold"],
+    "exampleSentences": [
+      {
+        "english": "Dress warmly, otherwise you will catch a cold.",
+        "german": "Zieh dich warm an, sonst erkältest du dich.",
+        "hindi": "गर्म कपड़े पहनो, वरना तुम्हें सर्दी लग जाएगी।"
+      },
+      {
+        "english": "I caught a cold in the rain.",
+        "german": "Ich habe mich im Regen erkältet.",
+        "hindi": "मुझे बारिश में सर्दी लग गई।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "erkälten",
+    "hindiMeaning": ["सर्दी लगना", "जुकाम होना"],
+    "hindiPronunciation": "एरकेल्टन",
+    "imperative": {
+      "du": "erkälte",
+      "ihr": "erkältet",
+      "sie": "erkälten Sie",
+      "wir": "erkälten wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "erkältet",
+    "prepositions": [],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["erkältet"],
+    "relatedNouns": ["die Erkältung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "erkältete",
+    "synonyms": ["sich einen Schnupfen holen"],
+    "tags": ["health", "illness", "body"],
+    "thirdPersonSingular": "erkältet",
+    "type": "verb"
+  },
+  {
     "antonyms": ["verfehlen", "verpassen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -3955,6 +5462,107 @@
     "synonyms": ["gelangen", "erzielen"],
     "tags": ["action", "success", "motion"],
     "thirdPersonSingular": "erreicht",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["fragen", "ignorieren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst erwidern",
+        "erSieEs": "wird erwidern",
+        "ich": "werde erwidern",
+        "ihr": "werdet erwidern",
+        "sieSie": "werden erwidern",
+        "wir": "werden erwidern"
+      },
+      "konjunktiv1": {
+        "du": "erwiderest",
+        "erSieEs": "erwidere",
+        "ich": "erwidere",
+        "ihr": "erwideret",
+        "sieSie": "erwidern",
+        "wir": "erwidern"
+      },
+      "konjunktiv2": {
+        "du": "erwidertest",
+        "erSieEs": "erwiderte",
+        "ich": "erwiderte",
+        "ihr": "erwidertet",
+        "sieSie": "erwiderten",
+        "wir": "erwiderten"
+      },
+      "past": {
+        "du": "erwidertest",
+        "erSieEs": "erwiderte",
+        "ich": "erwiderte",
+        "ihr": "erwidertet",
+        "sieSie": "erwiderten",
+        "wir": "erwiderten"
+      },
+      "perfect": {
+        "du": "hast erwidert",
+        "erSieEs": "hat erwidert",
+        "ich": "habe erwidert",
+        "ihr": "habt erwidert",
+        "sieSie": "haben erwidert",
+        "wir": "haben erwidert"
+      },
+      "present": {
+        "du": "erwiderst",
+        "erSieEs": "erwidert",
+        "ich": "erwidere",
+        "ihr": "erwidert",
+        "sieSie": "erwidern",
+        "wir": "erwidern"
+      }
+    },
+    "description": "Used formally for answering or replying, and for returning a feeling, look, or greeting.",
+    "difficulty": 4,
+    "englishMeaning": ["to reply", "to reciprocate", "to return"],
+    "exampleSentences": [
+      {
+        "english": "He didn't know what to reply to that.",
+        "german": "Er wusste nicht, was er darauf erwidern sollte.",
+        "hindi": "उसे नहीं पता था कि इस पर क्या जवाब दे।"
+      },
+      {
+        "english": "She did not reciprocate his feelings.",
+        "german": "Sie hat seine Gefühle nicht erwidert.",
+        "hindi": "उसने उसकी भावनाओं का जवाब नहीं दिया।"
+      }
+    ],
+    "germanLevel": "b2",
+    "germanWord": "erwidern",
+    "hindiMeaning": ["उत्तर देना", "लौटाना (जैसे भावना)"],
+    "hindiPronunciation": "एर्विडर्न",
+    "imperative": {
+      "du": "erwidere",
+      "ihr": "erwidert",
+      "sie": "erwidern Sie",
+      "wir": "erwidern wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "erwidert",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to reply to (something)",
+        "preposition": "auf"
+      }
+    ],
+    "priority": 5,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Erwiderung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "erwiderte",
+    "synonyms": ["antworten", "entgegnen", "zurückgeben"],
+    "tags": ["communication", "emotion", "interaction"],
+    "thirdPersonSingular": "erwidert",
     "type": "verb"
   },
   {
@@ -4340,6 +5948,107 @@
     "type": "verb"
   },
   {
+    "antonyms": ["da sein", "vorhanden sein"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst fehlen",
+        "erSieEs": "wird fehlen",
+        "ich": "werde fehlen",
+        "ihr": "werdet fehlen",
+        "sieSie": "werden fehlen",
+        "wir": "werden fehlen"
+      },
+      "konjunktiv1": {
+        "du": "fehlest",
+        "erSieEs": "fehle",
+        "ich": "fehle",
+        "ihr": "fehlet",
+        "sieSie": "fehlen",
+        "wir": "fehlen"
+      },
+      "konjunktiv2": {
+        "du": "fehltest",
+        "erSieEs": "fehlte",
+        "ich": "fehlte",
+        "ihr": "fehltet",
+        "sieSie": "fehlten",
+        "wir": "fehlten"
+      },
+      "past": {
+        "du": "fehltest",
+        "erSieEs": "fehlte",
+        "ich": "fehlte",
+        "ihr": "fehltet",
+        "sieSie": "fehlten",
+        "wir": "fehlten"
+      },
+      "perfect": {
+        "du": "hast gefehlt",
+        "erSieEs": "hat gefehlt",
+        "ich": "habe gefehlt",
+        "ihr": "habt gefehlt",
+        "sieSie": "haben gefehlt",
+        "wir": "haben gefehlt"
+      },
+      "present": {
+        "du": "fehlst",
+        "erSieEs": "fehlt",
+        "ich": "fehle",
+        "ihr": "fehlt",
+        "sieSie": "fehlen",
+        "wir": "fehlen"
+      }
+    },
+    "description": "Can be used to state something is missing, or with a Dative pronoun to express missing someone emotionally (e.g., 'Du fehlst mir' - 'I miss you').",
+    "difficulty": 2,
+    "englishMeaning": ["to lack", "to be missing", "to be absent"],
+    "exampleSentences": [
+      {
+        "english": "I miss you a lot.",
+        "german": "Du fehlst mir sehr.",
+        "hindi": "मुझे तुम्हारी बहुत याद आती है।"
+      },
+      {
+        "english": "Salt is missing in this recipe.",
+        "german": "In diesem Rezept fehlt Salz.",
+        "hindi": "इस रेसिपी में नमक की कमी है।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "fehlen",
+    "hindiMeaning": ["कमी होना", "अनुपस्थित होना", "याद आना"],
+    "hindiPronunciation": "फ़ेलन",
+    "imperative": {
+      "du": "fehl(e)",
+      "ihr": "fehlt",
+      "sie": "fehlen Sie",
+      "wir": "fehlen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gefehlt",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to lack in (something)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["fehlerhaft", "fehlend"],
+    "relatedNouns": ["der Fehler", "das Fehlen"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "fehlte",
+    "synonyms": ["mangeln", "ausbleiben"],
+    "tags": ["state", "emotion", "absence"],
+    "thirdPersonSingular": "fehlt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["verlieren", "suchen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -4534,6 +6243,107 @@
     "synonyms": ["reisen (per Luftweg)"],
     "tags": ["motion", "travel", "nature"],
     "thirdPersonSingular": "fliegt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["vorausgehen", "anführen"],
+    "audioUrl": "",
+    "auxiliary": "sein",
+    "conjugations": {
+      "future": {
+        "du": "wirst folgen",
+        "erSieEs": "wird folgen",
+        "ich": "werde folgen",
+        "ihr": "werdet folgen",
+        "sieSie": "werden folgen",
+        "wir": "werden folgen"
+      },
+      "konjunktiv1": {
+        "du": "folgest",
+        "erSieEs": "folge",
+        "ich": "folge",
+        "ihr": "folget",
+        "sieSie": "folgen",
+        "wir": "folgen"
+      },
+      "konjunktiv2": {
+        "du": "folgtest",
+        "erSieEs": "folgte",
+        "ich": "folgte",
+        "ihr": "folgtet",
+        "sieSie": "folgten",
+        "wir": "folgten"
+      },
+      "past": {
+        "du": "folgtest",
+        "erSieEs": "folgte",
+        "ich": "folgte",
+        "ihr": "folgtet",
+        "sieSie": "folgten",
+        "wir": "folgten"
+      },
+      "perfect": {
+        "du": "bist gefolgt",
+        "erSieEs": "ist gefolgt",
+        "ich": "bin gefolgt",
+        "ihr": "seid gefolgt",
+        "sieSie": "sind gefolgt",
+        "wir": "sind gefolgt"
+      },
+      "present": {
+        "du": "folgst",
+        "erSieEs": "folgt",
+        "ich": "folge",
+        "ihr": "folgt",
+        "sieSie": "folgen",
+        "wir": "folgen"
+      }
+    },
+    "description": "Requires a Dative object. It usually takes 'sein' in the perfect tense when expressing movement (following someone physically).",
+    "difficulty": 3,
+    "englishMeaning": ["to follow", "to obey"],
+    "exampleSentences": [
+      {
+        "english": "The dog follows its owner.",
+        "german": "Der Hund folgt seinem Besitzer.",
+        "hindi": "कुत्ता अपने मालिक का पीछा करता है।"
+      },
+      {
+        "english": "Please follow me inconspicuously.",
+        "german": "Bitte folgen Sie mir unauffällig.",
+        "hindi": "कृपया चुपचाप मेरे पीछे आएं।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "folgen",
+    "hindiMeaning": ["पीछा करना", "पालन करना"],
+    "hindiPronunciation": "फ़ोल्गन",
+    "imperative": {
+      "du": "folge",
+      "ihr": "folgt",
+      "sie": "folgen Sie",
+      "wir": "folgen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gefolgt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to follow upon (e.g., chronologically)",
+        "preposition": "auf"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": ["folgend", "folgsam"],
+    "relatedNouns": ["die Folge", "der Folger"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "folgte",
+    "synonyms": ["hinterhergehen", "nachfolgen", "befolgen"],
+    "tags": ["movement", "action", "compliance"],
+    "thirdPersonSingular": "folgt",
     "type": "verb"
   },
   {
@@ -4930,6 +6740,102 @@
     "type": "verb"
   },
   {
+    "antonyms": ["lufttrocknen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst föhnen",
+        "erSieEs": "wird föhnen",
+        "ich": "werde föhnen",
+        "ihr": "werdet föhnen",
+        "sieSie": "werden föhnen",
+        "wir": "werden föhnen"
+      },
+      "konjunktiv1": {
+        "du": "föhnest",
+        "erSieEs": "föhne",
+        "ich": "föhne",
+        "ihr": "föhnet",
+        "sieSie": "föhnen",
+        "wir": "föhnen"
+      },
+      "konjunktiv2": {
+        "du": "föhntest",
+        "erSieEs": "föhnte",
+        "ich": "föhnte",
+        "ihr": "föhntet",
+        "sieSie": "föhnten",
+        "wir": "föhnten"
+      },
+      "past": {
+        "du": "föhntest",
+        "erSieEs": "föhnte",
+        "ich": "föhnte",
+        "ihr": "föhntet",
+        "sieSie": "föhnten",
+        "wir": "föhnten"
+      },
+      "perfect": {
+        "du": "hast geföhnt",
+        "erSieEs": "hat geföhnt",
+        "ich": "habe geföhnt",
+        "ihr": "habt geföhnt",
+        "sieSie": "haben geföhnt",
+        "wir": "haben geföhnt"
+      },
+      "present": {
+        "du": "föhnst",
+        "erSieEs": "föhnt",
+        "ich": "föhne",
+        "ihr": "föhnt",
+        "sieSie": "föhnen",
+        "wir": "föhnen"
+      }
+    },
+    "description": "Used specifically for drying hair with a hairdryer.",
+    "difficulty": 2,
+    "englishMeaning": ["to blow-dry (hair)"],
+    "exampleSentences": [
+      {
+        "english": "She blow-dries her hair every morning.",
+        "german": "Sie föhnt sich jeden Morgen die Haare.",
+        "hindi": "वह हर सुबह अपने बाल ड्रायर से सुखाती है।"
+      },
+      {
+        "english": "Can you please blow-dry my hair?",
+        "german": "Kannst du mir bitte die Haare föhnen?",
+        "hindi": "क्या तुम कृपया मेरे बाल सुखा सकते हो?"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "föhnen",
+    "hindiMeaning": ["बाल सुखाना (ड्रायर से)"],
+    "hindiPronunciation": "फ़ोनन",
+    "imperative": {
+      "du": "föhne",
+      "ihr": "föhnt",
+      "sie": "föhnen Sie",
+      "wir": "föhnen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geföhnt",
+    "prepositions": [],
+    "priority": 6,
+    "relatedAdjectives": ["geföhnt"],
+    "relatedNouns": ["der Föhn", "die Frisur"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "föhnte",
+    "synonyms": ["Haare trocknen"],
+    "tags": ["grooming", "haircare", "daily_routine"],
+    "thirdPersonSingular": "föhnt",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -4966,59 +6872,164 @@
         "wir": "fühlten"
       },
       "perfect": {
-        "du": "hast (dich) gefühlt",
-        "erSieEs": "hat (sich) gefühlt",
-        "ich": "habe (mich) gefühlt",
-        "ihr": "habt (euch) gefühlt",
-        "sieSie": "haben (sich) gefühlt",
-        "wir": "haben (uns) gefühlt"
+        "du": "hast gefühlt",
+        "erSieEs": "hat gefühlt",
+        "ich": "habe gefühlt",
+        "ihr": "habt gefühlt",
+        "sieSie": "haben gefühlt",
+        "wir": "haben gefühlt"
       },
       "present": {
-        "du": "fühlst (dich)",
-        "erSieEs": "fühlt (sich)",
-        "ich": "fühle (mich)",
-        "ihr": "fühlt (euch)",
-        "sieSie": "fühlen (sich)",
-        "wir": "fühlen (uns)"
+        "du": "fühlst",
+        "erSieEs": "fühlt",
+        "ich": "fühle",
+        "ihr": "fühlt",
+        "sieSie": "fühlen",
+        "wir": "fühlen"
       }
     },
-    "description": "Used reflexively (sich fühlen) for emotions/health and non-reflexively for touch.",
-    "difficulty": 3,
-    "englishMeaning": ["To feel", "To sense"],
+    "description": "Used reflexively to describe one's physical or emotional state (sich fühlen). Used non-reflexively to mean physically touching/feeling an object.",
+    "difficulty": 2,
+    "englishMeaning": ["to feel"],
     "exampleSentences": [
       {
         "english": "I don't feel well today.",
         "german": "Ich fühle mich heute nicht gut.",
-        "hindi": "मैं आज अच्छा महसूस नहीं कर रहा हूँ।"
+        "hindi": "मुझे आज अच्छा महसूस नहीं हो रहा है।"
       },
       {
-        "english": "Feel how soft this is!",
-        "german": "Fühl mal, wie weich das ist!",
-        "hindi": "महसूस करो, यह कितना नरम है!"
+        "english": "Feel how soft this blanket is!",
+        "german": "Fühl mal, wie weich diese Decke ist!",
+        "hindi": "महसूस करो, यह कंबल कितना मुलायम है!"
       }
     ],
     "germanLevel": "a2",
     "germanWord": "fühlen",
     "hindiMeaning": ["महसूस करना"],
-    "hindiPronunciation": "फ़ूलन",
+    "hindiPronunciation": "फ़्यूलन",
     "imperative": {
-      "du": "fühle dich",
-      "ihr": "fühlt euch",
-      "sie": "fühlen Sie sich",
-      "wir": "fühlen wir uns"
+      "du": "fühl(e)",
+      "ihr": "fühlt",
+      "sie": "fühlen Sie",
+      "wir": "fühlen wir"
     },
     "irregular": false,
+    "isModalVerb": false,
     "isReflexive": true,
     "pastParticiple": "gefühlt",
+    "prepositions": [],
     "priority": 9,
     "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["gefühllos", "gefühlvoll"],
     "relatedNouns": ["das Gefühl"],
     "requiresCase": ["akkusativ"],
     "separable": false,
     "simplePast": "fühlte",
     "synonyms": ["spüren", "empfinden"],
-    "tags": ["emotion", "body", "daily_life"],
+    "tags": ["emotion", "sensation", "body"],
     "thirdPersonSingular": "fühlt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["hoffen", "sich trauen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst fürchten",
+        "erSieEs": "wird fürchten",
+        "ich": "werde fürchten",
+        "ihr": "werdet fürchten",
+        "sieSie": "werden fürchten",
+        "wir": "werden fürchten"
+      },
+      "konjunktiv1": {
+        "du": "fürchtest",
+        "erSieEs": "fürchte",
+        "ich": "fürchte",
+        "ihr": "fürchtet",
+        "sieSie": "fürchten",
+        "wir": "fürchten"
+      },
+      "konjunktiv2": {
+        "du": "fürchtetest",
+        "erSieEs": "fürchtete",
+        "ich": "fürchtete",
+        "ihr": "fürchtetet",
+        "sieSie": "fürchteten",
+        "wir": "fürchteten"
+      },
+      "past": {
+        "du": "fürchtetest",
+        "erSieEs": "fürchtete",
+        "ich": "fürchtete",
+        "ihr": "fürchtetet",
+        "sieSie": "fürchteten",
+        "wir": "fürchteten"
+      },
+      "perfect": {
+        "du": "hast gefürchtet",
+        "erSieEs": "hat gefürchtet",
+        "ich": "habe gefürchtet",
+        "ihr": "habt gefürchtet",
+        "sieSie": "haben gefürchtet",
+        "wir": "haben gefürchtet"
+      },
+      "present": {
+        "du": "fürchtest",
+        "erSieEs": "fürchtet",
+        "ich": "fürchte",
+        "ihr": "fürchtet",
+        "sieSie": "fürchten",
+        "wir": "fürchten"
+      }
+    },
+    "description": "Very often used reflexively with 'vor' + Dativ (sich fürchten vor) meaning 'to be afraid of'.",
+    "difficulty": 3,
+    "englishMeaning": ["to fear", "to be afraid"],
+    "exampleSentences": [
+      {
+        "english": "The child is afraid of the big dog.",
+        "german": "Das Kind fürchtet sich vor dem großen Hund.",
+        "hindi": "बच्चा बड़े कुत्ते से डरता है।"
+      },
+      {
+        "english": "I fear that it will rain today.",
+        "german": "Ich fürchte, dass es heute regnen wird.",
+        "hindi": "मुझे डर है कि आज बारिश होगी।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "fürchten",
+    "hindiMeaning": ["डरना", "भयभीत होना"],
+    "hindiPronunciation": "फ़्युर्शटन",
+    "imperative": {
+      "du": "fürchte",
+      "ihr": "fürchtet",
+      "sie": "fürchten Sie",
+      "wir": "fürchten wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gefürchtet",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to be afraid of",
+        "preposition": "vor"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["furchtbar", "furchtlos"],
+    "relatedNouns": ["die Furcht"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "fürchtete",
+    "synonyms": ["Angst haben", "sich gruseln", "sich bangen"],
+    "tags": ["emotion", "fear", "feeling"],
+    "thirdPersonSingular": "fürchtet",
     "type": "verb"
   },
   {
@@ -5207,6 +7218,502 @@
     "type": "verb"
   },
   {
+    "antonyms": ["widersprechen", "rebellieren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst gehorchen",
+        "erSieEs": "wird gehorchen",
+        "ich": "werde gehorchen",
+        "ihr": "werdet gehorchen",
+        "sieSie": "werden gehorchen",
+        "wir": "werden gehorchen"
+      },
+      "konjunktiv1": {
+        "du": "gehorchest",
+        "erSieEs": "gehorche",
+        "ich": "gehorche",
+        "ihr": "gehorchet",
+        "sieSie": "gehorchen",
+        "wir": "gehorchen"
+      },
+      "konjunktiv2": {
+        "du": "gehorchtest",
+        "erSieEs": "gehorchte",
+        "ich": "gehorchte",
+        "ihr": "gehorchtet",
+        "sieSie": "gehorchten",
+        "wir": "gehorchten"
+      },
+      "past": {
+        "du": "gehorchtest",
+        "erSieEs": "gehorchte",
+        "ich": "gehorchte",
+        "ihr": "gehorchtet",
+        "sieSie": "gehorchten",
+        "wir": "gehorchten"
+      },
+      "perfect": {
+        "du": "hast gehorcht",
+        "erSieEs": "hat gehorcht",
+        "ich": "habe gehorcht",
+        "ihr": "habt gehorcht",
+        "sieSie": "haben gehorcht",
+        "wir": "haben gehorcht"
+      },
+      "present": {
+        "du": "gehorchst",
+        "erSieEs": "gehorcht",
+        "ich": "gehorche",
+        "ihr": "gehorcht",
+        "sieSie": "gehorchen",
+        "wir": "gehorchen"
+      }
+    },
+    "description": "An intransitive verb that requires a Dative object to indicate who is being obeyed.",
+    "difficulty": 3,
+    "englishMeaning": ["to obey"],
+    "exampleSentences": [
+      {
+        "english": "The children must obey their parents.",
+        "german": "Die Kinder müssen ihren Eltern gehorchen.",
+        "hindi": "बच्चों को अपने माता-पिता की आज्ञा माननी चाहिए।"
+      },
+      {
+        "english": "The dog obeys my every word.",
+        "german": "Der Hund gehorcht mir aufs Wort.",
+        "hindi": "कुत्ता मेरी हर बात मानता है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "gehorchen",
+    "hindiMeaning": ["आज्ञा मानना", "हुक्म मानना"],
+    "hindiPronunciation": "गेहोर्शन",
+    "imperative": {
+      "du": "gehorche",
+      "ihr": "gehorcht",
+      "sie": "gehorchen Sie",
+      "wir": "gehorchen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gehorcht",
+    "prepositions": [],
+    "priority": 5,
+    "relatedAdjectives": ["gehorsam"],
+    "relatedNouns": ["der Gehorsam"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "gehorchte",
+    "synonyms": ["folgen", "sich fügen"],
+    "tags": ["authority", "behavior", "social"],
+    "thirdPersonSingular": "gehorcht",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst gehören",
+        "erSieEs": "wird gehören",
+        "ich": "werde gehören",
+        "ihr": "werdet gehören",
+        "sieSie": "werden gehören",
+        "wir": "werden gehören"
+      },
+      "konjunktiv1": {
+        "du": "gehörest",
+        "erSieEs": "gehöre",
+        "ich": "gehöre",
+        "ihr": "gehöret",
+        "sieSie": "gehören",
+        "wir": "gehören"
+      },
+      "konjunktiv2": {
+        "du": "gehörtest",
+        "erSieEs": "gehörte",
+        "ich": "gehörte",
+        "ihr": "gehörtet",
+        "sieSie": "gehörten",
+        "wir": "gehörten"
+      },
+      "past": {
+        "du": "gehörtest",
+        "erSieEs": "gehörte",
+        "ich": "gehörte",
+        "ihr": "gehörtet",
+        "sieSie": "gehörten",
+        "wir": "gehörten"
+      },
+      "perfect": {
+        "du": "hast gehört",
+        "erSieEs": "hat gehört",
+        "ich": "habe gehört",
+        "ihr": "habt gehört",
+        "sieSie": "haben gehört",
+        "wir": "haben gehört"
+      },
+      "present": {
+        "du": "gehörst",
+        "erSieEs": "gehört",
+        "ich": "gehöre",
+        "ihr": "gehört",
+        "sieSie": "gehören",
+        "wir": "gehören"
+      }
+    },
+    "description": "Used with a Dative object to indicate ownership (Das Buch gehört mir). Used with 'zu' to indicate belonging to a group or category.",
+    "difficulty": 2,
+    "englishMeaning": ["to belong to"],
+    "exampleSentences": [
+      {
+        "english": "Who does this car belong to?",
+        "german": "Wem gehört dieses Auto?",
+        "hindi": "यह कार किसकी है?"
+      },
+      {
+        "english": "He belongs to our family.",
+        "german": "Er gehört zu unserer Familie.",
+        "hindi": "वह हमारे परिवार का हिस्सा है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "gehören",
+    "hindiMeaning": ["का होना", "अधिकार में होना"],
+    "hindiPronunciation": "गेहोरन",
+    "imperative": {
+      "du": "gehöre",
+      "ihr": "gehört",
+      "sie": "gehören Sie",
+      "wir": "gehören wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gehört",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to belong to (a group, place, or category)",
+        "preposition": "zu"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["zugehörig"],
+    "relatedNouns": ["die Zugehörigkeit"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "gehörte",
+    "synonyms": ["besitzen (from owner's perspective)", "zählen zu"],
+    "tags": ["possession", "relationship", "state"],
+    "thirdPersonSingular": "gehört",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["misslingen", "scheitern"],
+    "audioUrl": "",
+    "auxiliary": "sein",
+    "conjugations": {
+      "future": {
+        "du": "wirst gelingen",
+        "erSieEs": "wird gelingen",
+        "ich": "werde gelingen",
+        "ihr": "werdet gelingen",
+        "sieSie": "werden gelingen",
+        "wir": "werden gelingen"
+      },
+      "konjunktiv1": {
+        "du": "gelingest",
+        "erSieEs": "gelinge",
+        "ich": "gelinge",
+        "ihr": "gelinget",
+        "sieSie": "gelingen",
+        "wir": "gelingen"
+      },
+      "konjunktiv2": {
+        "du": "gelängest",
+        "erSieEs": "gelänge",
+        "ich": "gelänge",
+        "ihr": "gelänget",
+        "sieSie": "gelängen",
+        "wir": "gelängen"
+      },
+      "past": {
+        "du": "gelangst",
+        "erSieEs": "gelang",
+        "ich": "gelang",
+        "ihr": "gelangt",
+        "sieSie": "gelangen",
+        "wir": "gelangen"
+      },
+      "perfect": {
+        "du": "bist gelungen",
+        "erSieEs": "ist gelungen",
+        "ich": "bin gelungen",
+        "ihr": "seid gelungen",
+        "sieSie": "sind gelungen",
+        "wir": "sind gelungen"
+      },
+      "present": {
+        "du": "gelingst",
+        "erSieEs": "gelingt",
+        "ich": "gelinge",
+        "ihr": "gelingt",
+        "sieSie": "gelingen",
+        "wir": "gelingen"
+      }
+    },
+    "description": "Mostly used impersonally with 'es' and a Dative object (Es gelingt mir = I succeed / I manage to do it). Takes 'sein' in the perfect tense.",
+    "difficulty": 4,
+    "englishMeaning": ["to succeed", "to manage (to do something)"],
+    "exampleSentences": [
+      {
+        "english": "I managed to repair the car.",
+        "german": "Es ist mir gelungen, das Auto zu reparieren.",
+        "hindi": "मैं कार को ठीक करने में सफल रहा।"
+      },
+      {
+        "english": "The cake turned out really well for you.",
+        "german": "Der Kuchen ist dir wirklich gut gelungen.",
+        "hindi": "तुम्हारी बनाई हुई केक सच में बहुत अच्छी बनी है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "gelingen",
+    "hindiMeaning": ["सफल होना", "कामयाब होना"],
+    "hindiPronunciation": "गेलिंगन",
+    "imperative": {
+      "du": "gelinge",
+      "ihr": "gelingt",
+      "sie": "gelingen Sie",
+      "wir": "gelingen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gelungen",
+    "prepositions": [],
+    "priority": 7,
+    "relatedAdjectives": ["gelungen"],
+    "relatedNouns": ["das Gelingen"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "gelang",
+    "stemVowelChange": "i -\u003e a -\u003e u",
+    "synonyms": ["schaffen", "glücken"],
+    "tags": ["success", "action", "outcome"],
+    "thirdPersonSingular": "gelingt",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst genieren",
+        "erSieEs": "wird genieren",
+        "ich": "werde genieren",
+        "ihr": "werdet genieren",
+        "sieSie": "werden genieren",
+        "wir": "werden genieren"
+      },
+      "konjunktiv1": {
+        "du": "genierest",
+        "erSieEs": "geniere",
+        "ich": "geniere",
+        "ihr": "genieret",
+        "sieSie": "genieren",
+        "wir": "genieren"
+      },
+      "konjunktiv2": {
+        "du": "geniertest",
+        "erSieEs": "genierte",
+        "ich": "genierte",
+        "ihr": "geniertet",
+        "sieSie": "genierten",
+        "wir": "genierten"
+      },
+      "past": {
+        "du": "geniertest",
+        "erSieEs": "genierte",
+        "ich": "genierte",
+        "ihr": "geniertet",
+        "sieSie": "genierten",
+        "wir": "genierten"
+      },
+      "perfect": {
+        "du": "hast geniert",
+        "erSieEs": "hat geniert",
+        "ich": "habe geniert",
+        "ihr": "habt geniert",
+        "sieSie": "haben geniert",
+        "wir": "haben geniert"
+      },
+      "present": {
+        "du": "genierst",
+        "erSieEs": "geniert",
+        "ich": "geniere",
+        "ihr": "geniert",
+        "sieSie": "genieren",
+        "wir": "genieren"
+      }
+    },
+    "description": "Often used reflexively in the negative (sich nicht genieren) to tell someone not to be shy or not to hesitate.",
+    "difficulty": 4,
+    "englishMeaning": ["to be embarrassed", "to feel shy", "to hesitate"],
+    "exampleSentences": [
+      {
+        "english": "Don't be shy to ask questions.",
+        "german": "Genieren Sie sich nicht, Fragen zu stellen.",
+        "hindi": "सवाल पूछने में संकोच न करें।"
+      },
+      {
+        "english": "He is embarrassed because of his bad grades.",
+        "german": "Er geniert sich wegen seiner schlechten Noten.",
+        "hindi": "वह अपने खराब ग्रेड के कारण शर्मिंदा है।"
+      }
+    ],
+    "germanLevel": "b2",
+    "germanWord": "genieren",
+    "hindiMeaning": ["संकोच करना", "शरमाना"],
+    "hindiPronunciation": "शेनीरन",
+    "imperative": {
+      "du": "geniere",
+      "ihr": "geniert",
+      "sie": "genieren Sie",
+      "wir": "genieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geniert",
+    "prepositions": [
+      {
+        "case": "genitiv",
+        "meaning": "to be embarrassed because of",
+        "preposition": "wegen"
+      }
+    ],
+    "priority": 5,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["ungeniert"],
+    "relatedNouns": [],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "genierte",
+    "synonyms": ["sich schämen", "sich zieren", "zögern"],
+    "tags": ["emotion", "social", "feeling"],
+    "thirdPersonSingular": "geniert",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["verlieren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst gewinnen",
+        "erSieEs": "wird gewinnen",
+        "ich": "werde gewinnen",
+        "ihr": "werdet gewinnen",
+        "sieSie": "werden gewinnen",
+        "wir": "werden gewinnen"
+      },
+      "konjunktiv1": {
+        "du": "gewinnest",
+        "erSieEs": "gewinne",
+        "ich": "gewinne",
+        "ihr": "gewinnet",
+        "sieSie": "gewinnen",
+        "wir": "gewinnen"
+      },
+      "konjunktiv2": {
+        "du": "gewännest",
+        "erSieEs": "gewänne",
+        "ich": "gewänne",
+        "ihr": "gewännet",
+        "sieSie": "gewännen",
+        "wir": "gewännen"
+      },
+      "past": {
+        "du": "gewannst",
+        "erSieEs": "gewann",
+        "ich": "gewann",
+        "ihr": "gewannt",
+        "sieSie": "gewannen",
+        "wir": "gewannen"
+      },
+      "perfect": {
+        "du": "hast gewonnen",
+        "erSieEs": "hat gewonnen",
+        "ich": "habe gewonnen",
+        "ihr": "habt gewonnen",
+        "sieSie": "haben gewonnen",
+        "wir": "haben gewonnen"
+      },
+      "present": {
+        "du": "gewinnst",
+        "erSieEs": "gewinnt",
+        "ich": "gewinne",
+        "ihr": "gewinnt",
+        "sieSie": "gewinnen",
+        "wir": "gewinnen"
+      }
+    },
+    "description": "Used for winning a game or competition, or gaining something intangible like experience or influence.",
+    "difficulty": 3,
+    "englishMeaning": ["to win", "to gain", "to extract"],
+    "exampleSentences": [
+      {
+        "english": "Our team won the game.",
+        "german": "Unsere Mannschaft hat das Spiel gewonnen.",
+        "hindi": "हमारी टीम ने खेल जीत लिया।"
+      },
+      {
+        "english": "The project is gaining importance.",
+        "german": "Das Projekt gewinnt an Bedeutung.",
+        "hindi": "परियोजना का महत्व बढ़ रहा है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "gewinnen",
+    "hindiMeaning": ["जीतना", "प्राप्त करना"],
+    "hindiPronunciation": "गेविन्नन",
+    "imperative": {
+      "du": "gewinn(e)",
+      "ihr": "gewinnt",
+      "sie": "gewinnen Sie",
+      "wir": "gewinnen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gewonnen",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to gain in (e.g., value, importance)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["gewinnend"],
+    "relatedNouns": ["der Gewinn", "der Gewinner"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "gewann",
+    "stemVowelChange": "i -\u003e a -\u003e o",
+    "synonyms": ["siegen", "erlangen", "erzielen"],
+    "tags": ["competition", "achievement", "game"],
+    "thirdPersonSingular": "gewinnt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["zweifeln"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -5302,6 +7809,102 @@
     "synonyms": ["meinen", "vermuten"],
     "tags": ["mental_activity", "communication"],
     "thirdPersonSingular": "glaubt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["sich unterscheiden", "abweichen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst gleichen",
+        "erSieEs": "wird gleichen",
+        "ich": "werde gleichen",
+        "ihr": "werdet gleichen",
+        "sieSie": "werden gleichen",
+        "wir": "werden gleichen"
+      },
+      "konjunktiv1": {
+        "du": "gleichest",
+        "erSieEs": "gleiche",
+        "ich": "gleiche",
+        "ihr": "gleichet",
+        "sieSie": "gleichen",
+        "wir": "gleichen"
+      },
+      "konjunktiv2": {
+        "du": "glichest",
+        "erSieEs": "gliche",
+        "ich": "gliche",
+        "ihr": "glichet",
+        "sieSie": "glichen",
+        "wir": "glichen"
+      },
+      "past": {
+        "du": "glichst",
+        "erSieEs": "glich",
+        "ich": "glich",
+        "ihr": "glicht",
+        "sieSie": "glichen",
+        "wir": "glichen"
+      },
+      "perfect": {
+        "du": "hast geglichen",
+        "erSieEs": "hat geglichen",
+        "ich": "habe geglichen",
+        "ihr": "habt geglichen",
+        "sieSie": "haben geglichen",
+        "wir": "haben geglichen"
+      },
+      "present": {
+        "du": "gleichst",
+        "erSieEs": "gleicht",
+        "ich": "gleiche",
+        "ihr": "gleicht",
+        "sieSie": "gleichen",
+        "wir": "gleichen"
+      }
+    },
+    "description": "Takes a Dative object when meaning 'to resemble someone or something'.",
+    "difficulty": 4,
+    "englishMeaning": ["to resemble", "to equal", "to be like"],
+    "exampleSentences": [
+      {
+        "english": "He closely resembles his father.",
+        "german": "Er gleicht seinem Vater sehr.",
+        "hindi": "वह काफी हद तक अपने पिता के जैसा है।"
+      },
+      {
+        "english": "No day is like the other.",
+        "german": "Kein Tag gleicht dem anderen.",
+        "hindi": "कोई भी दिन दूसरे दिन के समान नहीं होता।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "gleichen",
+    "hindiMeaning": ["समान होना", "के जैसा होना"],
+    "hindiPronunciation": "ग्लाइशन",
+    "imperative": {
+      "du": "gleich(e)",
+      "ihr": "gleicht",
+      "sie": "gleichen Sie",
+      "wir": "gleichen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geglichen",
+    "prepositions": [],
+    "priority": 5,
+    "relatedAdjectives": ["gleich"],
+    "relatedNouns": ["die Gleichheit", "das Gleichgewicht"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "glich",
+    "stemVowelChange": "ei -\u003e i",
+    "synonyms": ["ähneln", "entsprechen"],
+    "tags": ["comparison", "state"],
+    "thirdPersonSingular": "gleicht",
     "type": "verb"
   },
   {
@@ -5574,6 +8177,113 @@
     "synonyms": ["zerkleinern", "spalten"],
     "tags": ["action", "cooking", "technology"],
     "thirdPersonSingular": "hackt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["loslassen", "weiterfahren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst halten",
+        "erSieEs": "wird halten",
+        "ich": "werde halten",
+        "ihr": "werdet halten",
+        "sieSie": "werden halten",
+        "wir": "werden halten"
+      },
+      "konjunktiv1": {
+        "du": "haltest",
+        "erSieEs": "halte",
+        "ich": "halte",
+        "ihr": "haltet",
+        "sieSie": "halten",
+        "wir": "halten"
+      },
+      "konjunktiv2": {
+        "du": "hieltest",
+        "erSieEs": "hielte",
+        "ich": "hielte",
+        "ihr": "hieltet",
+        "sieSie": "hielten",
+        "wir": "hielten"
+      },
+      "past": {
+        "du": "hieltst",
+        "erSieEs": "hielt",
+        "ich": "hielt",
+        "ihr": "hieltet",
+        "sieSie": "hielten",
+        "wir": "hielten"
+      },
+      "perfect": {
+        "du": "hast gehalten",
+        "erSieEs": "hat gehalten",
+        "ich": "habe gehalten",
+        "ihr": "habt gehalten",
+        "sieSie": "haben gehalten",
+        "wir": "haben gehalten"
+      },
+      "present": {
+        "du": "hältst",
+        "erSieEs": "hält",
+        "ich": "halte",
+        "ihr": "haltet",
+        "sieSie": "halten",
+        "wir": "halten"
+      }
+    },
+    "description": "A very versatile verb. It can mean to physically hold something, to stop (like a bus stopping), or to keep a promise. Often takes an accusative object, but is intransitive when meaning 'to stop'.",
+    "difficulty": 3,
+    "englishMeaning": ["to hold", "to stop", "to keep"],
+    "exampleSentences": [
+      {
+        "english": "He is holding the book in his hand.",
+        "german": "Er hält das Buch in der Hand.",
+        "hindi": "वह अपने हाथ में किताब पकड़े हुए है।"
+      },
+      {
+        "english": "The bus stops at the next station.",
+        "german": "Der Bus hält an der nächsten Station.",
+        "hindi": "बस अगले स्टेशन पर रुकती है।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "halten",
+    "hindiMeaning": ["पकड़ना", "रुकना", "रखना"],
+    "hindiPronunciation": "हाल्टन",
+    "imperative": {
+      "du": "halt(e)",
+      "ihr": "haltet",
+      "sie": "halten Sie",
+      "wir": "halten wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gehalten",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to consider as / to take for",
+        "preposition": "für"
+      },
+      {
+        "case": "dativ",
+        "meaning": "to think of (an opinion)",
+        "preposition": "von"
+      }
+    ],
+    "priority": 10,
+    "relatedAdjectives": ["haltbar"],
+    "relatedNouns": ["der Halt", "die Haltestelle", "die Haltung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "hielt",
+    "stemVowelChange": "a -\u003e ä",
+    "synonyms": ["stoppen", "fassen", "behalten"],
+    "tags": ["action", "movement", "communication"],
+    "thirdPersonSingular": "hält",
     "type": "verb"
   },
   {
@@ -6150,6 +8860,112 @@
     "type": "verb"
   },
   {
+    "antonyms": ["abhängen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst hängen",
+        "erSieEs": "wird hängen",
+        "ich": "werde hängen",
+        "ihr": "werdet hängen",
+        "sieSie": "werden hängen",
+        "wir": "werden hängen"
+      },
+      "konjunktiv1": {
+        "du": "hängest",
+        "erSieEs": "hänge",
+        "ich": "hänge",
+        "ihr": "hänget",
+        "sieSie": "hängen",
+        "wir": "hängen"
+      },
+      "konjunktiv2": {
+        "du": "hängtest",
+        "erSieEs": "hängte",
+        "ich": "hängte",
+        "ihr": "hängtet",
+        "sieSie": "hängten",
+        "wir": "hängten"
+      },
+      "past": {
+        "du": "hängtest",
+        "erSieEs": "hängte",
+        "ich": "hängte",
+        "ihr": "hängtet",
+        "sieSie": "hängten",
+        "wir": "hängten"
+      },
+      "perfect": {
+        "du": "hast gehängt",
+        "erSieEs": "hat gehängt",
+        "ich": "habe gehängt",
+        "ihr": "habt gehängt",
+        "sieSie": "haben gehängt",
+        "wir": "haben gehängt"
+      },
+      "present": {
+        "du": "hängst",
+        "erSieEs": "hängt",
+        "ich": "hänge",
+        "ihr": "hängt",
+        "sieSie": "hängen",
+        "wir": "hängen"
+      }
+    },
+    "description": "Can be an action (regular verb: hängte, gehängt; + Accusative destination) or a state (irregular verb: hing, gehangen; + Dative location). The conjugations below reflect the action (transitive/regular) form, which is most commonly learned first.",
+    "difficulty": 4,
+    "englishMeaning": ["to hang (action)", "to be hanging (state)"],
+    "exampleSentences": [
+      {
+        "english": "I am hanging the picture on the wall.",
+        "german": "Ich hänge das Bild an die Wand. (Action)",
+        "hindi": "मैं तस्वीर को दीवार पर टांग रहा हूँ।"
+      },
+      {
+        "english": "The picture is hanging on the wall.",
+        "german": "Das Bild hängt an der Wand. (State)",
+        "hindi": "तस्वीर दीवार पर लटकी हुई है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "hängen",
+    "hindiMeaning": ["टांगना", "लटकना"],
+    "hindiPronunciation": "हेंगन",
+    "imperative": {
+      "du": "häng(e)",
+      "ihr": "hängt",
+      "sie": "hängen Sie",
+      "wir": "hängen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gehängt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "onto (vertical surface, destination)",
+        "preposition": "an"
+      },
+      {
+        "case": "dativ",
+        "meaning": "on (vertical surface, location)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Kleiderbügel"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "hängte",
+    "synonyms": ["aufhängen"],
+    "tags": ["action", "position", "state"],
+    "thirdPersonSingular": "hängt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["ignofieren"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -6246,6 +9062,108 @@
     "synonyms": ["lauschen", "zuhören"],
     "tags": ["body", "communication", "daily_life"],
     "thirdPersonSingular": "hört",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["Recht haben"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst irren",
+        "erSieEs": "wird irren",
+        "ich": "werde irren",
+        "ihr": "werdet irren",
+        "sieSie": "werden irren",
+        "wir": "werden irren"
+      },
+      "konjunktiv1": {
+        "du": "irrest",
+        "erSieEs": "irre",
+        "ich": "irre",
+        "ihr": "irret",
+        "sieSie": "irren",
+        "wir": "irren"
+      },
+      "konjunktiv2": {
+        "du": "irrtest",
+        "erSieEs": "irrte",
+        "ich": "irrte",
+        "ihr": "irrtet",
+        "sieSie": "irrten",
+        "wir": "irrten"
+      },
+      "past": {
+        "du": "irrtest",
+        "erSieEs": "irrte",
+        "ich": "irrte",
+        "ihr": "irrtet",
+        "sieSie": "irrten",
+        "wir": "irrten"
+      },
+      "perfect": {
+        "du": "hast geirrt",
+        "erSieEs": "hat geirrt",
+        "ich": "habe geirrt",
+        "ihr": "habt geirrt",
+        "sieSie": "haben geirrt",
+        "wir": "haben geirrt"
+      },
+      "present": {
+        "du": "irrst",
+        "erSieEs": "irrt",
+        "ich": "irre",
+        "ihr": "irrt",
+        "sieSie": "irren",
+        "wir": "irren"
+      }
+    },
+    "description": "Used reflexively (sich irren) to mean 'to be mistaken' or 'to be wrong'. Used non-reflexively, it means 'to wander aimlessly'.",
+    "difficulty": 4,
+    "englishMeaning": ["to err", "to be wrong", "to wander"],
+    "exampleSentences": [
+      {
+        "english": "I believe you are mistaken there.",
+        "german": "Ich glaube, da irren Sie sich.",
+        "hindi": "मुझे लगता है कि आप वहाँ गलती कर रहे हैं।"
+      },
+      {
+        "english": "We wandered in the forest for hours.",
+        "german": "Wir sind stundenlang im Wald geirrt.",
+        "hindi": "हम घंटों जंगल में भटकते रहे।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "irren",
+    "hindiMeaning": ["गलती करना", "भटकना"],
+    "hindiPronunciation": "इरन",
+    "imperative": {
+      "du": "irre",
+      "ihr": "irrt",
+      "sie": "irren Sie",
+      "wir": "irren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geirrt",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to be mistaken about (something)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["irr", "irrig"],
+    "relatedNouns": ["der Irrtum", "der Irrsinn"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "irrte",
+    "synonyms": ["sich täuschen", "falschliegen", "umherirren"],
+    "tags": ["cognition", "error", "movement"],
+    "thirdPersonSingular": "irrt",
     "type": "verb"
   },
   {
@@ -6707,6 +9625,204 @@
     "type": "verb"
   },
   {
+    "antonyms": ["ablenken"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst konzentrieren",
+        "erSieEs": "wird konzentrieren",
+        "ich": "werde konzentrieren",
+        "ihr": "werdet konzentrieren",
+        "sieSie": "werden konzentrieren",
+        "wir": "werden konzentrieren"
+      },
+      "konjunktiv1": {
+        "du": "konzentrierest",
+        "erSieEs": "konzentriere",
+        "ich": "konzentriere",
+        "ihr": "konzentrieret",
+        "sieSie": "konzentrieren",
+        "wir": "konzentrieren"
+      },
+      "konjunktiv2": {
+        "du": "konzentriertest",
+        "erSieEs": "konzentrierte",
+        "ich": "konzentrierte",
+        "ihr": "konzentriertet",
+        "sieSie": "konzentrierten",
+        "wir": "konzentrierten"
+      },
+      "past": {
+        "du": "konzentriertest",
+        "erSieEs": "konzentrierte",
+        "ich": "konzentrierte",
+        "ihr": "konzentriertet",
+        "sieSie": "konzentrierten",
+        "wir": "konzentrierten"
+      },
+      "perfect": {
+        "du": "hast konzentriert",
+        "erSieEs": "hat konzentriert",
+        "ich": "habe konzentriert",
+        "ihr": "habt konzentriert",
+        "sieSie": "haben konzentriert",
+        "wir": "haben konzentriert"
+      },
+      "present": {
+        "du": "konzentrierst",
+        "erSieEs": "konzentriert",
+        "ich": "konzentriere",
+        "ihr": "konzentriert",
+        "sieSie": "konzentrieren",
+        "wir": "konzentrieren"
+      }
+    },
+    "description": "Usually used reflexively (sich konzentrieren auf) to mean focusing one's attention on something.",
+    "difficulty": 4,
+    "englishMeaning": ["to concentrate", "to focus"],
+    "exampleSentences": [
+      {
+        "english": "Please be quiet, I have to concentrate.",
+        "german": "Bitte sei still, ich muss mich konzentrieren.",
+        "hindi": "कृपया शांत रहें, मुझे ध्यान केंद्रित करना है।"
+      },
+      {
+        "english": "He is focusing entirely on his career.",
+        "german": "Er konzentriert sich voll auf seine Karriere.",
+        "hindi": "वह अपना पूरा ध्यान अपने करियर पर केंद्रित कर रहा है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "konzentrieren",
+    "hindiMeaning": ["ध्यान केंद्रित करना", "एकाग्र होना"],
+    "hindiPronunciation": "कोन्त्सेन्ट्रीरन",
+    "imperative": {
+      "du": "konzentriere",
+      "ihr": "konzentriert",
+      "sie": "konzentrieren Sie",
+      "wir": "konzentrieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "konzentriert",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to concentrate on",
+        "preposition": "auf"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["konzentriert"],
+    "relatedNouns": ["die Konzentration"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "konzentrierte",
+    "synonyms": ["fokussieren", "aufpassen"],
+    "tags": ["cognition", "work", "study"],
+    "thirdPersonSingular": "konzentriert",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst kämmen",
+        "erSieEs": "wird kämmen",
+        "ich": "werde kämmen",
+        "ihr": "werdet kämmen",
+        "sieSie": "werden kämmen",
+        "wir": "werden kämmen"
+      },
+      "konjunktiv1": {
+        "du": "kämmest",
+        "erSieEs": "kämme",
+        "ich": "kämme",
+        "ihr": "kämmet",
+        "sieSie": "kämmen",
+        "wir": "kämmen"
+      },
+      "konjunktiv2": {
+        "du": "kämmtest",
+        "erSieEs": "kämmte",
+        "ich": "kämmte",
+        "ihr": "kämmtet",
+        "sieSie": "kämmten",
+        "wir": "kämmten"
+      },
+      "past": {
+        "du": "kämmtest",
+        "erSieEs": "kämmte",
+        "ich": "kämmte",
+        "ihr": "kämmtet",
+        "sieSie": "kämmten",
+        "wir": "kämmten"
+      },
+      "perfect": {
+        "du": "hast gekämmt",
+        "erSieEs": "hat gekämmt",
+        "ich": "habe gekämmt",
+        "ihr": "habt gekämmt",
+        "sieSie": "haben gekämmt",
+        "wir": "haben gekämmt"
+      },
+      "present": {
+        "du": "kämmst",
+        "erSieEs": "kämmt",
+        "ich": "kämme",
+        "ihr": "kämmt",
+        "sieSie": "kämmen",
+        "wir": "kämmen"
+      }
+    },
+    "description": "Corrected from 'kämen'. Frequently used reflexively (sich die Haare kämmen) meaning 'to comb one's hair'.",
+    "difficulty": 2,
+    "englishMeaning": ["to comb"],
+    "exampleSentences": [
+      {
+        "english": "I comb my hair in the morning.",
+        "german": "Ich kämme mir morgens die Haare.",
+        "hindi": "मैं सुबह अपने बालों में कंघी करता हूँ।"
+      },
+      {
+        "english": "She is combing the child's hair.",
+        "german": "Sie kämmt dem Kind die Haare.",
+        "hindi": "वह बच्चे के बालों में कंघी कर रही है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "kämmen",
+    "hindiMeaning": ["कंघी करना"],
+    "hindiPronunciation": "कैमन",
+    "imperative": {
+      "du": "kämme",
+      "ihr": "kämmt",
+      "sie": "kämmen Sie",
+      "wir": "kämmen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gekämmt",
+    "prepositions": [],
+    "priority": 6,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": ["gekämmt"],
+    "relatedNouns": ["der Kamm"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "kämmte",
+    "synonyms": ["frisieren", "bürsten"],
+    "tags": ["grooming", "haircare", "daily_routine"],
+    "thirdPersonSingular": "kämmt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["müssen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -6789,6 +9905,108 @@
     "synonyms": ["vermögen", "fähig sein"],
     "tags": ["modal_verb", "ability", "common"],
     "thirdPersonSingular": "kann",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["vernachlässigen", "ignorieren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst kümmern",
+        "erSieEs": "wird kümmern",
+        "ich": "werde kümmern",
+        "ihr": "werdet kümmern",
+        "sieSie": "werden kümmern",
+        "wir": "werden kümmern"
+      },
+      "konjunktiv1": {
+        "du": "kümmerest",
+        "erSieEs": "kümmere",
+        "ich": "kümmere",
+        "ihr": "kümmeret",
+        "sieSie": "kümmern",
+        "wir": "kümmern"
+      },
+      "konjunktiv2": {
+        "du": "kümmertest",
+        "erSieEs": "kümmerte",
+        "ich": "kümmerte",
+        "ihr": "kümmertet",
+        "sieSie": "kümmerten",
+        "wir": "kümmerten"
+      },
+      "past": {
+        "du": "kümmertest",
+        "erSieEs": "kümmerte",
+        "ich": "kümmerte",
+        "ihr": "kümmertet",
+        "sieSie": "kümmerten",
+        "wir": "kümmerten"
+      },
+      "perfect": {
+        "du": "hast gekümmert",
+        "erSieEs": "hat gekümmert",
+        "ich": "habe gekümmert",
+        "ihr": "habt gekümmert",
+        "sieSie": "haben gekümmert",
+        "wir": "haben gekümmert"
+      },
+      "present": {
+        "du": "kümmerst",
+        "erSieEs": "kümmert",
+        "ich": "kümmere",
+        "ihr": "kümmert",
+        "sieSie": "kümmern",
+        "wir": "kümmern"
+      }
+    },
+    "description": "Mostly used reflexively with 'um' (sich kümmern um) meaning 'to take care of'. Non-reflexively, it can mean 'to concern/bother'.",
+    "difficulty": 3,
+    "englishMeaning": ["to take care of", "to look after", "to bother"],
+    "exampleSentences": [
+      {
+        "english": "I am taking care of the guests.",
+        "german": "Ich kümmere mich um die Gäste.",
+        "hindi": "मैं मेहमानों का ध्यान रख रहा हूँ।"
+      },
+      {
+        "english": "Who is looking after the dog when we are on vacation?",
+        "german": "Wer kümmert sich um den Hund, wenn wir im Urlaub sind?",
+        "hindi": "जब हम छुट्टी पर होंगे तो कुत्ते की देखभाल कौन करेगा?"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "kümmern",
+    "hindiMeaning": ["देखभाल करना", "ध्यान रखना", "परवाह करना"],
+    "hindiPronunciation": "क्युमर्न",
+    "imperative": {
+      "du": "kümmere",
+      "ihr": "kümmert",
+      "sie": "kümmern Sie",
+      "wir": "kümmern wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gekümmert",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to take care of",
+        "preposition": "um"
+      }
+    ],
+    "priority": 9,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["bekümmert"],
+    "relatedNouns": ["der Kummer"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "kümmerte",
+    "synonyms": ["pflegen", "sorgen", "betreuen"],
+    "tags": ["responsibility", "action", "social"],
+    "thirdPersonSingular": "kümmert",
     "type": "verb"
   },
   {
@@ -7077,6 +10295,108 @@
     "type": "verb"
   },
   {
+    "antonyms": ["unterhalten", "amüsieren"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst langweilen",
+        "erSieEs": "wird langweilen",
+        "ich": "werde langweilen",
+        "ihr": "werdet langweilen",
+        "sieSie": "werden langweilen",
+        "wir": "werden langweilen"
+      },
+      "konjunktiv1": {
+        "du": "langweilest",
+        "erSieEs": "langweile",
+        "ich": "langweile",
+        "ihr": "langweilet",
+        "sieSie": "langweilen",
+        "wir": "langweilen"
+      },
+      "konjunktiv2": {
+        "du": "langweiltest",
+        "erSieEs": "langweilte",
+        "ich": "langweilte",
+        "ihr": "langweiltet",
+        "sieSie": "langweilten",
+        "wir": "langweilten"
+      },
+      "past": {
+        "du": "langweiltest",
+        "erSieEs": "langweilte",
+        "ich": "langweilte",
+        "ihr": "langweiltet",
+        "sieSie": "langweilten",
+        "wir": "langweilten"
+      },
+      "perfect": {
+        "du": "hast gelangweilt",
+        "erSieEs": "hat gelangweilt",
+        "ich": "habe gelangweilt",
+        "ihr": "habt gelangweilt",
+        "sieSie": "haben gelangweilt",
+        "wir": "haben gelangweilt"
+      },
+      "present": {
+        "du": "langweilst",
+        "erSieEs": "langweilt",
+        "ich": "langweile",
+        "ihr": "langweilt",
+        "sieSie": "langweilen",
+        "wir": "langweilen"
+      }
+    },
+    "description": "Used non-reflexively meaning 'to bore someone', or reflexively (sich langweilen) meaning 'to be bored'.",
+    "difficulty": 3,
+    "englishMeaning": ["to bore", "to be bored"],
+    "exampleSentences": [
+      {
+        "english": "I am bored in this class.",
+        "german": "Ich langweile mich in diesem Kurs.",
+        "hindi": "मैं इस क्लास में बोर हो रहा हूँ।"
+      },
+      {
+        "english": "His lecture bored the audience.",
+        "german": "Sein Vortrag hat das Publikum gelangweilt.",
+        "hindi": "उनके भाषण ने दर्शकों को बोर कर दिया।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "langweilen",
+    "hindiMeaning": ["बोर करना", "बोर होना"],
+    "hindiPronunciation": "लांगवाइलन",
+    "imperative": {
+      "du": "langweile",
+      "ihr": "langweilt",
+      "sie": "langweilen Sie",
+      "wir": "langweilen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gelangweilt",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to bore with (something)",
+        "preposition": "mit"
+      }
+    ],
+    "priority": 6,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["langweilig"],
+    "relatedNouns": ["die Langeweile"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "langweilte",
+    "synonyms": ["einschläfern", "anöden"],
+    "tags": ["emotion", "state", "leisure"],
+    "thirdPersonSingular": "langweilt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["stehen bleiben", "stoppen"],
     "audioUrl": "",
     "auxiliary": "sein",
@@ -7262,6 +10582,112 @@
     "type": "verb"
   },
   {
+    "antonyms": ["aufheben", "nehmen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst legen",
+        "erSieEs": "wird legen",
+        "ich": "werde legen",
+        "ihr": "werdet legen",
+        "sieSie": "werden legen",
+        "wir": "werden legen"
+      },
+      "konjunktiv1": {
+        "du": "legest",
+        "erSieEs": "lege",
+        "ich": "lege",
+        "ihr": "leget",
+        "sieSie": "legen",
+        "wir": "legen"
+      },
+      "konjunktiv2": {
+        "du": "legtest",
+        "erSieEs": "legte",
+        "ich": "legte",
+        "ihr": "legtet",
+        "sieSie": "legten",
+        "wir": "legten"
+      },
+      "past": {
+        "du": "legtest",
+        "erSieEs": "legte",
+        "ich": "legte",
+        "ihr": "legtet",
+        "sieSie": "legten",
+        "wir": "legten"
+      },
+      "perfect": {
+        "du": "hast gelegt",
+        "erSieEs": "hat gelegt",
+        "ich": "habe gelegt",
+        "ihr": "habt gelegt",
+        "sieSie": "haben gelegt",
+        "wir": "haben gelegt"
+      },
+      "present": {
+        "du": "legst",
+        "erSieEs": "legt",
+        "ich": "lege",
+        "ihr": "legt",
+        "sieSie": "legen",
+        "wir": "legen"
+      }
+    },
+    "description": "Used for putting an object in a horizontal or flat position. It is a transitive action verb, meaning it requires a direct object (Accusative) and is followed by a two-way preposition indicating destination (Accusative).",
+    "difficulty": 2,
+    "englishMeaning": ["to lay", "to put (flat)", "to place (horizontally)"],
+    "exampleSentences": [
+      {
+        "english": "I lay the book on the table.",
+        "german": "Ich lege das Buch auf den Tisch.",
+        "hindi": "मैं किताब को मेज पर रखता हूँ।"
+      },
+      {
+        "english": "He laid the keys on the sofa.",
+        "german": "Er hat die Schlüssel auf das Sofa gelegt.",
+        "hindi": "उसने चाबियां सोफे पर रख दीं।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "legen",
+    "hindiMeaning": ["रखना (लेटाकर)"],
+    "hindiPronunciation": "लेगन",
+    "imperative": {
+      "du": "leg(e)",
+      "ihr": "legt",
+      "sie": "legen Sie",
+      "wir": "legen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gelegt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "onto (horizontal destination)",
+        "preposition": "auf"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "into (destination inside something flat)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Ablage"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "legte",
+    "synonyms": ["hinlegen", "platzieren"],
+    "tags": ["action", "position", "movement"],
+    "thirdPersonSingular": "legt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["lernen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -7443,6 +10869,106 @@
     "synonyms": ["ausleihen", "borgen"],
     "tags": ["daily_life", "action", "money"],
     "thirdPersonSingular": "leiht",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst leisten",
+        "erSieEs": "wird leisten",
+        "ich": "werde leisten",
+        "ihr": "werdet leisten",
+        "sieSie": "werden leisten",
+        "wir": "werden leisten"
+      },
+      "konjunktiv1": {
+        "du": "leistest",
+        "erSieEs": "leiste",
+        "ich": "leiste",
+        "ihr": "leistet",
+        "sieSie": "leisten",
+        "wir": "leisten"
+      },
+      "konjunktiv2": {
+        "du": "leistetest",
+        "erSieEs": "leistete",
+        "ich": "leistete",
+        "ihr": "leistetet",
+        "sieSie": "leisteten",
+        "wir": "leisteten"
+      },
+      "past": {
+        "du": "leistetest",
+        "erSieEs": "leistete",
+        "ich": "leistete",
+        "ihr": "leistetet",
+        "sieSie": "leisteten",
+        "wir": "leisteten"
+      },
+      "perfect": {
+        "du": "hast geleistet",
+        "erSieEs": "hat geleistet",
+        "ich": "habe geleistet",
+        "ihr": "habt geleistet",
+        "sieSie": "haben geleistet",
+        "wir": "haben geleistet"
+      },
+      "present": {
+        "du": "leistest",
+        "erSieEs": "leistet",
+        "ich": "leiste",
+        "ihr": "leistet",
+        "sieSie": "leisten",
+        "wir": "leisten"
+      }
+    },
+    "description": "Prompt requested 'leistin können'. The base verb is 'leisten'. When used reflexively with 'können' (sich Dativ etwas leisten können), it means 'to be able to afford something'.",
+    "difficulty": 4,
+    "englishMeaning": [
+      "to afford (sich etwas leisten können)",
+      "to achieve",
+      "to perform"
+    ],
+    "exampleSentences": [
+      {
+        "english": "I cannot afford this expensive car.",
+        "german": "Ich kann mir dieses teure Auto nicht leisten.",
+        "hindi": "मैं इस महंगी कार का खर्च नहीं उठा सकता।"
+      },
+      {
+        "english": "He has achieved a lot in his life.",
+        "german": "Er hat in seinem Leben viel geleistet.",
+        "hindi": "उसने अपने जीवन में बहुत कुछ हासिल किया है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "leisten",
+    "hindiMeaning": ["खर्च वहन कर सकना", "हासिल करना"],
+    "hindiPronunciation": "लास्टन",
+    "imperative": {
+      "du": "leiste",
+      "ihr": "leistet",
+      "sie": "leisten Sie",
+      "wir": "leisten wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geleistet",
+    "prepositions": [],
+    "priority": 8,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": ["leistungsstark", "leistungsfähig"],
+    "relatedNouns": ["die Leistung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "leistete",
+    "synonyms": ["bezahlen können", "schaffen", "vollbringen"],
+    "tags": ["finance", "capability", "achievement"],
+    "thirdPersonSingular": "leistet",
     "type": "verb"
   },
   {
@@ -7775,41 +11301,56 @@
         "wir": "liegen"
       }
     },
-    "description": "Describes a horizontal position or the location of a city/object.",
-    "difficulty": 4,
-    "englishMeaning": ["To lie down", "To be located"],
+    "description": "The intransitive (state) counterpart to 'legen'. It describes where something is resting horizontally. It takes no direct object and requires a two-way preposition with the Dative case (location).",
+    "difficulty": 3,
+    "englishMeaning": ["to lie", "to be located (flat)"],
     "exampleSentences": [
-      {
-        "english": "Berlin is located in the east of Germany.",
-        "german": "Berlin liegt im Osten von Deutschland.",
-        "hindi": "बर्लिन जर्मनी के पूर्व में स्थित है।"
-      },
       {
         "english": "The book is lying on the table.",
         "german": "Das Buch liegt auf dem Tisch.",
-        "hindi": "किताब मेज पर पड़ी है।"
+        "hindi": "किताब मेज पर पड़ी/रखी है।"
+      },
+      {
+        "english": "Frankfurt is located on the Main river.",
+        "german": "Frankfurt liegt am Main.",
+        "hindi": "फ्रैंकफर्ट मेन नदी के किनारे स्थित है।"
       }
     ],
     "germanLevel": "a1",
     "germanWord": "liegen",
-    "hindiMeaning": ["लेटना", "स्थित होना"],
+    "hindiMeaning": ["लेटा होना", "पड़ा होना", "स्थित होना"],
     "hindiPronunciation": "लीगन",
     "imperative": {
-      "du": "lieg",
+      "du": "lieg(e)",
       "ihr": "liegt",
       "sie": "liegen Sie",
       "wir": "liegen wir"
     },
     "irregular": true,
+    "isModalVerb": false,
     "isReflexive": false,
     "pastParticiple": "gelegen",
-    "priority": 10,
-    "requiresCase": ["dativ"],
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "on (horizontal location)",
+        "preposition": "auf"
+      },
+      {
+        "case": "dativ",
+        "meaning": "in (location)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Lage", "die Liege"],
+    "requiresCase": [],
     "separable": false,
     "simplePast": "lag",
     "stemVowelChange": "ie -\u003e a -\u003e e",
-    "synonyms": ["befinden"],
-    "tags": ["position", "daily_life", "geography"],
+    "synonyms": ["ruhen", "sich befinden"],
+    "tags": ["position", "state", "location"],
     "thirdPersonSingular": "liegt",
     "type": "verb"
   },
@@ -8174,6 +11715,102 @@
     "synonyms": ["kennzeichnen", "hervorheben"],
     "tags": ["education", "work", "action"],
     "thirdPersonSingular": "markiert",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["ignorieren", "vergessen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst merken",
+        "erSieEs": "wird merken",
+        "ich": "werde merken",
+        "ihr": "werdet merken",
+        "sieSie": "werden merken",
+        "wir": "werden merken"
+      },
+      "konjunktiv1": {
+        "du": "merkest",
+        "erSieEs": "merke",
+        "ich": "merke",
+        "ihr": "merket",
+        "sieSie": "merken",
+        "wir": "merken"
+      },
+      "konjunktiv2": {
+        "du": "merktest",
+        "erSieEs": "merkte",
+        "ich": "merkte",
+        "ihr": "merktet",
+        "sieSie": "merkten",
+        "wir": "merkten"
+      },
+      "past": {
+        "du": "merktest",
+        "erSieEs": "merkte",
+        "ich": "merkte",
+        "ihr": "merktet",
+        "sieSie": "merkten",
+        "wir": "merkten"
+      },
+      "perfect": {
+        "du": "hast gemerkt",
+        "erSieEs": "hat gemerkt",
+        "ich": "habe gemerkt",
+        "ihr": "habt gemerkt",
+        "sieSie": "haben gemerkt",
+        "wir": "haben gemerkt"
+      },
+      "present": {
+        "du": "merkst",
+        "erSieEs": "merkt",
+        "ich": "merke",
+        "ihr": "merkt",
+        "sieSie": "merken",
+        "wir": "merken"
+      }
+    },
+    "description": "Means 'to notice' when used normally. When used reflexively with the dative (sich etwas merken), it means 'to memorize' or 'to remember'.",
+    "difficulty": 3,
+    "englishMeaning": ["to notice", "to realize", "to remember (reflexive)"],
+    "exampleSentences": [
+      {
+        "english": "Did you notice that he was sad?",
+        "german": "Hast du gemerkt, dass er traurig war?",
+        "hindi": "क्या तुमने ध्यान दिया कि वह उदास था?"
+      },
+      {
+        "english": "I can't remember this phone number.",
+        "german": "Ich kann mir diese Telefonnummer nicht merken.",
+        "hindi": "मैं इस फोन नंबर को याद नहीं रख सकता।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "merken",
+    "hindiMeaning": ["ध्यान देना", "महसूस करना", "याद रखना (sich merken)"],
+    "hindiPronunciation": "मेर्कन",
+    "imperative": {
+      "du": "merke",
+      "ihr": "merkt",
+      "sie": "merken Sie",
+      "wir": "merken wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gemerkt",
+    "prepositions": [],
+    "priority": 8,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": ["merkbar", "merkwürdig"],
+    "relatedNouns": ["das Merkmal", "der Merkzettel"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "merkte",
+    "synonyms": ["bemerken", "beachten", "sich einprägen"],
+    "tags": ["cognition", "thought", "perception"],
+    "thirdPersonSingular": "merkt",
     "type": "verb"
   },
   {
@@ -8811,6 +12448,101 @@
     "type": "verb"
   },
   {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "sein",
+    "conjugations": {
+      "future": {
+        "du": "wirst passieren",
+        "erSieEs": "wird passieren",
+        "ich": "werde passieren",
+        "ihr": "werdet passieren",
+        "sieSie": "werden passieren",
+        "wir": "werden passieren"
+      },
+      "konjunktiv1": {
+        "du": "passierest",
+        "erSieEs": "passiere",
+        "ich": "passiere",
+        "ihr": "passieret",
+        "sieSie": "passieren",
+        "wir": "passieren"
+      },
+      "konjunktiv2": {
+        "du": "passiertest",
+        "erSieEs": "passierte",
+        "ich": "passierte",
+        "ihr": "passiertet",
+        "sieSie": "passierten",
+        "wir": "passierten"
+      },
+      "past": {
+        "du": "passiertest",
+        "erSieEs": "passierte",
+        "ich": "passierte",
+        "ihr": "passiertet",
+        "sieSie": "passierten",
+        "wir": "passierten"
+      },
+      "perfect": {
+        "du": "bist passiert",
+        "erSieEs": "ist passiert",
+        "ich": "bin passiert",
+        "ihr": "seid passiert",
+        "sieSie": "sind passiert",
+        "wir": "sind passiert"
+      },
+      "present": {
+        "du": "passierst",
+        "erSieEs": "passiert",
+        "ich": "passiere",
+        "ihr": "passiert",
+        "sieSie": "passieren",
+        "wir": "passieren"
+      }
+    },
+    "description": "Most commonly means 'to happen'. When meaning 'to happen', it takes 'sein' in the perfect tense and often uses a Dative object to show who is affected. When meaning 'to pass a place', it takes 'haben'.",
+    "difficulty": 2,
+    "englishMeaning": ["to happen", "to occur", "to pass (a border/place)"],
+    "exampleSentences": [
+      {
+        "english": "What happened yesterday?",
+        "german": "Was ist gestern passiert?",
+        "hindi": "कल क्या हुआ?"
+      },
+      {
+        "english": "That happens to me over and over again.",
+        "german": "Das passiert mir immer wieder.",
+        "hindi": "यह मेरे साथ बार-बार होता है।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "passieren",
+    "hindiMeaning": ["घटित होना", "होना", "गुजरना"],
+    "hindiPronunciation": "पासीरन",
+    "imperative": {
+      "du": "passiere",
+      "ihr": "passiert",
+      "sie": "passieren Sie",
+      "wir": "passieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "passiert",
+    "prepositions": [],
+    "priority": 10,
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Passagier", "der Pass"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "passierte",
+    "synonyms": ["geschehen", "vorkommen", "sich ereignen"],
+    "tags": ["event", "time", "action"],
+    "thirdPersonSingular": "passiert",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -8962,6 +12694,102 @@
     "type": "verb"
   },
   {
+    "antonyms": ["wachsen lassen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst rasieren",
+        "erSieEs": "wird rasieren",
+        "ich": "werde rasieren",
+        "ihr": "werdet rasieren",
+        "sieSie": "werden rasieren",
+        "wir": "werden rasieren"
+      },
+      "konjunktiv1": {
+        "du": "rasierest",
+        "erSieEs": "rasiere",
+        "ich": "rasiere",
+        "ihr": "rasieret",
+        "sieSie": "rasieren",
+        "wir": "rasieren"
+      },
+      "konjunktiv2": {
+        "du": "rasiertest",
+        "erSieEs": "rasierte",
+        "ich": "rasierte",
+        "ihr": "rasiertet",
+        "sieSie": "rasierten",
+        "wir": "rasierten"
+      },
+      "past": {
+        "du": "rasiertest",
+        "erSieEs": "rasierte",
+        "ich": "rasierte",
+        "ihr": "rasiertet",
+        "sieSie": "rasierten",
+        "wir": "rasierten"
+      },
+      "perfect": {
+        "du": "hast rasiert",
+        "erSieEs": "hat rasiert",
+        "ich": "habe rasiert",
+        "ihr": "habt rasiert",
+        "sieSie": "haben rasiert",
+        "wir": "haben rasiert"
+      },
+      "present": {
+        "du": "rasierst",
+        "erSieEs": "rasiert",
+        "ich": "rasiere",
+        "ihr": "rasiert",
+        "sieSie": "rasieren",
+        "wir": "rasieren"
+      }
+    },
+    "description": "Often used reflexively (sich rasieren) when shaving oneself.",
+    "difficulty": 3,
+    "englishMeaning": ["to shave"],
+    "exampleSentences": [
+      {
+        "english": "I shave every morning.",
+        "german": "Ich rasiere mich jeden Morgen.",
+        "hindi": "मैं हर सुबह दाढ़ी बनाता हूँ।"
+      },
+      {
+        "english": "He shaved his beard.",
+        "german": "Er hat sich den Bart rasiert.",
+        "hindi": "उसने अपनी दाढ़ी बना ली है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "rasieren",
+    "hindiMeaning": ["दाढ़ी बनाना", "मुंडन करना"],
+    "hindiPronunciation": "रासीरन",
+    "imperative": {
+      "du": "rasiere",
+      "ihr": "rasiert",
+      "sie": "rasieren Sie",
+      "wir": "rasieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "rasiert",
+    "prepositions": [],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["rasiert", "unrasiert"],
+    "relatedNouns": ["der Rasierer", "die Rasur"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "rasierte",
+    "synonyms": ["enthaaren", "stutzen"],
+    "tags": ["daily_routine", "body_care", "grooming"],
+    "thirdPersonSingular": "rasiert",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -9050,6 +12878,112 @@
     "synonyms": ["empfehlen", "vermuten"],
     "tags": ["communication", "mental_activity", "dative_verb"],
     "thirdPersonSingular": "rät",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["schweigen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst reden",
+        "erSieEs": "wird reden",
+        "ich": "werde reden",
+        "ihr": "werdet reden",
+        "sieSie": "werden reden",
+        "wir": "werden reden"
+      },
+      "konjunktiv1": {
+        "du": "redest",
+        "erSieEs": "rede",
+        "ich": "rede",
+        "ihr": "redet",
+        "sieSie": "reden",
+        "wir": "reden"
+      },
+      "konjunktiv2": {
+        "du": "redetest",
+        "erSieEs": "redete",
+        "ich": "redete",
+        "ihr": "redetet",
+        "sieSie": "redeten",
+        "wir": "redeten"
+      },
+      "past": {
+        "du": "redetest",
+        "erSieEs": "redete",
+        "ich": "redete",
+        "ihr": "redetet",
+        "sieSie": "redeten",
+        "wir": "redeten"
+      },
+      "perfect": {
+        "du": "hast geredet",
+        "erSieEs": "hat geredet",
+        "ich": "habe geredet",
+        "ihr": "habt geredet",
+        "sieSie": "haben geredet",
+        "wir": "haben geredet"
+      },
+      "present": {
+        "du": "redest",
+        "erSieEs": "redet",
+        "ich": "rede",
+        "ihr": "redet",
+        "sieSie": "reden",
+        "wir": "reden"
+      }
+    },
+    "description": "Used generally for talking or having a conversation. Distinct from 'sprechen' which focuses more on the physical ability or language capability, whereas 'reden' focuses on the content or act of chatting.",
+    "difficulty": 2,
+    "englishMeaning": ["to talk", "to speak"],
+    "exampleSentences": [
+      {
+        "english": "We have to talk to each other.",
+        "german": "Wir müssen miteinander reden.",
+        "hindi": "हमें एक-दूसरे से बात करनी होगी।"
+      },
+      {
+        "english": "He always talks too much.",
+        "german": "Er redet immer zu viel.",
+        "hindi": "वह हमेशा बहुत ज़्यादा बोलता है।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "reden",
+    "hindiMeaning": ["बात करना", "बोलना"],
+    "hindiPronunciation": "रेडन",
+    "imperative": {
+      "du": "rede",
+      "ihr": "redet",
+      "sie": "reden Sie",
+      "wir": "reden wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geredet",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to talk with",
+        "preposition": "mit"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "to talk about",
+        "preposition": "über"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["redselig"],
+    "relatedNouns": ["die Rede", "der Redner"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "redete",
+    "synonyms": ["sprechen", "sich unterhalten", "plaudern"],
+    "tags": ["communication", "social"],
+    "thirdPersonSingular": "redet",
     "type": "verb"
   },
   {
@@ -9291,6 +13225,113 @@
     "type": "verb"
   },
   {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst riechen",
+        "erSieEs": "wird riechen",
+        "ich": "werde riechen",
+        "ihr": "werdet riechen",
+        "sieSie": "werden riechen",
+        "wir": "werden riechen"
+      },
+      "konjunktiv1": {
+        "du": "riechest",
+        "erSieEs": "rieche",
+        "ich": "rieche",
+        "ihr": "riechet",
+        "sieSie": "riechen",
+        "wir": "riechen"
+      },
+      "konjunktiv2": {
+        "du": "röchest",
+        "erSieEs": "röche",
+        "ich": "röche",
+        "ihr": "röchet",
+        "sieSie": "röchen",
+        "wir": "röchen"
+      },
+      "past": {
+        "du": "rochst",
+        "erSieEs": "roch",
+        "ich": "roch",
+        "ihr": "rocht",
+        "sieSie": "rochen",
+        "wir": "rochen"
+      },
+      "perfect": {
+        "du": "hast gerochen",
+        "erSieEs": "hat gerochen",
+        "ich": "habe gerochen",
+        "ihr": "habt gerochen",
+        "sieSie": "haben gerochen",
+        "wir": "haben gerochen"
+      },
+      "present": {
+        "du": "riechst",
+        "erSieEs": "riecht",
+        "ich": "rieche",
+        "ihr": "riecht",
+        "sieSie": "riechen",
+        "wir": "riechen"
+      }
+    },
+    "description": "Can mean to actively smell something (transitive) or to give off a smell (intransitive). When indicating what something smells like, the preposition 'nach' (Dativ) is used.",
+    "difficulty": 3,
+    "englishMeaning": ["to smell"],
+    "exampleSentences": [
+      {
+        "english": "It smells like coffee here.",
+        "german": "Hier riecht es nach Kaffee.",
+        "hindi": "यहाँ कॉफी की महक आ रही है।"
+      },
+      {
+        "english": "Smell this flower!",
+        "german": "Riech mal an dieser Blume!",
+        "hindi": "इस फूल को सूंघ कर देखो!"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "riechen",
+    "hindiMeaning": ["सूंघना", "महकना"],
+    "hindiPronunciation": "रीशन",
+    "imperative": {
+      "du": "riech(e)",
+      "ihr": "riecht",
+      "sie": "riechen Sie",
+      "wir": "riechen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gerochen",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to smell of / like",
+        "preposition": "nach"
+      },
+      {
+        "case": "dativ",
+        "meaning": "to smell at (something)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": ["geruchlos"],
+    "relatedNouns": ["der Geruch", "der Geruchssinn"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "roch",
+    "stemVowelChange": "ie -\u003e o",
+    "synonyms": ["duften", "stinken"],
+    "tags": ["senses", "body", "perception"],
+    "thirdPersonSingular": "riecht",
+    "type": "verb"
+  },
+  {
     "antonyms": ["flüstern"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -9440,6 +13481,101 @@
     "synonyms": ["sprechen", "mitteilen"],
     "tags": ["communication", "daily_life", "common"],
     "thirdPersonSingular": "sagt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["nützen", "helfen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst schaden",
+        "erSieEs": "wird schaden",
+        "ich": "werde schaden",
+        "ihr": "werdet schaden",
+        "sieSie": "werden schaden",
+        "wir": "werden schaden"
+      },
+      "konjunktiv1": {
+        "du": "schadest",
+        "erSieEs": "schade",
+        "ich": "schade",
+        "ihr": "schadet",
+        "sieSie": "schaden",
+        "wir": "schaden"
+      },
+      "konjunktiv2": {
+        "du": "schadetest",
+        "erSieEs": "schadete",
+        "ich": "schadete",
+        "ihr": "schadetet",
+        "sieSie": "schadeten",
+        "wir": "schadeten"
+      },
+      "past": {
+        "du": "schadetest",
+        "erSieEs": "schadete",
+        "ich": "schadete",
+        "ihr": "schadetet",
+        "sieSie": "schadeten",
+        "wir": "schadeten"
+      },
+      "perfect": {
+        "du": "hast geschadet",
+        "erSieEs": "hat geschadet",
+        "ich": "habe geschadet",
+        "ihr": "habt geschadet",
+        "sieSie": "haben geschadet",
+        "wir": "haben geschadet"
+      },
+      "present": {
+        "du": "schadest",
+        "erSieEs": "schadet",
+        "ich": "schade",
+        "ihr": "schadet",
+        "sieSie": "schaden",
+        "wir": "schaden"
+      }
+    },
+    "description": "An intransitive verb that strictly requires a dative object (the person or thing being harmed).",
+    "difficulty": 3,
+    "englishMeaning": ["to damage", "to harm"],
+    "exampleSentences": [
+      {
+        "english": "Smoking harms the health.",
+        "german": "Rauchen schadet der Gesundheit.",
+        "hindi": "धूम्रपान स्वास्थ्य को नुकसान पहुँचाता है।"
+      },
+      {
+        "english": "That will damage your reputation.",
+        "german": "Das wird deinem Ruf schaden.",
+        "hindi": "इससे तुम्हारी प्रतिष्ठा को नुकसान पहुँचेगा।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "schaden",
+    "hindiMeaning": ["नुकसान पहुँचाना", "हानि करना"],
+    "hindiPronunciation": "शाडन",
+    "imperative": {
+      "du": "schade",
+      "ihr": "schadet",
+      "sie": "schaden Sie",
+      "wir": "schaden wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geschadet",
+    "prepositions": [],
+    "priority": 6,
+    "relatedAdjectives": ["schädlich"],
+    "relatedNouns": ["der Schaden", "der Schadstoff"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "schadete",
+    "synonyms": ["verletzen", "beeinträchtigen"],
+    "tags": ["destruction", "health", "consequence"],
+    "thirdPersonSingular": "schadet",
     "type": "verb"
   },
   {
@@ -9841,6 +13977,102 @@
     "type": "verb"
   },
   {
+    "antonyms": ["abschminken"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst schminken",
+        "erSieEs": "wird schminken",
+        "ich": "werde schminken",
+        "ihr": "werdet schminken",
+        "sieSie": "werden schminken",
+        "wir": "werden schminken"
+      },
+      "konjunktiv1": {
+        "du": "schminkest",
+        "erSieEs": "schminke",
+        "ich": "schminke",
+        "ihr": "schminket",
+        "sieSie": "schminken",
+        "wir": "schminken"
+      },
+      "konjunktiv2": {
+        "du": "schminktest",
+        "erSieEs": "schminkte",
+        "ich": "schminkte",
+        "ihr": "schminktet",
+        "sieSie": "schminkten",
+        "wir": "schminkten"
+      },
+      "past": {
+        "du": "schminktest",
+        "erSieEs": "schminkte",
+        "ich": "schminkte",
+        "ihr": "schminktet",
+        "sieSie": "schminkten",
+        "wir": "schminkten"
+      },
+      "perfect": {
+        "du": "hast geschminkt",
+        "erSieEs": "hat geschminkt",
+        "ich": "habe geschminkt",
+        "ihr": "habt geschminkt",
+        "sieSie": "haben geschminkt",
+        "wir": "haben geschminkt"
+      },
+      "present": {
+        "du": "schminkst",
+        "erSieEs": "schminkt",
+        "ich": "schminke",
+        "ihr": "schminkt",
+        "sieSie": "schminken",
+        "wir": "schminken"
+      }
+    },
+    "description": "Usually used reflexively (sich schminken) when applying makeup to oneself.",
+    "difficulty": 2,
+    "englishMeaning": ["to put on makeup", "to apply makeup"],
+    "exampleSentences": [
+      {
+        "english": "She puts on makeup every morning for work.",
+        "german": "Sie schminkt sich jeden Morgen für die Arbeit.",
+        "hindi": "वह हर सुबह काम के लिए मेकअप करती है।"
+      },
+      {
+        "english": "For Carnival, many people paint their faces colorfully.",
+        "german": "Zu Karneval schminken sich viele Leute bunt.",
+        "hindi": "कार्निवल के लिए, कई लोग अपने चेहरों पर रंग-बिरंगा मेकअप करते हैं।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "schminken",
+    "hindiMeaning": ["मेकअप करना", "सजना"],
+    "hindiPronunciation": "श्मिंकन",
+    "imperative": {
+      "du": "schminke",
+      "ihr": "schminkt",
+      "sie": "schminken Sie",
+      "wir": "schminken wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geschminkt",
+    "prepositions": [],
+    "priority": 6,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["geschminkt", "ungeschminkt"],
+    "relatedNouns": ["die Schminke"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "schminkte",
+    "synonyms": ["Make-up auflegen"],
+    "tags": ["grooming", "body_care", "daily_routine"],
+    "thirdPersonSingular": "schminkt",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -10069,6 +14301,113 @@
     "type": "verb"
   },
   {
+    "antonyms": ["stolz sein"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst schämen",
+        "erSieEs": "wird schämen",
+        "ich": "werde schämen",
+        "ihr": "werdet schämen",
+        "sieSie": "werden schämen",
+        "wir": "werden schämen"
+      },
+      "konjunktiv1": {
+        "du": "schämest",
+        "erSieEs": "schäme",
+        "ich": "schäme",
+        "ihr": "schämet",
+        "sieSie": "schämen",
+        "wir": "schämen"
+      },
+      "konjunktiv2": {
+        "du": "schämtest",
+        "erSieEs": "schämte",
+        "ich": "schämte",
+        "ihr": "schämtet",
+        "sieSie": "schämten",
+        "wir": "schämten"
+      },
+      "past": {
+        "du": "schämtest",
+        "erSieEs": "schämte",
+        "ich": "schämte",
+        "ihr": "schämtet",
+        "sieSie": "schämten",
+        "wir": "schämten"
+      },
+      "perfect": {
+        "du": "hast geschämt",
+        "erSieEs": "hat geschämt",
+        "ich": "habe geschämt",
+        "ihr": "habt geschämt",
+        "sieSie": "haben geschämt",
+        "wir": "haben geschämt"
+      },
+      "present": {
+        "du": "schämst",
+        "erSieEs": "schämt",
+        "ich": "schäme",
+        "ihr": "schämt",
+        "sieSie": "schämen",
+        "wir": "schämen"
+      }
+    },
+    "description": "Almost exclusively used reflexively (sich schämen) meaning to be ashamed of oneself or an action.",
+    "difficulty": 4,
+    "englishMeaning": ["to be ashamed"],
+    "exampleSentences": [
+      {
+        "english": "I am ashamed of my behavior.",
+        "german": "Ich schäme mich für mein Verhalten.",
+        "hindi": "मैं अपने व्यवहार के लिए शर्मिंदा हूँ।"
+      },
+      {
+        "english": "You don't need to be ashamed.",
+        "german": "Du brauchst dich nicht zu schämen.",
+        "hindi": "तुम्हें शर्मिंदा होने की ज़रूरत नहीं है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "schämen",
+    "hindiMeaning": ["शर्मिंदा होना", "लजाना"],
+    "hindiPronunciation": "शैमन",
+    "imperative": {
+      "du": "schäm(e)",
+      "ihr": "schämt",
+      "sie": "schämen Sie",
+      "wir": "schämen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geschämt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to be ashamed of (something)",
+        "preposition": "für"
+      },
+      {
+        "case": "dativ",
+        "meaning": "to be ashamed in front of (someone)",
+        "preposition": "vor"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["beschämt", "schamlos"],
+    "relatedNouns": ["die Scham", "das Schamgefühl"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "schämte",
+    "synonyms": ["sich genieren"],
+    "tags": ["emotion", "feeling", "social"],
+    "thirdPersonSingular": "schämt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["übersehen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -10224,6 +14563,108 @@
     "simplePast": "war",
     "tags": ["auxiliary", "fundamental", "common"],
     "thirdPersonSingular": "ist",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["empfangen", "bekommen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst senden",
+        "erSieEs": "wird senden",
+        "ich": "werde senden",
+        "ihr": "werdet senden",
+        "sieSie": "werden senden",
+        "wir": "werden senden"
+      },
+      "konjunktiv1": {
+        "du": "sendest",
+        "erSieEs": "sende",
+        "ich": "sende",
+        "ihr": "sendet",
+        "sieSie": "senden",
+        "wir": "senden"
+      },
+      "konjunktiv2": {
+        "du": "sendetest",
+        "erSieEs": "sendete",
+        "ich": "sendete",
+        "ihr": "sendetet",
+        "sieSie": "sendeten",
+        "wir": "sendeten"
+      },
+      "past": {
+        "du": "sendetest",
+        "erSieEs": "sendete",
+        "ich": "sendete",
+        "ihr": "sendetet",
+        "sieSie": "sendeten",
+        "wir": "sendeten"
+      },
+      "perfect": {
+        "du": "hast gesendet",
+        "erSieEs": "hat gesendet",
+        "ich": "habe gesendet",
+        "ihr": "habt gesendet",
+        "sieSie": "haben gesendet",
+        "wir": "haben gesendet"
+      },
+      "present": {
+        "du": "sendest",
+        "erSieEs": "sendet",
+        "ich": "sende",
+        "ihr": "sendet",
+        "sieSie": "senden",
+        "wir": "senden"
+      }
+    },
+    "description": "Can be regular (sendete, gesendet) especially for broadcasting, or irregular (sandte, gesandt) for sending letters/items.",
+    "difficulty": 2,
+    "englishMeaning": ["to send", "to broadcast"],
+    "exampleSentences": [
+      {
+        "english": "I will send you an email.",
+        "german": "Ich werde dir eine E-Mail senden.",
+        "hindi": "मैं तुम्हें एक ईमेल भेजूंगा।"
+      },
+      {
+        "english": "The radio station broadcasts news every day.",
+        "german": "Der Radiosender sendet jeden Tag Nachrichten.",
+        "hindi": "रेडियो स्टेशन हर दिन समाचार प्रसारित करता है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "senden",
+    "hindiMeaning": ["भेजना", "प्रसारित करना"],
+    "hindiPronunciation": "ज़ेंडन",
+    "imperative": {
+      "du": "sende",
+      "ihr": "sendet",
+      "sie": "senden Sie",
+      "wir": "senden wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gesendet",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to send to (someone/somewhere)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Sender", "die Sendung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "sendete",
+    "stemVowelChange": "e -\u003e a",
+    "synonyms": ["schicken", "versenden", "übertragen"],
+    "tags": ["communication", "technology", "transfer"],
+    "thirdPersonSingular": "sendet",
     "type": "verb"
   },
   {
@@ -10713,12 +15154,142 @@
     "type": "verb"
   },
   {
-    "antonyms": ["sitzen", "liegen"],
+    "antonyms": ["herausziehen"],
     "audioUrl": "",
-    "auxiliary": "haben / sein (regional)",
+    "auxiliary": "haben",
     "conjugations": {
+      "future": {
+        "du": "wirst stecken",
+        "erSieEs": "wird stecken",
+        "ich": "werde stecken",
+        "ihr": "werdet stecken",
+        "sieSie": "werden stecken",
+        "wir": "werden stecken"
+      },
+      "konjunktiv1": {
+        "du": "steckest",
+        "erSieEs": "stecke",
+        "ich": "stecke",
+        "ihr": "stecket",
+        "sieSie": "stecken",
+        "wir": "stecken"
+      },
+      "konjunktiv2": {
+        "du": "stecktest",
+        "erSieEs": "steckte",
+        "ich": "steckte",
+        "ihr": "stecktet",
+        "sieSie": "steckten",
+        "wir": "steckten"
+      },
       "past": {
-        "du": "standest",
+        "du": "stecktest",
+        "erSieEs": "steckte",
+        "ich": "steckte",
+        "ihr": "stecktet",
+        "sieSie": "steckten",
+        "wir": "steckten"
+      },
+      "perfect": {
+        "du": "hast gesteckt",
+        "erSieEs": "hat gesteckt",
+        "ich": "habe gesteckt",
+        "ihr": "habt gesteckt",
+        "sieSie": "haben gesteckt",
+        "wir": "haben gesteckt"
+      },
+      "present": {
+        "du": "steckst",
+        "erSieEs": "steckt",
+        "ich": "stecke",
+        "ihr": "steckt",
+        "sieSie": "stecken",
+        "wir": "stecken"
+      }
+    },
+    "description": "Like 'hängen', it can represent an action (putting a key in a lock, accusative destination) or a state (a key being in a lock, dative location). Regular conjugations are used for both in modern German, though historically it had irregular forms.",
+    "difficulty": 3,
+    "englishMeaning": ["to put into", "to stick", "to be inside"],
+    "exampleSentences": [
+      {
+        "english": "I put the key into the lock.",
+        "german": "Ich stecke den Schlüssel in das Schloss.",
+        "hindi": "मैं ताले में चाबी डालता हूँ।"
+      },
+      {
+        "english": "The plug is in the socket.",
+        "german": "Der Stecker steckt in der Steckdose.",
+        "hindi": "प्लग सॉकेट के अंदर है।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "stecken",
+    "hindiMeaning": ["डालना", "फंसाना", "अंदर होना"],
+    "hindiPronunciation": "श्टेकन",
+    "imperative": {
+      "du": "steck(e)",
+      "ihr": "steckt",
+      "sie": "stecken Sie",
+      "wir": "stecken wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gesteckt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "into (destination)",
+        "preposition": "in"
+      },
+      {
+        "case": "dativ",
+        "meaning": "inside (location)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 7,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Steckdose", "der Stecker"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "steckte",
+    "synonyms": ["hineinstecken", "einstecken"],
+    "tags": ["action", "position", "state"],
+    "thirdPersonSingular": "steckt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["liegen", "sitzen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst stehen",
+        "erSieEs": "wird stehen",
+        "ich": "werde stehen",
+        "ihr": "werdet stehen",
+        "sieSie": "werden stehen",
+        "wir": "werden stehen"
+      },
+      "konjunktiv1": {
+        "du": "stehest",
+        "erSieEs": "stehe",
+        "ich": "stehe",
+        "ihr": "stehet",
+        "sieSie": "stehen",
+        "wir": "stehen"
+      },
+      "konjunktiv2": {
+        "du": "ständest",
+        "erSieEs": "stände",
+        "ich": "stände",
+        "ihr": "ständet",
+        "sieSie": "ständen",
+        "wir": "ständen"
+      },
+      "past": {
+        "du": "standst",
         "erSieEs": "stand",
         "ich": "stand",
         "ihr": "standet",
@@ -10742,41 +15313,163 @@
         "wir": "stehen"
       }
     },
-    "description": "Describes an upright position. Contrast with 'liegen' (lying).",
-    "difficulty": 4,
-    "englishMeaning": ["To stand", "To be located (upright)"],
+    "description": "The intransitive (state) counterpart to 'stellen'. It describes where an upright object or person is located. It takes no direct object and requires a two-way preposition with the Dative case (location).",
+    "difficulty": 3,
+    "englishMeaning": ["to stand", "to be located (upright)"],
     "exampleSentences": [
       {
-        "english": "The glass is standing on the table.",
-        "german": "Das Glas steht auf dem Tisch.",
-        "hindi": "ग्लास मेज पर रखा (खड़ा) है।"
+        "english": "The bottle is standing in the fridge.",
+        "german": "Die Flasche steht im Kühlschrank.",
+        "hindi": "बोतल फ्रिज में (सीधी) रखी है।"
       },
       {
-        "english": "I am standing at the bus stop.",
-        "german": "Ich stehe an der Bushaltestelle.",
-        "hindi": "मैं बस स्टॉप पर खड़ा हूँ।"
+        "english": "He is standing at the bus stop.",
+        "german": "Er steht an der Bushaltestelle.",
+        "hindi": "वह बस स्टॉप पर खड़ा है।"
       }
     ],
     "germanLevel": "a1",
     "germanWord": "stehen",
-    "hindiMeaning": ["खड़ा होना", "स्थित होना"],
+    "hindiMeaning": ["खड़ा होना", "रखा होना (सीधा)"],
     "hindiPronunciation": "श्टेहन",
     "imperative": {
-      "du": "steh",
+      "du": "steh(e)",
       "ihr": "steht",
       "sie": "stehen Sie",
       "wir": "stehen wir"
     },
     "irregular": true,
+    "isModalVerb": false,
     "isReflexive": false,
     "pastParticiple": "gestanden",
-    "priority": 10,
-    "requiresCase": ["dativ"],
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "in/inside (upright location)",
+        "preposition": "in"
+      },
+      {
+        "case": "dativ",
+        "meaning": "at/against (location)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["stehend"],
+    "relatedNouns": ["der Stand", "der Standpunkt"],
+    "requiresCase": [],
     "separable": false,
     "simplePast": "stand",
-    "stemVowelChange": "e -\u003e a (past)",
-    "tags": ["position", "daily_life"],
+    "stemVowelChange": "e -\u003e a -\u003e a",
+    "synonyms": ["sich befinden"],
+    "tags": ["position", "state", "location"],
     "thirdPersonSingular": "steht",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["wegnehmen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst stellen",
+        "erSieEs": "wird stellen",
+        "ich": "werde stellen",
+        "ihr": "werdet stellen",
+        "sieSie": "werden stellen",
+        "wir": "werden stellen"
+      },
+      "konjunktiv1": {
+        "du": "stellest",
+        "erSieEs": "stelle",
+        "ich": "stelle",
+        "ihr": "stellet",
+        "sieSie": "stellen",
+        "wir": "stellen"
+      },
+      "konjunktiv2": {
+        "du": "stelltest",
+        "erSieEs": "stellte",
+        "ich": "stellte",
+        "ihr": "stelltet",
+        "sieSie": "stellten",
+        "wir": "stellten"
+      },
+      "past": {
+        "du": "stelltest",
+        "erSieEs": "stellte",
+        "ich": "stellte",
+        "ihr": "stelltet",
+        "sieSie": "stellten",
+        "wir": "stellten"
+      },
+      "perfect": {
+        "du": "hast gestellt",
+        "erSieEs": "hat gestellt",
+        "ich": "habe gestellt",
+        "ihr": "habt gestellt",
+        "sieSie": "haben gestellt",
+        "wir": "haben gestellt"
+      },
+      "present": {
+        "du": "stellst",
+        "erSieEs": "stellt",
+        "ich": "stelle",
+        "ihr": "stellt",
+        "sieSie": "stellen",
+        "wir": "stellen"
+      }
+    },
+    "description": "Corrected from 'stelan'. Used for placing an object in a vertical or upright position. Like 'legen', it requires an Accusative direct object and a two-way preposition showing destination (Accusative).",
+    "difficulty": 2,
+    "englishMeaning": ["to put (upright)", "to place", "to stand (something)"],
+    "exampleSentences": [
+      {
+        "english": "I put the bottle into the fridge.",
+        "german": "Ich stelle die Flasche in den Kühlschrank.",
+        "hindi": "मैं बोतल को फ्रिज में रखता हूँ।"
+      },
+      {
+        "english": "Please place the chair at the table.",
+        "german": "Stell den Stuhl bitte an den Tisch.",
+        "hindi": "कृपया कुर्सी को मेज के पास रख दें।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "stellen",
+    "hindiMeaning": ["रखना (खड़ा करके)", "खड़ा करना"],
+    "hindiPronunciation": "श्टेलन",
+    "imperative": {
+      "du": "stell(e)",
+      "ihr": "stellt",
+      "sie": "stellen Sie",
+      "wir": "stellen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "gestellt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "into (upright destination)",
+        "preposition": "in"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "against/at (destination)",
+        "preposition": "an"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": [],
+    "relatedNouns": ["die Stelle", "die Stellung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "stellte",
+    "synonyms": ["hinstellen", "platzieren"],
+    "tags": ["action", "position", "movement"],
+    "thirdPersonSingular": "stellt",
     "type": "verb"
   },
   {
@@ -10910,6 +15603,114 @@
     "synonyms": ["anhalten", "aufhören"],
     "tags": ["action", "motion"],
     "thirdPersonSingular": "stoppt",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["ziehen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst stoßen",
+        "erSieEs": "wird stoßen",
+        "ich": "werde stoßen",
+        "ihr": "werdet stoßen",
+        "sieSie": "werden stoßen",
+        "wir": "werden stoßen"
+      },
+      "konjunktiv1": {
+        "du": "stoßest",
+        "erSieEs": "stoße",
+        "ich": "stoße",
+        "ihr": "stoßet",
+        "sieSie": "stoßen",
+        "wir": "stoßen"
+      },
+      "konjunktiv2": {
+        "du": "stießest",
+        "erSieEs": "stieße",
+        "ich": "stieße",
+        "ihr": "stießet",
+        "sieSie": "stießen",
+        "wir": "stießen"
+      },
+      "past": {
+        "du": "stießest",
+        "erSieEs": "stieß",
+        "ich": "stieß",
+        "ihr": "stießt",
+        "sieSie": "stießen",
+        "wir": "stießen"
+      },
+      "perfect": {
+        "du": "hast gestoßen",
+        "erSieEs": "hat gestoßen",
+        "ich": "habe gestoßen",
+        "ihr": "habt gestoßen",
+        "sieSie": "haben gestoßen",
+        "wir": "haben gestoßen"
+      },
+      "present": {
+        "du": "stößt",
+        "erSieEs": "stößt",
+        "ich": "stoße",
+        "ihr": "stoßt",
+        "sieSie": "stoßen",
+        "wir": "stoßen"
+      }
+    },
+    "description": "Takes 'haben' when meaning to push or bump something. Takes 'sein' when meaning to unexpectedly encounter someone or something (auf jemanden/etwas stoßen).",
+    "difficulty": 4,
+    "englishMeaning": ["to bump", "to push", "to come across"],
+    "exampleSentences": [
+      {
+        "english": "I bumped my head on the door.",
+        "german": "Ich habe mir den Kopf an der Tür gestoßen.",
+        "hindi": "मेरा सिर दरवाज़े से टकरा गया।"
+      },
+      {
+        "english": "During the research, I came across a problem.",
+        "german": "Bei der Recherche bin ich auf ein Problem gestoßen.",
+        "hindi": "रिसर्च के दौरान मेरा सामना एक समस्या से हुआ।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "stoßen",
+    "hindiMeaning": ["धक्का देना", "टकराना", "अचानक मिलना"],
+    "hindiPronunciation": "श्टोसन",
+    "imperative": {
+      "du": "stoß(e)",
+      "ihr": "stoßt",
+      "sie": "stoßen Sie",
+      "wir": "stoßen wir"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gestoßen",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to come across / to encounter",
+        "preposition": "auf"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "to bump into / against",
+        "preposition": "an"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Stoß", "die Stoßstange"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "stieß",
+    "stemVowelChange": "o -\u003e ö",
+    "synonyms": ["schubsen", "drücken", "treffen"],
+    "tags": ["action", "movement", "impact"],
+    "thirdPersonSingular": "stößt",
     "type": "verb"
   },
   {
@@ -11186,6 +15987,107 @@
     "synonyms": ["aufteilen", "trennen"],
     "tags": ["social", "action", "math"],
     "thirdPersonSingular": "teilt",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst telefonieren",
+        "erSieEs": "wird telefonieren",
+        "ich": "werde telefonieren",
+        "ihr": "werdet telefonieren",
+        "sieSie": "werden telefonieren",
+        "wir": "werden telefonieren"
+      },
+      "konjunktiv1": {
+        "du": "telefonierest",
+        "erSieEs": "telefoniere",
+        "ich": "telefoniere",
+        "ihr": "telefonieret",
+        "sieSie": "telefonieren",
+        "wir": "telefonieren"
+      },
+      "konjunktiv2": {
+        "du": "telefoniertest",
+        "erSieEs": "telefonierte",
+        "ich": "telefonierte",
+        "ihr": "telefoniertet",
+        "sieSie": "telefonierten",
+        "wir": "telefonierten"
+      },
+      "past": {
+        "du": "telefoniertest",
+        "erSieEs": "telefonierte",
+        "ich": "telefonierte",
+        "ihr": "telefoniertet",
+        "sieSie": "telefonierten",
+        "wir": "telefonierten"
+      },
+      "perfect": {
+        "du": "hast telefoniert",
+        "erSieEs": "hat telefoniert",
+        "ich": "habe telefoniert",
+        "ihr": "habt telefoniert",
+        "sieSie": "haben telefoniert",
+        "wir": "haben telefoniert"
+      },
+      "present": {
+        "du": "telefonierst",
+        "erSieEs": "telefoniert",
+        "ich": "telefoniere",
+        "ihr": "telefoniert",
+        "sieSie": "telefonieren",
+        "wir": "telefonieren"
+      }
+    },
+    "description": "Indicates the act of being on a phone call. To say 'call someone', use the preposition 'mit' (Dativ) or use the separable verb 'anrufen' (Akkusativ).",
+    "difficulty": 1,
+    "englishMeaning": ["to talk on the phone", "to call"],
+    "exampleSentences": [
+      {
+        "english": "I am talking on the phone with my mother right now.",
+        "german": "Ich telefoniere gerade mit meiner Mutter.",
+        "hindi": "मैं अभी अपनी माँ से फोन पर बात कर रहा हूँ।"
+      },
+      {
+        "english": "We talked on the phone for an hour yesterday.",
+        "german": "Wir haben gestern eine Stunde lang telefoniert.",
+        "hindi": "हमने कल एक घंटे तक फोन पर बात की।"
+      }
+    ],
+    "germanLevel": "a1",
+    "germanWord": "telefonieren",
+    "hindiMeaning": ["फोन पर बात करना"],
+    "hindiPronunciation": "टेलीफॉनीरन",
+    "imperative": {
+      "du": "telefoniere",
+      "ihr": "telefoniert",
+      "sie": "telefonieren Sie",
+      "wir": "telefonieren wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "telefoniert",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to talk on the phone with",
+        "preposition": "mit"
+      }
+    ],
+    "priority": 9,
+    "relatedAdjectives": ["telefonisch"],
+    "relatedNouns": ["das Telefon", "das Telefonat"],
+    "requiresCase": [],
+    "separable": false,
+    "simplePast": "telefonierte",
+    "synonyms": ["anrufen"],
+    "tags": ["communication", "technology", "daily_life"],
+    "thirdPersonSingular": "telefoniert",
     "type": "verb"
   },
   {
@@ -11466,6 +16368,115 @@
     "synonyms": ["drücken", "herzen"],
     "tags": ["social", "emotion", "daily_life"],
     "thirdPersonSingular": "umarmt",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst umziehen",
+        "erSieEs": "wird umziehen",
+        "ich": "werde umziehen",
+        "ihr": "werdet umziehen",
+        "sieSie": "werden umziehen",
+        "wir": "werden umziehen"
+      },
+      "konjunktiv1": {
+        "du": "ziehest um",
+        "erSieEs": "ziehe um",
+        "ich": "ziehe um",
+        "ihr": "ziehet um",
+        "sieSie": "ziehen um",
+        "wir": "ziehen um"
+      },
+      "konjunktiv2": {
+        "du": "zögest um",
+        "erSieEs": "zöge um",
+        "ich": "zöge um",
+        "ihr": "zöget um",
+        "sieSie": "zögen um",
+        "wir": "zögen um"
+      },
+      "past": {
+        "du": "zogst um",
+        "erSieEs": "zog um",
+        "ich": "zog um",
+        "ihr": "zogt um",
+        "sieSie": "zogen um",
+        "wir": "zogen um"
+      },
+      "perfect": {
+        "du": "hast umgezogen",
+        "erSieEs": "hat umgezogen",
+        "ich": "habe umgezogen",
+        "ihr": "habt umgezogen",
+        "sieSie": "haben umgezogen",
+        "wir": "haben umgezogen"
+      },
+      "present": {
+        "du": "ziehst um",
+        "erSieEs": "zieht um",
+        "ich": "ziehe um",
+        "ihr": "zieht um",
+        "sieSie": "ziehen um",
+        "wir": "ziehen um"
+      }
+    },
+    "description": "Takes 'haben' when used reflexively for changing clothes (sich umziehen). Takes 'sein' when used for moving to a new house. Conjugations below default to 'haben' to fit the clothing context, but 'sein' is required for moving.",
+    "difficulty": 4,
+    "englishMeaning": ["to change clothes", "to move (residence)"],
+    "exampleSentences": [
+      {
+        "english": "I have to change clothes after sports.",
+        "german": "Ich muss mich nach dem Sport umziehen.",
+        "hindi": "मुझे खेल के बाद कपड़े बदलने होंगे।"
+      },
+      {
+        "english": "We moved to Berlin last month.",
+        "german": "Wir sind letzten Monat nach Berlin umgezogen.",
+        "hindi": "हम पिछले महीने बर्लिन चले गए।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "umziehen",
+    "hindiMeaning": ["कपड़े बदलना", "घर बदलना"],
+    "hindiPronunciation": "उमज़ीहन",
+    "imperative": {
+      "du": "zieh(e) um",
+      "ihr": "zieht um",
+      "sie": "ziehen Sie um",
+      "wir": "ziehen wir um"
+    },
+    "irregular": true,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "umgezogen",
+    "prefix": "um",
+    "prepositions": [
+      {
+        "case": "dativ",
+        "meaning": "to move to (a city/country)",
+        "preposition": "nach"
+      },
+      {
+        "case": "akkusativ",
+        "meaning": "to move into (a house/apartment)",
+        "preposition": "in"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": [],
+    "relatedNouns": ["der Umzug"],
+    "requiresCase": [],
+    "separable": true,
+    "simplePast": "zog um",
+    "stemVowelChange": "ie -\u003e o",
+    "synonyms": ["wechseln", "übersiedeln"],
+    "tags": ["clothing", "housing", "daily_routine"],
+    "thirdPersonSingular": "zieht um",
     "type": "verb"
   },
   {
@@ -11963,6 +16974,108 @@
     "type": "verb"
   },
   {
+    "antonyms": ["sich entlieben"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst verlieben",
+        "erSieEs": "wird verlieben",
+        "ich": "werde verlieben",
+        "ihr": "werdet verlieben",
+        "sieSie": "werden verlieben",
+        "wir": "werden verlieben"
+      },
+      "konjunktiv1": {
+        "du": "verliebest",
+        "erSieEs": "verliebe",
+        "ich": "verliebe",
+        "ihr": "verliebet",
+        "sieSie": "verlieben",
+        "wir": "verlieben"
+      },
+      "konjunktiv2": {
+        "du": "verliebtest",
+        "erSieEs": "verliebte",
+        "ich": "verliebte",
+        "ihr": "verliebtet",
+        "sieSie": "verliebten",
+        "wir": "verliebten"
+      },
+      "past": {
+        "du": "verliebtest",
+        "erSieEs": "verliebte",
+        "ich": "verliebte",
+        "ihr": "verliebtet",
+        "sieSie": "verliebten",
+        "wir": "verliebten"
+      },
+      "perfect": {
+        "du": "hast verliebt",
+        "erSieEs": "hat verliebt",
+        "ich": "habe verliebt",
+        "ihr": "habt verliebt",
+        "sieSie": "haben verliebt",
+        "wir": "haben verliebt"
+      },
+      "present": {
+        "du": "verliebst",
+        "erSieEs": "verliebt",
+        "ich": "verliebe",
+        "ihr": "verliebt",
+        "sieSie": "verlieben",
+        "wir": "verlieben"
+      }
+    },
+    "description": "Always used reflexively (sich verlieben). To specify the person you fall in love with, use the preposition 'in' + accusative.",
+    "difficulty": 3,
+    "englishMeaning": ["to fall in love"],
+    "exampleSentences": [
+      {
+        "english": "She fell in love with her colleague.",
+        "german": "Sie hat sich in ihren Kollegen verliebt.",
+        "hindi": "उसे अपने सहकर्मी से प्यार हो गया है।"
+      },
+      {
+        "english": "We fell in love at first sight.",
+        "german": "Wir haben uns auf den ersten Blick verliebt.",
+        "hindi": "हमें पहली नज़र में प्यार हो गया।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "verlieben",
+    "hindiMeaning": ["प्यार में पड़ना", "प्यार हो जाना"],
+    "hindiPronunciation": "फ़र्लीबन",
+    "imperative": {
+      "du": "verliebe",
+      "ihr": "verliebt",
+      "sie": "verlieben Sie",
+      "wir": "verlieben wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "verliebt",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to fall in love with",
+        "preposition": "in"
+      }
+    ],
+    "priority": 7,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["verliebt"],
+    "relatedNouns": ["die Liebe", "das Verliebtsein"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "verliebte",
+    "synonyms": ["sich verknallen"],
+    "tags": ["emotion", "relationship", "love"],
+    "thirdPersonSingular": "verliebt",
+    "type": "verb"
+  },
+  {
     "antonyms": ["suchen", "begegnen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -12101,6 +17214,109 @@
     "type": "verb"
   },
   {
+    "antonyms": ["freimachen", "natürlich sein"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst verstellen",
+        "erSieEs": "wird verstellen",
+        "ich": "werde verstellen",
+        "ihr": "werdet verstellen",
+        "sieSie": "werden verstellen",
+        "wir": "werden verstellen"
+      },
+      "konjunktiv1": {
+        "du": "verstellest",
+        "erSieEs": "verstelle",
+        "ich": "verstelle",
+        "ihr": "verstellet",
+        "sieSie": "verstellen",
+        "wir": "verstellen"
+      },
+      "konjunktiv2": {
+        "du": "verstelltest",
+        "erSieEs": "verstellte",
+        "ich": "verstellte",
+        "ihr": "verstelltet",
+        "sieSie": "verstellten",
+        "wir": "verstellten"
+      },
+      "past": {
+        "du": "verstelltest",
+        "erSieEs": "verstellte",
+        "ich": "verstellte",
+        "ihr": "verstelltet",
+        "sieSie": "verstellten",
+        "wir": "verstellten"
+      },
+      "perfect": {
+        "du": "hast verstellt",
+        "erSieEs": "hat verstellt",
+        "ich": "habe verstellt",
+        "ihr": "habt verstellt",
+        "sieSie": "haben verstellt",
+        "wir": "haben verstellt"
+      },
+      "present": {
+        "du": "verstellst",
+        "erSieEs": "verstellt",
+        "ich": "verstelle",
+        "ihr": "verstellt",
+        "sieSie": "verstellen",
+        "wir": "verstellen"
+      }
+    },
+    "description": "Means adjusting a mechanism (like a seat), blocking a view/path, or hiding one's true character when used reflexively.",
+    "difficulty": 4,
+    "englishMeaning": [
+      "to adjust",
+      "to block",
+      "to disguise/pretend (reflexive)"
+    ],
+    "exampleSentences": [
+      {
+        "english": "I have to adjust the car seat.",
+        "german": "Ich muss den Autositz verstellen.",
+        "hindi": "मुझे कार की सीट एडजस्ट करनी है।"
+      },
+      {
+        "english": "He always pretends/disguises his true self when the boss is there.",
+        "german": "Er verstellt sich immer, wenn der Chef da ist.",
+        "hindi": "जब भी बॉस होता है, वह हमेशा दिखावा करता है।"
+      }
+    ],
+    "germanLevel": "b2",
+    "germanWord": "verstellen",
+    "hindiMeaning": [
+      "समायोजित करना",
+      "रास्ता रोकना",
+      "दिखावा करना (sich verstellen)"
+    ],
+    "hindiPronunciation": "फ़र्स्टेलन",
+    "imperative": {
+      "du": "verstell(e)",
+      "ihr": "verstellt",
+      "sie": "verstellen Sie",
+      "wir": "verstellen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "verstellt",
+    "prepositions": [],
+    "priority": 5,
+    "relatedAdjectives": ["verstellt"],
+    "relatedNouns": ["die Verstellung"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "verstellte",
+    "synonyms": ["einstellen", "blockieren", "schauspielern"],
+    "tags": ["action", "mechanism", "behavior"],
+    "thirdPersonSingular": "verstellt",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -12165,6 +17381,107 @@
     "synonyms": ["probieren", "bemühen"],
     "tags": ["action", "daily_life", "common"],
     "thirdPersonSingular": "versucht",
+    "type": "verb"
+  },
+  {
+    "antonyms": ["misstrauen", "zweifeln"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst vertrauen",
+        "erSieEs": "wird vertrauen",
+        "ich": "werde vertrauen",
+        "ihr": "werdet vertrauen",
+        "sieSie": "werden vertrauen",
+        "wir": "werden vertrauen"
+      },
+      "konjunktiv1": {
+        "du": "vertrauest",
+        "erSieEs": "vertraue",
+        "ich": "vertraue",
+        "ihr": "vertrauet",
+        "sieSie": "vertrauen",
+        "wir": "vertrauen"
+      },
+      "konjunktiv2": {
+        "du": "vertrautest",
+        "erSieEs": "vertraute",
+        "ich": "vertraute",
+        "ihr": "vertrautet",
+        "sieSie": "vertrauten",
+        "wir": "vertrauten"
+      },
+      "past": {
+        "du": "vertrautest",
+        "erSieEs": "vertraute",
+        "ich": "vertraute",
+        "ihr": "vertrautet",
+        "sieSie": "vertrauten",
+        "wir": "vertrauten"
+      },
+      "perfect": {
+        "du": "hast vertraut",
+        "erSieEs": "hat vertraut",
+        "ich": "habe vertraut",
+        "ihr": "habt vertraut",
+        "sieSie": "haben vertraut",
+        "wir": "haben vertraut"
+      },
+      "present": {
+        "du": "vertraust",
+        "erSieEs": "vertraut",
+        "ich": "vertraue",
+        "ihr": "vertraut",
+        "sieSie": "vertrauen",
+        "wir": "vertrauen"
+      }
+    },
+    "description": "Usually takes a Dative object (jemandem vertrauen) or is used with the preposition 'auf' + Accusative.",
+    "difficulty": 3,
+    "englishMeaning": ["to trust", "to confide in"],
+    "exampleSentences": [
+      {
+        "english": "I trust you.",
+        "german": "Ich vertraue dir.",
+        "hindi": "मैं तुम पर भरोसा करता हूँ।"
+      },
+      {
+        "english": "We trust in his experience.",
+        "german": "Wir vertrauen auf seine Erfahrung.",
+        "hindi": "हम उसके अनुभव पर भरोसा करते हैं।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "vertrauen",
+    "hindiMeaning": ["विश्वास करना", "भरोसा करना"],
+    "hindiPronunciation": "फ़र्ट्राउएन",
+    "imperative": {
+      "du": "vertrau(e)",
+      "ihr": "vertraut",
+      "sie": "vertrauen Sie",
+      "wir": "vertrauen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "vertraut",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to trust in / to rely on",
+        "preposition": "auf"
+      }
+    ],
+    "priority": 8,
+    "relatedAdjectives": ["vertrauensvoll", "vertraut"],
+    "relatedNouns": ["das Vertrauen", "der Vertraute"],
+    "requiresCase": ["dativ"],
+    "separable": false,
+    "simplePast": "vertraute",
+    "synonyms": ["glauben", "sich verlassen auf"],
+    "tags": ["emotion", "social", "relationship"],
+    "thirdPersonSingular": "vertraut",
     "type": "verb"
   },
   {
@@ -12309,6 +17626,103 @@
     "synonyms": ["vortragen"],
     "tags": ["communication", "education", "social"],
     "thirdPersonSingular": "liest vor",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst vorstellen",
+        "erSieEs": "wird vorstellen",
+        "ich": "werde vorstellen",
+        "ihr": "werdet vorstellen",
+        "sieSie": "werden vorstellen",
+        "wir": "werden vorstellen"
+      },
+      "konjunktiv1": {
+        "du": "stellest vor",
+        "erSieEs": "stelle vor",
+        "ich": "stelle vor",
+        "ihr": "stellet vor",
+        "sieSie": "stellen vor",
+        "wir": "stellen vor"
+      },
+      "konjunktiv2": {
+        "du": "stelltest vor",
+        "erSieEs": "stellte vor",
+        "ich": "stellte vor",
+        "ihr": "stelltet vor",
+        "sieSie": "stellten vor",
+        "wir": "stellten vor"
+      },
+      "past": {
+        "du": "stelltest vor",
+        "erSieEs": "stellte vor",
+        "ich": "stellte vor",
+        "ihr": "stelltet vor",
+        "sieSie": "stellten vor",
+        "wir": "stellten vor"
+      },
+      "perfect": {
+        "du": "hast vorgestellt",
+        "erSieEs": "hat vorgestellt",
+        "ich": "habe vorgestellt",
+        "ihr": "habt vorgestellt",
+        "sieSie": "haben vorgestellt",
+        "wir": "haben vorgestellt"
+      },
+      "present": {
+        "du": "stellst vor",
+        "erSieEs": "stellt vor",
+        "ich": "stelle vor",
+        "ihr": "stellt vor",
+        "sieSie": "stellen vor",
+        "wir": "stellen vor"
+      }
+    },
+    "description": "Used with the dative reflexive pronoun (sich etwas vorstellen) to mean 'to imagine'.",
+    "difficulty": 4,
+    "englishMeaning": ["to imagine", "to conceive of"],
+    "exampleSentences": [
+      {
+        "english": "I can't imagine that at all.",
+        "german": "Ich kann mir das gar nicht vorstellen.",
+        "hindi": "मैं तो इसकी कल्पना भी नहीं कर सकता।"
+      },
+      {
+        "english": "Imagine we win the lottery!",
+        "german": "Stell dir vor, wir gewinnen im Lotto!",
+        "hindi": "कल्पना करो कि हम लॉटरी जीत जाएं!"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "vorstellen",
+    "hindiMeaning": ["कल्पना करना", "सोचना"],
+    "hindiPronunciation": "फ़ोरश्टेलन",
+    "imperative": {
+      "du": "stell(e) vor",
+      "ihr": "stellt vor",
+      "sie": "stellen Sie vor",
+      "wir": "stellen wir vor"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "vorgestellt",
+    "prefix": "vor",
+    "prepositions": [],
+    "priority": 9,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": ["unvorstellbar"],
+    "relatedNouns": ["die Vorstellung", "die Vorstellungskraft"],
+    "requiresCase": ["akkusativ"],
+    "separable": true,
+    "simplePast": "stellte vor",
+    "synonyms": ["ausdenken", "fantasieren"],
+    "tags": ["cognition", "thought", "creativity"],
+    "thirdPersonSingular": "stellt vor",
     "type": "verb"
   },
   {
@@ -13006,6 +18420,102 @@
     "type": "verb"
   },
   {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst wünschen",
+        "erSieEs": "wird wünschen",
+        "ich": "werde wünschen",
+        "ihr": "werdet wünschen",
+        "sieSie": "werden wünschen",
+        "wir": "werden wünschen"
+      },
+      "konjunktiv1": {
+        "du": "wünschest",
+        "erSieEs": "wünsche",
+        "ich": "wünsche",
+        "ihr": "wünschet",
+        "sieSie": "wünschen",
+        "wir": "wünschen"
+      },
+      "konjunktiv2": {
+        "du": "wünschtest",
+        "erSieEs": "wünschte",
+        "ich": "wünschte",
+        "ihr": "wünschtet",
+        "sieSie": "wünschten",
+        "wir": "wünschten"
+      },
+      "past": {
+        "du": "wünschtest",
+        "erSieEs": "wünschte",
+        "ich": "wünschte",
+        "ihr": "wünschtet",
+        "sieSie": "wünschten",
+        "wir": "wünschten"
+      },
+      "perfect": {
+        "du": "hast gewünscht",
+        "erSieEs": "hat gewünscht",
+        "ich": "habe gewünscht",
+        "ihr": "habt gewünscht",
+        "sieSie": "haben gewünscht",
+        "wir": "haben gewünscht"
+      },
+      "present": {
+        "du": "wünschst",
+        "erSieEs": "wünscht",
+        "ich": "wünsche",
+        "ihr": "wünscht",
+        "sieSie": "wünschen",
+        "wir": "wünschen"
+      }
+    },
+    "description": "Often used reflexively with the dative case (sich etwas wünschen) to express a personal wish, or with a dative object (jemandem etwas wünschen) to wish someone well.",
+    "difficulty": 3,
+    "englishMeaning": ["to wish", "to desire"],
+    "exampleSentences": [
+      {
+        "english": "I wish you all the best for your birthday.",
+        "german": "Ich wünsche dir alles Gute zum Geburtstag.",
+        "hindi": "मैं आपको जन्मदिन की शुभकामनाएँ देता हूँ।"
+      },
+      {
+        "english": "What do you wish for Christmas?",
+        "german": "Was wünschst du dir zu Weihnachten?",
+        "hindi": "तुम क्रिसमस पर क्या चाहते हो?"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "wünschen",
+    "hindiMeaning": ["चाहना", "कामना करना"],
+    "hindiPronunciation": "वुन्शन",
+    "imperative": {
+      "du": "wünsch(e)",
+      "ihr": "wünscht",
+      "sie": "wünschen Sie",
+      "wir": "wünschen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "gewünscht",
+    "prepositions": [],
+    "priority": 8,
+    "reflexiveCase": "dativ",
+    "relatedAdjectives": ["wünschenswert"],
+    "relatedNouns": ["der Wunsch"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "wünschte",
+    "synonyms": ["begehren", "hoffen"],
+    "tags": ["emotion", "communication", "thought"],
+    "thirdPersonSingular": "wünscht",
+    "type": "verb"
+  },
+  {
     "audioUrl": "",
     "auxiliary": "haben",
     "conjugations": {
@@ -13382,6 +18892,108 @@
     "type": "verb"
   },
   {
+    "antonyms": ["freuen", "beruhigen"],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst ärgern",
+        "erSieEs": "wird ärgern",
+        "ich": "werde ärgern",
+        "ihr": "werdet ärgern",
+        "sieSie": "werden ärgern",
+        "wir": "werden ärgern"
+      },
+      "konjunktiv1": {
+        "du": "ärgerest",
+        "erSieEs": "ärgere",
+        "ich": "ärgere",
+        "ihr": "ärgeret",
+        "sieSie": "ärgern",
+        "wir": "ärgern"
+      },
+      "konjunktiv2": {
+        "du": "ärgertest",
+        "erSieEs": "ärgerte",
+        "ich": "ärgerte",
+        "ihr": "ärgertet",
+        "sieSie": "ärgerten",
+        "wir": "ärgerten"
+      },
+      "past": {
+        "du": "ärgertest",
+        "erSieEs": "ärgerte",
+        "ich": "ärgerte",
+        "ihr": "ärgertet",
+        "sieSie": "ärgerten",
+        "wir": "ärgerten"
+      },
+      "perfect": {
+        "du": "hast geärgert",
+        "erSieEs": "hat geärgert",
+        "ich": "habe geärgert",
+        "ihr": "habt geärgert",
+        "sieSie": "haben geärgert",
+        "wir": "haben geärgert"
+      },
+      "present": {
+        "du": "ärgerst",
+        "erSieEs": "ärgert",
+        "ich": "ärgere",
+        "ihr": "ärgert",
+        "sieSie": "ärgern",
+        "wir": "ärgern"
+      }
+    },
+    "description": "Can mean to annoy someone, or when used reflexively (sich ärgern über), it means to be angry or annoyed about something.",
+    "difficulty": 3,
+    "englishMeaning": ["to annoy", "to get angry"],
+    "exampleSentences": [
+      {
+        "english": "Don't annoy your little brother!",
+        "german": "Ärgere deinen kleinen Bruder nicht!",
+        "hindi": "अपने छोटे भाई को परेशान मत करो!"
+      },
+      {
+        "english": "I am annoyed about the bad weather.",
+        "german": "Ich ärgere mich über das schlechte Wetter.",
+        "hindi": "मैं खराब मौसम को लेकर गुस्सा/परेशान हूँ।"
+      }
+    ],
+    "germanLevel": "a2",
+    "germanWord": "ärgern",
+    "hindiMeaning": ["परेशान करना", "गुस्सा होना"],
+    "hindiPronunciation": "एर्गन",
+    "imperative": {
+      "du": "ärgere",
+      "ihr": "ärgert",
+      "sie": "ärgern Sie",
+      "wir": "ärgern wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": true,
+    "pastParticiple": "geärgert",
+    "prepositions": [
+      {
+        "case": "akkusativ",
+        "meaning": "to be angry/annoyed about",
+        "preposition": "über"
+      }
+    ],
+    "priority": 8,
+    "reflexiveCase": "akkusativ",
+    "relatedAdjectives": ["ärgerlich"],
+    "relatedNouns": ["der Ärger"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "ärgerte",
+    "synonyms": ["nerven", "aufregen", "stören"],
+    "tags": ["emotion", "feeling", "conflict"],
+    "thirdPersonSingular": "ärgert",
+    "type": "verb"
+  },
+  {
     "antonyms": ["schließen", "zumachen"],
     "audioUrl": "",
     "auxiliary": "haben",
@@ -13442,6 +19054,101 @@
     "synonyms": ["aufmachen"],
     "tags": ["action", "daily_life"],
     "thirdPersonSingular": "öffnet",
+    "type": "verb"
+  },
+  {
+    "antonyms": [],
+    "audioUrl": "",
+    "auxiliary": "haben",
+    "conjugations": {
+      "future": {
+        "du": "wirst ölen",
+        "erSieEs": "wird ölen",
+        "ich": "werde ölen",
+        "ihr": "werdet ölen",
+        "sieSie": "werden ölen",
+        "wir": "werden ölen"
+      },
+      "konjunktiv1": {
+        "du": "ölest",
+        "erSieEs": "öle",
+        "ich": "öle",
+        "ihr": "ölet",
+        "sieSie": "ölen",
+        "wir": "ölen"
+      },
+      "konjunktiv2": {
+        "du": "öltest",
+        "erSieEs": "ölte",
+        "ich": "ölte",
+        "ihr": "öltet",
+        "sieSie": "ölten",
+        "wir": "ölten"
+      },
+      "past": {
+        "du": "öltest",
+        "erSieEs": "ölte",
+        "ich": "ölte",
+        "ihr": "öltet",
+        "sieSie": "ölten",
+        "wir": "ölten"
+      },
+      "perfect": {
+        "du": "hast geölt",
+        "erSieEs": "hat geölt",
+        "ich": "habe geölt",
+        "ihr": "habt geölt",
+        "sieSie": "haben geölt",
+        "wir": "haben geölt"
+      },
+      "present": {
+        "du": "ölst",
+        "erSieEs": "ölt",
+        "ich": "öle",
+        "ihr": "ölt",
+        "sieSie": "ölen",
+        "wir": "ölen"
+      }
+    },
+    "description": "Can be used for applying oil to the body/hair, or lubricating machinery and hinges.",
+    "difficulty": 2,
+    "englishMeaning": ["to oil", "to lubricate"],
+    "exampleSentences": [
+      {
+        "english": "I have to oil the squeaky door.",
+        "german": "Ich muss die quietschende Tür ölen.",
+        "hindi": "मुझे चरमराते दरवाजे में तेल लगाना होगा।"
+      },
+      {
+        "english": "She oils her skin after showering.",
+        "german": "Sie ölt sich nach dem Duschen die Haut.",
+        "hindi": "वह नहाने के बाद अपनी त्वचा पर तेल लगाती है।"
+      }
+    ],
+    "germanLevel": "b1",
+    "germanWord": "ölen",
+    "hindiMeaning": ["तेल लगाना", "चिकना करना"],
+    "hindiPronunciation": "ओलन",
+    "imperative": {
+      "du": "öle",
+      "ihr": "ölt",
+      "sie": "ölen Sie",
+      "wir": "ölen wir"
+    },
+    "irregular": false,
+    "isModalVerb": false,
+    "isReflexive": false,
+    "pastParticiple": "geölt",
+    "prepositions": [],
+    "priority": 4,
+    "relatedAdjectives": ["ölig"],
+    "relatedNouns": ["das Öl"],
+    "requiresCase": ["akkusativ"],
+    "separable": false,
+    "simplePast": "ölte",
+    "synonyms": ["schmieren"],
+    "tags": ["maintenance", "body_care", "household"],
+    "thirdPersonSingular": "ölt",
     "type": "verb"
   }
 ]

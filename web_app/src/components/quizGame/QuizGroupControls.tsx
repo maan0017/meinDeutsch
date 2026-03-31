@@ -15,6 +15,7 @@ interface QuizGroupControlsProps {
   setCurrentGroup: (value: number) => void;
   remainingWords: number;
   wordGerman: string;
+  BOOKMARK_NAME: string;
 }
 
 export const QuizGroupControls = ({
@@ -30,6 +31,7 @@ export const QuizGroupControls = ({
   setCurrentGroup,
   remainingWords,
   wordGerman,
+  BOOKMARK_NAME,
 }: QuizGroupControlsProps) => {
   return (
     <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
@@ -51,7 +53,7 @@ export const QuizGroupControls = ({
           <div
             className={`
               flex items-center justify-between
-              h-9 md:h-10 w-full max-w-[260px]
+              h-9 md:h-10 w-full max-w-65
               bg-white dark:bg-zinc-900
               border border-gray-200 dark:border-zinc-800
               rounded-full
@@ -66,6 +68,7 @@ export const QuizGroupControls = ({
           >
             {/* Prev */}
             <button
+              type="button"
               disabled={currentGroup === 0 || allIn}
               onClick={moveToPrevGroup}
               title="Previous Group"
@@ -143,6 +146,7 @@ export const QuizGroupControls = ({
 
             {/* Next */}
             <button
+              type="button"
               disabled={currentGroup === totalGroups - 1 || allIn}
               onClick={moveToNextGroup}
               title="Next Group"
@@ -173,7 +177,7 @@ export const QuizGroupControls = ({
 
         {/* Right — Bookmark */}
         <div className="justify-self-end">
-          <BookmarkComp word={wordGerman} />
+          <BookmarkComp word={wordGerman} BOOKMARK_NAME={BOOKMARK_NAME} />
         </div>
       </div>
 

@@ -99,7 +99,7 @@ export default function MemoryGameControls({
 
   return (
     <div
-      className={`flex gap-2.5 items-center flex-wrap justify-center ${containerClassName} ${shake ? "animate-shake" : ""}`}
+      className={`flex items-center gap-2.5 flex-nowrap justify-start ${containerClassName} ${shake ? "animate-shake" : ""}`}
     >
       {onBookmarkToggle && (
         <button
@@ -126,7 +126,7 @@ export default function MemoryGameControls({
         ref={inputRef}
         className={`bg-white dark:bg-[#15151c] border border-slate-300 
           dark:border-[#3a3a4a] rounded-md text-slate-900 dark:text-[#e8e2d6] z-10 
-          text-[0.95rem] py-2 px-4 w-[240px] outline-none transition-colors duration-200 
+          text-[0.95rem] py-2 px-4 w-60 outline-none transition-colors duration-200 
           focus:border-green-500 dark:focus:border-[#7ec87e]`}
         value={input}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>

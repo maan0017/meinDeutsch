@@ -1,0 +1,29 @@
+Return a raw, unmarkdown-wrapped JSON object (no ```) for the German interjection below. Provide rich, accurate data.
+
+{
+  "germanWord": "aua", "hindiPronunciation": "आउ-आ", "type": "interjection", "audioUrl": "", 
+  "englishMeaning": ["ouch", "ow"], "hindiMeaning": ["आउच", "हाय"],
+  "description": "An exclamation of sudden physical pain.",
+  "tags": ["exclamation", "pain"], "priority": 10, "difficulty": 1, "germanLevel": "a1",
+  "synonyms": ["autsch"], "antonyms": [],
+  "exampleSentences": [
+    {"german": "Aua! Du stehst auf meinem Fuß!", "english": "Ouch! You're standing on my foot!", "hindi": "आउच! तुम मेरे पैर पर खड़े हो!"}
+  ],
+  "emotionalContext": "pain",
+  "formality": "informal",
+  "isOnomatopoeia": false,
+  "usageContext": "Said immediately upon feeling a sharp, unexpected pain.",
+  "pronunciationNotes": "Usually shouted or said with a sharp, high pitch.",
+  "relatedWords": ["der Schmerz", "wehtun"]
+}
+
+RULES:
+- type MUST be "interjection".
+- Provide 2+ realistic exampleSentences using it in context.
+- emotionalContext options: "surprise", "pain", "disgust", "joy", "agreement", "hesitation", "anger", "other".
+- formality options: "formal", "informal", "slang", "neutral".
+- isOnomatopoeia: set to true ONLY if the word imitates a pure sound (e.g. "bumm", "miau", "klirr").
+- pronunciationNotes: describe any specific vocal inflections (e.g. "drawn out vowel", "interrogative upward pitch").
+- usageContext: Specific scenarios of when a German speaker uses this sound.
+
+Interjection: 

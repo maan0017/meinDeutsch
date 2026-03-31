@@ -2,12 +2,13 @@
 
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
-import { useBookmarksStore } from "@/store/bookmarks";
 import { useSettingsStore } from "@/store/settings";
 import Link from "next/link";
 import MemoryGameControls from "@/components/MemoryGameControls";
 import verbsDataRaw from "@/data/verbs.json";
 import { VerbWord } from "@/models/verb";
+import { useBookmark } from "@/hooks/useBookmark";
+import { Trash2 } from "lucide-react";
 
 const VERBS: VerbWord[] = (verbsDataRaw as unknown as VerbWord[]).filter(
   (v) =>
@@ -74,30 +75,38 @@ function buildTargets(verb: VerbWord): TargetForm[] {
   ];
 }
 
+const BOOKMARK_NAME = "VERB_FORMS_CHALLANGE_GAME_BOOKMARKED_VERBS";
+const CURRENT_GROUP_SAVED_STATE = "CURRENT_GROUP_SAVED_STATE";
+const ALL_IN_SAVED_STATE = "ALL_IN_SAVED_STATE";
+const PLAY_BOOKMARKED_ONLY_SAVED_STATE = "PLAY_BOOKMARKED_ONLY_SAVED_STATE";
+const STRICT_MODE_SAVED_STATE = "STRICT_MODE_SAVED_STATE";
+
 export default function VerbFormsChallangeComp() {
   // SSR-safe: start with empty array so server and client initial render match.
   // The mount effect below populates it with a shuffled list on the client only.
   const [activeVerbs, setActiveVerbs] = useState<VerbWord[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [guessedSlots, setGuessedSlots] = useState<Set<string>>(new Set());
-  const [input, setInput] = useState("");
-  const [shake, setShake] = useState(false);
+  const [input, setInput] = useState<string>("");
+  const [shake, setShake] = useState<boolean>(false);
   const [flashSlot, setFlashSlot] = useState<string | null>(null);
-  const [showAll, setShowAll] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   const { groupSize } = useSettingsStore();
-  const { bookmarkedVerbs, toggleVerbBookmark } = useBookmarksStore();
+  const { getBookmarkStrings, toggleBookmark } = useBookmark(BOOKMARK_NAME);
+  const [bookmarkedVerbs, setBookmarkedVerbs] =
+    useState<string[]>(getBookmarkStrings());
 
-  const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState(false);
-  const [allIn, setAllIn] = useState(false);
-  const [strictMode, setStrictMode] = useState(false);
-  const [currentGroup, setCurrentGroup] = useState(0);
-  const [wrongTries, setWrongTries] = useState(0);
+  const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState<boolean>(false);
+  const [allIn, setAllIn] = useState<boolean>(false);
+  const [strictMode, setStrictMode] = useState<boolean>(false);
+  const [currentGroup, setCurrentGroup] = useState<number>(0);
+  const [wrongTries, setWrongTries] = useState<number>(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const giveUpScheduled = useRef(false);
+  const giveUpScheduled = useRef<boolean>(false);
   const { playSound } = useSoundEffects();
 
   const currentVerb = activeVerbs[currentIndex] ?? null;
@@ -137,7 +146,7 @@ export default function VerbFormsChallangeComp() {
   // ── Keyboard Group Navigation Shortcuts ───────────────────────────────────
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
+      // const target = e.target as HTMLElement;
       // Skip if user is actively typing in an input/textarea
       // if (
       //   ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
@@ -194,7 +203,6 @@ export default function VerbFormsChallangeComp() {
 
     setActiveVerbs(shuffleArray(sliceToPlay));
     setCurrentIndex(0);
-    setHistory([]);
     setGuessedSlots(new Set());
     setInput("");
     setFlashSlot(null);
@@ -257,6 +265,10 @@ export default function VerbFormsChallangeComp() {
   useEffect(() => {
     giveUpScheduled.current = false;
   }, [currentIndex]);
+
+  useEffect(() => {
+    setBookmarkedVerbs(getBookmarkStrings());
+  }, []);
 
   // ── Guess handler ─────────────────────────────────────────────────────────
 
@@ -352,6 +364,7 @@ export default function VerbFormsChallangeComp() {
     activeVerbs,
     currentIndex,
     strictMode,
+    wrongTries,
   ]);
 
   // ── Render helpers ────────────────────────────────────────────────────────
@@ -470,7 +483,7 @@ export default function VerbFormsChallangeComp() {
             {/* Center — Group Navigator */}
             <div className="flex flex-1 items-center justify-center min-w-0 z-50">
               <div
-                className={`flex items-center justify-between h-8 md:h-10 w-full max-w-[340px] bg-white dark:bg-[#15151c] border border-slate-300 dark:border-[#3a3a4a] rounded-full transition-opacity duration-200 mx-auto shadow-sm ${
+                className={`flex items-center justify-between h-8 md:h-10 w-full max-w-85 bg-white dark:bg-[#15151c] border border-slate-300 dark:border-[#3a3a4a] rounded-full transition-opacity duration-200 mx-auto shadow-sm ${
                   allIn
                     ? "opacity-50 pointer-events-none select-none grayscale"
                     : "opacity-100"
@@ -478,7 +491,8 @@ export default function VerbFormsChallangeComp() {
               >
                 {/* Prev Group */}
                 <button
-                  disabled={currentGroup === 0 || allIn}
+                  type="button"
+                  disabled={currentGroup === 0 || allIn || playBookmarkedOnly}
                   onClick={() => setCurrentGroup((p) => p - 1)}
                   className="flex items-center justify-center h-full w-9 md:w-10 rounded-l-full text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-[#a0a0aa] hover:bg-slate-50 dark:hover:bg-[#2a2a35] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
@@ -494,12 +508,15 @@ export default function VerbFormsChallangeComp() {
                   >
                     <path d="m15 18-6-6 6-6" />
                   </svg>
+                  {""}
                 </button>
 
                 {/* Dropdown Selector */}
                 <div className="relative flex-1 h-full min-w-0 border-x border-slate-100 dark:border-[#2a2a35]">
                   <select
-                    disabled={allIn}
+                    name="GroupDropdown"
+                    aria-label="select verb group"
+                    disabled={allIn || playBookmarkedOnly}
                     value={currentGroup}
                     onChange={(e) => setCurrentGroup(Number(e.target.value))}
                     className="appearance-none w-full h-full pl-2 pr-7 bg-transparent text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-center text-slate-600 dark:text-[#c8c0b0] truncate focus:outline-none cursor-pointer"
@@ -539,7 +556,12 @@ export default function VerbFormsChallangeComp() {
 
                 {/* Next Group */}
                 <button
-                  disabled={currentGroup === totalGroups - 1 || allIn}
+                  type="button"
+                  disabled={
+                    currentGroup === totalGroups - 1 ||
+                    allIn ||
+                    playBookmarkedOnly
+                  }
                   onClick={() => setCurrentGroup((p) => p + 1)}
                   className="flex items-center justify-center h-full w-9 md:w-10 rounded-r-full text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-[#a0a0aa] hover:bg-slate-50 dark:hover:bg-[#2a2a35] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
@@ -555,6 +577,7 @@ export default function VerbFormsChallangeComp() {
                   >
                     <path d="m9 18 6-6-6-6" />
                   </svg>
+                  {""}
                 </button>
               </div>
             </div>
@@ -571,14 +594,14 @@ export default function VerbFormsChallangeComp() {
             >
               <input
                 type="checkbox"
-                checked={allIn}
+                checked={allIn && !playBookmarkedOnly}
                 onChange={(e) => setAllIn(e.target.checked)}
                 className="sr-only"
               />
               <div
-                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${allIn ? "bg-blue-500 border-blue-500" : "border-slate-400 dark:border-slate-500 bg-transparent"}`}
+                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${allIn && !playBookmarkedOnly ? "bg-blue-500 border-blue-500" : "border-slate-400 dark:border-slate-500 bg-transparent"}`}
               >
-                {allIn && (
+                {allIn && !playBookmarkedOnly && (
                   <svg
                     className="w-2.5 h-2.5 text-white"
                     viewBox="0 0 24 24"
@@ -681,6 +704,7 @@ export default function VerbFormsChallangeComp() {
           resetFunction={() => {
             setInput("");
             inputRef.current?.focus();
+            setHistory([]);
           }}
           showAll={showAll}
           toggleShow={() => {
@@ -694,11 +718,7 @@ export default function VerbFormsChallangeComp() {
               ? bookmarkedVerbs.includes(currentVerb.germanWord)
               : false
           }
-          onBookmarkToggle={
-            currentVerb
-              ? () => toggleVerbBookmark(currentVerb.germanWord)
-              : undefined
-          }
+          onBookmarkToggle={() => toggleBookmark(currentVerb.germanWord)}
         />
       </div>
 
@@ -721,9 +741,17 @@ export default function VerbFormsChallangeComp() {
       {/* History Panel */}
       <div className="flex-1 min-h-0 w-full max-w-250 flex flex-col border-t z-10 border-slate-300 dark:border-[#2a2a35] overflow-hidden mt-2 bg-slate-100 dark:bg-[#15151c] rounded-b-xl shadow-inner">
         <div className="px-4 py-2 border-b border-slate-300 dark:border-zinc-800 flex justify-between items-center shrink-0 bg-slate-200 dark:bg-[#1a1a24]">
-          <h3 className="font-extrabold text-slate-700 dark:text-zinc-300 text-[10px] tracking-widest uppercase">
-            Verb History ({history.length}/{activeVerbs.length})
-          </h3>
+          <div className="flex items-center gap-2">
+            <h3 className="font-extrabold text-slate-700 dark:text-zinc-300 text-[10px] tracking-widest uppercase">
+              Verb History
+            </h3>
+
+            <Trash2
+              onClick={() => setHistory([])}
+              className="h-4 w-4 text-slate-400 dark:text-zinc-500 cursor-pointer transition-all duration-200 ease-out 
+              hover:text-red-500 hover:scale-110 active:scale-90"
+            />
+          </div>
         </div>
 
         <div className="flex-1 overflow-y-auto flex flex-col w-full">

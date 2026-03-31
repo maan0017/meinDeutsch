@@ -2,22 +2,32 @@
 
 import { FC, useState, useEffect, useCallback } from "react";
 import { Bookmark, BookmarkCheck } from "lucide-react";
-import {
-  checkBookmarkExists,
-  addBookmark,
-  removeBookmark,
-} from "@/hooks/useBookmark";
+import { useBookmark } from "@/hooks/useBookmark";
 
 interface BookmarkCompProps {
   word: string;
+  BOOKMARK_NAME: string;
 }
 
-export const BookmarkComp: FC<BookmarkCompProps> = ({ word }) => {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+export const BookmarkComp: FC<BookmarkCompProps> = ({
+  word,
+  BOOKMARK_NAME,
+}) => {
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
+  const { checkBookmarkExists, addBookmark, removeBookmark } =
+    useBookmark(BOOKMARK_NAME);
+
+  // Initialize bookmark state from external store on first render
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(() =>
+    checkBookmarkExists(word)
+  );
+
+  // Re-sync bookmark state when the word prop changes
   useEffect(() => {
     setIsBookmarked(checkBookmarkExists(word));
+    // checkBookmarkExists is stable (from a hook) — word is the only real dep
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word]);
 
   const toggleBookmark = useCallback(() => {
@@ -28,10 +38,11 @@ export const BookmarkComp: FC<BookmarkCompProps> = ({ word }) => {
     } else {
       addBookmark(word);
     }
-    setIsBookmarked(!isBookmarked);
+    // Functional updater avoids stale-closure bugs
+    setIsBookmarked((prev) => !prev);
 
     setTimeout(() => setIsAnimating(false), 400);
-  }, [isBookmarked, word]);
+  }, [isBookmarked, word, addBookmark, removeBookmark]);
 
   useEffect(() => {
     const keyJobs = (event: KeyboardEvent) => {

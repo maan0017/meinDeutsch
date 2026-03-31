@@ -1,44 +1,76 @@
 import { germanWords } from "@/data/germanWords";
 import { GermanWord } from "@/models/germanWord";
 
-const BOOKMARK_KEY = "bookmarked_words";
+export const useBookmark = (BOOKMARK_KEY: string) => {
+  const getTotalBookmarks = (): number => {
+    const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
+    return bookmarks.length;
+  };
 
-export const getTotalBookmarks = (): number => {
-  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
-  return bookmarks.length;
-};
+  const getBookmarks = (): GermanWord[] => {
+    if (typeof window === "undefined" || getTotalBookmarks() === 0) return [];
 
-export const getBookmarks = (): GermanWord[] => {
-  if (typeof window === "undefined" || getTotalBookmarks() === 0) return [];
+    try {
+      const bookmarks = JSON.parse(
+        localStorage.getItem(BOOKMARK_KEY) || "[]"
+      ) as string[];
+      if (!germanWords || germanWords.length === 0) return [];
+      return germanWords.filter((word) => {
+        return bookmarks.includes(word.germanWord);
+      });
+    } catch {
+      return [];
+    }
+  };
 
-  try {
+  const getBookmarkStrings = (): string[] => {
+    if (typeof window === "undefined" || getTotalBookmarks() === 0) return [];
+
+    try {
+      return JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]") as string[];
+    } catch {
+      return [];
+    }
+  };
+
+  const checkBookmarkExists = (word: string): boolean => {
+    const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
+    return bookmarks.includes(word);
+  };
+
+  const addBookmark = (word: string) => {
+    const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
+    if (!bookmarks.includes(word)) {
+      localStorage.setItem(BOOKMARK_KEY, JSON.stringify([...bookmarks, word]));
+    }
+  };
+
+  const removeBookmark = (word: string) => {
     const bookmarks = JSON.parse(
       localStorage.getItem(BOOKMARK_KEY) || "[]"
-    ) as string[];
-    if (!germanWords || germanWords.length === 0) return [];
-    return germanWords.filter((word) => {
-      return bookmarks.includes(word.germanWord);
-    });
-  } catch {
-    return [];
-  }
-};
+    ).filter((w: string) => w !== word);
+    localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
+  };
 
-export const checkBookmarkExists = (word: string): boolean => {
-  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
-  return bookmarks.includes(word);
-};
+  const toggleBookmark = (word: string) => {
+    console.log("bookmark triggered");
+    const isExists = checkBookmarkExists(word);
+    if (isExists) {
+      console.log("removing bookmark");
+      removeBookmark(word);
+      return;
+    }
+    console.log("bookmark added");
+    addBookmark(word);
+  };
 
-export const addBookmark = (word: string) => {
-  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) || "[]");
-  if (!bookmarks.includes(word)) {
-    localStorage.setItem(BOOKMARK_KEY, JSON.stringify([...bookmarks, word]));
-  }
-};
-
-export const removeBookmark = (word: string) => {
-  const bookmarks = JSON.parse(
-    localStorage.getItem(BOOKMARK_KEY) || "[]"
-  ).filter((w: string) => w !== word);
-  localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
+  return {
+    getTotalBookmarks,
+    getBookmarks,
+    getBookmarkStrings,
+    checkBookmarkExists,
+    addBookmark,
+    removeBookmark,
+    toggleBookmark,
+  };
 };

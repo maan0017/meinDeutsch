@@ -1,0 +1,26 @@
+Return a raw, unmarkdown-wrapped JSON object (no ```) for the German adjective below. Provide rich, accurate data.
+
+{
+  "germanWord": "schnell", "hindiPronunciation": "श्नेल", "type": "adjective", "audioUrl": "", 
+  "englishMeaning": ["fast", "quick"], "hindiMeaning": ["तेज़"],
+  "description": "Educational usage description.",
+  "tags": ["speed", "daily_life"], "priority": 10, "difficulty": 2, "germanLevel": "a1",
+  "synonyms": ["rasch"], "antonyms": ["langsam"],
+  "exampleSentences": [
+    {"german": "Das Auto ist schnell.", "english": "The car is fast.", "hindi": "कार तेज़ है।"}
+  ],
+  "comparativeForm": "schneller", "superlativeForm": "am schnellsten",
+  "isIrregular": false, "predicativeOnly": false, "undeclinable": false, 
+  "requiresCase": [], "prepositions": [],
+  "relatedNouns": ["die Schnelligkeit"], "relatedVerbs": []
+}
+
+RULES:
+- Provide 2+ realistic exampleSentences.
+- isIrregular: true for gut/viel/hoch/nah etc.
+- predicativeOnly: true if it cannot precede nouns (e.g. schuld, angst).
+- undeclinable: true for rosa, lila, super, klasse.
+- requiresCase: ["dativ"/"akkusativ"/"genitiv"] ONLY if it uniquely governs an object's case.
+- prepositions: E.g. [{"preposition": "auf", "case": "akkusativ", "meaning": "proud of"}].
+
+Adjective: 

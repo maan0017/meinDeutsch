@@ -8,6 +8,11 @@ import { QuizHeader } from "./quizGame/QuizHeader";
 import { QuizGroupControls } from "./quizGame/QuizGroupControls";
 import { QuizFeedback } from "./quizGame/QuizFeedback";
 
+const BOOKMARK_NAME = "GUESS_GERMAN_WORD_QUIZ_GAME_BOOKMARKED_WORDS";
+const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
+const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
+const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
+
 export default function GuessGermanWordQuizGame() {
   const {
     currentGroup,
@@ -21,7 +26,11 @@ export default function GuessGermanWordQuizGame() {
     moveToNextGroup,
     moveToPrevGroup,
     groupSize,
-  } = useGroupSystem();
+  } = useGroupSystem(
+    SAVED_STATE_CURRENT_GROUP,
+    SAVED_STATE_ALL_IN,
+    SAVED_STATE_STRICT_MODE
+  );
 
   const {
     word,
@@ -156,6 +165,7 @@ export default function GuessGermanWordQuizGame() {
               setCurrentGroup={setCurrentGroup}
               remainingWords={remainingWordsInGroup}
               wordGerman={word.germanWord}
+              BOOKMARK_NAME={BOOKMARK_NAME}
             />
 
             {/* Clues */}

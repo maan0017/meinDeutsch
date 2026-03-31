@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from "react";
 import { GetGermanWordsGroupLength } from "@/helper/RandomGermanWordSelector";
 import { useSettingsStore } from "@/store/settings";
 
-const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
-const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
-const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
-
-export const useGroupSystem = () => {
+export const useGroupSystem = (
+  SAVED_STATE_CURRENT_GROUP: string,
+  SAVED_STATE_ALL_IN: string,
+  SAVED_STATE_STRICT_MODE: string
+) => {
   const { groupSize } = useSettingsStore();
   const [currentGroup, setCurrentGroup] = useState<number>(0);
   const totalGroups = GetGermanWordsGroupLength(groupSize);
@@ -44,7 +44,7 @@ export const useGroupSystem = () => {
     if (savedStrictMode) setStrictMode(savedStrictMode === "true");
 
     setIsInitialized(true);
-  }, []);
+  }, [SAVED_STATE_CURRENT_GROUP, SAVED_STATE_ALL_IN, SAVED_STATE_STRICT_MODE]);
 
   // Save state
   useEffect(() => {
@@ -52,7 +52,15 @@ export const useGroupSystem = () => {
     localStorage.setItem(SAVED_STATE_CURRENT_GROUP, String(currentGroup));
     localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
     localStorage.setItem(SAVED_STATE_STRICT_MODE, String(strictMode));
-  }, [currentGroup, allIn, strictMode, isInitialized]);
+  }, [
+    currentGroup,
+    allIn,
+    strictMode,
+    isInitialized,
+    SAVED_STATE_CURRENT_GROUP,
+    SAVED_STATE_ALL_IN,
+    SAVED_STATE_STRICT_MODE,
+  ]);
 
   return {
     currentGroup,

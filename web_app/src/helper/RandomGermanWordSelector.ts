@@ -8,7 +8,7 @@ export const RandomGermanWordSelector = (): GermanWord => {
 
 export const RandomGermanWordSelectorWithinRange = (
   start: number,
-  end: number,
+  end: number
 ): GermanWord => {
   // saftey check if end is outside of array range.--
   end = Math.min(end, GetGermanWordsLenght() - 1);

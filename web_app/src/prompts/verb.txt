@@ -1,0 +1,62 @@
+Generate a complete JSON object for the provided German verb, ensuring precise grammar, comprehensive conjugations, high-quality translations, and precise adherence to the following data structure. Return ONLY valid JSON, no markdown formatting.
+
+Data Structure & Requirements:
+- "germanWord" (string): The infinitive German verb.
+- "hindiPronunciation" (string): Hindi transliteration for exact pronunciation.
+- "englishMeaning" (list of strings): Precise English meanings.
+- "hindiMeaning" (list of strings): Precise Hindi translations.
+- "description" (string, optional): Context or nuance.
+- "type" (string): MUST be "verb".
+- "audioUrl" (string, optional): Omit or leave empty.
+- "tags" (list of strings): Broad contextual categories (e.g., "motion", "daily_life").
+- "priority" (integer): Usage frequency (1-10, where 10 is most common).
+- "difficulty" (integer): Learning difficulty (1-10).
+- "germanLevel" (string): CEFR level ("a1", "a2", "b1", "b2", "c1", "c2").
+- "synonyms" (list of strings, optional): German synonyms.
+- "antonyms" (list of strings, optional): German antonyms.
+- "exampleSentences" (list of objects): Provide 2 to 3 contextual examples. Each object needs:
+  - "german" (string)
+  - "english" (string)
+  - "hindi" (string)
+
+Verb-Specific Core Grammar (all optional but include if applicable):
+- "auxiliary" (string): "sein", "haben", or "werden".
+- "isReflexive" (boolean): true if it is a reflexive verb.
+- "reflexiveCase" (string): "nominativ", "akkusativ", "dativ", or "genitiv".
+- "separable" (boolean): true if it has a separable prefix.
+- "prefix" (string): The prefix if separable (e.g., "ab").
+- "irregular" (boolean): true if it's irregular.
+- "stemVowelChange" (string): Stem vowel change if applicable (e.g., "e -> i").
+- "isModalVerb" (boolean): true if it's a modal verb.
+
+Principal Parts (crucial):
+- "thirdPersonSingular" (string): Präsens (er/sie/es) form.
+- "simplePast" (string): Präteritum (er/sie/es) form.
+- "pastParticiple" (string): Partizip II form (e.g., "gemacht").
+
+Advanced Grammar & Usage:
+- "requiresCase" (list of strings): Any cases it intrinsically requires (e.g., ["dativ"] for helfen). Use "nominativ", "akkusativ", "dativ", "genitiv".
+- "prepositions" (list of objects): Prepositional usages. Each object needs:
+  - "preposition" (string)
+  - "case" (string: "nominativ", "akkusativ", "dativ", or "genitiv")
+  - "meaning" (string)
+
+Conjugations (object, include all relevant tenses: "present", "past", "perfect", "future", "konjunktiv1", "konjunktiv2"). Each tense object needs:
+- "ich" (string)
+- "du" (string)
+- "erSieEs" (string)
+- "wir" (string)
+- "ihr" (string)
+- "sieSie" (string)
+
+Imperative (object for command forms):
+- "du" (string)
+- "ihr" (string)
+- "sie" (string)
+- "wir" (string)
+
+Word Families:
+- "relatedNouns" (list of strings, optional): Related German nouns.
+- "relatedAdjectives" (list of strings, optional): Related German adjectives.
+
+Verb: 

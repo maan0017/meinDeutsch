@@ -1,0 +1,30 @@
+Return a raw, unmarkdown-wrapped JSON object (no ```) for the German phrase/idiom below. Provide rich, accurate data.
+
+{
+  "germanWord": "die Daumen drücken", "hindiPronunciation": "दी दाउ-मेन ड्रियू-केन", "type": "phrase", "audioUrl": "", 
+  "englishMeaning": ["to cross one's fingers", "to wish someone luck"], "hindiMeaning": ["शुभकामनाएँ देना"],
+  "description": "Used to wish someone good luck or success, typically before an exam or challenge.",
+  "tags": ["idiom", "luck"], "priority": 10, "difficulty": 2, "germanLevel": "b1",
+  "synonyms": ["jemandem Glück wünschen", "toi toi toi"], "antonyms": [],
+  "exampleSentences": [
+    {"german": "Ich drücke dir für die Prüfung die Daumen!", "english": "I'll cross my fingers for your exam!", "hindi": "मैं तुम्हारी परीक्षा के लिए शुभकामनाएँ देता हूँ!"}
+  ],
+  "category": "idiom",
+  "formality": "informal",
+  "literalTranslation": "to press the thumbs",
+  "hindiLiteralTranslation": "अंगूठे दबाना",
+  "usageContext": "Usually spoken while physically pressing thumbs inside folded hands.",
+  "grammarNotes": "Requires the dative case for the persion you wish luck to (e.g., 'dir').",
+  "relatedWords": ["der Daumen", "drücken", "das Glück"]
+}
+
+RULES:
+- type MUST be "phrase".
+- Provide 2+ realistic exampleSentences using the phrase in context.
+- category options: "idiom" (Daumen drücken), "greeting" (Moin!), "proverb" (Morgenstund...), "collocation" (Entscheidung treffen), "conversational" (Mach's gut).
+- formality options: "formal", "informal", "slang", "neutral".
+- literalTranslation: Provide word-for-word translation in English if it diverges significantly from the actual meaning.
+- hindiLiteralTranslation: Provide literal translation in Hindi.
+- usageContext: Specific scenarios or cultural notes for when to use the phrase.
+
+Phrase: 
