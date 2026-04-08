@@ -694,15 +694,20 @@ export default function VerbFormsChallangeComp() {
 
             {/* Bookmarks Toggle */}
             <label
-              className={`flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${playBookmarkedOnly ? "bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-900/40 dark:text-amber-400 dark:border-amber-700/50" : "bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"}`}
+              className={`flex items-center gap-1.5 select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${
+                bookmarkedVerbs.length === 0
+                  ? "opacity-50 cursor-not-allowed bg-slate-100 text-slate-500 border-slate-300 dark:bg-[#1a1a24] dark:text-slate-500 dark:border-[#3a3a4a]"
+                  : playBookmarkedOnly
+                    ? "cursor-pointer bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-900/40 dark:text-amber-400 dark:border-amber-700/50"
+                    : "cursor-pointer bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"
+              }`}
             >
               <input
                 type="checkbox"
                 checked={playBookmarkedOnly}
+                disabled={bookmarkedVerbs.length === 0}
                 onChange={(e) => {
                   if (!e.target.checked) setPlayBookmarkedOnly(false);
-                  else if (bookmarkedVerbs.length === 0)
-                    alert("You haven't bookmarked any verbs yet!");
                   else setPlayBookmarkedOnly(true);
                 }}
                 className="sr-only"
