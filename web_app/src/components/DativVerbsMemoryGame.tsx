@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useState,
-  useRef,
-  ChangeEvent,
-  KeyboardEvent,
-  useEffect,
-  useCallback,
-} from "react";
+import { useState, useRef, useCallback } from "react";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import Link from "next/link";
 import MemoryGameControls from "@/components/MemoryGameControls";
@@ -135,7 +128,7 @@ export function DativVerbsMemoryGameComp() {
     if (match && !guessed.has(match.word)) {
       setGuessed((prev) => new Set([...prev, match.word]));
       setFlash(match.word);
-      setTimeout(() => setFlash(null), 800);
+      setTimeout(() => setFlash(null), 2500);
       playSound("correct");
       setInput("");
     } else {
@@ -211,9 +204,7 @@ export function DativVerbsMemoryGameComp() {
         containerClassName="mb-6"
       />
 
-      <p
-        className={`text-[0.8rem] text-slate-600 dark:text-[#555560] mb-1.5`}
-      >
+      <p className={`text-[0.8rem] text-slate-600 dark:text-[#555560] mb-1.5`}>
         <span className="text-green-600 dark:text-[#7ec87e]">
           {guessed.size}
         </span>{" "}
@@ -278,13 +269,13 @@ export function DativVerbsMemoryGameComp() {
 
                   {isVisible && (
                     <div
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2
-                    hidden group-hover:flex flex-col bg-white dark:bg-[#2a2a35] 
+                      className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2
+                    ${isFlashing && !showAll ? "flex" : "hidden group-hover:flex"} flex-col bg-white dark:bg-[#2a2a35] 
                     text-black dark:text-[#e8e2d6] text-xs rounded-md shadow-lg py-2 px-3 
-                    z-50 w-max min-w-30 pointer-events-none before:content-[''] 
+                    z-60 w-max min-w-30 pointer-events-none before:content-[''] 
                     before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 
                     before:border-4 before:border-transparent before:border-t-slate-800 
-                    dark:before:border-t-[#2a2a35]"
+                    dark:before:border-t-[#2a2a35]`}
                     >
                       <span className="font-bold text-green-300 dark:text-[#7ec87e] mb-1 tracking-wide uppercase text-[0.65rem] border-b border-slate-600 dark:border-[#3a3a4a] pb-1">
                         {item.type}

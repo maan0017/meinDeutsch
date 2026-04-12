@@ -76,7 +76,7 @@ export default function Settings() {
         <div className="flex items-center gap-4 mb-8">
           <button
             type="button"
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
             aria-label="Go back"
             className="flex items-center justify-center rounded-md p-2 hover:bg-slate-200 dark:hover:bg-[#333333] transition"
           >

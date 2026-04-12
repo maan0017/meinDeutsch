@@ -47,10 +47,10 @@ export const BookmarkComp: FC<BookmarkCompProps> = ({
   useEffect(() => {
     const keyJobs = (event: KeyboardEvent) => {
       if (
-        event.ctrlKey &&
+        !event.ctrlKey &&
         event.key.toLowerCase() === "d" &&
-        !event.altKey &&
-        !event.shiftKey &&
+        event.altKey &&
+        event.shiftKey &&
         !event.metaKey
       ) {
         event.preventDefault();

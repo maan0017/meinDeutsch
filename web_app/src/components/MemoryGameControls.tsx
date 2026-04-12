@@ -110,7 +110,7 @@ export default function MemoryGameControls({
               ? "bg-amber-100 border-amber-300 dark:bg-amber-900/60 dark:border-amber-700/50"
               : "bg-white border-slate-300 dark:bg-[#15151c] dark:border-[#3a3a4a] text-slate-400 hover:text-slate-600 dark:hover:text-[#a0a0aa]"
           }`}
-          title="Alt + D to Bookmark"
+          title={`Alt + D to ${isBookmarked ? "Unbookmark" : "Bookmark"}`}
         >
           <Bookmark
             size={18}
@@ -164,12 +164,12 @@ export default function MemoryGameControls({
       </button>
       <button
         type="button"
-        className="bg-blue-50 dark:bg-[#1c2738] border z-10 
-        border-blue-400 dark:border-[#3d5b8b] rounded-md text-blue-700 
-        dark:text-[#7ba9e8] text-[0.9rem] py-2 px-[1.2rem] cursor-pointer 
-        transition-colors duration-200 hover:bg-blue-100 dark:hover:bg-[#26354b] ml-1"
+        className="border z-10 rounded-md text-[0.9rem] py-2 px-[1.2rem] transition-colors 
+        duration-200 ml-1 bg-blue-50 dark:bg-[#1c2738] border-blue-400 
+        dark:border-[#3d5b8b] text-blue-700 dark:text-[#7ba9e8] cursor-pointer 
+        hover:bg-blue-100 dark:hover:bg-[#26354b]"
         onClick={toggleShow}
-        title="Alt + S to Toggle Show All"
+        title={`Alt + S to ${showAll ? "Hide" : "Show"} All`}
       >
         {showAll ? "Hide All" : "Show All"}
       </button>

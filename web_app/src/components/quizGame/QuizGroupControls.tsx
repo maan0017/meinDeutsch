@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { BookmarkComp } from "../BookmarkComp";
 import { germanWords } from "@/data/germanWords";
 
@@ -33,6 +33,21 @@ export const QuizGroupControls = ({
   wordGerman,
   BOOKMARK_NAME,
 }: QuizGroupControlsProps) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey && e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        setAllIn(!allIn);
+      }
+      if (e.altKey && e.key.toLowerCase() === "m") {
+        e.preventDefault();
+        setStrictMode(!strictMode);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [allIn, setAllIn, strictMode, setStrictMode]);
+
   return (
     <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
       {/* Group Controls Row */}
@@ -186,7 +201,7 @@ export const QuizGroupControls = ({
         {/* All In Toggle */}
         <label
           htmlFor="allIn"
-          title="Play all words at once, Disables Group system"
+          title={allIn ? "Disable All In (Alt+A)" : "Enable All In (Alt+A)"}
           className={`
               flex items-center gap-1.5 cursor-pointer select-none 
               text-xs font-medium 
@@ -238,7 +253,11 @@ export const QuizGroupControls = ({
         {/* Strict Mode */}
         <label
           htmlFor="strictMode"
-          title="Articles are compulsory if present and correct Captilized words."
+          title={
+            strictMode
+              ? "Disable Strict Mode (Alt+M)"
+              : "Enable Strict Mode (Alt+M)"
+          }
           className={`
               flex items-center gap-1.5 cursor-pointer select-none 
               text-xs font-medium 

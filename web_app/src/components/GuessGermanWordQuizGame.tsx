@@ -69,17 +69,15 @@ export default function GuessGermanWordQuizGame() {
     if (i >= currentGroupStart && i < currentGroupEnd) count++;
   }
 
-  // safer version (handles negatives)
+  const completedWords = Math.max(0, count - 1 + (status !== "idle" ? 1 : 0));
+
   const remainingWordsInGroup = Math.max(
     0,
-    Math.min(
-      totalWordsInCurrentGroup - (count - 1),
-      totalWordsInCurrentGroup - 1
-    )
+    totalWordsInCurrentGroup - completedWords
   );
 
   const progressPercent = totalWordsInCurrentGroup
-    ? Math.round(((count - 1) * 100) / totalWordsInCurrentGroup)
+    ? Math.round((completedWords * 100) / totalWordsInCurrentGroup)
     : 0;
 
   const statusConfig = {

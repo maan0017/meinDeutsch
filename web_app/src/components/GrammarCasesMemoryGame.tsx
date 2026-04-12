@@ -150,7 +150,7 @@ export default function GrammarCasesMemoryGameComp() {
     if (normalize(expectedPronoun.word) === val) {
       setGuessed((prev) => new Set([...prev, expectedPronoun.id]));
       setFlash(expectedPronoun.id);
-      setTimeout(() => setFlash(null), 800);
+      setTimeout(() => setFlash(null), 2500);
       playSound("correct");
       setInput("");
     } else {
@@ -162,9 +162,20 @@ export default function GrammarCasesMemoryGameComp() {
 
   const progress = Math.round((guessed.size / ALL_PRONOUNS.length) * 100);
 
+  const renderHeading = (heading: PronounItem) => (
+    <div
+      key={heading.word}
+      className="w-full px-2 py-1 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b border-gray-300 dark:border-gray-700 mb-2 flex flex-col items-center justify-center text-center leading-tight"
+    >
+      <span>{heading.word}</span>
+      <span className="text-[9px] sm:text-[10px] md:text-[11px] font-medium text-slate-400 dark:text-slate-500 mt-0.5">
+        {heading.en}
+      </span>
+    </div>
+  );
+
   const renderCell = (
     item: PronounItem & { id?: string },
-    isHeading = false,
     colIndex = 0,
     rowIndex = 0
   ) => {
@@ -181,45 +192,24 @@ export default function GrammarCasesMemoryGameComp() {
       );
     }
 
-    const id = isHeading ? item.word : item.id!;
-    const isRevealed = isHeading || guessed.has(id);
+    const id = item.id!;
+    const isRevealed = guessed.has(id);
     const isVisible = isRevealed || showAll;
     const isFlashing = flash === id;
-    const isExpected =
-      !isHeading && id === ALL_PRONOUNS[guessed.size]?.id && !showAll;
+    const isExpected = id === ALL_PRONOUNS[guessed.size]?.id && !showAll;
 
-    let cellClasses = `group inline-flex items-center justify-center w-full px-2.5 rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border `;
-
-    if (isHeading) {
-      cellClasses +=
-        "h-9 text-[0.85rem] font-bold border-2 shadow-sm rounded-lg uppercase tracking-wider mb-2 ";
-    } else {
-      cellClasses += "h-[32px] ";
-    }
+    let cellClasses = `group inline-flex items-center justify-center w-full px-2.5 rounded text-[0.85rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out relative cursor-default border h-[32px] `;
 
     if (isVisible) {
       if (isRevealed) {
-        if (isHeading) {
-          cellClasses +=
-            "bg-blue-100 z-10 border-blue-500 text-blue-900 shadow-[0_0_12px_rgba(59,130,246,0.6)] dark:bg-[#1a2b44] dark:border-[#4d7db8] dark:text-[#9bc2f5] dark:shadow-[0_0_12px_rgba(77,125,184,0.4)] ";
-        } else {
-          cellClasses +=
-            "bg-green-50 z-10 border-green-400 text-green-700 shadow-[0_0_12px_rgba(34,197,94,0.3)] dark:bg-[#1a2a1a] dark:border-[#3d6b3d] dark:text-[#7ec87e] dark:shadow-[0_0_12px_rgba(126,200,126,0.15)] ";
-        }
+        cellClasses +=
+          "bg-green-50 z-10 border-green-400 text-green-700 shadow-[0_0_12px_rgba(34,197,94,0.3)] dark:bg-[#1a2a1a] dark:border-[#3d6b3d] dark:text-[#7ec87e] dark:shadow-[0_0_12px_rgba(126,200,126,0.15)] ";
       } else {
-        if (isHeading) {
-          cellClasses +=
-            "bg-slate-200 z-10 border-slate-600 text-slate-800 dark:bg-[#20202d] dark:border-[#6a6a7a] dark:text-[#f8f2e6] ";
-        } else {
-          cellClasses +=
-            "bg-slate-50 z-10 border-slate-300 text-slate-600 dark:bg-[#15151c] dark:border-[#3a3a4a] dark:text-[#9a9aa0] ";
-        }
+        cellClasses +=
+          "bg-slate-50 z-10 border-slate-300 text-slate-600 dark:bg-[#15151c] dark:border-[#3a3a4a] dark:text-[#9a9aa0] ";
       }
     } else {
-      if (isHeading) {
-        cellClasses +=
-          "text-transparent z-10 border-slate-500 dark:border-[#4a4a5a] bg-slate-100 dark:bg-[#1a1a24] after:content-[''] after:absolute after:inset-y-[6px] after:inset-x-3 after:rounded-sm after:bg-slate-500 dark:after:bg-[#4a4a5a] shadow-sm ";
-      } else if (isExpected) {
+      if (isExpected) {
         cellClasses +=
           "text-transparent z-10 border-blue-400 dark:border-[#4a7ac8] bg-blue-50 dark:bg-[#121c2b] after:content-[''] after:absolute after:inset-y-[4px] after:inset-x-2.5 after:rounded-sm after:bg-blue-300 dark:after:bg-[#325a96] shadow-[0_0_10px_rgba(59,130,246,0.3)] animate-pulse ";
       } else {
@@ -235,40 +225,32 @@ export default function GrammarCasesMemoryGameComp() {
     return (
       <div
         key={`${rowIndex}-${colIndex}-${item.word}`}
-        className="relative w-full"
+        className={`relative w-full ${isFlashing ? "z-50" : "z-10 hover:z-50"}`}
       >
         <div className={cellClasses}>
           {item.word}
 
           {isVisible && (
             <div
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2
-            hidden group-hover:flex flex-col bg-white dark:bg-[#2a2a35] 
-            text-black dark:text-[#e8e2d6] text-xs rounded-md shadow-xl py-2 px-3 
-            z-50 w-max min-w-[120px] pointer-events-none before:content-[''] 
-            before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 
-            before:border-4 before:border-transparent before:border-t-slate-800 
-            dark:before:border-t-[#2a2a35]"
+              className={`absolute left-1/2 -translate-x-1/2 ${
+                rowIndex === 1
+                  ? "top-full mt-2 before:bottom-full before:border-b-slate-800 dark:before:border-b-[#2a2a35]"
+                  : "bottom-full mb-2 before:top-full before:border-t-slate-800 dark:before:border-t-[#2a2a35]"
+              } ${isFlashing && !showAll ? "flex" : "hidden group-hover:flex"} flex-col bg-white dark:bg-[#2a2a35] text-black dark:text-[#e8e2d6] text-xs rounded-md shadow-xl py-2 px-3 z-60 w-max min-w-[120px] pointer-events-none before:content-[''] before:absolute before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent`}
             >
               <span className="font-bold text-green-600 dark:text-[#7ec87e] mb-1 tracking-wide uppercase text-[0.65rem] border-b border-slate-200 dark:border-[#4a4a5a] pb-1">
                 {item.type}
               </span>
-              <span
-                className="mt-0.5"
-                style={{ fontFamily: "sans-serif" }}
-              >
+              <span className="mt-0.5" style={{ fontFamily: "sans-serif" }}>
                 {item.en}
               </span>
-              <span
-                className="mt-0.5"
-                style={{ fontFamily: "sans-serif" }}
-              >
+              <span className="mt-0.5" style={{ fontFamily: "sans-serif" }}>
                 {item.hi}
               </span>
             </div>
           )}
         </div>
-        {!isHeading && colIndex < 3 && (
+        {colIndex < 3 && (
           <div className="absolute top-1/2 -right-[1.15rem] -translate-y-1/2 text-slate-300 dark:text-slate-600 font-bold pointer-events-none text-sm z-0">
             →
           </div>
@@ -354,12 +336,12 @@ export default function GrammarCasesMemoryGameComp() {
           className={`flex flex-col z-10 w-full px-4 transition-opacity duration-700 ${guessed.size === ALL_PRONOUNS.length ? "opacity-30" : "opacity-100"}`}
         >
           <div className="grid grid-cols-4 gap-x-8 mb-[6px]">
-            {HEADINGS.map((h, i) => renderCell(h, true, i, 0))}
+            {HEADINGS.map(renderHeading)}
           </div>
 
           <div className="grid grid-cols-4 gap-x-8 gap-y-[6px]">
             {ALL_PRONOUNS.map((v, i) =>
-              renderCell(v, false, i % 4, Math.floor(i / 4) + 1)
+              renderCell(v, i % 4, Math.floor(i / 4) + 1)
             )}
           </div>
         </div>

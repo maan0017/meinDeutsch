@@ -16,10 +16,10 @@ const VERBS: VerbWord[] = (verbsDataRaw as unknown as VerbWord[]).filter(
 );
 
 const HEADINGS = [
-  "Bedeutung (Meaning)",
-  "Infinitiv",
-  "Präteritum",
-  "Partizip II",
+  { main: "Bedeutung", sub: "(Meaning)" },
+  { main: "Infinitiv", sub: "(Infinitive)" },
+  { main: "Präteritum", sub: "(Simple Past)" },
+  { main: "Partizip II", sub: "(Past Participle)" },
 ];
 
 type TargetForm = {
@@ -209,11 +209,53 @@ export default function VerbFormsChallangeComp() {
         e.preventDefault();
         setCurrentGroup((p) => Math.max(p - 1, 0));
       }
+
+      if (
+        e.key.toLowerCase() === "delete" &&
+        !allIn &&
+        !playBookmarkedOnly &&
+        !e.altKey &&
+        !e.shiftKey &&
+        !e.ctrlKey
+      ) {
+        e.preventDefault();
+        setHistory([]);
+      }
+
+      if (
+        e.key.toLowerCase() === "a" &&
+        e.altKey &&
+        !e.shiftKey &&
+        !e.ctrlKey
+      ) {
+        e.preventDefault();
+        if (!playBookmarkedOnly) setAllIn((p) => !p);
+      }
+
+      if (
+        e.key.toLowerCase() === "b" &&
+        e.altKey &&
+        !e.shiftKey &&
+        !e.ctrlKey
+      ) {
+        e.preventDefault();
+        if (bookmarkedVerbs.length > 0) setPlayBookmarkedOnly((p) => !p);
+      }
+
+      if (
+        e.key.toLowerCase() === "m" &&
+        e.altKey &&
+        !e.shiftKey &&
+        !e.ctrlKey
+      ) {
+        e.preventDefault();
+        setStrictMode((p) => !p);
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [allIn, totalGroups]);
+  }, [allIn, totalGroups, playBookmarkedOnly, bookmarkedVerbs.length]);
 
   // ── Navigation ────────────────────────────────────────────────────────────
 
@@ -399,12 +441,15 @@ export default function VerbFormsChallangeComp() {
 
   // ── Render helpers ────────────────────────────────────────────────────────
 
-  const renderHeading = (text: string) => (
+  const renderHeading = (heading: { main: string; sub: string }) => (
     <div
-      key={text}
-      className="w-full px-2 py-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b border-gray-300 dark:border-gray-700 mb-1"
+      key={heading.main}
+      className="w-full px-2 py-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b border-gray-300 dark:border-gray-700 mb-1 flex flex-wrap items-baseline gap-x-1 leading-tight"
     >
-      {text}
+      <span>{heading.main}</span>
+      <span className="text-[9px] sm:text-[10px] md:text-[11px] font-medium text-slate-400 dark:text-slate-500">
+        {heading.sub}
+      </span>
     </div>
   );
 
@@ -513,10 +558,10 @@ export default function VerbFormsChallangeComp() {
             {/* Center — Group Navigator */}
             <div className="flex flex-1 items-center justify-center min-w-0 z-50">
               <div
-                className={`flex items-center justify-between h-8 md:h-10 w-full max-w-85 bg-white dark:bg-[#15151c] border border-slate-300 dark:border-[#3a3a4a] rounded-full transition-opacity duration-200 mx-auto shadow-sm ${
+                className={`flex items-center justify-between h-8 md:h-10 w-full max-w-85 border border-slate-300 dark:border-[#3a3a4a] rounded-full transition-all duration-200 mx-auto shadow-sm ${
                   allIn || playBookmarkedOnly
-                    ? "opacity-50 pointer-events-none select-none grayscale"
-                    : "opacity-100"
+                    ? "bg-slate-100 dark:bg-[#1a1a24] text-slate-400 dark:text-slate-600 pointer-events-none select-none grayscale"
+                    : "bg-white dark:bg-[#15151c] text-slate-600 dark:text-[#c8c0b0]"
                 }`}
               >
                 {/* Prev Group */}
@@ -549,7 +594,11 @@ export default function VerbFormsChallangeComp() {
                     disabled={allIn || playBookmarkedOnly}
                     value={currentGroup}
                     onChange={(e) => setCurrentGroup(Number(e.target.value))}
-                    className="appearance-none w-full h-full pl-2 pr-7 bg-transparent text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-center text-slate-600 dark:text-[#c8c0b0] truncate focus:outline-none cursor-pointer"
+                    className={`appearance-none w-full h-full pl-2 pr-7 bg-transparent text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-center truncate focus:outline-none cursor-pointer ${
+                      allIn || playBookmarkedOnly
+                        ? "text-slate-400 dark:text-slate-600"
+                        : "text-slate-600 dark:text-[#c8c0b0]"
+                    }`}
                   >
                     {Array.from({ length: totalGroups }).map((_, idx) => {
                       const start = idx * groupSize + 1;
@@ -622,11 +671,16 @@ export default function VerbFormsChallangeComp() {
             <label
               className={`flex items-center gap-1.5 select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${
                 playBookmarkedOnly
-                  ? "opacity-50 cursor-not-allowed bg-slate-100 text-slate-500 border-slate-300 dark:bg-[#1a1a24] dark:text-slate-500 dark:border-[#3a3a4a]"
+                  ? "cursor-not-allowed bg-slate-100 text-slate-400 border-slate-200 dark:bg-[#1a1a24] dark:text-slate-600 dark:border-[#2a2a35]"
                   : allIn
                     ? "cursor-pointer bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/40 dark:text-blue-400 dark:border-blue-800"
                     : "cursor-pointer bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"
               }`}
+              title={
+                playBookmarkedOnly
+                  ? "Disabled when 'Play Bookmarked Only' is active"
+                  : `Alt + A to ${allIn ? "Disable" : "Enable"} All In`
+              }
             >
               <input
                 type="checkbox"
@@ -638,7 +692,7 @@ export default function VerbFormsChallangeComp() {
               <div
                 className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${
                   playBookmarkedOnly
-                    ? "border-slate-300 dark:border-slate-500 bg-transparent"
+                    ? "border-slate-300 dark:border-[#3a3a4a] bg-slate-200 dark:bg-[#2a2a35]"
                     : allIn
                       ? "bg-blue-500 border-blue-500"
                       : "border-slate-400 dark:border-slate-500 bg-transparent"
@@ -664,7 +718,7 @@ export default function VerbFormsChallangeComp() {
             {/* Strict Mode Toggle */}
             <label
               className={`flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${strictMode ? "bg-rose-50 text-rose-600 border-rose-200 dark:bg-rose-900/40 dark:text-rose-400 dark:border-rose-800" : "bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"}`}
-              title="3 incorrect actions directly fails the test on this word."
+              title={`3 incorrect actions directly fails the test on this word. (Alt + M to ${strictMode ? "Disable" : "Enable"})`}
             >
               <input
                 type="checkbox"
@@ -696,11 +750,16 @@ export default function VerbFormsChallangeComp() {
             <label
               className={`flex items-center gap-1.5 select-none text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 px-2 md:px-3 py-1 md:py-1.5 rounded-full border ${
                 bookmarkedVerbs.length === 0
-                  ? "opacity-50 cursor-not-allowed bg-slate-100 text-slate-500 border-slate-300 dark:bg-[#1a1a24] dark:text-slate-500 dark:border-[#3a3a4a]"
+                  ? "cursor-not-allowed bg-slate-100 text-slate-400 border-slate-200 dark:bg-[#1a1a24] dark:text-slate-600 dark:border-[#2a2a35]"
                   : playBookmarkedOnly
                     ? "cursor-pointer bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-900/40 dark:text-amber-400 dark:border-amber-700/50"
                     : "cursor-pointer bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200 dark:bg-[#1a1a24] dark:text-slate-400 dark:border-[#3a3a4a] dark:hover:bg-[#2a2a35]"
               }`}
+              title={
+                bookmarkedVerbs.length === 0
+                  ? "No bookmarks available"
+                  : `Alt + B to ${playBookmarkedOnly ? "Disable" : "Enable"} Bookmarks Mode`
+              }
             >
               <input
                 type="checkbox"
@@ -713,7 +772,13 @@ export default function VerbFormsChallangeComp() {
                 className="sr-only"
               />
               <div
-                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${playBookmarkedOnly ? "bg-amber-500 border-amber-500" : "border-slate-400 dark:border-slate-500 bg-transparent"}`}
+                className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${
+                  bookmarkedVerbs.length === 0
+                    ? "border-slate-300 dark:border-[#3a3a4a] bg-slate-200 dark:bg-[#2a2a35]"
+                    : playBookmarkedOnly
+                      ? "bg-amber-500 border-amber-500"
+                      : "border-slate-400 dark:border-slate-500 bg-transparent"
+                }`}
               >
                 {playBookmarkedOnly && (
                   <svg
@@ -768,8 +833,18 @@ export default function VerbFormsChallangeComp() {
           }
           onBookmarkToggle={() => {
             if (currentVerb) {
+              const isRemoving = bookmarkedVerbs.includes(
+                currentVerb.germanWord
+              );
               toggleBookmark(currentVerb.germanWord);
-              setBookmarkedVerbs(getBookmarkStrings());
+              const newBookmarks = getBookmarkStrings();
+              setBookmarkedVerbs(newBookmarks);
+              if (newBookmarks.length === 0) {
+                setPlayBookmarkedOnly(false);
+              }
+              if (isRemoving && playBookmarkedOnly) {
+                advanceToNext(activeVerbs, currentIndex);
+              }
             }
           }}
         />

@@ -34,13 +34,6 @@ export const useQuizGameLogic = ({
   const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
   const seenIndicesRef = useRef<Set<number>>(new Set());
 
-  // Reset seen words when group or mode changes
-  useEffect(() => {
-    const newSet = new Set<number>();
-    setSeenIndices(newSet);
-    seenIndicesRef.current = newSet;
-  }, [currentGroup, allIn]);
-
   const handleNextWord = useCallback(
     (forceReset = false) => {
       let start = 0;
@@ -101,14 +94,6 @@ export const useQuizGameLogic = ({
       handleNextWord(true);
     }
   }, [currentGroup, allIn, isInitialized, handleNextWord]);
-
-  // Initial load
-  useEffect(() => {
-    if (!word && isInitialized) {
-      handleNextWord();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInitialized]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
