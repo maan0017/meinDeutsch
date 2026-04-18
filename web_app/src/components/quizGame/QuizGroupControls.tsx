@@ -43,6 +43,9 @@ export const QuizGroupControls = ({
         e.preventDefault();
         setStrictMode(!strictMode);
       }
+      if (e.altKey && e.key.toLowerCase() === "d") {
+        e.preventDefault();
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);

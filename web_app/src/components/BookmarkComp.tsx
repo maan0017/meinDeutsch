@@ -50,7 +50,7 @@ export const BookmarkComp: FC<BookmarkCompProps> = ({
         !event.ctrlKey &&
         event.key.toLowerCase() === "d" &&
         event.altKey &&
-        event.shiftKey &&
+        !event.shiftKey &&
         !event.metaKey
       ) {
         event.preventDefault();
