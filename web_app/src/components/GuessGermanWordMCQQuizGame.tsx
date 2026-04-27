@@ -3,18 +3,21 @@
 import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { GermanWord } from "@/models/germanWord";
-import {
-  RandomGermanWordSelector,
-  GetGermanWordsGroupLength,
-} from "@/helper/RandomGermanWordSelector";
+import { RandomGermanWordSelector } from "@/helper/RandomGermanWordSelector";
 import { germanWords } from "@/data/germanWords";
 import { useGoBack } from "@/hooks/useGoBack";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
-import { useSettingsStore } from "@/store/settings";
 import { convertArticleInHindiPronuncation } from "@/utils/utils";
+import { QuizGroupControls } from "./quizGame/QuizGroupControls";
+import { useGroupSystem } from "@/hooks/quizGame/useGroupSystem";
+import { useBookmark } from "@/hooks/useBookmark";
 
 const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_mcq_current_group";
 const SAVED_STATE_ALL_IN = "gem_guess_german_word_mcq_all_in";
+const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_mcq_strict_mode";
+const SAVED_STATE_REVERSE_MODE = "gem_guess_german_word_mcq_reverse_mode";
+const SAVED_STATE_BOOKMARKED_ONLY = "gem_guess_german_word_mcq_bookmarked_only";
+const BOOKMARK_NAME = "GUESS_GERMAN_WORD_MCQ_QUIZ_GAME_BOOKMARKED_WORDS";
 
 export default function GuessGermanWordMCQQuizGame() {
   const [currentWord, setCurrentWord] = useState<GermanWord | null>(null);
@@ -23,36 +26,52 @@ export default function GuessGermanWordMCQQuizGame() {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(
     null
   );
+  const [isReverseMode, setIsReverseMode] = useState(false);
+  const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState(false);
+  const [bookmarkedWords, setBookmarkedWords] = useState<string[]>([]);
+  const { getBookmarkStrings } = useBookmark(BOOKMARK_NAME);
+
+  // Poll bookmarks periodically
+  useEffect(() => {
+    const updateBookmarks = () => {
+      setBookmarkedWords((prev) => {
+        const next = getBookmarkStrings();
+        if (prev.length !== next.length || prev.some((v, i) => v !== next[i])) {
+          return next;
+        }
+        return prev;
+      });
+    };
+    updateBookmarks();
+    const interval = setInterval(updateBookmarks, 1000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // logic to track unseen words
   const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
 
   // group system
-  const { groupSize } = useSettingsStore();
-  const [currentGroup, setCurrentGroup] = useState<number>(0);
-  const totalGroups = GetGermanWordsGroupLength(groupSize);
-  const [allIn, setAllIn] = useState<boolean>(false);
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const {
+    currentGroup,
+    setCurrentGroup,
+    totalGroups,
+    allIn,
+    setAllIn,
+    isInitialized,
+    moveToNextGroup,
+    moveToPrevGroup,
+    groupSize,
+  } = useGroupSystem(
+    SAVED_STATE_CURRENT_GROUP,
+    SAVED_STATE_ALL_IN,
+    SAVED_STATE_STRICT_MODE
+  );
 
   const { playSound } = useSoundEffects();
 
   // adds shortcut to go back using backspace key
   useGoBack();
-
-  // Load state from local storage on mount
-  useEffect(() => {
-    const savedGroup = localStorage.getItem(SAVED_STATE_CURRENT_GROUP);
-    if (savedGroup) {
-      const parsedGroup = Number(savedGroup);
-      setCurrentGroup(parsedGroup >= totalGroups ? 0 : parsedGroup);
-    }
-
-    const savedAllIn = localStorage.getItem(SAVED_STATE_ALL_IN);
-    if (savedAllIn) setAllIn(savedAllIn === "true");
-
-    setIsInitialized(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Save state to local storage when changed (only after initialization)
   useEffect(() => {
@@ -60,6 +79,36 @@ export default function GuessGermanWordMCQQuizGame() {
     localStorage.setItem(SAVED_STATE_CURRENT_GROUP, String(currentGroup));
     localStorage.setItem(SAVED_STATE_ALL_IN, String(allIn));
   }, [currentGroup, allIn, isInitialized]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(SAVED_STATE_REVERSE_MODE);
+    if (saved !== null) {
+      setIsReverseMode(saved === "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(SAVED_STATE_BOOKMARKED_ONLY);
+    if (saved !== null) {
+      setPlayBookmarkedOnly(saved === "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(
+      SAVED_STATE_BOOKMARKED_ONLY,
+      String(playBookmarkedOnly)
+    );
+  }, [playBookmarkedOnly, isInitialized]);
+
+  const toggleReverseMode = () => {
+    setIsReverseMode((prev) => {
+      const next = !prev;
+      localStorage.setItem(SAVED_STATE_REVERSE_MODE, String(next));
+      return next;
+    });
+  };
 
   // Reset seen words when group or mode changes
   useEffect(() => {
@@ -97,42 +146,66 @@ export default function GuessGermanWordMCQQuizGame() {
 
   const handleNextWord = useCallback(
     (forceReset = false) => {
-      let start, end;
-
-      let validGroup = currentGroup;
-      if (validGroup >= totalGroups) {
-        validGroup = 0;
-        setCurrentGroup(0);
-      }
-
-      if (!allIn) {
-        start = validGroup * groupSize;
-        end = Math.min((validGroup + 1) * groupSize, germanWords.length);
-      } else {
-        start = 0;
-        end = germanWords.length;
-      }
-
-      // Filter available indices that haven't been seen yet
-      let availableIndices = [];
-      // If forceReset is true, we ignore seenIndices and consider all as available initially
+      let availableIndices: number[] = [];
       const indicesToCheck = forceReset ? new Set<number>() : seenIndices;
 
-      for (let i = start; i < end; i++) {
-        if (!indicesToCheck.has(i)) {
-          availableIndices.push(i);
+      if (playBookmarkedOnly) {
+        if (bookmarkedWords.length === 0) {
+          setPlayBookmarkedOnly(false);
+          return;
         }
-      }
 
-      // If all words seen, reset
-      if (availableIndices.length === 0) {
-        availableIndices = [];
-        for (let i = start; i < end; i++) {
-          availableIndices.push(i);
+        for (let i = 0; i < germanWords.length; i++) {
+          if (
+            bookmarkedWords.includes(germanWords[i].germanWord) &&
+            !indicesToCheck.has(i)
+          ) {
+            availableIndices.push(i);
+          }
         }
-        // If we are auto-resetting because we ran out, clear the set
-        if (!forceReset) {
-          setSeenIndices(new Set());
+
+        if (availableIndices.length === 0) {
+          availableIndices = [];
+          for (let i = 0; i < germanWords.length; i++) {
+            if (bookmarkedWords.includes(germanWords[i].germanWord)) {
+              availableIndices.push(i);
+            }
+          }
+          if (!forceReset) {
+            setSeenIndices(new Set());
+          }
+        }
+      } else {
+        let start, end;
+        let validGroup = currentGroup;
+        if (validGroup >= totalGroups) {
+          validGroup = 0;
+          setCurrentGroup(0);
+        }
+
+        if (!allIn) {
+          start = validGroup * groupSize;
+          end = Math.min((validGroup + 1) * groupSize, germanWords.length);
+        } else {
+          start = 0;
+          end = germanWords.length;
+        }
+
+        for (let i = start; i < end; i++) {
+          if (!indicesToCheck.has(i)) {
+            availableIndices.push(i);
+          }
+        }
+
+        // If all words seen, reset
+        if (availableIndices.length === 0) {
+          availableIndices = [];
+          for (let i = start; i < end; i++) {
+            availableIndices.push(i);
+          }
+          if (!forceReset) {
+            setSeenIndices(new Set());
+          }
         }
       }
 
@@ -157,7 +230,16 @@ export default function GuessGermanWordMCQQuizGame() {
       setStatus("idle");
       setSelectedOptionIndex(null);
     },
-    [allIn, currentGroup, groupSize, seenIndices, totalGroups, generateOptions]
+    [
+      allIn,
+      currentGroup,
+      groupSize,
+      seenIndices,
+      totalGroups,
+      generateOptions,
+      playBookmarkedOnly,
+      bookmarkedWords,
+    ]
   );
 
   // Sync state changes (Group/AllIn) -> Next Word
@@ -166,7 +248,7 @@ export default function GuessGermanWordMCQQuizGame() {
       handleNextWord(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentGroup, allIn, isInitialized]);
+  }, [currentGroup, allIn, isInitialized, playBookmarkedOnly]);
 
   const handleOptionClick = useCallback(
     (word: GermanWord, index: number) => {
@@ -216,7 +298,7 @@ export default function GuessGermanWordMCQQuizGame() {
         if (options[index]) {
           const refs = [option1Ref, option2Ref, option3Ref, option4Ref];
           refs[index]?.current?.focus();
-          // handleOptionClick(options[index], index);
+          handleOptionClick(options[index], index);
         }
       }
 
@@ -238,6 +320,30 @@ export default function GuessGermanWordMCQQuizGame() {
   };
 
   if (!currentWord) return null;
+
+  const currentGroupStart = allIn ? 0 : currentGroup * groupSize;
+  const currentGroupEnd = allIn
+    ? germanWords.length
+    : Math.min((currentGroup + 1) * groupSize, germanWords.length);
+
+  const totalWordsInCurrentGroup = playBookmarkedOnly
+    ? bookmarkedWords.length
+    : currentGroupEnd - currentGroupStart;
+
+  let count = 0;
+  for (const i of seenIndices) {
+    if (playBookmarkedOnly) {
+      if (bookmarkedWords.includes(germanWords[i].germanWord)) count++;
+    } else {
+      if (i >= currentGroupStart && i < currentGroupEnd) count++;
+    }
+  }
+
+  const completedWords = Math.max(0, count - 1 + (status !== "idle" ? 1 : 0));
+  const remainingWordsInGroup = Math.max(
+    0,
+    totalWordsInCurrentGroup - completedWords
+  );
 
   return (
     <div className="flex min-h-[60vh] w-full flex-col items-center justify-center p-4 md:p-6 bg-gray-50 dark:bg-[#121212]">
@@ -272,8 +378,38 @@ export default function GuessGermanWordMCQQuizGame() {
             Meaning Quiz (MCQ)
           </h1>
           <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium">
-            Select the correct English meaning
+            Select the correct{" "}
+            {isReverseMode ? "German word" : "English meaning"}
           </p>
+          <div className="flex justify-center pt-2">
+            <button
+              onClick={toggleReverseMode}
+              className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors flex items-center gap-1.5 ${
+                isReverseMode
+                  ? "bg-purple-100 border-purple-300 text-purple-700 dark:bg-purple-900/30 dark:border-purple-700 dark:text-purple-300"
+                  : "bg-gray-100 border-gray-200 text-gray-600 dark:bg-[#2A2A2A] dark:border-[#444] dark:text-[#B0B0B0]"
+              }`}
+              title="Toggle Reverse Mode (English/Hindi -> German)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 2v6h-6" />
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 22v-6h6" />
+                <path d="M21 12a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+              </svg>
+              {isReverseMode ? "Reverse Mode: ON" : "Reverse Mode: OFF"}
+            </button>
+          </div>
         </header>
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 gap-4 items-center">
@@ -282,174 +418,72 @@ export default function GuessGermanWordMCQQuizGame() {
             <div className="p-5 md:p-8 text-center space-y-6">
               {/* Top Bar with Group Controls & Badge */}
               <div className="flex flex-col items-center justify-center gap-4 relative">
-                {/* Group Controls */}
-                <div
-                  className={`
-                  flex items-center justify-center gap-4 
-                  bg-gray-50 dark:bg-[#1a1a1a] 
-                  rounded-full px-4 py-1.5 
-                  border border-gray-100 dark:border-[#333]
-                  transition-all duration-300
-                  ${
-                    allIn
-                      ? "opacity-30 grayscale pointer-events-none select-none"
-                      : "opacity-100"
-                  }
-                `}
-                >
-                  <button
-                    disabled={currentGroup === 0 || allIn}
-                    onClick={() => {
-                      setCurrentGroup(currentGroup - 1);
-                    }}
-                    className="
-                    p-1 rounded-full 
-                    text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
-                    disabled:opacity-30 disabled:cursor-not-allowed
-                    transition-colors
-                  "
-                    title="Previous Group (Left Arrow)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m15 18-6-6 6-6" />
-                    </svg>
-                  </button>
+                <QuizGroupControls
+                  allIn={allIn}
+                  setAllIn={setAllIn}
+                  currentGroup={currentGroup}
+                  totalGroups={totalGroups}
+                  groupSize={groupSize}
+                  setCurrentGroup={setCurrentGroup}
+                  moveToNextGroup={moveToNextGroup}
+                  moveToPrevGroup={moveToPrevGroup}
+                  remainingWords={remainingWordsInGroup}
+                  wordGerman={currentWord?.germanWord || ""}
+                  BOOKMARK_NAME={BOOKMARK_NAME}
+                  playBookmarkedOnly={playBookmarkedOnly}
+                  setPlayBookmarkedOnly={setPlayBookmarkedOnly}
+                  isBookmarkedListEmpty={bookmarkedWords.length === 0}
+                />
 
-                  <span
-                    title="Splits German words in groups of 50 so that words can learned easily."
-                    className="text-xs font-semibold text-gray-500 dark:text-gray-400 "
-                  >
-                    Group {currentGroup + 1} / {totalGroups}
-                  </span>
-
-                  <button
-                    onClick={() => {
-                      setCurrentGroup(currentGroup + 1);
-                    }}
-                    disabled={currentGroup === totalGroups - 1 || allIn}
-                    className="
-                    p-1 rounded-full 
-                    text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 
-                    disabled:opacity-30 disabled:cursor-not-allowed
-                    transition-colors
-                  "
-                    title="Next Group (Right Arrow)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </button>
-                </div>
-
-                {/* Tag and "All In" Toggle Container */}
-                <div className="flex items-center justify-center gap-3 w-full">
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
-                    German Word
-                    {currentWord && (
-                      <span className="ml-1 text-gray-400 dark:text-gray-500">
-                        #
-                        {germanWords.findIndex(
-                          (w) => w.germanWord === currentWord.germanWord
-                        ) + 1}
-                      </span>
-                    )}
-                  </span>
-
-                  <label
-                    htmlFor="allIn"
-                    title="Play all words at once, Disables Group system"
-                    className={`
-                      flex items-center gap-1.5 cursor-pointer select-none 
-                      text-xs font-medium 
-                      transition-colors duration-200
-                      px-2 py-0.5 rounded-md border
-                      ${
-                        allIn
-                          ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
-                          : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
-                      }
-                    `}
-                  >
-                    <div className="relative flex items-center">
-                      <input
-                        type="checkbox"
-                        id="allIn"
-                        checked={allIn}
-                        onChange={(e) => {
-                          const newValue = e.target.checked;
-                          setAllIn(newValue);
-                        }}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`
-                          w-3 h-3 rounded-full border mr-1.5 transition-colors
-                          ${
-                            allIn
-                              ? "bg-blue-500 border-blue-500"
-                              : "border-gray-300 dark:border-gray-600 bg-transparent"
-                          }
-                       `}
-                      >
-                        {allIn && (
-                          <svg
-                            className="w-full h-full text-white p-0.5"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-                    All in
-                  </label>
-                </div>
+                <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-[#1a1a1a] dark:text-gray-500 border border-gray-100 dark:border-[#333] px-2 py-0.5 rounded-md">
+                  {isReverseMode ? "Meaning" : "German Word"}
+                  {currentWord && (
+                    <span className="ml-1 text-gray-400 dark:text-gray-500">
+                      #
+                      {germanWords.findIndex(
+                        (w) => w.germanWord === currentWord.germanWord
+                      ) + 1}
+                    </span>
+                  )}
+                </span>
               </div>
 
               {/* Main Content */}
               <div className="space-y-2">
                 <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-[#E0E0E0] tracking-tight">
-                  {currentWord?.article && (
-                    <span className="text-gray-400 dark:text-gray-600 font-normal mr-2 text-2xl md:text-3xl align-middle">
-                      {currentWord.article}
+                  {!isReverseMode ? (
+                    <>
+                      {currentWord?.article && (
+                        <span className="text-gray-400 dark:text-gray-600 font-normal mr-2 text-2xl md:text-3xl align-middle">
+                          {currentWord.article}
+                        </span>
+                      )}
+                      {currentWord?.germanWord}
+                    </>
+                  ) : (
+                    <span className="text-2xl md:text-4xl">
+                      {currentWord &&
+                        displayMeaning(currentWord.englishMeaning)}
                     </span>
                   )}
-                  {currentWord?.germanWord}
                 </h2>
 
                 <p className="text-sm md:text-base text-gray-400 dark:text-gray-500 font-medium">
-                  (
-                  {currentWord?.article
-                    ? `${convertArticleInHindiPronuncation(
-                        currentWord.article
-                      )} ${currentWord.hindiPronunciation}`
-                    : currentWord?.hindiPronunciation}
-                  )
+                  {!isReverseMode ? (
+                    <>
+                      (
+                      {currentWord?.article
+                        ? `${convertArticleInHindiPronuncation(
+                            currentWord.article
+                          )} ${currentWord.hindiPronunciation}`
+                        : currentWord?.hindiPronunciation}
+                      )
+                    </>
+                  ) : (
+                    <>
+                      {currentWord && displayMeaning(currentWord.hindiMeaning)}
+                    </>
+                  )}
                 </p>
               </div>
             </div>
@@ -467,19 +501,19 @@ export default function GuessGermanWordMCQQuizGame() {
                 status === "wrong" && index === selectedOptionIndex;
 
               const baseStyle =
-                "w-full p-3 md:p-4 text-left rounded-xl border-2 transition-all duration-200 text-base md:text-lg font-medium flex items-center justify-between z-10";
+                "w-full p-3 md:p-4 text-left rounded-xl border-2 transition-all duration-200 text-base md:text-lg font-medium flex items-center justify-between z-10 active:scale-[0.98]";
 
               const idleStyle =
-                "bg-white dark:bg-[#121212] border-gray-200 dark:border-[#444444] hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-[#444444] cursor-pointer text-gray-700 dark:text-[#E0E0E0]  z-10";
+                "bg-white dark:bg-[#121212] border-gray-200 dark:border-[#444444] hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-[#1E293B] cursor-pointer text-gray-700 dark:text-[#E0E0E0]  z-10";
 
               const correctStyle =
-                "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300  z-10";
+                "border-green-500 bg-green-50 dark:bg-[#14301c] text-green-700 dark:text-green-300  z-10";
 
               const wrongStyle =
-                "border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300  z-10";
+                "border-red-500 bg-red-50 dark:bg-[#381616] text-red-700 dark:text-red-300  z-10";
 
               const dimStyle =
-                "border-gray-200 dark:grey-100 text-gray-500 dark:text-[#888888] z-10";
+                "bg-gray-50 dark:bg-[#181818] border-gray-200 dark:border-[#333333] text-gray-400 dark:text-[#666666] z-10";
 
               const buttonStyle = isIdle
                 ? idleStyle
@@ -509,7 +543,14 @@ export default function GuessGermanWordMCQQuizGame() {
                     <span className="hidden md:flex items-center justify-center w-6 h-6 border-2 border-inherit rounded-md text-sm font-bold opacity-60">
                       {index + 1}
                     </span>
-                    <span>{displayMeaning(option.englishMeaning)}</span>
+                    <span>
+                      {!isReverseMode
+                        ? displayMeaning(option.englishMeaning) +
+                          "  /  " +
+                          displayMeaning(option.hindiMeaning)
+                        : (option.article ? option.article + " " : "") +
+                          option.germanWord}
+                    </span>
                   </div>
 
                   {/* Arrow only when clickable */}

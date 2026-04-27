@@ -4,14 +4,17 @@ import { QuizGameInput } from "./QuizGameInput";
 import { germanWords } from "@/data/germanWords";
 import { useGroupSystem } from "@/hooks/quizGame/useGroupSystem";
 import { useQuizGameLogic } from "@/hooks/quizGame/useQuizGameLogic";
+import { useBookmark } from "@/hooks/useBookmark";
 import { QuizHeader } from "./quizGame/QuizHeader";
 import { QuizGroupControls } from "./quizGame/QuizGroupControls";
 import { QuizFeedback } from "./quizGame/QuizFeedback";
+import { useState, useEffect } from "react";
 
 const BOOKMARK_NAME = "GUESS_GERMAN_WORD_QUIZ_GAME_BOOKMARKED_WORDS";
 const SAVED_STATE_CURRENT_GROUP = "gem_guess_german_word_current_group";
 const SAVED_STATE_ALL_IN = "gem_guess_german_word_all_in";
 const SAVED_STATE_STRICT_MODE = "gem_guess_german_word_strict_mode";
+const SAVED_STATE_BOOKMARKED_ONLY = "gem_guess_german_word_bookmarked_only";
 
 export default function GuessGermanWordQuizGame() {
   const {
@@ -32,6 +35,42 @@ export default function GuessGermanWordQuizGame() {
     SAVED_STATE_STRICT_MODE
   );
 
+  const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState(false);
+  const [bookmarkedWords, setBookmarkedWords] = useState<string[]>([]);
+  const { getBookmarkStrings } = useBookmark(BOOKMARK_NAME);
+
+  // Poll bookmarks periodically
+  useEffect(() => {
+    const updateBookmarks = () => {
+      setBookmarkedWords((prev) => {
+        const next = getBookmarkStrings();
+        if (prev.length !== next.length || prev.some((v, i) => v !== next[i])) {
+          return next;
+        }
+        return prev;
+      });
+    };
+    updateBookmarks();
+    const interval = setInterval(updateBookmarks, 1000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(SAVED_STATE_BOOKMARKED_ONLY);
+    if (saved !== null) {
+      setPlayBookmarkedOnly(saved === "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(
+      SAVED_STATE_BOOKMARKED_ONLY,
+      String(playBookmarkedOnly)
+    );
+  }, [playBookmarkedOnly, isInitialized]);
+
   const {
     word,
     userAnswer,
@@ -49,6 +88,8 @@ export default function GuessGermanWordQuizGame() {
     isInitialized,
     moveToNextGroup,
     moveToPrevGroup,
+    playBookmarkedOnly,
+    bookmarkedWords,
   });
 
   const displayMeaning = (text: string | string[]): string =>
@@ -62,11 +103,17 @@ export default function GuessGermanWordQuizGame() {
     ? germanWords.length
     : Math.min((currentGroup + 1) * groupSize, germanWords.length);
 
-  const totalWordsInCurrentGroup = currentGroupEnd - currentGroupStart;
+  const totalWordsInCurrentGroup = playBookmarkedOnly
+    ? bookmarkedWords.length
+    : currentGroupEnd - currentGroupStart;
 
   let count = 0;
   for (const i of seenIndices) {
-    if (i >= currentGroupStart && i < currentGroupEnd) count++;
+    if (playBookmarkedOnly) {
+      if (bookmarkedWords.includes(germanWords[i].germanWord)) count++;
+    } else {
+      if (i >= currentGroupStart && i < currentGroupEnd) count++;
+    }
   }
 
   const completedWords = Math.max(0, count - 1 + (status !== "idle" ? 1 : 0));
@@ -164,6 +211,9 @@ export default function GuessGermanWordQuizGame() {
               remainingWords={remainingWordsInGroup}
               wordGerman={word.germanWord}
               BOOKMARK_NAME={BOOKMARK_NAME}
+              playBookmarkedOnly={playBookmarkedOnly}
+              setPlayBookmarkedOnly={setPlayBookmarkedOnly}
+              isBookmarkedListEmpty={bookmarkedWords.length === 0}
             />
 
             {/* Clues */}

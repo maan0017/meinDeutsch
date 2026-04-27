@@ -11,6 +11,8 @@ interface UseQuizGameLogicProps {
   isInitialized: boolean;
   moveToNextGroup: () => void;
   moveToPrevGroup: () => void;
+  playBookmarkedOnly?: boolean;
+  bookmarkedWords?: string[];
 }
 
 export const useQuizGameLogic = ({
@@ -21,6 +23,8 @@ export const useQuizGameLogic = ({
   isInitialized,
   moveToNextGroup,
   moveToPrevGroup,
+  playBookmarkedOnly,
+  bookmarkedWords,
 }: UseQuizGameLogicProps) => {
   const { playSound } = useSoundEffects();
   const [word, setWord] = useState<GermanWord | null>(null);
@@ -36,37 +40,66 @@ export const useQuizGameLogic = ({
 
   const handleNextWord = useCallback(
     (forceReset = false) => {
-      let start = 0;
-      let end = germanWords.length;
-
-      if (!allIn) {
-        start = currentGroup * groupSize;
-        end = Math.min((currentGroup + 1) * groupSize, germanWords.length);
-      }
-
       let availableIndices: number[] = [];
       const indicesToCheck = forceReset
         ? new Set<number>()
         : seenIndicesRef.current;
 
-      for (let i = start; i < end; i++) {
-        if (!indicesToCheck.has(i)) {
-          availableIndices.push(i);
+      if (playBookmarkedOnly && bookmarkedWords) {
+        if (bookmarkedWords.length === 0) return;
+
+        for (let i = 0; i < germanWords.length; i++) {
+          if (
+            bookmarkedWords.includes(germanWords[i].germanWord) &&
+            !indicesToCheck.has(i)
+          ) {
+            availableIndices.push(i);
+          }
+        }
+
+        if (availableIndices.length === 0) {
+          availableIndices = [];
+          for (let i = 0; i < germanWords.length; i++) {
+            if (bookmarkedWords.includes(germanWords[i].germanWord)) {
+              availableIndices.push(i);
+            }
+          }
+          if (!forceReset) {
+            const newSet = new Set<number>();
+            seenIndicesRef.current = newSet;
+            setSeenIndices(newSet);
+          }
+        }
+      } else {
+        let start = 0;
+        let end = germanWords.length;
+
+        if (!allIn) {
+          start = currentGroup * groupSize;
+          end = Math.min((currentGroup + 1) * groupSize, germanWords.length);
+        }
+
+        for (let i = start; i < end; i++) {
+          if (!indicesToCheck.has(i)) {
+            availableIndices.push(i);
+          }
+        }
+
+        // If all words seen (or strict subset logic), reset or recycle
+        if (availableIndices.length === 0) {
+          availableIndices = [];
+          for (let i = start; i < end; i++) {
+            availableIndices.push(i);
+          }
+          if (!forceReset) {
+            const newSet = new Set<number>();
+            seenIndicesRef.current = newSet;
+            setSeenIndices(newSet);
+          }
         }
       }
 
-      // If all words seen (or strict subset logic), reset or recycle
-      if (availableIndices.length === 0) {
-        availableIndices = [];
-        for (let i = start; i < end; i++) {
-          availableIndices.push(i);
-        }
-        if (!forceReset) {
-          const newSet = new Set<number>();
-          seenIndicesRef.current = newSet;
-          setSeenIndices(newSet);
-        }
-      }
+      if (availableIndices.length === 0) return;
 
       const randomIndex = Math.floor(Math.random() * availableIndices.length);
       const selectedOriginalIndex = availableIndices[randomIndex];
@@ -85,7 +118,7 @@ export const useQuizGameLogic = ({
       setStatus("idle");
       setTimeout(() => inputRef.current?.focus(), 50);
     },
-    [allIn, currentGroup, groupSize]
+    [allIn, currentGroup, groupSize, playBookmarkedOnly, bookmarkedWords]
   );
 
   // Sync state changes -> Next Word
@@ -93,7 +126,8 @@ export const useQuizGameLogic = ({
     if (isInitialized) {
       handleNextWord(true);
     }
-  }, [currentGroup, allIn, isInitialized, handleNextWord]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentGroup, allIn, isInitialized, playBookmarkedOnly]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

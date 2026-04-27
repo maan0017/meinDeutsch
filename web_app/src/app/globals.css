@@ -37,6 +37,15 @@
 @utility font-fredoka {
   font-family: var(--font-fredoka), system-ui, sans-serif;
 }
+@utility font-merriweather {
+  font-family: var(--font-merriweather), Georgia, serif;
+}
+@utility font-poppins {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+@utility font-source-sans {
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+}
 
 /* --- System generic families --- */
 @utility font-system-sans {

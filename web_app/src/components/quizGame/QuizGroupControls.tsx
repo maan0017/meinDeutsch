@@ -8,14 +8,17 @@ interface QuizGroupControlsProps {
   groupSize: number;
   allIn: boolean;
   setAllIn: (value: boolean) => void;
-  strictMode: boolean;
-  setStrictMode: (value: boolean) => void;
+  strictMode?: boolean;
+  setStrictMode?: (value: boolean) => void;
   moveToNextGroup: () => void;
   moveToPrevGroup: () => void;
   setCurrentGroup: (value: number) => void;
   remainingWords: number;
   wordGerman: string;
   BOOKMARK_NAME: string;
+  playBookmarkedOnly?: boolean;
+  setPlayBookmarkedOnly?: (value: boolean) => void;
+  isBookmarkedListEmpty?: boolean;
 }
 
 export const QuizGroupControls = ({
@@ -32,6 +35,9 @@ export const QuizGroupControls = ({
   remainingWords,
   wordGerman,
   BOOKMARK_NAME,
+  playBookmarkedOnly,
+  setPlayBookmarkedOnly,
+  isBookmarkedListEmpty,
 }: QuizGroupControlsProps) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -39,9 +45,18 @@ export const QuizGroupControls = ({
         e.preventDefault();
         setAllIn(!allIn);
       }
-      if (e.altKey && e.key.toLowerCase() === "m") {
+      if (e.altKey && e.key.toLowerCase() === "m" && setStrictMode !== undefined) {
         e.preventDefault();
         setStrictMode(!strictMode);
+      }
+      if (
+        e.altKey &&
+        e.key.toLowerCase() === "b" &&
+        setPlayBookmarkedOnly !== undefined &&
+        !isBookmarkedListEmpty
+      ) {
+        e.preventDefault();
+        setPlayBookmarkedOnly(!playBookmarkedOnly);
       }
       if (e.altKey && e.key.toLowerCase() === "d") {
         e.preventDefault();
@@ -49,7 +64,15 @@ export const QuizGroupControls = ({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [allIn, setAllIn, strictMode, setStrictMode]);
+  }, [
+    allIn,
+    setAllIn,
+    strictMode,
+    setStrictMode,
+    playBookmarkedOnly,
+    setPlayBookmarkedOnly,
+    isBookmarkedListEmpty,
+  ]);
 
   return (
     <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
@@ -78,7 +101,7 @@ export const QuizGroupControls = ({
               transition-opacity duration-200
               mx-auto
               ${
-                allIn
+                allIn || playBookmarkedOnly
                   ? "opacity-50 pointer-events-none select-none grayscale"
                   : "opacity-100"
               }
@@ -87,7 +110,7 @@ export const QuizGroupControls = ({
             {/* Prev */}
             <button
               type="button"
-              disabled={currentGroup === 0 || allIn}
+              disabled={currentGroup === 0 || allIn || playBookmarkedOnly}
               onClick={moveToPrevGroup}
               title="Previous Group"
               className="
@@ -116,7 +139,7 @@ export const QuizGroupControls = ({
             {/* Dropdown Selector */}
             <div className="relative flex-1 h-full min-w-0 border-x border-gray-100 dark:border-zinc-800">
               <select
-                disabled={allIn}
+                disabled={allIn || playBookmarkedOnly}
                 value={currentGroup}
                 onChange={(e) => setCurrentGroup(Number(e.target.value))}
                 className="
@@ -165,7 +188,7 @@ export const QuizGroupControls = ({
             {/* Next */}
             <button
               type="button"
-              disabled={currentGroup === totalGroups - 1 || allIn}
+              disabled={currentGroup === totalGroups - 1 || allIn || playBookmarkedOnly}
               onClick={moveToNextGroup}
               title="Next Group"
               className="
@@ -204,16 +227,24 @@ export const QuizGroupControls = ({
         {/* All In Toggle */}
         <label
           htmlFor="allIn"
-          title={allIn ? "Disable All In (Alt+A)" : "Enable All In (Alt+A)"}
+          title={
+            playBookmarkedOnly
+              ? "All In is required for Bookmarks Mode"
+              : allIn
+                ? "Disable All In (Alt+A)"
+                : "Enable All In (Alt+A)"
+          }
           className={`
               flex items-center gap-1.5 cursor-pointer select-none 
               text-xs font-medium 
               transition-colors duration-200
               px-2 py-0.5 rounded-md border
               ${
-                allIn
-                  ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
-                  : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                playBookmarkedOnly
+                  ? "opacity-50 cursor-not-allowed bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                  : allIn
+                    ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                    : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
               }
             `}
         >
@@ -221,7 +252,8 @@ export const QuizGroupControls = ({
             <input
               type="checkbox"
               id="allIn"
-              checked={allIn}
+              disabled={playBookmarkedOnly}
+              checked={allIn || playBookmarkedOnly}
               onChange={(e) => setAllIn(e.target.checked)}
               className="sr-only"
             />
@@ -229,13 +261,13 @@ export const QuizGroupControls = ({
               className={`
                   w-3 h-3 rounded-full border mr-1.5 transition-colors
                   ${
-                    allIn
+                    allIn || playBookmarkedOnly
                       ? "bg-blue-500 border-blue-500"
                       : "border-gray-300 dark:border-gray-600 bg-transparent"
                   }
                 `}
             >
-              {allIn && (
+              {(allIn || playBookmarkedOnly) && (
                 <svg
                   className="w-full h-full text-white p-0.5"
                   viewBox="0 0 24 24"
@@ -254,60 +286,126 @@ export const QuizGroupControls = ({
         </label>
 
         {/* Strict Mode */}
-        <label
-          htmlFor="strictMode"
-          title={
-            strictMode
-              ? "Disable Strict Mode (Alt+M)"
-              : "Enable Strict Mode (Alt+M)"
-          }
-          className={`
-              flex items-center gap-1.5 cursor-pointer select-none 
-              text-xs font-medium 
-              transition-colors duration-200
-              px-2 py-0.5 rounded-md border
-              ${
-                strictMode
-                  ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
-                  : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
-              }
-            `}
-        >
-          <div className="relative flex items-center">
-            <input
-              type="checkbox"
-              id="strictMode"
-              checked={strictMode}
-              onChange={(e) => setStrictMode(e.target.checked)}
-              className="sr-only"
-            />
-            <div
-              className={`
-                  w-3 h-3 rounded-full border mr-1.5 transition-colors
-                  ${
-                    strictMode
-                      ? "bg-blue-500 border-blue-500"
-                      : "border-gray-300 dark:border-gray-600 bg-transparent"
-                  }
-                `}
-            >
-              {strictMode && (
-                <svg
-                  className="w-full h-full text-white p-0.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              )}
+        {strictMode !== undefined && setStrictMode !== undefined && (
+          <label
+            htmlFor="strictMode"
+            title={
+              strictMode
+                ? "Disable Strict Mode (Alt+M)"
+                : "Enable Strict Mode (Alt+M)"
+            }
+            className={`
+                flex items-center gap-1.5 cursor-pointer select-none 
+                text-xs font-medium 
+                transition-colors duration-200
+                px-2 py-0.5 rounded-md border
+                ${
+                  strictMode
+                    ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                    : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                }
+              `}
+          >
+            <div className="relative flex items-center">
+              <input
+                type="checkbox"
+                id="strictMode"
+                checked={strictMode}
+                onChange={(e) => setStrictMode(e.target.checked)}
+                className="sr-only"
+              />
+              <div
+                className={`
+                    w-3 h-3 rounded-full border mr-1.5 transition-colors
+                    ${
+                      strictMode
+                        ? "bg-blue-500 border-blue-500"
+                        : "border-gray-300 dark:border-gray-600 bg-transparent"
+                    }
+                  `}
+              >
+                {strictMode && (
+                  <svg
+                    className="w-full h-full text-white p-0.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                )}
+              </div>
             </div>
-          </div>
-          Strict Mode
-        </label>
+            Strict Mode
+          </label>
+        )}
+
+        {/* Bookmarked Only */}
+        {playBookmarkedOnly !== undefined &&
+          setPlayBookmarkedOnly !== undefined && (
+            <label
+              htmlFor="playBookmarkedOnly"
+              title={
+                isBookmarkedListEmpty
+                  ? "Bookmark some words to play them"
+                  : playBookmarkedOnly
+                    ? "Disable Bookmarks Mode (Alt+B)"
+                    : "Enable Bookmarks Mode (Alt+B)"
+              }
+              className={`
+                flex items-center gap-1.5 cursor-pointer select-none 
+                text-xs font-medium 
+                transition-colors duration-200
+                px-2 py-0.5 rounded-md border
+                ${
+                  isBookmarkedListEmpty
+                    ? "opacity-50 cursor-not-allowed bg-gray-100 text-gray-400 border-gray-200 dark:bg-zinc-800 dark:text-gray-500 dark:border-zinc-700"
+                    : playBookmarkedOnly
+                      ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                      : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                }
+              `}
+            >
+              <div className="relative flex items-center">
+                <input
+                  type="checkbox"
+                  id="playBookmarkedOnly"
+                  disabled={isBookmarkedListEmpty}
+                  checked={playBookmarkedOnly}
+                  onChange={(e) => setPlayBookmarkedOnly(e.target.checked)}
+                  className="sr-only"
+                />
+                <div
+                  className={`
+                    w-3 h-3 rounded-full border mr-1.5 transition-colors
+                    ${
+                      playBookmarkedOnly
+                        ? "bg-blue-500 border-blue-500"
+                        : "border-gray-300 dark:border-gray-600 bg-transparent"
+                    }
+                  `}
+                >
+                  {playBookmarkedOnly && (
+                    <svg
+                      className="w-full h-full text-white p-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  )}
+                </div>
+              </div>
+              Bookmarks Only
+            </label>
+          )}
       </div>
     </div>
   );

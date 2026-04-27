@@ -5,6 +5,7 @@ import { FontProvider } from "@/components/FontProvider";
 import NextTopLoader from "nextjs-toploader";
 import { ALL_FONT_VARIABLES } from "@/utils/fonts";
 import { FontScript } from "@/components/FontScript";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Mein Deutsch",
@@ -36,6 +37,7 @@ export default function RootLayout({
             </div>
           </FontProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

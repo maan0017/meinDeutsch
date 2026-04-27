@@ -12,7 +12,6 @@ import {
   LucideIcon,
   BookMinus,
   BookUserIcon,
-  BookMarked,
   Group,
   Calendar,
 } from "lucide-react";
@@ -111,13 +110,6 @@ export default function QuizGamesHomePage() {
   useGoBack();
 
   const quizzes: QuizCardProps[] = [
-    {
-      href: "/juwel/bookmarked-words-guess",
-      title: "Bookmarked Words Guess",
-      description: "Guess the German word from your bookmarks",
-      color: "emerald",
-      icon: BookMarked,
-    },
     {
       href: "/juwel/practice-german-word",
       title: "Practice German Words",

@@ -18,6 +18,9 @@ export type FontFamily =
   | "Lora"
   | "Playfair_Display"
   | "Fredoka"
+  | "Merriweather"
+  | "Poppins"
+  | "Source_Sans_3"
   | "system-sans"
   | "system-serif"
   | "system-mono"
@@ -46,7 +49,7 @@ interface SettingsState {
 const DEFAULT_SETTINGS = {
   soundEffects: "ON" as SoundEffects,
   groupSize: 20,
-  fontFamily: "Literata" as FontFamily,
+  fontFamily: "Inter" as FontFamily,
 };
 
 // ---------------------------------------------------------------------------

@@ -8,6 +8,9 @@ import {
   Lora,
   Playfair_Display,
   Fredoka,
+  Merriweather,
+  Poppins,
+  Source_Sans_3,
 } from "next/font/google";
 
 export const literata = localFont({
@@ -90,7 +93,30 @@ export const fredoka = Fredoka({
   preload: false,
 });
 
+export const merriweather = Merriweather({
+  weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+  display: "swap",
+  preload: false,
+});
+
+export const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: "swap",
+  preload: false,
+});
+
+export const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-source-sans",
+  display: "swap",
+  preload: false,
+});
+
 // A single string of all variable classes to be inserted in the <body>
 // Important: Next.js static analyzer requires standard template literals,
 // Array.join() causes the @font-face CSS to silently drop during SSR compilation!
-export const ALL_FONT_VARIABLES = `${literata.variable} ${imFellEnglish.variable} ${courierPrime.variable} ${roboto.variable} ${inter.variable} ${outfit.variable} ${lora.variable} ${playfairDisplay.variable} ${fredoka.variable}`;
+export const ALL_FONT_VARIABLES = `${literata.variable} ${imFellEnglish.variable} ${courierPrime.variable} ${roboto.variable} ${inter.variable} ${outfit.variable} ${lora.variable} ${playfairDisplay.variable} ${fredoka.variable} ${merriweather.variable} ${poppins.variable} ${sourceSans3.variable}`;
