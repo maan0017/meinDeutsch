@@ -14,6 +14,9 @@ import {
   BookUserIcon,
   Group,
   Calendar,
+  FileQuestionMark,
+  File,
+  FileQuestion,
 } from "lucide-react";
 
 type ColorType = "blue" | "emerald" | "purple" | "indigo";
@@ -139,6 +142,13 @@ export default function QuizGamesHomePage() {
       icon: Clock,
     },
     {
+      href: "/juwel/practice-wh-words",
+      title: "Practice WH Words",
+      description: "Guess the WH words in German",
+      color: "indigo",
+      icon: FileQuestion,
+    },
+    {
       href: "/juwel/practice-grammar",
       title: "Practice Core Grammar",
       description: "Infinite grammar drills without hints",
@@ -200,6 +210,20 @@ export default function QuizGamesHomePage() {
       description: "Challenge your verb forms knowledge",
       color: "purple",
       icon: GraduationCap,
+    },
+    {
+      href: "/juwel/adjectives-memory-game",
+      title: "Adjectives Memory Game",
+      description: "Challenge your adjectives knowledge",
+      color: "indigo",
+      icon: ListChecks,
+    },
+    {
+      href: "/juwel/prepositions-memory-game",
+      title: "Prepositions Memory Game",
+      description: "Challenge your Prepositions knowledge",
+      color: "emerald",
+      icon: ListChecks,
     },
   ];
 

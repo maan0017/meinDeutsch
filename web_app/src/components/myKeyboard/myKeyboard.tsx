@@ -76,10 +76,28 @@ export default function MyKeyboard() {
         setOutput((prev) => prev + "\n");
       } else if (keyObj.type === "tab") {
         setOutput((prev) => prev + "  ");
+        e.preventDefault();
       } else if (!NON_OUTPUT_TYPES.has(keyObj.type!)) {
+        const isAltGr =
+          e.altKey ||
+          e.getModifierState("AltGraph") ||
+          e.code === "AltRight" ||
+          (e.ctrlKey && e.altKey) ||
+          pressedCodes.has("AltRight");
+
+        // Ignore pure Ctrl shortcuts (like Ctrl+C, Ctrl+V)
+        if (e.ctrlKey && !isAltGr) {
+          return;
+        }
+
+        // Prevent browser default for AltGr/Ctrl+Alt so we can type special chars
+        if (isAltGr || e.ctrlKey) {
+          e.preventDefault();
+        }
+
         const char = getCharFromKey(
           keyObj,
-          e.altKey,
+          isAltGr,
           e.shiftKey,
           e.getModifierState("CapsLock"),
         );
@@ -151,9 +169,11 @@ export default function MyKeyboard() {
         const currentModifiers = modifiersRef.current;
         const currentCaps = capsLockRef.current;
 
+        const isAltGr = currentModifiers.alt || (currentModifiers.ctrl && currentModifiers.alt) || pressedCodes.has("AltRight");
+
         const char = getCharFromKey(
           key,
-          currentModifiers.alt,
+          isAltGr,
           currentModifiers.shift,
           currentCaps,
         );

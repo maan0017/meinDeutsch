@@ -871,7 +871,7 @@ export default function VerbFormsChallangeComp() {
         <div className="px-4 py-2 border-b border-slate-300 dark:border-zinc-800 flex justify-between items-center shrink-0 bg-slate-200 dark:bg-[#1a1a24]">
           <div className="flex items-center gap-2">
             <h3 className="font-extrabold text-slate-700 dark:text-zinc-300 text-[10px] tracking-widest uppercase">
-              Verb History
+              History
             </h3>
 
             <Trash2

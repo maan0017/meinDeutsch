@@ -2,7 +2,9 @@ import Link from "next/link";
 import {
   Book,
   BookOpen,
+  ChromeIcon,
   Gamepad2,
+  Info,
   Keyboard,
   Map,
   MessageCircle,
@@ -41,6 +43,15 @@ export default function Home() {
       stat: "10+ game modes",
       color: "indigo",
       badge: "Practice",
+    },
+    {
+      href: "/about",
+      icon: Info,
+      title: "About this website",
+      description: "Learn about this website.",
+      stat: "About this website",
+      color: "purple",
+      badge: "Info",
     },
     // {
     //   href: "/german-language-most-common-sentences",
@@ -165,7 +176,7 @@ export default function Home() {
           </div>
 
           {/* Keyboard Tool - Full Width */}
-          {/* <AboutGermanTypingPage /> */}
+          <AboutGermanTypingPage />
         </div>
       </section>
     </main>
