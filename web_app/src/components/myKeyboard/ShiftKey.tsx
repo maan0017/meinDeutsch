@@ -10,7 +10,7 @@ interface ShiftKeyProps {
 export default function ShiftKey({
   onClick,
   isActive,
-  width = "w-24",
+  width = "flex-1",
 }: ShiftKeyProps) {
   return (
     <button
@@ -33,7 +33,7 @@ export default function ShiftKey({
         dark:border-gray-600
         
         hover:from-[#f0f0f0] hover:to-[#d8d8d8]
-        dark:hover:from-gray-650 dark:hover:to-gray-750
+        dark:hover:from-gray-600 dark:hover:to-gray-700
         
         rounded-md
         

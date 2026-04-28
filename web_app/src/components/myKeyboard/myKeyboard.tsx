@@ -16,11 +16,41 @@ import BackspaceKey from "./BackspaceKey";
 const FLASH_DURATION = 100;
 const NON_OUTPUT_TYPES = new Set(["shift", "alt", "ctrl", "caps", "win"]);
 
-export default function MyKeyboard() {
+// Backspace repeat timing (mimics real keyboard)
+const BACKSPACE_INITIAL_DELAY = 500; // ms before repeat starts
+const BACKSPACE_REPEAT_INTERVAL = 50; // ms between repeats (fast, like a real keyboard)
+
+interface MyKeyboardProps {
+  onClose?: () => void;
+}
+
+export default function MyKeyboard({ onClose }: MyKeyboardProps) {
   const [output, setOutput] = useState("");
   const [pressedCodes, setPressedCodes] = useState<Set<string>>(new Set());
   const [pressedKey, setPressedKey] = useState<string | null>(null);
   const [capsLock, setCapsLock] = useState(false);
+
+  // Backspace hold-to-repeat refs
+  const backspaceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const backspaceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
+    null
+  );
+
+  const clearBackspaceTimers = useCallback(() => {
+    if (backspaceTimerRef.current) {
+      clearTimeout(backspaceTimerRef.current);
+      backspaceTimerRef.current = null;
+    }
+    if (backspaceIntervalRef.current) {
+      clearInterval(backspaceIntervalRef.current);
+      backspaceIntervalRef.current = null;
+    }
+  }, []);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => clearBackspaceTimers();
+  }, [clearBackspaceTimers]);
 
   const modifiers = useMemo(
     () => ({
@@ -28,7 +58,7 @@ export default function MyKeyboard() {
       alt: pressedCodes.has("AltLeft") || pressedCodes.has("AltRight"),
       ctrl: pressedCodes.has("ControlLeft") || pressedCodes.has("ControlRight"),
     }),
-    [pressedCodes],
+    [pressedCodes]
   );
 
   const flatKeys = useMemo(() => keys.flat(), []);
@@ -43,12 +73,16 @@ export default function MyKeyboard() {
         return key.value.toUpperCase();
       return key.value;
     },
-    [],
+    []
   );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.repeat) return;
+      // Esc to close
+      if (e.key === "Escape" && onClose) {
+        onClose();
+        return;
+      }
 
       if (e.key === "CapsLock") {
         setCapsLock((prev) => !prev);
@@ -61,7 +95,7 @@ export default function MyKeyboard() {
           k.code === e.code ||
           (!NON_OUTPUT_TYPES.has(k.type!) &&
             (k.value.toLowerCase() === e.key.toLowerCase() ||
-              k.label.toLowerCase() === e.key.toLowerCase())),
+              k.label.toLowerCase() === e.key.toLowerCase()))
       );
 
       if (!keyObj) return;
@@ -71,19 +105,66 @@ export default function MyKeyboard() {
       if (["tab", "alt", "space"].includes(keyObj.type!)) e.preventDefault();
 
       if (keyObj.type === "backspace") {
-        setOutput((prev) => prev.slice(0, -1));
+        e.preventDefault();
+        // On first press (not repeat), delete one char (or word if Ctrl is pressed)
+        if (!e.repeat) {
+          const isCtrl = e.ctrlKey;
+          const deleteAction = (prev: string) => 
+            isCtrl ? prev.replace(/(?:\S+\s*|\s+)$/, "") : prev.slice(0, -1);
+            
+          setOutput(deleteAction);
+          // Start hold-to-repeat: initial delay, then fast interval
+          clearBackspaceTimers();
+          backspaceTimerRef.current = setTimeout(() => {
+            backspaceIntervalRef.current = setInterval(() => {
+              setOutput(deleteAction);
+            }, BACKSPACE_REPEAT_INTERVAL);
+          }, BACKSPACE_INITIAL_DELAY);
+        }
+      } else if (e.repeat) {
+        // For non-backspace keys, allow OS repeat as normal
+        // but we still handle the output
+        if (!NON_OUTPUT_TYPES.has(keyObj.type!)) {
+          if (keyObj.type === "enter") {
+            setOutput((prev) => prev + "\n");
+          } else if (keyObj.type === "tab") {
+            setOutput((prev) => prev + "  ");
+            e.preventDefault();
+          } else {
+            const isAltGr =
+              e.altKey ||
+              e.getModifierState("AltGraph") ||
+              e.code === "AltRight" ||
+              (e.ctrlKey && e.altKey) ||
+              pressedCodes.has("AltRight");
+
+            if (e.ctrlKey && !isAltGr) return;
+            if (isAltGr || e.ctrlKey) e.preventDefault();
+
+            const char = getCharFromKey(
+              keyObj,
+              isAltGr,
+              e.shiftKey,
+              e.getModifierState("CapsLock")
+            );
+            setOutput((prev) => prev + char);
+          }
+        }
+        return;
       } else if (keyObj.type === "enter") {
         setOutput((prev) => prev + "\n");
       } else if (keyObj.type === "tab") {
         setOutput((prev) => prev + "  ");
         e.preventDefault();
       } else if (!NON_OUTPUT_TYPES.has(keyObj.type!)) {
+        // Check for AltGr: RAlt alone, or LCtrl+LAlt combo, or browser AltGraph
         const isAltGr =
           e.altKey ||
           e.getModifierState("AltGraph") ||
           e.code === "AltRight" ||
           (e.ctrlKey && e.altKey) ||
-          pressedCodes.has("AltRight");
+          pressedCodes.has("AltRight") ||
+          (pressedCodes.has("ControlLeft") && pressedCodes.has("AltLeft"));
 
         // Ignore pure Ctrl shortcuts (like Ctrl+C, Ctrl+V)
         if (e.ctrlKey && !isAltGr) {
@@ -99,13 +180,18 @@ export default function MyKeyboard() {
           keyObj,
           isAltGr,
           e.shiftKey,
-          e.getModifierState("CapsLock"),
+          e.getModifierState("CapsLock")
         );
         setOutput((prev) => prev + char);
       }
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
+      // Stop backspace repeat when backspace key is released
+      if (e.code === "Backspace") {
+        clearBackspaceTimers();
+      }
+
       setPressedCodes((prev) => {
         const next = new Set(prev);
         next.delete(e.code);
@@ -115,6 +201,7 @@ export default function MyKeyboard() {
     };
 
     const handleBlur = () => {
+      clearBackspaceTimers();
       setPressedCodes(new Set());
       setPressedKey(null);
     };
@@ -127,7 +214,7 @@ export default function MyKeyboard() {
       window.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("blur", handleBlur);
     };
-  }, [getCharFromKey, flatKeys]);
+  }, [getCharFromKey, flatKeys, onClose, clearBackspaceTimers]);
 
   // References for keeping handleKeyPress stable
   const modifiersRef = useRef(modifiers);
@@ -137,6 +224,26 @@ export default function MyKeyboard() {
     modifiersRef.current = modifiers;
     capsLockRef.current = capsLock;
   }, [modifiers, capsLock]);
+
+  // Mouse-based backspace hold-to-repeat
+  const handleBackspaceMouseDown = useCallback(() => {
+    const isCtrl = modifiersRef.current.ctrl;
+    const deleteAction = (prev: string, ctrlState: boolean) => 
+      ctrlState ? prev.replace(/(?:\S+\s*|\s+)$/, "") : prev.slice(0, -1);
+      
+    setOutput((prev) => deleteAction(prev, isCtrl));
+    clearBackspaceTimers();
+    backspaceTimerRef.current = setTimeout(() => {
+      backspaceIntervalRef.current = setInterval(() => {
+        // Dynamically check ctrl state during repeat
+        setOutput((prev) => deleteAction(prev, modifiersRef.current.ctrl));
+      }, BACKSPACE_REPEAT_INTERVAL);
+    }, BACKSPACE_INITIAL_DELAY);
+  }, [clearBackspaceTimers]);
+
+  const handleBackspaceMouseUp = useCallback(() => {
+    clearBackspaceTimers();
+  }, [clearBackspaceTimers]);
 
   const handleKeyPress = useCallback(
     (key: KeyInterface) => {
@@ -160,7 +267,8 @@ export default function MyKeyboard() {
       setTimeout(() => setPressedKey(null), FLASH_DURATION);
 
       if (key.type === "backspace") {
-        setOutput((prev) => prev.slice(0, -1));
+        // Single click backspace handled by mousedown; skip here to avoid double-delete
+        return;
       } else if (key.type === "enter") {
         setOutput((prev) => prev + "\n");
       } else if (key.type === "tab") {
@@ -169,13 +277,18 @@ export default function MyKeyboard() {
         const currentModifiers = modifiersRef.current;
         const currentCaps = capsLockRef.current;
 
-        const isAltGr = currentModifiers.alt || (currentModifiers.ctrl && currentModifiers.alt) || pressedCodes.has("AltRight");
+        // AltGr via on-screen: RAlt pressed, or LCtrl+LAlt combo
+        const isAltGr =
+          currentModifiers.alt ||
+          (currentModifiers.ctrl && currentModifiers.alt) ||
+          pressedCodes.has("AltRight") ||
+          (pressedCodes.has("ControlLeft") && pressedCodes.has("AltLeft"));
 
         const char = getCharFromKey(
           key,
           isAltGr,
           currentModifiers.shift,
-          currentCaps,
+          currentCaps
         );
         setOutput((prev) => prev + char);
         if (currentModifiers.shift) {
@@ -188,7 +301,7 @@ export default function MyKeyboard() {
         }
       }
     },
-    [getCharFromKey],
+    [getCharFromKey]
   );
 
   const renderKey = (key: KeyInterface, rowIdx: number, keyIdx: number) => {
@@ -226,6 +339,11 @@ export default function MyKeyboard() {
           onClick={() => handleKeyPress(key)}
           isPressed={Boolean(isPressed)}
           width={key.width}
+          label={
+            key.code !== "MetaLeft" && key.code !== "MetaRight"
+              ? key.label
+              : undefined
+          }
         />
       );
     }
@@ -263,7 +381,9 @@ export default function MyKeyboard() {
       return (
         <BackspaceKey
           key={k}
-          onClick={() => handleKeyPress(key)}
+          onClick={() => {}}
+          onMouseDown={handleBackspaceMouseDown}
+          onMouseUp={handleBackspaceMouseUp}
           isPressed={Boolean(isPressed)}
           width={key.width}
         />
@@ -335,11 +455,11 @@ export default function MyKeyboard() {
         </output>
       </div>
 
-      {/* Compact Keyboard */}
-      <div className="bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-lg p-3 shadow-xl border-2 border-gray-300 dark:border-gray-700">
-        <div className="flex flex-col gap-1 select-none">
+      {/* Compact Keyboard — Windows layout proportions */}
+      <div className="bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 shadow-xl border-2 border-gray-300 dark:border-gray-700">
+        <div className="flex flex-col gap-[3px] select-none">
           {keys.map((row, rowIdx) => (
-            <div key={rowIdx} className="flex gap-1 justify-center">
+            <div key={rowIdx} className="flex gap-[3px]">
               {row.map((key, keyIdx) => renderKey(key, rowIdx, keyIdx))}
             </div>
           ))}

@@ -2,18 +2,28 @@
 
 interface BackspaceKeyProps {
   onClick: () => void;
+  onMouseDown?: () => void;
+  onMouseUp?: () => void;
   width?: string;
   isPressed?: boolean;
 }
 
 export default function BackspaceKey({
   onClick,
-  width = "w-24",
+  onMouseDown,
+  onMouseUp,
+  width = "flex-1",
   isPressed,
 }: BackspaceKeyProps) {
   return (
     <button
       onClick={onClick}
+      onMouseDown={(e) => {
+        e.preventDefault();
+        onMouseDown?.();
+      }}
+      onMouseUp={() => onMouseUp?.()}
+      onMouseLeave={() => onMouseUp?.()}
       className={`
         ${width} h-12
         relative
@@ -32,7 +42,7 @@ export default function BackspaceKey({
         dark:border-gray-600
         
         hover:from-[#f0f0f0] hover:to-[#d8d8d8]
-        dark:hover:from-gray-650 dark:hover:to-gray-750
+        dark:hover:from-gray-600 dark:hover:to-gray-700
         
         rounded-md
         
@@ -49,11 +59,11 @@ export default function BackspaceKey({
         }
       `}
     >
-      <span className="flex items-center justify-center">
+      <span className="flex items-center justify-center gap-1.5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="18"
+          height="18"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -65,6 +75,7 @@ export default function BackspaceKey({
           <line x1="18" y1="9" x2="12" y2="15"></line>
           <line x1="12" y1="9" x2="18" y2="15"></line>
         </svg>
+        <span className="text-xs">Backspace</span>
       </span>
     </button>
   );

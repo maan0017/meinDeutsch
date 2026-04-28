@@ -101,7 +101,7 @@ export const Key = memo(
         onClick={() => handleKeyPress(keyData)}
         onMouseDown={(e) => e.preventDefault()}
         className={`
-        ${keyData?.width || "w-14"} h-12
+        ${keyData?.width || "flex-1"} h-12
         relative
         flex items-center justify-center
         select-none cursor-pointer
@@ -118,7 +118,7 @@ export const Key = memo(
         dark:border-gray-600
         
         hover:from-[#f0f0f0] hover:to-[#d8d8d8]
-        dark:hover:from-gray-650 dark:hover:to-gray-750
+        dark:hover:from-gray-600 dark:hover:to-gray-700
         
         rounded-md
         

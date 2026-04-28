@@ -8,7 +8,7 @@ interface EnterKeyProps {
 
 export default function EnterKey({
   onClick,
-  width = "w-20",
+  width = "flex-1",
   isPressed,
 }: EnterKeyProps) {
   return (
@@ -32,7 +32,7 @@ export default function EnterKey({
         dark:border-gray-600
         
         hover:from-[#f0f0f0] hover:to-[#d8d8d8]
-        dark:hover:from-gray-650 dark:hover:to-gray-750
+        dark:hover:from-gray-600 dark:hover:to-gray-700
         
         rounded-md
         

@@ -1,12 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MyKeyboard from "@/components/myKeyboard/myKeyboard";
 import { X, Keyboard as KeyboardIcon, Monitor, Command } from "lucide-react";
 
 export default function AboutGermanKeyboard() {
   const [showKeyboard, setShowKeyboard] = useState(false);
+  const hasRestored = useRef(false);
+
+  // Restore keyboard state from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("meinDeutsch_showKeyboard");
+    if (saved === "true") setShowKeyboard(true);
+    hasRestored.current = true;
+  }, []);
+
+  // Persist keyboard state to localStorage (only after initial restore)
+  useEffect(() => {
+    if (!hasRestored.current) return;
+    localStorage.setItem("meinDeutsch_showKeyboard", String(showKeyboard));
+  }, [showKeyboard]);
 
   useEffect(() => {
     if (showKeyboard) {
@@ -477,23 +491,42 @@ export default function AboutGermanKeyboard() {
             <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
               <KeyboardIcon className="w-5 h-5" />
               <span className="font-bold text-sm">Interactive Keyboard</span>
+              <span className="text-[10px] font-medium text-slate-400 dark:text-[#666] ml-1">
+                Windows Layout
+              </span>
             </div>
             <button
               onClick={() => setShowKeyboard(false)}
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-[#333] text-slate-500 dark:text-[#888] transition-colors"
-              aria-label="Close keyboard"
+              className="group relative p-2 rounded-full text-slate-500 dark:text-[#888] transition-all duration-200 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20 dark:hover:text-red-400 hover:scale-110"
+              aria-label="Close keyboard (Esc)"
+              title="Close (Esc)"
             >
               <X className="w-5 h-5" />
+              {/* Tooltip */}
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-[10px] font-medium rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                Esc
+              </span>
             </button>
           </div>
 
           <div className="flex-1 overflow-auto p-4 md:p-8 flex flex-col items-center justify-center">
             <div className="w-full max-w-5xl bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-2xl border border-slate-200 dark:border-[#2a2a2a] p-4 md:p-8">
-              <MyKeyboard />
+              <MyKeyboard onClose={() => setShowKeyboard(false)} />
             </div>
             <p className="mt-4 text-xs text-slate-400 dark:text-[#666]">
-              Press RAlt or click Alt on the virtual keyboard to access special
-              characters
+              Press{" "}
+              <kbd className="px-1 py-0.5 rounded bg-slate-200 dark:bg-[#333] border border-slate-300 dark:border-[#444] text-slate-600 dark:text-[#ccc] font-mono text-[10px]">
+                RAlt
+              </kbd>{" "}
+              or{" "}
+              <kbd className="px-1 py-0.5 rounded bg-slate-200 dark:bg-[#333] border border-slate-300 dark:border-[#444] text-slate-600 dark:text-[#ccc] font-mono text-[10px]">
+                LCtrl+LAlt
+              </kbd>{" "}
+              to type umlauts · Press{" "}
+              <kbd className="px-1 py-0.5 rounded bg-slate-200 dark:bg-[#333] border border-slate-300 dark:border-[#444] text-slate-600 dark:text-[#ccc] font-mono text-[10px]">
+                Esc
+              </kbd>{" "}
+              to close
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail, Linkedin, Globe } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -53,6 +54,44 @@ export default function AboutPage() {
           <p className="text-slate-400 dark:text-[#666] text-xs italic">
             Made with ☕ and stubbornness.
           </p>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px w-10 bg-slate-200 dark:bg-[#333]" />
+
+        {/* Contact Links */}
+        <div className="flex flex-col gap-3">
+          <a
+            href="mailto:your.email@example.com"
+            className="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-[#aaa] hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
+          >
+            <div className="p-2 rounded-lg bg-slate-100 dark:bg-[#1a1a1a] group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors border border-transparent dark:border-[#222]">
+              <Mail className="w-4 h-4" />
+            </div>
+            Email Me
+          </a>
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-[#aaa] hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
+          >
+            <div className="p-2 rounded-lg bg-slate-100 dark:bg-[#1a1a1a] group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors border border-transparent dark:border-[#222]">
+              <Linkedin className="w-4 h-4" />
+            </div>
+            LinkedIn Profile
+          </a>
+          <a
+            href="https://yourportfolio.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-[#aaa] hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
+          >
+            <div className="p-2 rounded-lg bg-slate-100 dark:bg-[#1a1a1a] group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors border border-transparent dark:border-[#222]">
+              <Globe className="w-4 h-4" />
+            </div>
+            Professional Portfolio
+          </a>
         </div>
 
         {/* Divider */}

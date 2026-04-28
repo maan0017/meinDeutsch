@@ -47,9 +47,9 @@ export default function Home() {
     {
       href: "/about",
       icon: Info,
-      title: "About this website",
-      description: "Learn about this website.",
-      stat: "About this website",
+      title: "About",
+      description: "Learn about this project and myself.",
+      stat: "About",
       color: "purple",
       badge: "Info",
     },
@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <main className="h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-auto text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
       {/* Top Panel: Branding & Text */}
-      <section className="flex w-full justify-center items-center px-6 md:px-10 py-2 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-[#444444] shadow-sm z-10 transition-colors duration-300">
+      <section className="flex w-full justify-center items-center px-6 md:px-10 py-2 bg-white dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-[#2a2a2a] shadow-sm z-10 transition-colors duration-300">
         <div className="w-full max-w-6xl flex justify-between items-center">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-[#E0E0E0] mb-3 bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-300 dark:to-white bg-clip-text">
@@ -127,9 +127,9 @@ export default function Home() {
                 <Link
                   key={index}
                   href={card.href}
-                  className="group relative bg-white dark:bg-[#121212] p-4 rounded-xl shadow-sm z-10 
+                  className="group relative bg-white dark:bg-[#1a1a1a] p-4 rounded-xl shadow-sm z-10 
                   hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border 
-                  border-slate-200 dark:border-[#444444] hover:border-blue-300 
+                  border-slate-200 dark:border-[#2a2a2a] hover:border-blue-300 
                   dark:hover:border-blue-700 overflow-hidden"
                   aria-label={`Navigate to ${card.title}`}
                 >
@@ -149,7 +149,7 @@ export default function Home() {
                       <div
                         className={`w-10 h-10 rounded-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-105 group-hover:text-white ${
                           colorClasses[card.color as keyof typeof colorClasses]
-                        } dark:bg-[#121212] dark:text-[#E0E0E0] dark:border dark:border-[#444444]`}
+                        } dark:bg-[#1a1a1a] dark:text-[#E0E0E0] dark:border dark:border-[#2a2a2a]`}
                       >
                         <Icon className="w-5 h-5" />
                       </div>

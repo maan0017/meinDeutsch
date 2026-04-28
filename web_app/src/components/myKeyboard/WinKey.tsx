@@ -4,12 +4,14 @@ interface WinKeyProps {
   onClick: () => void;
   width?: string;
   isPressed?: boolean;
+  label?: string;
 }
 
 export default function WinKey({
   onClick,
-  width = "w-14",
+  width = "flex-1",
   isPressed,
+  label,
 }: WinKeyProps) {
   return (
     <button
@@ -32,7 +34,7 @@ export default function WinKey({
         dark:border-gray-600
         
         hover:from-[#f0f0f0] hover:to-[#d8d8d8]
-        dark:hover:from-gray-650 dark:hover:to-gray-750
+        dark:hover:from-gray-600 dark:hover:to-gray-700
         
         rounded-md
         
@@ -49,18 +51,22 @@ export default function WinKey({
         }
       `}
     >
-      <span className="flex items-center justify-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="opacity-90"
-        >
-          <path d="M3 12V6.75L9 5.25V12H3ZM3 17.25V13H9V18.75L3 17.25ZM21 4.75V12H10V4.25L21 4.75ZM21 19.25L10 19.75V13H21V19.25Z" />
-        </svg>
-      </span>
+      {label ? (
+        <span className="font-medium text-xs">{label}</span>
+      ) : (
+        <span className="flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="opacity-90"
+          >
+            <path d="M3 12V6.75L9 5.25V12H3ZM3 17.25V13H9V18.75L3 17.25ZM21 4.75V12H10V4.25L21 4.75ZM21 19.25L10 19.75V13H21V19.25Z" />
+          </svg>
+        </span>
+      )}
     </button>
   );
 }

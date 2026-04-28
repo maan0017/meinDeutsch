@@ -1,15 +1,19 @@
 import { KeyInterface } from "./key";
 
+// Width values use flex-based sizing for perfect row alignment.
+// Standard 1u key = flex-1. Wider keys use flex-[Xu] where X is the unit multiplier.
+// All rows automatically stretch to equal total width via CSS flex layout.
+
 export const keys: KeyInterface[][] = [
-  // --- ROW 1: Numbers (Standard Shift symbols preserved) ---
+  // --- ROW 1: Numbers — backtick(1u) + 12 keys(1u) + backspace(2u) = 15u ---
   [
     {
       label: "`",
       smallLabel: "`",
       capitalLabel: "`",
       shiftLabel: "~",
-      specialLabel: "¬", // Logical NOT
-      capitalSpecialLabel: "¦", // Broken bar
+      specialLabel: "¬",
+      capitalSpecialLabel: "¦",
       value: "`",
       type: "number",
     },
@@ -18,8 +22,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "1",
       capitalLabel: "1",
       shiftLabel: "!",
-      specialLabel: "¹", // Superscript 1
-      capitalSpecialLabel: "¡", // Inverted !
+      specialLabel: "¹",
+      capitalSpecialLabel: "¡",
       value: "1",
       type: "number",
     },
@@ -27,8 +31,8 @@ export const keys: KeyInterface[][] = [
       label: "2",
       smallLabel: "2",
       capitalLabel: "2",
-      shiftLabel: "@", // Kept original position
-      specialLabel: "²", // Superscript 2
+      shiftLabel: "@",
+      specialLabel: "²",
       capitalSpecialLabel: "⅛",
       value: "2",
       type: "number",
@@ -38,8 +42,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "3",
       capitalLabel: "3",
       shiftLabel: "#",
-      specialLabel: "³", // Superscript 3
-      capitalSpecialLabel: "£", // Pound Sterling
+      specialLabel: "³",
+      capitalSpecialLabel: "£",
       value: "3",
       type: "number",
     },
@@ -48,7 +52,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "4",
       capitalLabel: "4",
       shiftLabel: "$",
-      specialLabel: "¢", // Cent
+      specialLabel: "¢",
       capitalSpecialLabel: "¼",
       value: "4",
       type: "number",
@@ -58,7 +62,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "5",
       capitalLabel: "5",
       shiftLabel: "%",
-      specialLabel: "‰", // Per mille
+      specialLabel: "‰",
       capitalSpecialLabel: "½",
       value: "5",
       type: "number",
@@ -68,7 +72,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "6",
       capitalLabel: "6",
       shiftLabel: "^",
-      specialLabel: "∞", // Infinity
+      specialLabel: "∞",
       capitalSpecialLabel: "¾",
       value: "6",
       type: "number",
@@ -78,8 +82,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "7",
       capitalLabel: "7",
       shiftLabel: "&",
-      specialLabel: "\\", // Fallback
-      capitalSpecialLabel: "{", // Fallback
+      specialLabel: "\\",
+      capitalSpecialLabel: "{",
       value: "7",
       type: "number",
     },
@@ -88,8 +92,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "8",
       capitalLabel: "8",
       shiftLabel: "*",
-      specialLabel: "•", // Bullet point
-      capitalSpecialLabel: "[", // Fallback
+      specialLabel: "•",
+      capitalSpecialLabel: "[",
       value: "8",
       type: "number",
     },
@@ -98,8 +102,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "9",
       capitalLabel: "9",
       shiftLabel: "(",
-      specialLabel: "±", // Plus-Minus
-      capitalSpecialLabel: "]", // Fallback
+      specialLabel: "±",
+      capitalSpecialLabel: "]",
       value: "9",
       type: "number",
     },
@@ -108,8 +112,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "0",
       capitalLabel: "0",
       shiftLabel: ")",
-      specialLabel: "≠", // Not Equal
-      capitalSpecialLabel: "}", // Fallback
+      specialLabel: "≠",
+      capitalSpecialLabel: "}",
       value: "0",
       type: "number",
     },
@@ -118,8 +122,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "-",
       capitalLabel: "-",
       shiftLabel: "_",
-      specialLabel: "–", // En Dash
-      capitalSpecialLabel: "—", // Em Dash
+      specialLabel: "–",
+      capitalSpecialLabel: "—",
       value: "-",
       type: "number",
     },
@@ -128,8 +132,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "=",
       capitalLabel: "=",
       shiftLabel: "+",
-      specialLabel: "≈", // Approx
-      capitalSpecialLabel: "≡", // Identical to
+      specialLabel: "≈",
+      capitalSpecialLabel: "≡",
       value: "=",
       type: "number",
     },
@@ -138,25 +142,25 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Backspace",
       capitalLabel: "Backspace",
       value: "Backspace",
-      width: "w-24",
+      width: "flex-[2]",
       type: "backspace",
     },
   ],
-  // --- ROW 2: QWERTY ---
+  // --- ROW 2: QWERTY — tab(1.5u) + 12 keys(1u) + backslash(1.5u) = 15u ---
   [
     {
       label: "Tab",
       smallLabel: "Tab",
       capitalLabel: "Tab",
       value: "Tab",
-      width: "w-20",
+      width: "flex-[1.5]",
       type: "tab",
     },
     {
       label: "q",
       smallLabel: "q",
       capitalLabel: "Q",
-      specialLabel: "œ", // French ligature
+      specialLabel: "œ",
       capitalSpecialLabel: "Œ",
       value: "q",
       type: "letter",
@@ -165,8 +169,8 @@ export const keys: KeyInterface[][] = [
       label: "w",
       smallLabel: "w",
       capitalLabel: "W",
-      specialLabel: "ω", // Omega small
-      capitalSpecialLabel: "Ω", // Omega Capital (Ohms)
+      specialLabel: "ω",
+      capitalSpecialLabel: "Ω",
       value: "w",
       type: "letter",
     },
@@ -174,7 +178,7 @@ export const keys: KeyInterface[][] = [
       label: "e",
       smallLabel: "e",
       capitalLabel: "E",
-      specialLabel: "€", // Euro (Req)
+      specialLabel: "€",
       capitalSpecialLabel: "È",
       value: "e",
       type: "letter",
@@ -183,8 +187,8 @@ export const keys: KeyInterface[][] = [
       label: "r",
       smallLabel: "r",
       capitalLabel: "R",
-      specialLabel: "₹", // Rupee (Req)
-      capitalSpecialLabel: "®", // Registered
+      specialLabel: "₹",
+      capitalSpecialLabel: "®",
       value: "r",
       type: "letter",
     },
@@ -192,8 +196,8 @@ export const keys: KeyInterface[][] = [
       label: "t",
       smallLabel: "t",
       capitalLabel: "T",
-      specialLabel: "™", // Trademark
-      capitalSpecialLabel: "Þ", // Thorn
+      specialLabel: "™",
+      capitalSpecialLabel: "Þ",
       value: "t",
       type: "letter",
     },
@@ -201,8 +205,8 @@ export const keys: KeyInterface[][] = [
       label: "y",
       smallLabel: "y",
       capitalLabel: "Y",
-      specialLabel: "¥", // Yen
-      capitalSpecialLabel: "Ψ", // Psi
+      specialLabel: "¥",
+      capitalSpecialLabel: "Ψ",
       value: "y",
       type: "letter",
     },
@@ -210,7 +214,7 @@ export const keys: KeyInterface[][] = [
       label: "u",
       smallLabel: "u",
       capitalLabel: "U",
-      specialLabel: "ü", // German Umlaut (Req)
+      specialLabel: "ü",
       capitalSpecialLabel: "Ü",
       value: "u",
       type: "letter",
@@ -228,7 +232,7 @@ export const keys: KeyInterface[][] = [
       label: "o",
       smallLabel: "o",
       capitalLabel: "O",
-      specialLabel: "ö", // German Umlaut (Req)
+      specialLabel: "ö",
       capitalSpecialLabel: "Ö",
       value: "o",
       type: "letter",
@@ -237,7 +241,7 @@ export const keys: KeyInterface[][] = [
       label: "p",
       smallLabel: "p",
       capitalLabel: "P",
-      specialLabel: "π", // Pi
+      specialLabel: "π",
       capitalSpecialLabel: "Π",
       value: "p",
       type: "letter",
@@ -247,8 +251,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "[",
       capitalLabel: "[",
       shiftLabel: "{",
-      specialLabel: "„", // German Opening Quote
-      capitalSpecialLabel: "“", // English Opening Quote
+      specialLabel: "„",
+      capitalSpecialLabel: "\u201C",
       value: "[",
       type: "special",
     },
@@ -257,8 +261,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "]",
       capitalLabel: "]",
       shiftLabel: "}",
-      specialLabel: "“", // German Closing Quote
-      capitalSpecialLabel: "”", // English Closing Quote
+      specialLabel: "\u201D",
+      capitalSpecialLabel: "\u201D",
       value: "]",
       type: "special",
     },
@@ -267,27 +271,28 @@ export const keys: KeyInterface[][] = [
       smallLabel: "\\",
       capitalLabel: "\\",
       shiftLabel: "|",
-      specialLabel: "«", // Guillillemot
+      specialLabel: "«",
       capitalSpecialLabel: "»",
       value: "\\",
       type: "special",
+      width: "flex-[1.5]",
     },
   ],
-  // --- ROW 3: ASDF ---
+  // --- ROW 3: ASDF — caps(1.75u) + 11 keys(1u) + enter(2.25u) = 15u ---
   [
     {
       label: "Caps",
       smallLabel: "Caps Lock",
       capitalLabel: "Caps Lock",
       value: "CapsLock",
-      width: "w-24",
+      width: "flex-[1.75]",
       type: "caps",
     },
     {
       label: "a",
       smallLabel: "a",
       capitalLabel: "A",
-      specialLabel: "ä", // German Umlaut (Req)
+      specialLabel: "ä",
       capitalSpecialLabel: "Ä",
       value: "a",
       type: "letter",
@@ -296,8 +301,8 @@ export const keys: KeyInterface[][] = [
       label: "s",
       smallLabel: "s",
       capitalLabel: "S",
-      specialLabel: "ß", // Eszett (Req)
-      capitalSpecialLabel: "ẞ", // Capital Eszett
+      specialLabel: "ß",
+      capitalSpecialLabel: "ẞ",
       value: "s",
       type: "letter",
     },
@@ -305,8 +310,8 @@ export const keys: KeyInterface[][] = [
       label: "d",
       smallLabel: "d",
       capitalLabel: "D",
-      specialLabel: "°", // Degree
-      capitalSpecialLabel: "Δ", // Delta
+      specialLabel: "°",
+      capitalSpecialLabel: "Δ",
       value: "d",
       type: "letter",
     },
@@ -314,8 +319,8 @@ export const keys: KeyInterface[][] = [
       label: "f",
       smallLabel: "f",
       capitalLabel: "F",
-      specialLabel: "ƒ", // Function
-      capitalSpecialLabel: "Φ", // Phi
+      specialLabel: "ƒ",
+      capitalSpecialLabel: "Φ",
       value: "f",
       type: "letter",
     },
@@ -324,7 +329,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "g",
       capitalLabel: "G",
       specialLabel: "ĝ",
-      capitalSpecialLabel: "Γ", // Gamma
+      capitalSpecialLabel: "Γ",
       value: "g",
       type: "letter",
     },
@@ -369,8 +374,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: ";",
       capitalLabel: ";",
       shiftLabel: ":",
-      specialLabel: "…", // Ellipsis
-      capitalSpecialLabel: "¶", // Paragraph/Pilcrow
+      specialLabel: "…",
+      capitalSpecialLabel: "¶",
       value: ";",
       type: "special",
     },
@@ -379,8 +384,8 @@ export const keys: KeyInterface[][] = [
       smallLabel: "'",
       capitalLabel: "'",
       shiftLabel: '"',
-      specialLabel: "´", // Acute
-      capitalSpecialLabel: "§", // Section Sign
+      specialLabel: "´",
+      capitalSpecialLabel: "§",
       value: "'",
       type: "special",
     },
@@ -389,18 +394,18 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Enter",
       capitalLabel: "Enter",
       value: "Enter",
-      width: "w-28",
+      width: "flex-[2.25]",
       type: "enter",
     },
   ],
-  // --- ROW 4: ZXCV ---
+  // --- ROW 4: ZXCV — LShift(2.25u) + 10 keys(1u) + RShift(2.75u) = 15u ---
   [
     {
       label: "Shift",
       smallLabel: "Shift",
       capitalLabel: "Shift",
       value: "Shift",
-      width: "w-32",
+      width: "flex-[2.25]",
       type: "shift",
       code: "ShiftLeft",
     },
@@ -417,7 +422,7 @@ export const keys: KeyInterface[][] = [
       label: "x",
       smallLabel: "x",
       capitalLabel: "X",
-      specialLabel: "×", // Multiplication
+      specialLabel: "×",
       capitalSpecialLabel: "Ξ",
       value: "x",
       type: "letter",
@@ -426,7 +431,7 @@ export const keys: KeyInterface[][] = [
       label: "c",
       smallLabel: "c",
       capitalLabel: "C",
-      specialLabel: "©", // Copyright (Req)
+      specialLabel: "©",
       capitalSpecialLabel: "Ç",
       value: "c",
       type: "letter",
@@ -435,7 +440,7 @@ export const keys: KeyInterface[][] = [
       label: "v",
       smallLabel: "v",
       capitalLabel: "V",
-      specialLabel: "√", // Square Root
+      specialLabel: "√",
       capitalSpecialLabel: "◊",
       value: "v",
       type: "letter",
@@ -444,8 +449,8 @@ export const keys: KeyInterface[][] = [
       label: "b",
       smallLabel: "b",
       capitalLabel: "B",
-      specialLabel: "∫", // Integral
-      capitalSpecialLabel: "ß", // Fallback
+      specialLabel: "∫",
+      capitalSpecialLabel: "ß",
       value: "b",
       type: "letter",
     },
@@ -462,7 +467,7 @@ export const keys: KeyInterface[][] = [
       label: "m",
       smallLabel: "m",
       capitalLabel: "M",
-      specialLabel: "µ", // Micro
+      specialLabel: "µ",
       capitalSpecialLabel: "M",
       value: "m",
       type: "letter",
@@ -472,7 +477,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: ",",
       capitalLabel: ",",
       shiftLabel: "<",
-      specialLabel: "≤", // Less than or equal
+      specialLabel: "≤",
       capitalSpecialLabel: "«",
       value: ",",
       type: "special",
@@ -482,7 +487,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: ".",
       capitalLabel: ".",
       shiftLabel: ">",
-      specialLabel: "≥", // Greater than or equal
+      specialLabel: "≥",
       capitalSpecialLabel: "»",
       value: ".",
       type: "special",
@@ -492,7 +497,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "/",
       capitalLabel: "/",
       shiftLabel: "?",
-      specialLabel: "÷", // Division
+      specialLabel: "÷",
       capitalSpecialLabel: "¿",
       value: "/",
       type: "special",
@@ -502,19 +507,19 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Shift",
       capitalLabel: "Shift",
       value: "Shift",
-      width: "w-32",
+      width: "flex-[2.75]",
       type: "shift",
       code: "ShiftRight",
     },
   ],
-  // --- ROW 5: Bottom ---
+  // --- ROW 5: Bottom — Windows ANSI: Ctrl+Win+Alt+Space+Alt+Win+Menu+Ctrl = 15u ---
   [
     {
       label: "Ctrl",
       smallLabel: "Ctrl",
       capitalLabel: "Ctrl",
       value: "Control",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "ctrl",
       code: "ControlLeft",
     },
@@ -523,7 +528,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Win",
       capitalLabel: "Win",
       value: "Meta",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "win",
       code: "MetaLeft",
     },
@@ -532,7 +537,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Alt",
       capitalLabel: "Alt",
       value: "Alt",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "alt",
       code: "AltLeft",
     },
@@ -541,7 +546,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: " ",
       capitalLabel: " ",
       value: " ",
-      width: "w-96",
+      width: "flex-[6.25]",
       type: "space",
       code: "Space",
     },
@@ -550,7 +555,7 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Alt",
       capitalLabel: "Alt",
       value: "Alt",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "alt",
       code: "AltRight",
     },
@@ -559,16 +564,25 @@ export const keys: KeyInterface[][] = [
       smallLabel: "Win",
       capitalLabel: "Win",
       value: "Meta",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "win",
       code: "MetaRight",
+    },
+    {
+      label: "Fn",
+      smallLabel: "Fn",
+      capitalLabel: "Fn",
+      value: "Fn",
+      width: "flex-[1.25]",
+      type: "win",
+      code: "Fn",
     },
     {
       label: "Ctrl",
       smallLabel: "Ctrl",
       capitalLabel: "Ctrl",
       value: "Control",
-      width: "w-16",
+      width: "flex-[1.25]",
       type: "ctrl",
       code: "ControlRight",
     },
