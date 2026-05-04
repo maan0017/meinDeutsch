@@ -487,26 +487,24 @@ export default function AboutGermanKeyboard() {
       {/* Full-Screen Keyboard Overlay */}
       {showKeyboard && (
         <div className="fixed inset-0 z-100 flex flex-col bg-slate-50 dark:bg-[#121212]">
-          <div className="flex justify-between items-center p-4 border-b border-slate-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a]">
-            <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
-              <KeyboardIcon className="w-5 h-5" />
-              <span className="font-bold text-sm">Interactive Keyboard</span>
-              <span className="text-[10px] font-medium text-slate-400 dark:text-[#666] ml-1">
-                Windows Layout
-              </span>
+          <div className="border-b border-slate-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a]">
+            <div className="w-full max-w-5xl mx-auto flex justify-between items-center px-4 md:px-8 py-3">
+              <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
+                <KeyboardIcon className="w-5 h-5" />
+                <span className="font-bold text-sm">Interactive Keyboard</span>
+                <span className="text-[10px] font-medium text-slate-400 dark:text-[#666] ml-1 hidden sm:inline-block">
+                  Windows Layout
+                </span>
+              </div>
+              <button
+                onClick={() => setShowKeyboard(false)}
+                className="group relative p-2 rounded-full text-slate-500 dark:text-[#888] transition-all duration-200 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20 dark:hover:text-red-400 hover:scale-110"
+                aria-label="Close keyboard (Esc)"
+                title="Close (Esc)"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
-            <button
-              onClick={() => setShowKeyboard(false)}
-              className="group relative p-2 rounded-full text-slate-500 dark:text-[#888] transition-all duration-200 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20 dark:hover:text-red-400 hover:scale-110"
-              aria-label="Close keyboard (Esc)"
-              title="Close (Esc)"
-            >
-              <X className="w-5 h-5" />
-              {/* Tooltip */}
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-[10px] font-medium rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                Esc
-              </span>
-            </button>
           </div>
 
           <div className="flex-1 overflow-auto p-4 md:p-8 flex flex-col items-center justify-center">

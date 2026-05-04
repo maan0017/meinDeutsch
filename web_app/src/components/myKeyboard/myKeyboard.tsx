@@ -76,6 +76,75 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
     []
   );
 
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const insertAtCursor = useCallback((textToInsert: string) => {
+    const textarea = textareaRef.current;
+    if (!textarea) {
+      setOutput((prev) => prev + textToInsert);
+      return;
+    }
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    
+    setOutput((prev) => prev.substring(0, start) + textToInsert + prev.substring(end));
+    
+    setTimeout(() => {
+      if (textareaRef.current) {
+        textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start + textToInsert.length;
+        textareaRef.current.focus();
+      }
+    }, 0);
+  }, []);
+
+  const deleteAtCursor = useCallback((isCtrl: boolean) => {
+    const textarea = textareaRef.current;
+    if (!textarea) {
+      setOutput((prev) => isCtrl ? prev.replace(/(?:\S+\s*|\s+)$/, "") : prev.slice(0, -1));
+      return;
+    }
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    
+    if (start !== end) {
+      setOutput((prev) => prev.substring(0, start) + prev.substring(end));
+      setTimeout(() => {
+        if (textareaRef.current) {
+          textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start;
+          textareaRef.current.focus();
+        }
+      }, 0);
+      return;
+    }
+    
+    if (start === 0) return;
+    
+    if (isCtrl) {
+      setOutput((prev) => {
+        const textBefore = prev.substring(0, start);
+        const newTextBefore = textBefore.replace(/(?:\S+\s*|\s+)$/, "");
+        const charsDeleted = textBefore.length - newTextBefore.length;
+        setTimeout(() => {
+          if (textareaRef.current) {
+            textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start - charsDeleted;
+            textareaRef.current.focus();
+          }
+        }, 0);
+        return newTextBefore + prev.substring(end);
+      });
+    } else {
+      setOutput((prev) => {
+        setTimeout(() => {
+          if (textareaRef.current) {
+            textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start - 1;
+            textareaRef.current.focus();
+          }
+        }, 0);
+        return prev.substring(0, start - 1) + prev.substring(end);
+      });
+    }
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Esc to close
@@ -102,33 +171,27 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
 
       setPressedKey(keyObj.value);
 
-      if (["tab", "alt", "space"].includes(keyObj.type!)) e.preventDefault();
+      if (["tab", "alt"].includes(keyObj.type!)) e.preventDefault();
 
       if (keyObj.type === "backspace") {
         e.preventDefault();
-        // On first press (not repeat), delete one char (or word if Ctrl is pressed)
         if (!e.repeat) {
           const isCtrl = e.ctrlKey;
-          const deleteAction = (prev: string) => 
-            isCtrl ? prev.replace(/(?:\S+\s*|\s+)$/, "") : prev.slice(0, -1);
-            
-          setOutput(deleteAction);
-          // Start hold-to-repeat: initial delay, then fast interval
+          deleteAtCursor(isCtrl);
           clearBackspaceTimers();
           backspaceTimerRef.current = setTimeout(() => {
             backspaceIntervalRef.current = setInterval(() => {
-              setOutput(deleteAction);
+              deleteAtCursor(isCtrl);
             }, BACKSPACE_REPEAT_INTERVAL);
           }, BACKSPACE_INITIAL_DELAY);
         }
       } else if (e.repeat) {
-        // For non-backspace keys, allow OS repeat as normal
-        // but we still handle the output
         if (!NON_OUTPUT_TYPES.has(keyObj.type!)) {
           if (keyObj.type === "enter") {
-            setOutput((prev) => prev + "\n");
+            insertAtCursor("\n");
+            e.preventDefault();
           } else if (keyObj.type === "tab") {
-            setOutput((prev) => prev + "  ");
+            insertAtCursor("  ");
             e.preventDefault();
           } else {
             const isAltGr =
@@ -147,17 +210,22 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
               e.shiftKey,
               e.getModifierState("CapsLock")
             );
-            setOutput((prev) => prev + char);
+            
+            // If the user is just typing normally and not using AltGr/Ctrl,
+            // we let the native textarea handle it to avoid weird cursor jumps
+            if (isAltGr || e.ctrlKey) {
+              insertAtCursor(char);
+              e.preventDefault();
+            }
           }
         }
         return;
       } else if (keyObj.type === "enter") {
-        setOutput((prev) => prev + "\n");
+        // Let native textarea handle enter if possible, but intercept if needed
       } else if (keyObj.type === "tab") {
-        setOutput((prev) => prev + "  ");
+        insertAtCursor("  ");
         e.preventDefault();
       } else if (!NON_OUTPUT_TYPES.has(keyObj.type!)) {
-        // Check for AltGr: RAlt alone, or LCtrl+LAlt combo, or browser AltGraph
         const isAltGr =
           e.altKey ||
           e.getModifierState("AltGraph") ||
@@ -166,28 +234,24 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
           pressedCodes.has("AltRight") ||
           (pressedCodes.has("ControlLeft") && pressedCodes.has("AltLeft"));
 
-        // Ignore pure Ctrl shortcuts (like Ctrl+C, Ctrl+V)
         if (e.ctrlKey && !isAltGr) {
           return;
         }
 
-        // Prevent browser default for AltGr/Ctrl+Alt so we can type special chars
         if (isAltGr || e.ctrlKey) {
           e.preventDefault();
+          const char = getCharFromKey(
+            keyObj,
+            isAltGr,
+            e.shiftKey,
+            e.getModifierState("CapsLock")
+          );
+          insertAtCursor(char);
         }
-
-        const char = getCharFromKey(
-          keyObj,
-          isAltGr,
-          e.shiftKey,
-          e.getModifierState("CapsLock")
-        );
-        setOutput((prev) => prev + char);
       }
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
-      // Stop backspace repeat when backspace key is released
       if (e.code === "Backspace") {
         clearBackspaceTimers();
       }
@@ -214,9 +278,8 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
       window.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("blur", handleBlur);
     };
-  }, [getCharFromKey, flatKeys, onClose, clearBackspaceTimers]);
+  }, [getCharFromKey, flatKeys, onClose, clearBackspaceTimers, insertAtCursor, deleteAtCursor, pressedCodes]);
 
-  // References for keeping handleKeyPress stable
   const modifiersRef = useRef(modifiers);
   const capsLockRef = useRef(capsLock);
 
@@ -225,21 +288,16 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
     capsLockRef.current = capsLock;
   }, [modifiers, capsLock]);
 
-  // Mouse-based backspace hold-to-repeat
   const handleBackspaceMouseDown = useCallback(() => {
     const isCtrl = modifiersRef.current.ctrl;
-    const deleteAction = (prev: string, ctrlState: boolean) => 
-      ctrlState ? prev.replace(/(?:\S+\s*|\s+)$/, "") : prev.slice(0, -1);
-      
-    setOutput((prev) => deleteAction(prev, isCtrl));
+    deleteAtCursor(isCtrl);
     clearBackspaceTimers();
     backspaceTimerRef.current = setTimeout(() => {
       backspaceIntervalRef.current = setInterval(() => {
-        // Dynamically check ctrl state during repeat
-        setOutput((prev) => deleteAction(prev, modifiersRef.current.ctrl));
+        deleteAtCursor(modifiersRef.current.ctrl);
       }, BACKSPACE_REPEAT_INTERVAL);
     }, BACKSPACE_INITIAL_DELAY);
-  }, [clearBackspaceTimers]);
+  }, [clearBackspaceTimers, deleteAtCursor]);
 
   const handleBackspaceMouseUp = useCallback(() => {
     clearBackspaceTimers();
@@ -249,6 +307,7 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
     (key: KeyInterface) => {
       if (key.type === "caps") {
         setCapsLock((prev) => !prev);
+        textareaRef.current?.focus();
         return;
       }
 
@@ -258,6 +317,7 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
           next.has(key.code!) ? next.delete(key.code!) : next.add(key.code!);
           return next;
         });
+        textareaRef.current?.focus();
         return;
       }
 
@@ -267,17 +327,15 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
       setTimeout(() => setPressedKey(null), FLASH_DURATION);
 
       if (key.type === "backspace") {
-        // Single click backspace handled by mousedown; skip here to avoid double-delete
         return;
       } else if (key.type === "enter") {
-        setOutput((prev) => prev + "\n");
+        insertAtCursor("\n");
       } else if (key.type === "tab") {
-        setOutput((prev) => prev + "  ");
+        insertAtCursor("  ");
       } else {
         const currentModifiers = modifiersRef.current;
         const currentCaps = capsLockRef.current;
 
-        // AltGr via on-screen: RAlt pressed, or LCtrl+LAlt combo
         const isAltGr =
           currentModifiers.alt ||
           (currentModifiers.ctrl && currentModifiers.alt) ||
@@ -290,7 +348,7 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
           currentModifiers.shift,
           currentCaps
         );
-        setOutput((prev) => prev + char);
+        insertAtCursor(char);
         if (currentModifiers.shift) {
           setPressedCodes((prev) => {
             const next = new Set(prev);
@@ -301,7 +359,7 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
         }
       }
     },
-    [getCharFromKey]
+    [getCharFromKey, insertAtCursor, pressedCodes]
   );
 
   const renderKey = (key: KeyInterface, rowIdx: number, keyIdx: number) => {
@@ -449,15 +507,21 @@ export default function MyKeyboard({ onClose }: MyKeyboardProps) {
       </div>
 
       {/* Compact Output */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-3">
-        <output className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-all min-h-[60px] max-h-[120px] overflow-auto block">
-          {output || <span className="text-gray-400">Type something...</span>}
-        </output>
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-3 relative cursor-text group">
+        <textarea
+          ref={textareaRef}
+          value={output}
+          onChange={(e) => setOutput(e.target.value)}
+          className="w-full text-sm text-gray-900 dark:text-gray-100 bg-transparent resize-none outline-none min-h-[60px] max-h-[120px] overflow-auto block font-sans focus:ring-0"
+          placeholder="Type something..."
+          spellCheck={false}
+          autoFocus
+        />
       </div>
 
       {/* Compact Keyboard — Windows layout proportions */}
-      <div className="bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 shadow-xl border-2 border-gray-300 dark:border-gray-700">
-        <div className="flex flex-col gap-[3px] select-none">
+      <div className="bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 shadow-xl border-2 border-gray-300 dark:border-gray-700 overflow-x-auto">
+        <div className="flex flex-col gap-[3px] select-none min-w-max pb-1">
           {keys.map((row, rowIdx) => (
             <div key={rowIdx} className="flex gap-[3px]">
               {row.map((key, keyIdx) => renderKey(key, rowIdx, keyIdx))}

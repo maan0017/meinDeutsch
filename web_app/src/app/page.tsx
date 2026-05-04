@@ -29,7 +29,8 @@ export default function Home() {
       href: "/german-language-most-common-words",
       icon: BookOpen,
       title: "Core Vocabulary",
-      description: "Master the most frequent German words with bilingual translations.",
+      description:
+        "Master the most frequent German words with bilingual translations.",
       stat: "2,000+ words",
       color: "indigo",
       badge: "Essential",
@@ -38,7 +39,8 @@ export default function Home() {
       href: "/juwelen",
       icon: Gamepad2,
       title: "Interactive Games",
-      description: "Test your grammar and vocabulary through gamified practice.",
+      description:
+        "Test your grammar and vocabulary through gamified practice.",
       stat: "10+ Game Modes",
       color: "amber",
       badge: "Practice",
@@ -47,7 +49,8 @@ export default function Home() {
       href: "/about-german-keyboard",
       icon: Keyboard,
       title: "German Keyboard",
-      description: "Learn the easiest ways to type umlauts (ä, ö, ü) and the Eszett (ß).",
+      description:
+        "Learn the easiest ways to type umlauts (ä, ö, ü) and the Eszett (ß).",
       stat: "Typing Guide",
       color: "cyan",
       badge: "Tool",
@@ -56,7 +59,8 @@ export default function Home() {
       href: "/about",
       icon: Info,
       title: "About the Project",
-      description: "Information about the developer and the learning philosophy.",
+      description:
+        "Information about the developer and the learning philosophy.",
       stat: "Version 1.0",
       color: "purple",
     },
@@ -94,9 +98,9 @@ export default function Home() {
             <Link
               href="/settings"
               aria-label="Settings"
-              className="p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:text-[#666] dark:hover:text-[#ccc] dark:hover:bg-[#2a2a2a] transition-all"
+              className="p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:text-[#666] dark:hover:text-[#ccc] dark:hover:bg-[#2a2a2a] transition-all"
             >
-              <Settings className="w-4 h-4" strokeWidth={2.5} />
+              <Settings className="w-6 h-6" strokeWidth={2} />
             </Link>
           </div>
         </div>
