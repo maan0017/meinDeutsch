@@ -12,72 +12,54 @@ import {
   Zap,
 } from "lucide-react";
 import { ThemeToggleButton } from "@/components/ToggleThemeButton";
-import { AboutGermanTypingPage } from "@/components/AboutGermanTypingPage";
 
 export default function Home() {
   // Main Landing Page
   const cards = [
     {
-      href: "/german-language-most-common-words",
-      icon: Book,
-      title: "German Core Vocabulary",
-      description:
-        "Most commonly used German words with english and hindi meanings.",
-      stat: "2,000+ words",
-      color: "blue",
-      badge: "Essential",
-    },
-    {
       href: "/german-language-roadmap",
       icon: Map,
-      title: "Roadmap",
-      description: "Learning path",
-      stat: "A1 to C2",
-      color: "amber",
+      title: "Learning Roadmap",
+      description: "Structured curriculum from A1 beginner to C2 mastery.",
+      stat: "A1 to C2 Path",
+      color: "emerald",
+      badge: "Start Here",
+    },
+    {
+      href: "/german-language-most-common-words",
+      icon: BookOpen,
+      title: "Core Vocabulary",
+      description: "Master the most frequent German words with bilingual translations.",
+      stat: "2,000+ words",
+      color: "indigo",
+      badge: "Essential",
     },
     {
       href: "/juwelen",
       icon: Gamepad2,
-      title: "Quiz Games",
-      description: "Practice German with games.",
-      stat: "10+ game modes",
-      color: "indigo",
+      title: "Interactive Games",
+      description: "Test your grammar and vocabulary through gamified practice.",
+      stat: "10+ Game Modes",
+      color: "amber",
       badge: "Practice",
+    },
+    {
+      href: "/about-german-keyboard",
+      icon: Keyboard,
+      title: "German Keyboard",
+      description: "Learn the easiest ways to type umlauts (ä, ö, ü) and the Eszett (ß).",
+      stat: "Typing Guide",
+      color: "cyan",
+      badge: "Tool",
     },
     {
       href: "/about",
       icon: Info,
-      title: "About",
-      description: "Learn about this project and myself.",
-      stat: "About",
+      title: "About the Project",
+      description: "Information about the developer and the learning philosophy.",
+      stat: "Version 1.0",
       color: "purple",
-      badge: "Info",
     },
-    // {
-    //   href: "/german-language-most-common-sentences",
-    //   icon: MessageCircle,
-    //   title: "Sentences",
-    //   description: "Useful phrases",
-    //   stat: "300+ phrases",
-    //   color: "emerald",
-    //   badge: "Essential",
-    // },
-    // {
-    //   href: "/grammar-reference",
-    //   icon: BookOpen,
-    //   title: "Grammar",
-    //   description: "Rules & examples",
-    //   stat: "12 topics",
-    //   color: "rose",
-    // },
-    // {
-    //   href: "/flashcards",
-    //   icon: Zap,
-    //   title: "Flashcards",
-    //   description: "Spaced repetition",
-    //   stat: "Smart review",
-    //   color: "purple",
-    // },
   ];
 
   const colorClasses = {
@@ -92,30 +74,33 @@ export default function Home() {
 
   return (
     <main className="h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-auto text-slate-900 dark:text-[#E0E0E0] transition-colors duration-300">
-      {/* Top Panel: Branding & Text */}
-      <section className="flex w-full justify-center items-center px-6 md:px-10 py-2 bg-white dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-[#2a2a2a] shadow-sm z-10 transition-colors duration-300">
+      {/* Top Panel: Compact Header */}
+      <header className="flex w-full justify-center px-4 md:px-8 py-3 bg-white/90 dark:bg-[#151515]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#222] shadow-sm sticky top-0 z-50 transition-colors duration-300">
         <div className="w-full max-w-6xl flex justify-between items-center">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-[#E0E0E0] mb-3 bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-300 dark:to-white bg-clip-text">
+          {/* Logo & Tagline */}
+          <div className="flex items-baseline gap-3 md:gap-4">
+            <h1 className="text-xl md:text-2xl font-black tracking-tight text-slate-900 dark:text-[#eee]">
               Mein Deutsch
             </h1>
-
-            <p className="text-slate-600 dark:text-[#B0B0B0] leading-relaxed italic text-base md:text-lg mb-2 font-light">
-              &quot;german language learning project for practice.&quot;
+            <span className="hidden md:block w-1 h-1 rounded-full bg-slate-300 dark:bg-[#444]" />
+            <p className="hidden sm:block text-slate-500 dark:text-[#888] text-xs font-medium tracking-wide uppercase">
+              Language Practice
             </p>
           </div>
-          <div className="flex items-center gap-3">
+
+          {/* Controls */}
+          <div className="flex items-center gap-1.5">
             <ThemeToggleButton />
             <Link
               href="/settings"
               aria-label="Settings"
-              className="p-2 rounded-full text-zinc-500 hover:bg-slate-100 dark:text-zinc-400 dark:hover:bg-[#333] transition-all"
+              className="p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:text-[#666] dark:hover:text-[#ccc] dark:hover:bg-[#2a2a2a] transition-all"
             >
-              <Settings className="w-5 h-5" strokeWidth={1.5} />
+              <Settings className="w-4 h-4" strokeWidth={2.5} />
             </Link>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Navigation Grid */}
       <section className="flex items-start justify-center p-4 md:p-8 lg:p-12">
@@ -174,9 +159,6 @@ export default function Home() {
               );
             })}
           </div>
-
-          {/* Keyboard Tool - Full Width */}
-          <AboutGermanTypingPage />
         </div>
       </section>
     </main>

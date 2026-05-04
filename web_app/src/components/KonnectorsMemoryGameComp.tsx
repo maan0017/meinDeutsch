@@ -5,7 +5,7 @@ import { useSoundEffects } from "@/hooks/useSoundEffects";
 import Link from "next/link";
 import MemoryGameControls from "@/components/MemoryGameControls";
 
-type PrepItem = {
+type KonnectorItem = {
   word: string;
   en: string;
   hi: string;
@@ -14,328 +14,38 @@ type PrepItem = {
   isExtra?: boolean;
 };
 
-// ── Akkusativ Prepositions ──
-const AKKUSATIV_PREPS: PrepItem[] = [
-  {
-    word: "bis",
-    en: "until / up to",
-    hi: "तक",
-    type: "Akk. Präp.",
-    example: "Bis morgen!",
-  },
-  {
-    word: "für",
-    en: "for",
-    hi: "के लिए",
-    type: "Akk. Präp.",
-    example: "Das ist für dich.",
-  },
-  {
-    word: "um",
-    en: "around / at (time)",
-    hi: "के चारों ओर / बजे",
-    type: "Akk. Präp.",
-    example: "Um 8 Uhr beginnt der Kurs.",
-  },
-  {
-    word: "durch",
-    en: "through",
-    hi: "के ज़रिये / से होकर",
-    type: "Akk. Präp.",
-    example: "Wir gehen durch den Park.",
-  },
-  {
-    word: "ohne",
-    en: "without",
-    hi: "बिना",
-    type: "Akk. Präp.",
-    example: "Ohne dich geht es nicht.",
-  },
-  {
-    word: "gegen",
-    en: "against / around",
-    hi: "के खिलाफ / लगभग",
-    type: "Akk. Präp.",
-    example: "Er ist gegen die Wand gelaufen.",
-  },
-  {
-    word: "entlang",
-    en: "along",
-    hi: "के साथ-साथ",
-    type: "Akk. Präp.",
-    example: "Wir gehen den Fluss entlang.",
-  },
-  {
-    word: "wider",
-    en: "against / contrary to",
-    hi: "के विरुद्ध",
-    type: "Akk. Präp.",
-    example: "Das ist wider die Natur.",
-    isExtra: true,
-  },
+// ── Verb am Ende (Nebensatz) ──
+const NEBENSATZ_KONNEKTORS: KonnectorItem[] = [
+  { word: "dass", en: "that", hi: "कि", type: "Nebensatz", example: "Ich weiß, dass du kommst." },
+  { word: "weil", en: "because", hi: "क्योंकि", type: "Nebensatz", example: "Ich esse, weil ich hungrig bin." },
+  { word: "da", en: "since / because", hi: "चूंकि", type: "Nebensatz", example: "Da es regnet, bleibe ich hier." },
+  { word: "wenn", en: "if / when", hi: "अगर / जब", type: "Nebensatz", example: "Wenn ich Zeit habe, lese ich." },
+  { word: "obwohl", en: "although", hi: "हालांकि", type: "Nebensatz", example: "Er kam, obwohl er krank war." },
+  { word: "als", en: "when (past)", hi: "जब (अतीत)", type: "Nebensatz", example: "Als ich Kind war, spielte ich oft." },
+  { word: "seit", en: "since", hi: "जब से", type: "Nebensatz", example: "Seit er hier ist, geht es besser." },
+  { word: "ob", en: "whether / if", hi: "क्या / यदि", type: "Nebensatz", example: "Ich weiß nicht, ob er kommt." },
+  { word: "damit", en: "so that", hi: "ताकि", type: "Nebensatz", example: "Ich lerne, damit ich bestehe." },
 ];
 
-// ── Dativ Prepositions ──
-const DATIV_PREPS: PrepItem[] = [
-  {
-    word: "bei",
-    en: "at / near / with",
-    hi: "के पास / साथ",
-    type: "Dat. Präp.",
-    example: "Ich wohne bei meinen Eltern.",
-  },
-  {
-    word: "mit",
-    en: "with",
-    hi: "के साथ",
-    type: "Dat. Präp.",
-    example: "Ich fahre mit dem Bus.",
-  },
-  {
-    word: "ab",
-    en: "from (time/place)",
-    hi: "से (समय/जगह)",
-    type: "Dat. Präp.",
-    example: "Ab morgen bin ich frei.",
-  },
-  {
-    word: "nach",
-    en: "to / after / according to",
-    hi: "की ओर / के बाद",
-    type: "Dat. Präp.",
-    example: "Nach der Schule gehe ich nach Hause.",
-  },
-  {
-    word: "von",
-    en: "from / by / of",
-    hi: "से / द्वारा / का",
-    type: "Dat. Präp.",
-    example: "Das Buch ist von Goethe.",
-  },
-  {
-    word: "seit",
-    en: "since / for (time)",
-    hi: "से (समय)",
-    type: "Dat. Präp.",
-    example: "Seit zwei Jahren lerne ich Deutsch.",
-  },
-  {
-    word: "aus",
-    en: "from / out of",
-    hi: "से (बाहर)",
-    type: "Dat. Präp.",
-    example: "Ich komme aus Deutschland.",
-  },
-  {
-    word: "gegenüber",
-    en: "opposite / across from",
-    hi: "के सामने",
-    type: "Dat. Präp.",
-    example: "Die Bank ist gegenüber dem Bahnhof.",
-  },
-  {
-    word: "zu",
-    en: "to / at",
-    hi: "को / की ओर",
-    type: "Dat. Präp.",
-    example: "Ich gehe zu meinem Freund.",
-  },
-  {
-    word: "außer",
-    en: "except / besides",
-    hi: "के अलावा",
-    type: "Dat. Präp.",
-    example: "Außer mir war niemand da.",
-    isExtra: true,
-  },
-  {
-    word: "dank",
-    en: "thanks to",
-    hi: "की बदौलत",
-    type: "Dat. Präp.",
-    example: "Dank deiner Hilfe habe ich bestanden.",
-    isExtra: true,
-  },
-  {
-    word: "gemäß",
-    en: "according to",
-    hi: "के अनुसार",
-    type: "Dat. Präp.",
-    example: "Gemäß dem Gesetz ist das verboten.",
-    isExtra: true,
-  },
-  {
-    word: "zufolge",
-    en: "according to",
-    hi: "के अनुसार",
-    type: "Dat. Präp.",
-    example: "Dem Bericht zufolge regnet es morgen.",
-    isExtra: true,
-  },
+// ── Verb auf Position 2 (Hauptsatz / Adverb) ──
+const HAUPTSATZ_KONNEKTORS: KonnectorItem[] = [
+  { word: "dann", en: "then", hi: "फिर", type: "Hauptsatz", example: "Erst essen wir, dann gehen wir." },
+  { word: "deswegen", en: "therefore / that's why", hi: "इसलिए", type: "Hauptsatz", example: "Es regnet, deswegen bleibe ich hier." },
+  { word: "deshalb", en: "therefore / that's why", hi: "इसलिए", type: "Hauptsatz", example: "Er ist krank, deshalb kommt er nicht." },
+  { word: "daher", en: "therefore / hence", hi: "इसलिए", type: "Hauptsatz", example: "Ich habe kein Geld, daher bleibe ich zu Hause." },
+  { word: "darum", en: "therefore / for that reason", hi: "इसलिए", type: "Hauptsatz", example: "Sie war müde, darum ging sie schlafen." },
+  { word: "draußen", en: "outside", hi: "बाहर", type: "Hauptsatz", example: "Es ist kalt, draußen schneit es." },
+  { word: "trotzdem", en: "nevertheless / still", hi: "फिर भी", type: "Hauptsatz", example: "Es regnet, trotzdem gehe ich spazieren." },
+  { word: "sonst", en: "otherwise", hi: "वरना", type: "Hauptsatz", example: "Beeil dich, sonst verpassen wir den Zug." },
 ];
 
-// ── Wechselpräpositionen (Akk. or Dat.) ──
-const WECHSEL_PREPS: PrepItem[] = [
-  {
-    word: "an",
-    en: "at / on (vertical)",
-    hi: "पर (खड़ी सतह)",
-    type: "Wechsel.",
-    example: "Das Bild hängt an der Wand.",
-  },
-  {
-    word: "auf",
-    en: "on (horizontal)",
-    hi: "पर (सपाट सतह)",
-    type: "Wechsel.",
-    example: "Das Buch liegt auf dem Tisch.",
-  },
-  {
-    word: "hinter",
-    en: "behind",
-    hi: "के पीछे",
-    type: "Wechsel.",
-    example: "Der Garten ist hinter dem Haus.",
-  },
-  {
-    word: "in",
-    en: "in / into",
-    hi: "में / अंदर",
-    type: "Wechsel.",
-    example: "Ich bin in der Schule.",
-  },
-  {
-    word: "neben",
-    en: "next to / beside",
-    hi: "के बगल में",
-    type: "Wechsel.",
-    example: "Er sitzt neben mir.",
-  },
-  {
-    word: "über",
-    en: "over / above / about",
-    hi: "ऊपर / के बारे में",
-    type: "Wechsel.",
-    example: "Die Lampe hängt über dem Tisch.",
-  },
-  {
-    word: "unter",
-    en: "under / below / among",
-    hi: "नीचे / के बीच",
-    type: "Wechsel.",
-    example: "Die Katze ist unter dem Bett.",
-  },
-  {
-    word: "vor",
-    en: "in front of / before / ago",
-    hi: "के सामने / पहले",
-    type: "Wechsel.",
-    example: "Vor dem Haus steht ein Baum.",
-  },
-  {
-    word: "zwischen",
-    en: "between",
-    hi: "के बीच",
-    type: "Wechsel.",
-    example: "Der Park liegt zwischen zwei Straßen.",
-  },
-];
-
-// ── Genitiv Prepositions ──
-const GENITIV_PREPS: PrepItem[] = [
-  {
-    word: "anstatt",
-    en: "instead of",
-    hi: "की जगह",
-    type: "Gen. Präp.",
-    example: "Anstatt des Kuchens esse ich Obst.",
-  },
-  {
-    word: "außerhalb",
-    en: "outside of",
-    hi: "के बाहर",
-    type: "Gen. Präp.",
-    example: "Außerhalb der Stadt ist es ruhig.",
-  },
-  {
-    word: "innerhalb",
-    en: "within / inside of",
-    hi: "के अंदर",
-    type: "Gen. Präp.",
-    example: "Innerhalb einer Woche ist es fertig.",
-  },
-  {
-    word: "statt",
-    en: "instead of",
-    hi: "की जगह",
-    type: "Gen. Präp.",
-    example: "Statt eines Autos kaufte er ein Fahrrad.",
-  },
-  {
-    word: "trotz",
-    en: "despite / in spite of",
-    hi: "के बावजूद",
-    type: "Gen. Präp.",
-    example: "Trotz des Regens gingen wir spazieren.",
-  },
-  {
-    word: "während",
-    en: "during",
-    hi: "के दौरान",
-    type: "Gen. Präp.",
-    example: "Während des Unterrichts darf man nicht reden.",
-  },
-  {
-    word: "wegen",
-    en: "because of",
-    hi: "की वजह से",
-    type: "Gen. Präp.",
-    example: "Wegen des Wetters bleiben wir zu Hause.",
-  },
-  {
-    word: "oberhalb",
-    en: "above",
-    hi: "के ऊपर",
-    type: "Gen. Präp.",
-    example: "Oberhalb des Dorfes liegt der See.",
-  },
-  {
-    word: "unterhalb",
-    en: "below",
-    hi: "के नीचे",
-    type: "Gen. Präp.",
-    example: "Unterhalb der Brücke fließt der Fluss.",
-  },
-  {
-    word: "infolge",
-    en: "as a result of",
-    hi: "के परिणामस्वरूप",
-    type: "Gen. Präp.",
-    example: "Infolge des Unfalls gab es einen Stau.",
-  },
-  {
-    word: "laut",
-    en: "according to",
-    hi: "के अनुसार",
-    type: "Gen. Präp.",
-    example: "Laut des Berichts steigen die Preise.",
-  },
-  {
-    word: "mangels",
-    en: "due to lack of",
-    hi: "की कमी के कारण",
-    type: "Gen. Präp.",
-    example: "Mangels Beweisen wurde er freigesprochen.",
-  },
-];
-
-type CategoryKey = "akkusativ" | "dativ" | "wechsel" | "genitiv";
+type CategoryKey = "nebensatz" | "hauptsatz";
 
 const CATEGORIES: {
   key: CategoryKey;
   label: string;
   sublabel: string;
-  items: PrepItem[];
+  items: KonnectorItem[];
   color: string;
   darkColor: string;
   borderColor: string;
@@ -344,10 +54,10 @@ const CATEGORIES: {
   darkTextColor: string;
 }[] = [
   {
-    key: "akkusativ",
-    label: "Akkusativ",
-    sublabel: "Direct Object",
-    items: AKKUSATIV_PREPS,
+    key: "nebensatz",
+    label: "Verb am Ende",
+    sublabel: "Subordinating (Nebensatz)",
+    items: NEBENSATZ_KONNEKTORS,
     color: "bg-rose-50",
     darkColor: "dark:bg-[#2a1a1a]",
     borderColor: "border-rose-400",
@@ -356,10 +66,10 @@ const CATEGORIES: {
     darkTextColor: "dark:text-[#e87e7e]",
   },
   {
-    key: "dativ",
-    label: "Dativ",
-    sublabel: "Indirect Object",
-    items: DATIV_PREPS,
+    key: "hauptsatz",
+    label: "Verb Position 2",
+    sublabel: "Adverbial (Hauptsatz)",
+    items: HAUPTSATZ_KONNEKTORS,
     color: "bg-sky-50",
     darkColor: "dark:bg-[#1a1a2a]",
     borderColor: "border-sky-400",
@@ -367,43 +77,18 @@ const CATEGORIES: {
     textColor: "text-sky-700",
     darkTextColor: "dark:text-[#7e9ee8]",
   },
-  {
-    key: "wechsel",
-    label: "Wechsel",
-    sublabel: "Two-Way (Akk./Dat.)",
-    items: WECHSEL_PREPS,
-    color: "bg-violet-50",
-    darkColor: "dark:bg-[#221a2a]",
-    borderColor: "border-violet-400",
-    darkBorderColor: "dark:border-[#5a3d6b]",
-    textColor: "text-violet-700",
-    darkTextColor: "dark:text-[#b07ee8]",
-  },
-  {
-    key: "genitiv",
-    label: "Genitiv",
-    sublabel: "Possessive Case",
-    items: GENITIV_PREPS,
-    color: "bg-amber-50",
-    darkColor: "dark:bg-[#2a2a1a]",
-    borderColor: "border-amber-400",
-    darkBorderColor: "dark:border-[#6b6b3d]",
-    textColor: "text-amber-700",
-    darkTextColor: "dark:text-[#e8c87e]",
-  },
 ];
 
-// Sort each category's items alphabetically (removed to maintain custom order)
 const SORTED_CATEGORIES = CATEGORIES.map((cat) => ({
   ...cat,
   items: [...cat.items],
 }));
 
-const STORAGE_KEY = "prepositions-memory-game-categories";
+const STORAGE_KEY = "konnectors-memory-game-categories";
 
 const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
 
-export default function PrepositionsMemoryGameComponent() {
+export default function KonnectorsMemoryGameComp() {
   const [guessed, setGuessed] = useState<Set<string>>(new Set());
   const [input, setInput] = useState("");
   const [shake, setShake] = useState(false);
@@ -426,7 +111,6 @@ export default function PrepositionsMemoryGameComponent() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { playSound } = useSoundEffects();
 
-  // Persist enabled categories
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...enabledCategories]));
@@ -505,7 +189,7 @@ export default function PrepositionsMemoryGameComponent() {
   });
 
   const renderItem = (
-    item: PrepItem,
+    item: KonnectorItem,
     itemIdx: number,
     cat: (typeof categoryOffsets)[0]
   ) => {
@@ -589,10 +273,10 @@ export default function PrepositionsMemoryGameComponent() {
 
       <div className="flex-none flex flex-col items-center w-full max-w-[1100px]">
         <h1 className="text-[1.4rem] tracking-[0.06em] z-10 text-slate-800 dark:text-[#c8c0b0] mb-0 text-center">
-          Präpositionen
+          Konnektoren
         </h1>
         <p className="text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-1.5 text-center">
-          German Prepositions Memory Game
+          German Connectors Memory Game
         </p>
 
         {/* Category toggles */}
@@ -625,7 +309,7 @@ export default function PrepositionsMemoryGameComponent() {
           toggleShow={toggleShow}
           shake={shake}
           inputRef={inputRef}
-          placeholder="Type the next preposition…"
+          placeholder="Type the next konnektor…"
         />
 
         <p className="text-[0.75rem] text-slate-600 dark:text-[#555560] mb-1">
@@ -650,7 +334,7 @@ export default function PrepositionsMemoryGameComponent() {
                 ✦ Ausgezeichnet! ✦
               </div>
               <div className="text-slate-600 dark:text-[#9a9aa0] text-center tracking-widest text-[0.9rem]">
-                All prepositions found.
+                All konnektors found.
               </div>
             </div>
           </div>

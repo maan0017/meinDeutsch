@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import { Mail, Linkedin, Globe } from "lucide-react";
+import { useGoBack } from "@/hooks/useGoBack";
 
 export default function AboutPage() {
+  useGoBack();
   return (
     <div className="h-dvh w-full flex flex-col items-center justify-center bg-white dark:bg-[#121212] text-slate-900 dark:text-[#E0E0E0] px-6 relative">
       {/* Back */}
@@ -60,7 +63,7 @@ export default function AboutPage() {
         <div className="h-px w-10 bg-slate-200 dark:bg-[#333]" />
 
         {/* Contact Links */}
-        <div className="flex flex-col gap-3">
+        {/* <div className="flex flex-col gap-3">
           <a
             href="mailto:your.email@example.com"
             className="flex items-center gap-3 text-sm font-medium text-slate-600 dark:text-[#aaa] hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
@@ -92,7 +95,7 @@ export default function AboutPage() {
             </div>
             Professional Portfolio
           </a>
-        </div>
+        </div> */}
 
         {/* Divider */}
         <div className="h-px w-10 bg-slate-200 dark:bg-[#333]" />
@@ -102,7 +105,7 @@ export default function AboutPage() {
           {["Next.js", "TypeScript", "Tailwind CSS", "PWA"].map((tag) => (
             <span
               key={tag}
-              className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border border-slate-200 dark:border-[#333] text-slate-400 dark:text-[#555]"
+              className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border border-slate-200 dark:border-[#333] bg-slate-50 dark:bg-[#1a1a1a] text-slate-400 dark:text-[#555]"
             >
               {tag}
             </span>

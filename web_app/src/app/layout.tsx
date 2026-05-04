@@ -29,12 +29,13 @@ export default function RootLayout({
           <FontProvider>
             <NextTopLoader />
             {children}
-            <div
+            {/* IMP** comment don't delete it. it causes page looks like empty or background, may be used in future*/}
+            {/* <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 overflow-hidden z-0"
             >
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[64px_64px] dark:bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)]" />
-            </div>
+            </div> */}
           </FontProvider>
         </ThemeProvider>
         <Analytics />

@@ -3,23 +3,27 @@
 import { useGoBack } from "@/hooks/useGoBack";
 import Link from "next/link";
 import {
-  BookType,
-  ListChecks,
+  Type,
   Hash,
   Clock,
-  BrainCircuit,
-  GraduationCap,
-  LucideIcon,
-  BookMinus,
-  BookUserIcon,
-  Group,
   Calendar,
-  FileQuestionMark,
-  File,
-  FileQuestion,
+  PenTool,
+  ListChecks,
+  HelpCircle,
+  Layers,
+  Target,
+  GitCompare,
+  Link2,
+  Zap,
+  RefreshCw,
+  Brain,
+  GraduationCap,
+  Puzzle,
+  BookOpen,
+  LucideIcon,
 } from "lucide-react";
 
-type ColorType = "blue" | "emerald" | "purple" | "indigo";
+type ColorType = "blue" | "emerald" | "purple" | "indigo" | "amber" | "rose" | "cyan";
 
 interface QuizCardProps {
   href: string;
@@ -38,12 +42,12 @@ const QuizCard = ({
 }: QuizCardProps) => {
   const colors: Record<ColorType, string> = {
     blue: "hover:border-blue-500/50 dark:hover:border-blue-500 group-hover:shadow-blue-500/20",
-    emerald:
-      "hover:border-emerald-500/50 dark:hover:border-emerald-500 group-hover:shadow-emerald-500/20",
-    purple:
-      "hover:border-purple-500/50 dark:hover:border-purple-500 group-hover:shadow-purple-500/20",
-    indigo:
-      "hover:border-indigo-500/50 dark:hover:border-indigo-500 group-hover:shadow-indigo-500/20",
+    emerald: "hover:border-emerald-500/50 dark:hover:border-emerald-500 group-hover:shadow-emerald-500/20",
+    purple: "hover:border-purple-500/50 dark:hover:border-purple-500 group-hover:shadow-purple-500/20",
+    indigo: "hover:border-indigo-500/50 dark:hover:border-indigo-500 group-hover:shadow-indigo-500/20",
+    amber: "hover:border-amber-500/50 dark:hover:border-amber-500 group-hover:shadow-amber-500/20",
+    rose: "hover:border-rose-500/50 dark:hover:border-rose-500 group-hover:shadow-rose-500/20",
+    cyan: "hover:border-cyan-500/50 dark:hover:border-cyan-500 group-hover:shadow-cyan-500/20",
   };
 
   const iconColors: Record<ColorType, string> = {
@@ -51,6 +55,9 @@ const QuizCard = ({
     emerald: "text-emerald-600 dark:text-emerald-400",
     purple: "text-purple-600 dark:text-purple-400",
     indigo: "text-indigo-600 dark:text-indigo-400",
+    amber: "text-amber-600 dark:text-amber-400",
+    rose: "text-rose-600 dark:text-rose-400",
+    cyan: "text-cyan-600 dark:text-cyan-400",
   };
 
   const bgColors: Record<ColorType, string> = {
@@ -58,6 +65,9 @@ const QuizCard = ({
     emerald: "group-hover:bg-emerald-50/30 dark:group-hover:bg-emerald-950/20",
     purple: "group-hover:bg-purple-50/30 dark:group-hover:bg-purple-950/20",
     indigo: "group-hover:bg-indigo-50/30 dark:group-hover:bg-indigo-950/20",
+    amber: "group-hover:bg-amber-50/30 dark:group-hover:bg-amber-950/20",
+    rose: "group-hover:bg-rose-50/30 dark:group-hover:bg-rose-950/20",
+    cyan: "group-hover:bg-cyan-50/30 dark:group-hover:bg-cyan-950/20",
   };
 
   return (
@@ -113,117 +123,138 @@ export default function QuizGamesHomePage() {
   useGoBack();
 
   const quizzes: QuizCardProps[] = [
+    // --- FOUNDATION ---
     {
-      href: "/juwel/practice-german-word",
-      title: "Practice German Words",
-      description: "Guess the German word",
+      href: "/juwel/practice-german-alphabets",
+      title: "Alphabet Practice",
+      description: "Learn to pronounce and type German letters",
       color: "blue",
-      icon: BookType,
-    },
-    {
-      href: "/juwel/practice-german-word-mcq",
-      title: "Practice German Words (MCQs)",
-      description: "Guess the meaning of German words out of 4 options",
-      color: "emerald",
-      icon: ListChecks,
+      icon: Type,
     },
     {
       href: "/juwel/practice-german-numbers",
-      title: "Practice German Numbers",
-      description: "Write numbers in German",
-      color: "blue",
+      title: "Numbers Game",
+      description: "Spell and type numbers from zero to infinity",
+      color: "cyan",
       icon: Hash,
     },
     {
       href: "/juwel/practice-german-time",
-      title: "Practice German Time",
-      description: "Write time in German",
-      color: "emerald",
+      title: "Telling Time",
+      description: "Practice reading and writing the clock in German",
+      color: "rose",
       icon: Clock,
     },
     {
-      href: "/juwel/practice-wh-words",
-      title: "Practice WH Words",
-      description: "Guess the WH words in German",
-      color: "indigo",
-      icon: FileQuestion,
-    },
-    {
-      href: "/juwel/practice-grammar",
-      title: "Practice Core Grammar",
-      description: "Infinite grammar drills without hints",
-      color: "indigo",
-      icon: BrainCircuit,
-    },
-    {
-      href: "/juwel/grammar-cases-memory-game",
-      title: "Grammar Cases Memory Game",
-      description: "Practice and memorize grammar cases",
-      color: "purple",
-      icon: BrainCircuit,
-    },
-    {
-      href: "/juwel/dativs-memory-game",
-      title: "Dativ Memory Game",
-      description: "Practice and memorize Dativs",
-      color: "indigo",
-      icon: Group,
-    },
-    {
-      href: "/juwel/modal-verbs-memory-game",
-      title: "Modal Verbs Memory Game",
-      description: "Practice and memorize modal verbs",
-      color: "indigo",
-      icon: Group,
-    },
-    {
       href: "/juwel/calendar-memory-game",
-      title: "Calendar Memory Game",
-      description: "Practice and memorize calendar",
+      title: "Calendar Memory",
+      description: "Memorize days of the week, months, and seasons",
       color: "emerald",
       icon: Calendar,
     },
+
+    // --- VOCABULARY ---
     {
-      href: "/juwel/grammar-exercises",
-      title: "Grammar Exercises",
-      description: "Master conjugations, articles, and cases",
-      color: "purple",
-      icon: GraduationCap,
-    },
-    {
-      href: "/juwel/practice-german-sentences",
-      title: "Practice German Sentences",
-      description: "Write sentences in German",
-      color: "emerald",
-      icon: BookMinus,
-    },
-    {
-      href: "/juwel/practice-reading",
-      title: "Practice Reading",
-      description: "Read German sentences",
+      href: "/juwel/practice-german-word",
+      title: "Vocabulary Builder",
+      description: "Type the exact German translation for essential words",
       color: "indigo",
-      icon: BookUserIcon,
+      icon: PenTool,
     },
     {
-      href: "/juwel/verb-forms-challange",
-      title: "Verb Forms Challange",
-      description: "Challenge your verb forms knowledge",
+      href: "/juwel/practice-german-word-mcq",
+      title: "Vocabulary Quiz",
+      description: "Multiple-choice test for word translations",
       color: "purple",
-      icon: GraduationCap,
+      icon: ListChecks,
     },
     {
       href: "/juwel/adjectives-memory-game",
-      title: "Adjectives Memory Game",
-      description: "Challenge your adjectives knowledge",
-      color: "indigo",
-      icon: ListChecks,
+      title: "Adjectives Memory",
+      description: "Memorize common descriptive words and their opposites",
+      color: "amber",
+      icon: GitCompare,
+    },
+    {
+      href: "/juwel/practice-wh-words",
+      title: "W-Fragen Quiz",
+      description: "Master the question words: who, what, where, when, why",
+      color: "rose",
+      icon: HelpCircle,
+    },
+
+    // --- GRAMMAR & STRUCTURE ---
+    {
+      href: "/juwel/grammar-cases-memory-game",
+      title: "Cases Master",
+      description: "Memorize the Nominativ, Akkusativ, Dativ & Genitiv tables",
+      color: "emerald",
+      icon: Layers,
+    },
+    {
+      href: "/juwel/dativs-memory-game",
+      title: "Dativ Verbs",
+      description: "Memorize specific verbs that strictly demand the Dativ case",
+      color: "blue",
+      icon: Target,
     },
     {
       href: "/juwel/prepositions-memory-game",
-      title: "Prepositions Memory Game",
-      description: "Challenge your Prepositions knowledge",
-      color: "emerald",
+      title: "Prepositions Matrix",
+      description: "Master Akkusativ, Dativ, and two-way (Wechsel) prepositions",
+      color: "purple",
       icon: ListChecks,
+    },
+    {
+      href: "/juwel/konnectors-memory-game",
+      title: "Connectors Game",
+      description: "Practice conjunctions like weil, dass, wenn, and deshalb",
+      color: "cyan",
+      icon: Link2,
+    },
+    {
+      href: "/juwel/modal-verbs-memory-game",
+      title: "Modal Verbs",
+      description: "Memorize conjugations for können, müssen, dürfen, etc.",
+      color: "amber",
+      icon: Zap,
+    },
+    {
+      href: "/juwel/verb-forms-challange",
+      title: "Verb Forms Challenge",
+      description: "Master the past tense and participles of irregular verbs",
+      color: "rose",
+      icon: RefreshCw,
+    },
+    {
+      href: "/juwel/practice-grammar",
+      title: "Core Grammar Drills",
+      description: "Infinite, fast-paced exercises to build your grammar muscle",
+      color: "indigo",
+      icon: Brain,
+    },
+    {
+      href: "/juwel/grammar-exercises",
+      title: "Grammar Exams",
+      description: "Comprehensive tests covering articles and conjugations",
+      color: "purple",
+      icon: GraduationCap,
+    },
+
+    // --- COMPREHENSION & USAGE ---
+    {
+      href: "/juwel/practice-german-sentences",
+      title: "Sentence Builder",
+      description: "Translate and construct complete, grammatically correct sentences",
+      color: "emerald",
+      icon: Puzzle,
+    },
+    {
+      href: "/juwel/practice-reading",
+      title: "Reading Comprehension",
+      description: "Read, analyze, and understand full German texts",
+      color: "blue",
+      icon: BookOpen,
     },
   ];
 
