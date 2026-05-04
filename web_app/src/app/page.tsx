@@ -1,17 +1,14 @@
 import Link from "next/link";
 import {
-  Book,
   BookOpen,
-  ChromeIcon,
   Gamepad2,
   Info,
   Keyboard,
   Map,
-  MessageCircle,
   Settings,
-  Zap,
 } from "lucide-react";
 import { ThemeToggleButton } from "@/components/ToggleThemeButton";
+import WordExplainComp from "@/components/WordExplainComp";
 
 export default function Home() {
   // Main Landing Page
@@ -19,48 +16,92 @@ export default function Home() {
     {
       href: "/german-language-roadmap",
       icon: Map,
-      title: "Learning Roadmap",
-      description: "Structured curriculum from A1 beginner to C2 mastery.",
-      stat: "A1 to C2 Path",
+      title: (
+        <WordExplainComp
+          word="Lernpfad"
+          meaning="Learning Path"
+          position="TOP_RIGHT_RIGHT"
+          className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+        />
+      ),
+      description:
+        "Strukturierter Lehrplan vom A1-Anfänger bis zur C2-Meisterschaft.",
+      stat: "A1 bis C2 Pfad",
       color: "emerald",
-      badge: "Start Here",
+      badge: "Hier Starten",
     },
     {
       href: "/german-language-most-common-words",
       icon: BookOpen,
-      title: "Core Vocabulary",
+      title: (
+        <WordExplainComp
+          word="Grundwortschatz"
+          meaning="Core Vocabulary"
+          position="UP"
+          className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+        />
+      ),
       description:
-        "Master the most frequent German words with bilingual translations.",
-      stat: "2,000+ words",
+        "Meistern Sie die häufigsten deutschen Wörter mit zweisprachigen Übersetzungen.",
+      stat: "2.000+ Wörter",
       color: "indigo",
-      badge: "Essential",
+      badge: "Wichtig",
     },
     {
       href: "/juwelen",
       icon: Gamepad2,
-      title: "Interactive Games",
+      title: (
+        <>
+          Interaktive{" "}
+          <WordExplainComp
+            word="Spiele"
+            meaning="Games"
+            position="UP"
+            className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+          />
+        </>
+      ),
       description:
-        "Test your grammar and vocabulary through gamified practice.",
-      stat: "10+ Game Modes",
+        "Testen Sie Ihre Grammatik und Ihren Wortschatz durch spielerische Übungen.",
+      stat: "10+ Spielmodi",
       color: "amber",
-      badge: "Practice",
+      badge: "Üben",
     },
     {
       href: "/about-german-keyboard",
       icon: Keyboard,
-      title: "German Keyboard",
+      title: (
+        <>
+          Deutsche{" "}
+          <WordExplainComp
+            word="Tastatur"
+            meaning="Keyboard"
+            position="TOP_RIGHT_RIGHT"
+            offsetY={10}
+            className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+          />
+        </>
+      ),
       description:
-        "Learn the easiest ways to type umlauts (ä, ö, ü) and the Eszett (ß).",
-      stat: "Typing Guide",
+        "Lernen Sie die einfachsten Wege, Umlaute (ä, ö, ü) und das Eszett (ß) zu tippen.",
+      stat: "Tipp-Anleitung",
       color: "cyan",
-      badge: "Tool",
+      badge: "Werkzeug",
     },
     {
       href: "/about",
       icon: Info,
-      title: "About the Project",
-      description:
-        "Information about the developer and the learning philosophy.",
+      title: (
+        <>
+          <WordExplainComp
+            word="Über das Projekt"
+            meaning="About the project"
+            position="TOP_RIGHT_RIGHT"
+            className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+          />
+        </>
+      ),
+      description: "Informationen über den Entwickler und die Lernphilosophie.",
       stat: "Version 1.0",
       color: "purple",
     },
@@ -84,11 +125,25 @@ export default function Home() {
           {/* Logo & Tagline */}
           <div className="flex items-baseline gap-3 md:gap-4">
             <h1 className="text-xl md:text-2xl font-black tracking-tight text-slate-900 dark:text-[#eee]">
-              Mein Deutsch
+              <WordExplainComp
+                word="Mein"
+                meaning="my"
+                position="BOTTOM_LEFT_BOTTOM"
+              />{" "}
+              <WordExplainComp
+                word="Deutsch"
+                meaning="German"
+                position="BOTTOM_RIGHT_BOTTOM"
+                highlight={true}
+              />
             </h1>
             <span className="hidden md:block w-1 h-1 rounded-full bg-slate-300 dark:bg-[#444]" />
             <p className="hidden sm:block text-slate-500 dark:text-[#888] text-xs font-medium tracking-wide uppercase">
-              Language Practice
+              <WordExplainComp
+                word="Sprachübung"
+                meaning="Language Practice"
+                position="BOTTOM_RIGHT_BOTTOM"
+              />
             </p>
           </div>
 
@@ -119,11 +174,11 @@ export default function Home() {
                   className="group relative bg-white dark:bg-[#1a1a1a] p-4 rounded-xl shadow-sm z-10 
                   hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border 
                   border-slate-200 dark:border-[#2a2a2a] hover:border-blue-300 
-                  dark:hover:border-blue-700 overflow-hidden"
-                  aria-label={`Navigate to ${card.title}`}
+                  dark:hover:border-blue-700 hover:z-20"
+                  aria-label={`Navigate to German Section`}
                 >
                   {/* Subtle hover background */}
-                  <div className="absolute inset-0 bg-blue-50/40 dark:bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <div className="absolute inset-0 bg-blue-50/40 dark:bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl pointer-events-none" />
 
                   {/* Badge */}
                   {card.badge && (
@@ -143,7 +198,7 @@ export default function Home() {
                         <Icon className="w-5 h-5" />
                       </div>
 
-                      <h3 className="text-base font-semibold text-slate-900 dark:text-[#E0E0E0] group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-base font-semibold text-slate-900 dark:text-[#E0E0E0]">
                         {card.title}
                       </h3>
                     </div>

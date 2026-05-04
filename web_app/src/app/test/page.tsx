@@ -17,6 +17,11 @@ export default function TestRoutesPage() {
       title: "loading-screen",
       description: "Demo of various loading screen designs",
     },
+    {
+      path: "/test/display-word-meaning",
+      title: "display-word-meaning",
+      description: "Display word meaning",
+    },
   ];
 
   return (
