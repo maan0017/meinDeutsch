@@ -22,10 +22,48 @@ export default function Home() {
           meaning="Learning Path"
           position="TOP_RIGHT_RIGHT"
           className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+          alwaysShow={true}
         />
       ),
-      description:
-        "Strukturierter Lehrplan vom A1-Anfänger bis zur C2-Meisterschaft.",
+      description: (
+        <>
+          <WordExplainComp
+            word="Strukturierter"
+            meaning="Structured"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          <WordExplainComp
+            word="Lehrplan"
+            meaning="Curriculum"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          vom A1-
+          <WordExplainComp
+            word="Anfänger"
+            meaning="Beginner"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          bis zur C2-
+          <WordExplainComp
+            word="Meisterschaft"
+            meaning="Mastery"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          .
+        </>
+      ),
       stat: "A1 bis C2 Pfad",
       color: "emerald",
       badge: "Hier Starten",
@@ -39,10 +77,49 @@ export default function Home() {
           meaning="Core Vocabulary"
           position="UP"
           className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+          alwaysShow={true}
         />
       ),
-      description:
-        "Meistern Sie die häufigsten deutschen Wörter mit zweisprachigen Übersetzungen.",
+      description: (
+        <>
+          Meistern Sie die{" "}
+          <WordExplainComp
+            word="häufigsten"
+            meaning="most common"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          deutschen{" "}
+          <WordExplainComp
+            word="Wörter"
+            meaning="words"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          mit{" "}
+          <WordExplainComp
+            word="zweisprachigen"
+            meaning="bilingual"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          <WordExplainComp
+            word="Übersetzungen"
+            meaning="translations"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          .
+        </>
+      ),
       stat: "2.000+ Wörter",
       color: "indigo",
       badge: "Wichtig",
@@ -58,11 +135,50 @@ export default function Home() {
             meaning="Games"
             position="UP"
             className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+            alwaysShow={true}
           />
         </>
       ),
-      description:
-        "Testen Sie Ihre Grammatik und Ihren Wortschatz durch spielerische Übungen.",
+      description: (
+        <>
+          Testen Sie Ihre{" "}
+          <WordExplainComp
+            word="Grammatik"
+            meaning="Grammar"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          und Ihren{" "}
+          <WordExplainComp
+            word="Wortschatz"
+            meaning="Vocabulary"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          durch{" "}
+          <WordExplainComp
+            word="spielerische"
+            meaning="playful"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          <WordExplainComp
+            word="Übungen"
+            meaning="Exercises"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          .
+        </>
+      ),
       stat: "10+ Spielmodi",
       color: "amber",
       badge: "Üben",
@@ -79,11 +195,50 @@ export default function Home() {
             position="TOP_RIGHT_RIGHT"
             offsetY={10}
             className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+            alwaysShow={true}
           />
         </>
       ),
-      description:
-        "Lernen Sie die einfachsten Wege, Umlaute (ä, ö, ü) und das Eszett (ß) zu tippen.",
+      description: (
+        <>
+          Lernen Sie die{" "}
+          <WordExplainComp
+            word="einfachsten"
+            meaning="easiest"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          <WordExplainComp
+            word="Wege"
+            meaning="Ways"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          ,{" "}
+          <WordExplainComp
+            word="Umlaute"
+            meaning="Umlauts"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          (ä, ö, ü) und das Eszett (ß) zu{" "}
+          <WordExplainComp
+            word="tippen"
+            meaning="to type"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          .
+        </>
+      ),
       stat: "Tipp-Anleitung",
       color: "cyan",
       badge: "Werkzeug",
@@ -98,10 +253,41 @@ export default function Home() {
             meaning="About the project"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+            alwaysShow={true}
           />
         </>
       ),
-      description: "Informationen über den Entwickler und die Lernphilosophie.",
+      description: (
+        <>
+          <WordExplainComp
+            word="Informationen"
+            meaning="Information"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          über den{" "}
+          <WordExplainComp
+            word="Entwickler"
+            meaning="Developer"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />{" "}
+          und die{" "}
+          <WordExplainComp
+            word="Lernphilosophie"
+            meaning="Learning Philosophy"
+            theme="slate"
+            alwaysShow={false}
+            highlight={false}
+            position="TOP_RIGHT_TOP"
+          />
+          .
+        </>
+      ),
       stat: "Version 1.0",
       color: "purple",
     },
@@ -129,12 +315,14 @@ export default function Home() {
                 word="Mein"
                 meaning="my"
                 position="BOTTOM_LEFT_BOTTOM"
+                alwaysShow={true}
               />{" "}
               <WordExplainComp
                 word="Deutsch"
                 meaning="German"
                 position="BOTTOM_RIGHT_BOTTOM"
                 highlight={true}
+                alwaysShow={true}
               />
             </h1>
             <span className="hidden md:block w-1 h-1 rounded-full bg-slate-300 dark:bg-[#444]" />
@@ -143,6 +331,7 @@ export default function Home() {
                 word="Sprachübung"
                 meaning="Language Practice"
                 position="BOTTOM_RIGHT_BOTTOM"
+                alwaysShow={true}
               />
             </p>
           </div>

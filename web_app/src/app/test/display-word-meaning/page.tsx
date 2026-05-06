@@ -16,6 +16,7 @@ export default function DisplayWordMeaningPage() {
               position="UP"
               theme="amber"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -25,6 +26,7 @@ export default function DisplayWordMeaningPage() {
               position="UP"
               theme="emerald"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -34,6 +36,7 @@ export default function DisplayWordMeaningPage() {
               position="UP"
               theme="blue"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -43,6 +46,7 @@ export default function DisplayWordMeaningPage() {
               position="DOWN"
               theme="green"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -52,6 +56,7 @@ export default function DisplayWordMeaningPage() {
               position="DOWN"
               theme="red"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -61,6 +66,7 @@ export default function DisplayWordMeaningPage() {
               position="DOWN"
               theme="orange"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -70,6 +76,7 @@ export default function DisplayWordMeaningPage() {
               position="LEFT"
               theme="slate"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-16">
@@ -79,6 +86,7 @@ export default function DisplayWordMeaningPage() {
               position="RIGHT"
               theme="light-yellow"
               highlight
+              alwaysShow
             />
           </div>
         </div>
@@ -97,6 +105,7 @@ export default function DisplayWordMeaningPage() {
               position="DOWN"
               theme="emerald"
               meaningClassName="!whitespace-normal w-48 text-center"
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center py-12">
@@ -106,6 +115,7 @@ export default function DisplayWordMeaningPage() {
               position="UP"
               theme="blue"
               meaningClassName="text-[20px] p-4 rounded-xl shadow-lg"
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center py-12">
@@ -115,6 +125,7 @@ export default function DisplayWordMeaningPage() {
               position="LEFT"
               theme="slate"
               meaningClassName="text-[8px] py-0 px-1"
+              alwaysShow
             />
           </div>
         </div>
@@ -134,6 +145,7 @@ export default function DisplayWordMeaningPage() {
               theme="red"
               offsetX={60}
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-24">
@@ -144,6 +156,7 @@ export default function DisplayWordMeaningPage() {
               theme="orange"
               offsetY={-10}
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center h-24">
@@ -155,6 +168,7 @@ export default function DisplayWordMeaningPage() {
               offsetX={40}
               offsetY={30}
               highlight
+              alwaysShow
             />
           </div>
         </div>
@@ -168,16 +182,36 @@ export default function DisplayWordMeaningPage() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-32 gap-x-12 w-full mt-16 pb-32">
           <div className="flex justify-center items-center">
-            <WordExplainComp word="Vater" meaning="LEFT" position="LEFT" />
+            <WordExplainComp
+              word="Vater"
+              meaning="LEFT"
+              position="LEFT"
+              alwaysShow
+            />
           </div>
           <div className="flex justify-center items-center">
-            <WordExplainComp word="Tochter" meaning="DOWN" position="DOWN" />
+            <WordExplainComp
+              word="Tochter"
+              meaning="DOWN"
+              position="DOWN"
+              alwaysShow
+            />
           </div>
           <div className="flex justify-center items-center">
-            <WordExplainComp word="Mutter" meaning="RIGHT" position="RIGHT" />
+            <WordExplainComp
+              word="Mutter"
+              meaning="RIGHT"
+              position="RIGHT"
+              alwaysShow
+            />
           </div>
           <div className="flex justify-center items-center">
-            <WordExplainComp word="Sohn" meaning="UP" position="UP" />
+            <WordExplainComp
+              word="Sohn"
+              meaning="UP"
+              position="UP"
+              alwaysShow
+            />
           </div>
 
           <div className="flex justify-center items-center">
@@ -187,6 +221,7 @@ export default function DisplayWordMeaningPage() {
               position="TOP_LEFT_TOP"
               theme="emerald"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -196,6 +231,7 @@ export default function DisplayWordMeaningPage() {
               position="TOP_LEFT_LEFT"
               theme="emerald"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -205,6 +241,7 @@ export default function DisplayWordMeaningPage() {
               position="TOP_RIGHT_TOP"
               theme="emerald"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -214,6 +251,7 @@ export default function DisplayWordMeaningPage() {
               position="TOP_RIGHT_RIGHT"
               theme="emerald"
               highlight
+              alwaysShow
             />
           </div>
 
@@ -224,6 +262,7 @@ export default function DisplayWordMeaningPage() {
               position="BOTTOM_LEFT_BOTTOM"
               theme="blue"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -233,6 +272,7 @@ export default function DisplayWordMeaningPage() {
               position="BOTTOM_LEFT_LEFT"
               theme="blue"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -242,6 +282,7 @@ export default function DisplayWordMeaningPage() {
               position="BOTTOM_RIGHT_BOTTOM"
               theme="blue"
               highlight
+              alwaysShow
             />
           </div>
           <div className="flex justify-center items-center">
@@ -251,6 +292,7 @@ export default function DisplayWordMeaningPage() {
               position="BOTTOM_RIGHT_RIGHT"
               theme="blue"
               highlight
+              alwaysShow
             />
           </div>
         </div>

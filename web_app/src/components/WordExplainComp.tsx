@@ -43,7 +43,7 @@ export default function WordExplainComp({
   position = "LEFT",
   highlight = false,
   className = "",
-  alwaysShow = true,
+  alwaysShow = false,
   offsetX = 0,
   offsetY = 0,
   meaningClassName = "",
@@ -54,12 +54,12 @@ export default function WordExplainComp({
   const dy = Math.max(16 + offsetY, 4);
 
   return (
-    <span className={`relative inline-block group ${className}`}>
+    <span className={`relative inline-block group/word ${className}`}>
       {/* The main word - normal text by default, seamlessly blends in */}
       <span
         className={`relative z-10 transition-colors ${
           highlight ? getHighlightClasses(theme) : "text-inherit"
-        }`}
+        } ${!alwaysShow ? "underline decoration-slate-400 decoration-dotted underline-offset-4 cursor-help" : ""}`}
       >
         {word}
       </span>
@@ -69,7 +69,7 @@ export default function WordExplainComp({
         className={`absolute z-50 pointer-events-none transition-all duration-200 ${
           alwaysShow
             ? "opacity-100 scale-100"
-            : "opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100"
+            : "opacity-0 scale-95 group-hover/word:opacity-100 group-hover/word:scale-100"
         }`}
         style={getDynamicStyles(position, dx, dy)}
       >

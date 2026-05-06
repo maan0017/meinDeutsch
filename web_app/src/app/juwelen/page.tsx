@@ -36,7 +36,7 @@ type ColorType =
 interface QuizCardProps {
   href: string;
   title: React.ReactNode;
-  description: string;
+  description: React.ReactNode;
   color: ColorType;
   icon: LucideIcon;
 }
@@ -90,7 +90,7 @@ const QuizCard = ({
         bg-white dark:bg-[#1E1E1E] 
         rounded-xl border border-slate-200 dark:border-[#333] 
         hover:shadow-lg hover:-translate-y-0.5 hover:z-20
-        transition-all duration-200 ease-out
+        transition-all duration-200 ease-out overflow-visible
         ${colors[color]} ${bgColors[color]}
       `}
     >
@@ -106,7 +106,7 @@ const QuizCard = ({
         <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-0.5 transition-colors">
           {title}
         </h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           {description}
         </p>
       </div>
@@ -138,8 +138,44 @@ export default function QuizGamesHomePage() {
     // --- FOUNDATION ---
     {
       href: "/juwel/practice-german-alphabets",
-      title: <>Alphabetübung</>,
-      description: "Lerne, deutsche Buchstaben auszusprechen und zu tippen",
+      title: (
+        <>
+          <WordExplainComp
+            word="Alphabetübung"
+            meaning="Alphabet Practice"
+            position="TOP_RIGHT_RIGHT"
+            className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+            alwaysShow
+          />
+        </>
+      ),
+      description: (
+        <>
+          Lerne, deutsche{" "}
+          <WordExplainComp
+            word="Buchstaben"
+            meaning="Letters"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="auszusprechen"
+            meaning="to pronounce"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und zu{" "}
+          <WordExplainComp
+            word="tippen"
+            meaning="to type"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "blue",
       icon: Type,
     },
@@ -152,10 +188,37 @@ export default function QuizGamesHomePage() {
             meaning="Numbers Game"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Zahlen von null bis unendlich buchstabieren und tippen",
+      description: (
+        <>
+          <WordExplainComp
+            word="Zahlen"
+            meaning="Numbers"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          von null bis{" "}
+          <WordExplainComp
+            word="unendlich"
+            meaning="infinity"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="buchstabieren"
+            meaning="to spell"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und tippen
+        </>
+      ),
       color: "cyan",
       icon: Hash,
     },
@@ -168,10 +231,38 @@ export default function QuizGamesHomePage() {
             meaning="Telling Time"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Übe das Lesen und Schreiben der Uhrzeit auf Deutsch",
+      description: (
+        <>
+          <WordExplainComp
+            word="Übe"
+            meaning="Practice"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          das{" "}
+          <WordExplainComp
+            word="Lesen"
+            meaning="Reading"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="Schreiben"
+            meaning="Writing"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          der Uhrzeit auf Deutsch
+        </>
+      ),
       color: "rose",
       icon: Clock,
     },
@@ -184,11 +275,45 @@ export default function QuizGamesHomePage() {
             meaning="Calendar"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+            alwaysShow
           />
           -Memory
         </>
       ),
-      description: "Merke dir Wochentage, Monate und Jahreszeiten",
+      description: (
+        <>
+          <WordExplainComp
+            word="Merke dir"
+            meaning="Memorize"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="Wochentage"
+            meaning="Weekdays"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+          ,{" "}
+          <WordExplainComp
+            word="Monate"
+            meaning="Months"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="Jahreszeiten"
+            meaning="Seasons"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "emerald",
       icon: Calendar,
     },
@@ -203,10 +328,37 @@ export default function QuizGamesHomePage() {
             meaning="Vocabulary Builder"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Tippe die genaue deutsche Übersetzung für wichtige Wörter",
+      description: (
+        <>
+          <WordExplainComp
+            word="Tippe"
+            meaning="Type"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          die genaue deutsche{" "}
+          <WordExplainComp
+            word="Übersetzung"
+            meaning="Translation"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          für wichtige{" "}
+          <WordExplainComp
+            word="Wörter"
+            meaning="Words"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "indigo",
       icon: PenTool,
     },
@@ -219,11 +371,23 @@ export default function QuizGamesHomePage() {
             meaning="Vocabulary"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+            alwaysShow
           />
           -Quiz
         </>
       ),
-      description: "Multiple-Choice-Test für Wortübersetzungen",
+      description: (
+        <>
+          Multiple-Choice-Test für{" "}
+          <WordExplainComp
+            word="Wortübersetzungen"
+            meaning="Word translations"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "purple",
       icon: ListChecks,
     },
@@ -236,11 +400,37 @@ export default function QuizGamesHomePage() {
             meaning="Adjective"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+            alwaysShow
           />
           -Memory
         </>
       ),
-      description: "Merke dir häufige beschreibende Wörter und ihre Gegensätze",
+      description: (
+        <>
+          <WordExplainComp
+            word="Merke dir"
+            meaning="Memorize"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="häufige"
+            meaning="frequent"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          beschreibende Wörter und ihre{" "}
+          <WordExplainComp
+            word="Gegensätze"
+            meaning="Opposites"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "amber",
       icon: GitCompare,
     },
@@ -253,11 +443,31 @@ export default function QuizGamesHomePage() {
             meaning="Wh-Questions"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+            alwaysShow
           />
           -Quiz
         </>
       ),
-      description: "Meistere die Fragewörter: wer, was, wo, wann, warum",
+      description: (
+        <>
+          <WordExplainComp
+            word="Meistere"
+            meaning="Master"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          die{" "}
+          <WordExplainComp
+            word="Fragewörter"
+            meaning="Question words"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+          : wer, was, wo, wann, warum
+        </>
+      ),
       color: "rose",
       icon: HelpCircle,
     },
@@ -272,12 +482,30 @@ export default function QuizGamesHomePage() {
             meaning="Cases"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+            alwaysShow
           />
           -Meister
         </>
       ),
-      description:
-        "Merke dir die Nominativ-, Akkusativ-, Dativ- & Genitiv-Tabellen",
+      description: (
+        <>
+          <WordExplainComp
+            word="Merke dir"
+            meaning="Memorize"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          die Nominativ-, Akkusativ-, Dativ- &{" "}
+          <WordExplainComp
+            word="Genitiv-Tabellen"
+            meaning="Genitive tables"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "emerald",
       icon: Layers,
     },
@@ -291,11 +519,44 @@ export default function QuizGamesHomePage() {
             meaning="Verbs"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description:
-        "Merke dir spezifische Verben, die zwingend den Dativ verlangen",
+      description: (
+        <>
+          <WordExplainComp
+            word="Merke dir"
+            meaning="Memorize"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="spezifische"
+            meaning="specific"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          Verben, die{" "}
+          <WordExplainComp
+            word="zwingend"
+            meaning="mandatory"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          den Dativ{" "}
+          <WordExplainComp
+            word="verlangen"
+            meaning="require"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "blue",
       icon: Target,
     },
@@ -308,11 +569,30 @@ export default function QuizGamesHomePage() {
             meaning="Prepositions"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+            alwaysShow
           />
           -Matrix
         </>
       ),
-      description: "Meistere Akkusativ-, Dativ- und Wechselpräpositionen",
+      description: (
+        <>
+          <WordExplainComp
+            word="Meistere"
+            meaning="Master"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          Akkusativ-, Dativ- und{" "}
+          <WordExplainComp
+            word="Wechselpräpositionen"
+            meaning="Two-way prepositions"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "purple",
       icon: ListChecks,
     },
@@ -325,11 +605,30 @@ export default function QuizGamesHomePage() {
             meaning="Connectors"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+            alwaysShow
           />
           -Spiel
         </>
       ),
-      description: "Übe Konjunktionen wie weil, dass, wenn und deshalb",
+      description: (
+        <>
+          <WordExplainComp
+            word="Übe"
+            meaning="Practice"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="Konjunktionen"
+            meaning="Conjunctions"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          wie weil, dass, wenn und deshalb
+        </>
+      ),
       color: "cyan",
       icon: Link2,
     },
@@ -342,10 +641,29 @@ export default function QuizGamesHomePage() {
             meaning="Modal Verbs"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Merke dir Konjugationen für können, müssen, dürfen, usw.",
+      description: (
+        <>
+          <WordExplainComp
+            word="Merke dir"
+            meaning="Memorize"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="Konjugationen"
+            meaning="Conjugations"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          für können, müssen, dürfen, usw.
+        </>
+      ),
       color: "amber",
       icon: Zap,
     },
@@ -358,12 +676,46 @@ export default function QuizGamesHomePage() {
             meaning="Verb Forms"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+            alwaysShow
           />
           -Herausforderung
         </>
       ),
-      description:
-        "Meistere die Vergangenheitsform und Partizipien unregelmäßiger Verben",
+      description: (
+        <>
+          <WordExplainComp
+            word="Meistere"
+            meaning="Master"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          die{" "}
+          <WordExplainComp
+            word="Vergangenheitsform"
+            meaning="Past tense"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="Partizipien"
+            meaning="Participles"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="unregelmäßiger"
+            meaning="irregular"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          Verben
+        </>
+      ),
       color: "rose",
       icon: RefreshCw,
     },
@@ -376,11 +728,46 @@ export default function QuizGamesHomePage() {
             meaning="Grammar"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+            alwaysShow
           />
           -Übungen
         </>
       ),
-      description: "Unendliche, rasante Übungen zum Aufbau deiner Grammatik",
+      description: (
+        <>
+          <WordExplainComp
+            word="Unendliche"
+            meaning="Infinite"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+          ,{" "}
+          <WordExplainComp
+            word="rasante"
+            meaning="rapid"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="Übungen"
+            meaning="Exercises"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          zum{" "}
+          <WordExplainComp
+            word="Aufbau"
+            meaning="building"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          deiner Grammatik
+        </>
+      ),
       color: "indigo",
       icon: Brain,
     },
@@ -394,10 +781,37 @@ export default function QuizGamesHomePage() {
             meaning="Exams"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Umfassende Tests zu Artikeln und Konjugationen",
+      description: (
+        <>
+          <WordExplainComp
+            word="Umfassende"
+            meaning="Comprehensive"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          Tests zu{" "}
+          <WordExplainComp
+            word="Artikeln"
+            meaning="Articles"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="Konjugationen"
+            meaning="Conjugations"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "purple",
       icon: GraduationCap,
     },
@@ -412,11 +826,44 @@ export default function QuizGamesHomePage() {
             meaning="Sentence Builder"
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description:
-        "Übersetze und bilde vollständige, grammatikalisch korrekte Sätze",
+      description: (
+        <>
+          <WordExplainComp
+            word="Übersetze"
+            meaning="Translate"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="bilde"
+            meaning="form"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="vollständige"
+            meaning="complete"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+          , grammatikalisch korrekte{" "}
+          <WordExplainComp
+            word="Sätze"
+            meaning="Sentences"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+        </>
+      ),
       color: "emerald",
       icon: Puzzle,
     },
@@ -429,10 +876,45 @@ export default function QuizGamesHomePage() {
             meaning="Reading Comprehension"
             position="TOP_LEFT_LEFT"
             className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+            alwaysShow
           />
         </>
       ),
-      description: "Lese, analysiere und verstehe vollständige deutsche Texte",
+      description: (
+        <>
+          <WordExplainComp
+            word="Lese"
+            meaning="Read"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />
+          ,{" "}
+          <WordExplainComp
+            word="analysiere"
+            meaning="analyze"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          und{" "}
+          <WordExplainComp
+            word="verstehe"
+            meaning="understand"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          <WordExplainComp
+            word="vollständige"
+            meaning="complete"
+            alwaysShow={false}
+            position="TOP_RIGHT_TOP"
+            theme="slate"
+          />{" "}
+          deutsche Texte
+        </>
+      ),
       color: "blue",
       icon: BookOpen,
     },
@@ -466,6 +948,9 @@ export default function QuizGamesHomePage() {
                   word="Zurück zum Hauptmenü"
                   meaning="Back to the main menu"
                   position="TOP_RIGHT_RIGHT"
+                  alwaysShow
+                  offsetX={20}
+                  offsetY={-10}
                 />
               </span>
             </Link>
@@ -479,14 +964,16 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 offsetY={-5}
                 highlight={true}
+                alwaysShow
               />
             </h1>
             <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               <WordExplainComp
                 word="Wähle einen Spielmodus"
                 meaning="Select a game mode"
-                position="RIGHT"
-                offsetX={30}
+                position="BOTTOM_RIGHT_RIGHT"
+                alwaysShow
+                offsetY={-8}
               />
             </p>
           </div>
