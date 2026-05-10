@@ -18,7 +18,7 @@ type SpeakOptions = {
   text: string;
 };
 
-export function useSpeech({
+export function useTextToSpeech({
   lang = "de-DE",
   rate = 1,
   pitch = 1,
@@ -42,9 +42,16 @@ export function useSpeech({
   const [isSupported, setIsSupported] = useState(false);
 
   useEffect(() => {
-    setIsSupported(
-      typeof window !== "undefined" && "speechSynthesis" in window
-    );
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      setIsSupported(true);
+      // Preload voices to avoid initial lag
+      window.speechSynthesis.getVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          window.speechSynthesis.getVoices();
+        };
+      }
+    }
 
     return () => {
       window.speechSynthesis?.cancel();
@@ -106,10 +113,9 @@ export function useSpeech({
         };
 
         utteranceRef.current = utterance;
-
-        setTimeout(() => {
-          window.speechSynthesis.speak(utterance);
-        }, 50);
+        
+        // Speak instantly
+        window.speechSynthesis.speak(utterance);
       } catch (err) {
         cleanup();
         console.error("Speech synthesis failed:", err);
@@ -188,7 +194,7 @@ export function useSpeech({
 
           utteranceRef.current = utterance;
           window.speechSynthesis.speak(utterance);
-        }, 50);
+        }, 10);
       }
     }
   }, [rate, pitch, volume, isPlaying, isPaused, lang, cleanup, onEnd, onError]);

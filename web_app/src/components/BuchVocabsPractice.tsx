@@ -5,25 +5,16 @@ import Link from "next/link";
 import { buchVocabs, BuchVocabWord } from "@/data/buchVocabs";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { useGoBack } from "@/hooks/useGoBack";
-
-// ── Types ──
-interface HistoryEntry {
-  word: BuchVocabWord;
-  userAnswer: string;
-  isCorrect: boolean;
-  timestamp: number;
-}
-
-interface SessionHistory {
-  level: string;
-  chapter: number;
-  entries: HistoryEntry[];
-}
+import { useGermanSpeechToText } from "@/hooks/useGermanSpeechToText";
+import { useBookmark } from "@/hooks/useBookmark";
+import { BookmarkComp } from "./BookmarkComp";
+import { QuizGameInput } from "./QuizGameInput";
+import { QuizFeedback } from "./quizGame/QuizFeedback";
 
 // ── LocalStorage keys ──
 const LS_LEVEL = "buch_vocabs_level";
 const LS_CHAPTER = "buch_vocabs_chapter";
-const LS_HISTORY = "buch_vocabs_history";
+const SAVED_STATE_BOOKMARKED_ONLY = "buch_vocabs_bookmarked_only";
 
 export default function BuchVocabsPractice() {
   useGoBack();
@@ -33,6 +24,7 @@ export default function BuchVocabsPractice() {
   // ── Selection state (persisted) ──
   const [selectedLevel, setSelectedLevel] = useState("A1");
   const [selectedChapter, setSelectedChapter] = useState(1);
+  const [playBookmarkedOnly, setPlayBookmarkedOnly] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
   // ── Quiz state ──
@@ -41,72 +33,124 @@ export default function BuchVocabsPractice() {
   const [status, setStatus] = useState<"idle" | "correct" | "wrong">("idle");
   const [seenIndices, setSeenIndices] = useState<Set<number>>(new Set());
 
-  // ── History state ──
-  const [history, setHistory] = useState<SessionHistory[]>([]);
-  const [showHistory, setShowHistory] = useState(false);
+  // ── Bookmarks state ──
+  const [bookmarkedWords, setBookmarkedWords] = useState<string[]>([]);
+  const BOOKMARK_NAME = `buch_bookmarks_${selectedLevel}_${selectedChapter}`;
+  const { getBookmarkStrings } = useBookmark(BOOKMARK_NAME);
+
+  // Poll bookmarks periodically (similar to GuessGermanWords)
+  useEffect(() => {
+    const updateBookmarks = () => {
+      setBookmarkedWords((prev) => {
+        const next = getBookmarkStrings();
+        if (prev.length !== next.length || prev.some((v, i) => v !== next[i])) {
+          return next;
+        }
+        return prev;
+      });
+    };
+    updateBookmarks();
+    const interval = setInterval(updateBookmarks, 1000);
+    return () => clearInterval(interval);
+  }, [getBookmarkStrings]);
+
+  // ── Speech to Text ──
+  const {
+    transcript,
+    listening,
+    stop: stopListening,
+    resetTranscript,
+  } = useGermanSpeechToText();
 
   // ── Derived data ──
-  const levelData = buchVocabs.find((l) => l.level === selectedLevel);
+  const levelData =
+    buchVocabs.find((l) => l.level === selectedLevel) || buchVocabs[0];
   const availableChapters = levelData?.chapters ?? [];
-  const chapterData = levelData?.chapters.find(
-    (c) => c.chapter === selectedChapter
-  );
-  const words = chapterData?.words ?? [];
-  const currentWord = words[currentWordIdx] ?? null;
+  const chapterData =
+    levelData?.chapters.find((c) => c.chapter === selectedChapter) ||
+    availableChapters[0];
+
+  const allWords = chapterData?.words ?? [];
+  const words = playBookmarkedOnly
+    ? allWords.filter((w) => bookmarkedWords.includes(w.german))
+    : allWords;
+
+  const safeWordIdx = currentWordIdx >= words.length ? 0 : currentWordIdx;
+  const currentWord = words[safeWordIdx] ?? null;
 
   // ── Load saved state ──
   useEffect(() => {
     const sl = localStorage.getItem(LS_LEVEL);
     const sc = localStorage.getItem(LS_CHAPTER);
-    const sh = localStorage.getItem(LS_HISTORY);
+    const savedBookmarksOnly = localStorage.getItem(
+      SAVED_STATE_BOOKMARKED_ONLY
+    );
     if (sl) setSelectedLevel(sl);
     if (sc) setSelectedChapter(Number(sc));
-    if (sh) {
-      try {
-        setHistory(JSON.parse(sh));
-      } catch {
-        /* ignore */
-      }
+    if (savedBookmarksOnly !== null) {
+      setPlayBookmarkedOnly(savedBookmarksOnly === "true");
     }
     setInitialized(true);
   }, []);
 
-  // ── Persist ──
+  // ── Persist config ──
   useEffect(() => {
     if (!initialized) return;
     localStorage.setItem(LS_LEVEL, selectedLevel);
-  }, [selectedLevel, initialized]);
-
-  useEffect(() => {
-    if (!initialized) return;
     localStorage.setItem(LS_CHAPTER, String(selectedChapter));
-  }, [selectedChapter, initialized]);
+    localStorage.setItem(
+      SAVED_STATE_BOOKMARKED_ONLY,
+      String(playBookmarkedOnly)
+    );
+  }, [selectedLevel, selectedChapter, playBookmarkedOnly, initialized]);
 
+  // ── Keyboard Shortcuts ──
   useEffect(() => {
-    if (!initialized) return;
-    localStorage.setItem(LS_HISTORY, JSON.stringify(history));
-  }, [history, initialized]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.altKey &&
+        e.key.toLowerCase() === "b" &&
+        bookmarkedWords.length > 0
+      ) {
+        e.preventDefault();
+        setPlayBookmarkedOnly(!playBookmarkedOnly);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [playBookmarkedOnly, bookmarkedWords.length]);
+
+  // ── Speech Transcript Sync ──
+  useEffect(() => {
+    if (transcript) {
+      setUserAnswer(transcript);
+    }
+  }, [transcript]);
 
   // ── Pick next unseen word ──
   const pickNextWord = useCallback(
-    (seen: Set<number>) => {
-      if (words.length === 0) return;
-      const available = words
+    (seen: Set<number>, currentPool: BuchVocabWord[]) => {
+      if (currentPool.length === 0) {
+        setCurrentWordIdx(0);
+        return;
+      }
+      const available = currentPool
         .map((_, i) => i)
         .filter((i) => !seen.has(i));
+
       if (available.length === 0) {
         setSeenIndices(new Set());
-        setCurrentWordIdx(Math.floor(Math.random() * words.length));
+        setCurrentWordIdx(Math.floor(Math.random() * currentPool.length));
         return;
       }
       setCurrentWordIdx(
         available[Math.floor(Math.random() * available.length)]
       );
     },
-    [words]
+    []
   );
 
-  // ── Reset when level/chapter changes ──
+  // ── Reset when mode changes ──
   useEffect(() => {
     if (!initialized) return;
     if (
@@ -116,17 +160,41 @@ export default function BuchVocabsPractice() {
       setSelectedChapter(availableChapters[0].chapter);
       return;
     }
+
     setSeenIndices(new Set());
     setUserAnswer("");
     setStatus("idle");
-    pickNextWord(new Set());
-    setTimeout(() => inputRef.current?.focus(), 100);
-  }, [selectedLevel, selectedChapter, initialized]);
+    resetTranscript();
+    pickNextWord(new Set(), words);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedLevel, selectedChapter, playBookmarkedOnly, initialized]);
 
-  // ── Submit answer ──
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+  // Adjust if words shrink below index
+  useEffect(() => {
+    if (
+      playBookmarkedOnly &&
+      currentWordIdx >= words.length &&
+      words.length > 0
+    ) {
+      setCurrentWordIdx(0);
+    }
+  }, [words.length, playBookmarkedOnly, currentWordIdx]);
+
+  // Disable Bookmarks mode if list becomes empty
+  useEffect(() => {
+    if (playBookmarkedOnly && bookmarkedWords.length === 0 && initialized) {
+      setPlayBookmarkedOnly(false);
+    }
+  }, [playBookmarkedOnly, bookmarkedWords.length, initialized]);
+
+  // ── Handlers ──
+  const handleSubmit = (e?: FormEvent) => {
+    e?.preventDefault();
     if (!currentWord || status !== "idle" || !userAnswer.trim()) return;
+
+    if (listening) {
+      stopListening();
+    }
 
     const answer = userAnswer.trim().toLowerCase();
     const correct = currentWord.german.toLowerCase();
@@ -135,93 +203,89 @@ export default function BuchVocabsPractice() {
     setStatus(isCorrect ? "correct" : "wrong");
     playSound(isCorrect ? "correct" : "wrong");
 
-    const entry: HistoryEntry = {
-      word: currentWord,
-      userAnswer: userAnswer.trim(),
-      isCorrect,
-      timestamp: Date.now(),
-    };
-
-    setHistory((prev) => {
-      const existing = prev.find(
-        (h) => h.level === selectedLevel && h.chapter === selectedChapter
-      );
-      if (existing) {
-        return prev.map((h) =>
-          h.level === selectedLevel && h.chapter === selectedChapter
-            ? { ...h, entries: [entry, ...h.entries] }
-            : h
-        );
-      }
-      return [
-        ...prev,
-        { level: selectedLevel, chapter: selectedChapter, entries: [entry] },
-      ];
-    });
-
     setTimeout(() => {
       const newSeen = new Set(seenIndices);
-      newSeen.add(currentWordIdx);
+      newSeen.add(safeWordIdx);
       setSeenIndices(newSeen);
-      pickNextWord(newSeen);
+      pickNextWord(newSeen, words);
       setUserAnswer("");
       setStatus("idle");
+      resetTranscript();
       setTimeout(() => inputRef.current?.focus(), 50);
     }, 1500);
   };
 
-  // ── History stats ──
-  const currentHistory = history.find(
-    (h) => h.level === selectedLevel && h.chapter === selectedChapter
-  );
-  const totalAttempts = currentHistory?.entries.length ?? 0;
-  const correctCount =
-    currentHistory?.entries.filter((e) => e.isCorrect).length ?? 0;
+  const handleInputKeyDowns = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
 
-  // ── Status config (matches existing quiz games) ──
+  // ── Status config (matches GuessGermanWords) ──
   const statusConfig = {
     correct: {
       card: "border-emerald-500/50 shadow-emerald-500/10 shadow-xl",
-      input:
-        "border-emerald-500 focus:border-emerald-500 text-emerald-700 bg-emerald-50 focus:ring-emerald-100 dark:text-emerald-300 dark:bg-emerald-950/30 dark:focus:ring-emerald-900",
+      accent: "bg-emerald-500",
+      input: [
+        "border-emerald-500 focus:border-emerald-500",
+        "text-emerald-700 bg-emerald-50 focus:ring-emerald-100",
+        "dark:text-emerald-300 dark:bg-emerald-950/30 dark:focus:ring-emerald-900",
+      ].join(" "),
     },
     wrong: {
       card: "border-red-500/50 shadow-red-500/10 shadow-xl",
-      input:
-        "border-red-500 focus:border-red-500 text-red-700 bg-red-50 focus:ring-red-100 dark:text-red-300 dark:bg-red-950/30 dark:focus:ring-red-900",
+      accent: "bg-red-500",
+      input: [
+        "border-red-500 focus:border-red-500",
+        "text-red-700 bg-red-50 focus:ring-red-100",
+        "dark:text-red-300 dark:bg-red-950/30 dark:focus:ring-red-900",
+      ].join(" "),
     },
     idle: {
-      card: "shadow-xl border-gray-200 shadow-gray-100/80 dark:border-white/[0.07] dark:shadow-black/50",
-      input:
-        "focus:border-sky-500 border-gray-300 text-gray-800 bg-white hover:border-gray-400 focus:ring-sky-100 dark:border-white/10 dark:text-white dark:bg-white/5 dark:hover:border-white/20 dark:focus:ring-sky-950",
+      card: [
+        "shadow-xl",
+        "border-gray-200 shadow-gray-100/80",
+        "dark:border-white/[0.07] dark:shadow-black/50",
+      ].join(" "),
+      accent: "bg-sky-500",
+      input: [
+        "focus:border-sky-500",
+        "border-gray-300 text-gray-800 bg-white hover:border-gray-400 focus:ring-sky-100",
+        "dark:border-white/10 dark:text-white dark:bg-white/5 dark:hover:border-white/20 dark:focus:ring-sky-950",
+      ].join(" "),
     },
   } as const;
 
-  const cs = statusConfig[status];
+  const currentStatus =
+    status === "correct"
+      ? statusConfig.correct
+      : status === "wrong"
+        ? statusConfig.wrong
+        : statusConfig.idle;
 
   const remainingWords = Math.max(0, words.length - seenIndices.size);
-  const progressPercent =
-    words.length > 0
-      ? Math.round((seenIndices.size / words.length) * 100)
-      : 0;
+  const progressPercent = words.length
+    ? Math.round((seenIndices.size * 100) / words.length)
+    : 0;
 
   if (!initialized) return null;
 
   return (
     <main className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-4 bg-gray-50 dark:bg-[#121212]">
       <div className="relative flex w-full max-w-xl flex-col gap-3 z-10">
-        {/* Header */}
-        <header className="relative text-center space-y-1">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2">
+        {/* Header (Matching QuizHeader) */}
+        <header className="flex items-center justify-between w-full mb-2 md:mb-4 relative">
+          <div className="shrink-0">
             <Link
               href="/juwelen"
-              className="p-1.5 md:p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
+              className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
               title="Back to Quiz Menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -231,17 +295,17 @@ export default function BuchVocabsPractice() {
               >
                 <path d="m15 18-6-6 6-6" />
               </svg>
-              <span className="hidden md:inline text-sm font-semibold">
-                Back to menu
-              </span>
             </Link>
           </div>
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#E0E0E0]">
-            Buchwortschatz
-          </h1>
-          <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium">
-            Type the German translation
-          </p>
+
+          <div className="flex-1 text-center px-2 md:px-4">
+            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#E0E0E0]">
+              Buchwortschatz
+            </h1>
+            <p className="text-xs md:text-sm text-gray-500 dark:text-[#B0B0B0] font-medium mt-0.5 md:mt-1">
+              Type the German translation
+            </p>
+          </div>
         </header>
 
         {/* Main card */}
@@ -249,213 +313,297 @@ export default function BuchVocabsPractice() {
           className={[
             "relative overflow-hidden rounded-2xl border transition-all duration-300 ease-out",
             "bg-white dark:bg-[#121212]",
-            cs.card,
+            currentStatus.card,
           ].join(" ")}
         >
           <div className="p-4 md:p-6">
-            {/* Level + Chapter Controls */}
-            <div className="flex flex-col items-center gap-3">
-              {/* Level selector */}
-              <div className="flex items-center gap-1.5">
-                {buchVocabs.map((l) => (
-                  <button
-                    key={l.level}
-                    onClick={() => setSelectedLevel(l.level)}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all duration-150 ${
-                      selectedLevel === l.level
-                        ? "bg-sky-500 text-white shadow-sm"
-                        : "bg-gray-100 text-gray-500 hover:bg-gray-200 dark:bg-white/5 dark:text-white/40 dark:hover:bg-white/10"
-                    }`}
+            {/* Inline Controls (Matching QuizGroupControls) */}
+            <div className="flex flex-col items-center justify-start gap-1 md:gap-2 relative">
+              {/* Group Controls Row */}
+              <div className="flex w-full items-center justify-between gap-2 md:gap-4">
+                {/* Left — Level Selector */}
+                <div className="flex-1 max-w-[100px] md:max-w-[120px] min-w-0">
+                  <div
+                    className={`
+                      relative flex items-center justify-between
+                      h-9 md:h-10 w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full transition-opacity duration-200 mx-auto
+                    `}
                   >
-                    {l.level}
-                  </button>
-                ))}
-              </div>
+                    <select
+                      value={selectedLevel}
+                      onChange={(e) => setSelectedLevel(e.target.value)}
+                      className="appearance-none w-full h-full pl-3 pr-7 bg-transparent text-[11px] md:text-xs font-bold uppercase tracking-wider text-center text-gray-600 dark:text-gray-300 truncate focus:outline-none cursor-pointer"
+                    >
+                      {buchVocabs.map((l) => (
+                        <option
+                          key={l.level}
+                          value={l.level}
+                          className="text-gray-900 bg-white dark:bg-zinc-900 dark:text-gray-200"
+                        >
+                          {l.level}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-gray-400 dark:text-zinc-600">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
 
-              {/* Chapter selector */}
-              <div className="flex items-center gap-1">
-                <button
-                  onClick={() => {
-                    const idx = availableChapters.findIndex(
-                      (c) => c.chapter === selectedChapter
-                    );
-                    if (idx > 0)
-                      setSelectedChapter(availableChapters[idx - 1].chapter);
-                  }}
-                  disabled={
-                    availableChapters.findIndex(
-                      (c) => c.chapter === selectedChapter
-                    ) <= 0
-                  }
-                  className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-white/5 text-gray-400 dark:text-white/30 disabled:opacity-30 transition-colors"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m15 18-6-6 6-6" />
-                  </svg>
-                </button>
-                <span className="px-3 py-1 rounded-lg bg-gray-100 dark:bg-white/5 text-xs font-bold text-gray-600 dark:text-white/50 min-w-[100px] text-center">
-                  Kapitel {selectedChapter}
-                  {chapterData?.title && (
-                    <span className="font-normal text-gray-400 dark:text-white/25 ml-1">
-                      · {chapterData.title}
-                    </span>
+                {/* Center — Chapter Navigator */}
+                <div className="flex flex-[2] items-center justify-center min-w-0">
+                  <div className="flex items-center justify-between h-9 md:h-10 w-full max-w-65 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full transition-opacity duration-200 mx-auto">
+                    {/* Prev Chapter */}
+                    <button
+                      type="button"
+                      disabled={
+                        availableChapters.findIndex(
+                          (c) => c.chapter === selectedChapter
+                        ) <= 0
+                      }
+                      onClick={() => {
+                        const idx = availableChapters.findIndex(
+                          (c) => c.chapter === selectedChapter
+                        );
+                        if (idx > 0)
+                          setSelectedChapter(
+                            availableChapters[idx - 1].chapter
+                          );
+                      }}
+                      title="Previous Chapter"
+                      className="flex items-center justify-center h-full w-9 md:w-10 rounded-l-full text-gray-400 hover:text-gray-600 dark:text-zinc-500 dark:hover:text-zinc-300 hover:bg-gray-50 dark:hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent transition-colors"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="m15 18-6-6 6-6" />
+                      </svg>
+                    </button>
+
+                    {/* Dropdown Selector */}
+                    <div className="relative flex-1 h-full min-w-0 border-x border-gray-100 dark:border-zinc-800">
+                      <select
+                        value={selectedChapter}
+                        onChange={(e) =>
+                          setSelectedChapter(Number(e.target.value))
+                        }
+                        className="appearance-none w-full h-full pl-2 pr-7 bg-transparent text-[11px] md:text-xs font-bold uppercase tracking-wider text-center text-gray-600 dark:text-gray-300 truncate focus:outline-none cursor-pointer"
+                        title="Select Chapter"
+                      >
+                        {availableChapters.map((c) => (
+                          <option
+                            key={c.chapter}
+                            value={c.chapter}
+                            className="text-gray-900 bg-white dark:bg-zinc-900 dark:text-gray-200"
+                          >
+                            Kapitel {c.chapter} {c.title ? `— ${c.title}` : ""}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-gray-400 dark:text-zinc-600">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Next Chapter */}
+                    <button
+                      type="button"
+                      disabled={
+                        availableChapters.findIndex(
+                          (c) => c.chapter === selectedChapter
+                        ) >=
+                        availableChapters.length - 1
+                      }
+                      onClick={() => {
+                        const idx = availableChapters.findIndex(
+                          (c) => c.chapter === selectedChapter
+                        );
+                        if (idx < availableChapters.length - 1)
+                          setSelectedChapter(
+                            availableChapters[idx + 1].chapter
+                          );
+                      }}
+                      title="Next Chapter"
+                      className="flex items-center justify-center h-full w-9 md:w-10 rounded-r-full text-gray-400 hover:text-gray-600 dark:text-zinc-500 dark:hover:text-zinc-300 hover:bg-gray-50 dark:hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent transition-colors"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="m9 18 6-6-6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Right — Bookmark */}
+                <div className="justify-self-end">
+                  {currentWord ? (
+                    <BookmarkComp
+                      word={currentWord.german}
+                      BOOKMARK_NAME={BOOKMARK_NAME}
+                    />
+                  ) : (
+                    <div className="w-10 h-10" />
                   )}
-                </span>
-                <button
-                  onClick={() => {
-                    const idx = availableChapters.findIndex(
-                      (c) => c.chapter === selectedChapter
-                    );
-                    if (idx < availableChapters.length - 1)
-                      setSelectedChapter(availableChapters[idx + 1].chapter);
-                  }}
-                  disabled={
-                    availableChapters.findIndex(
-                      (c) => c.chapter === selectedChapter
-                    ) >=
-                    availableChapters.length - 1
-                  }
-                  className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-white/5 text-gray-400 dark:text-white/30 disabled:opacity-30 transition-colors"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </button>
+                </div>
               </div>
 
-              {/* Stats row */}
-              <div className="flex items-center gap-3 text-[10px] font-medium text-gray-400 dark:text-white/25">
-                <span className="font-mono">
-                  <span className="text-emerald-500">{correctCount}✓</span>
-                  <span className="mx-1">/</span>
-                  <span className="text-red-400">
-                    {totalAttempts - correctCount}✗
-                  </span>
-                </span>
-                <span className="w-px h-3 bg-gray-200 dark:bg-white/10" />
-                <button
-                  onClick={() => setShowHistory(!showHistory)}
-                  className={`uppercase tracking-widest transition-colors ${
-                    showHistory
-                      ? "text-sky-500"
-                      : "hover:text-gray-600 dark:hover:text-white/50"
-                  }`}
+              {/* Settings Toggles (Bookmarks Only) */}
+              <div className="mt-2 flex items-center justify-center gap-3 w-full">
+                <label
+                  htmlFor="playBookmarkedOnly"
+                  title={
+                    bookmarkedWords.length === 0
+                      ? "Bookmark some words to play them"
+                      : playBookmarkedOnly
+                        ? "Disable Bookmarks Mode (Alt+B)"
+                        : "Enable Bookmarks Mode (Alt+B)"
+                  }
+                  className={`
+                    flex items-center gap-1.5 cursor-pointer select-none 
+                    text-xs font-medium 
+                    transition-colors duration-200
+                    px-2 py-0.5 rounded-md border
+                    ${
+                      bookmarkedWords.length === 0
+                        ? "opacity-50 cursor-not-allowed bg-gray-100 text-gray-400 border-gray-200 dark:bg-zinc-800 dark:text-gray-500 dark:border-zinc-700"
+                        : playBookmarkedOnly
+                          ? "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
+                          : "text-gray-400 border-transparent hover:text-gray-600 dark:hover:text-gray-300"
+                    }
+                  `}
                 >
-                  History
-                </button>
+                  <div className="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      id="playBookmarkedOnly"
+                      disabled={bookmarkedWords.length === 0}
+                      checked={playBookmarkedOnly}
+                      onChange={(e) => setPlayBookmarkedOnly(e.target.checked)}
+                      className="sr-only"
+                    />
+                    <div
+                      className={`
+                        w-3 h-3 rounded-full border mr-1.5 transition-colors
+                        ${
+                          playBookmarkedOnly
+                            ? "bg-blue-500 border-blue-500"
+                            : "border-gray-300 dark:border-gray-600 bg-transparent"
+                        }
+                      `}
+                    >
+                      {playBookmarkedOnly && (
+                        <svg
+                          className="w-full h-full text-white p-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  Bookmarks Only
+                </label>
               </div>
             </div>
 
             {/* Clues */}
-            {currentWord && (
-              <div className="mt-4 grid gap-4">
-                {/* English */}
-                <section className="text-center">
-                  <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
-                    English
-                  </span>
-                  <p className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
-                    {currentWord.english}
-                  </p>
-                </section>
+            <div className="mt-4 grid gap-4">
+              {/* English */}
+              <section className="text-center">
+                <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
+                  English
+                </span>
+                <p className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
+                  {currentWord?.english || "No words available"}
+                </p>
+              </section>
 
-                {/* Hindi */}
+              {/* Hindi */}
+              {currentWord && (
                 <section className="text-center">
                   <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
                     Hindi
                   </span>
-                  <p className="mt-2 text-xl font-medium leading-snug text-gray-600 dark:text-white/65 md:text-2xl">
+                  <p className="mt-2 text-xl font-medium leading-snug text-gray-600 font-hindi dark:text-white/65 md:text-2xl">
                     {currentWord.hindi}
                   </p>
                 </section>
-              </div>
-            )}
+              )}
+            </div>
 
             {/* Feedback */}
-            {currentWord && (
-              <div
-                className={`my-4 text-center transition-all duration-300 transform ${
-                  status !== "idle"
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-2 h-0 overflow-hidden"
-                }`}
-              >
-                <div className="w-full flex items-center gap-3 mb-3">
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-white/10" />
-                  <span className="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:border-white/8 dark:bg-white/4 dark:text-white/35">
-                    German Word
-                  </span>
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-white/10" />
-                </div>
-                <p
-                  className={`text-base md:text-xl font-bold ${
-                    status === "correct"
-                      ? "text-emerald-600 dark:text-emerald-400"
-                      : "text-red-500 dark:text-red-400"
-                  }`}
-                >
-                  {status === "correct" ? "✓ Richtig!" : "✗ Falsch"}
-                </p>
-                <p className="text-base md:text-xl font-bold text-gray-800 dark:text-white mt-1">
-                  &ldquo;
-                  {currentWord.article ? `${currentWord.article} ` : ""}
-                  {currentWord.german}&rdquo;
-                </p>
-                <p className="text-xs text-gray-400 dark:text-white/35 mt-0.5">
-                  ({currentWord.pronunciation})
-                </p>
-              </div>
-            )}
+            <div className="mt-3">
+              {currentWord ? (
+                <QuizFeedback
+                  status={status}
+                  word={{
+                    germanWord: currentWord.german,
+                    englishMeaning: [currentWord.english],
+                    hindiMeaning: [currentWord.hindi],
+                    article: currentWord.article as "der" | "die" | "das",
+                    hindiPronunciation: currentWord.pronunciation,
+                    type: "noun",
+                  }}
+                />
+              ) : (
+                <div className="h-[76px]" /> // Placeholder height for feedback space
+              )}
+            </div>
 
             {/* Input */}
             <div className="mt-3">
-              <form onSubmit={handleSubmit} className="relative w-full space-y-2 md:space-y-3">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={userAnswer}
-                  onChange={(e) => setUserAnswer(e.target.value)}
-                  placeholder="Type German word..."
-                  disabled={status !== "idle"}
-                  autoComplete="off"
-                  autoCorrect="off"
-                  spellCheck="false"
-                  className={`w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl border-2 shadow-sm text-center text-sm md:text-lg font-medium placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 ${cs.input}`}
-                  aria-label="German word input"
-                />
-                <button
-                  type="submit"
-                  disabled={!userAnswer.trim() || status !== "idle"}
-                  className={`w-full px-4 py-2 md:px-6 md:py-3 rounded-lg md:rounded-xl font-semibold text-sm md:text-lg transition-all duration-200 flex items-center justify-center gap-1 md:gap-2 ${
-                    !userAnswer.trim() || status !== "idle"
-                      ? "bg-gray-200 dark:bg-zinc-800 text-gray-400 dark:text-zinc-600 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white shadow-md hover:shadow-lg"
-                  }`}
-                >
-                  <span>Submit Answer</span>
-                  <span className="hidden md:inline-flex items-center px-2 py-0.5 text-xs bg-transparent text-gray-700 border border-gray-300 dark:text-gray-300 dark:border-gray-600 rounded">
-                    ENTER
-                  </span>
-                </button>
-              </form>
+              <QuizGameInput
+                handleSubmit={handleSubmit}
+                inputRef={inputRef}
+                status={status}
+                inputStyles={currentStatus.input}
+                userAnswer={userAnswer}
+                setUserAnswer={setUserAnswer}
+                useMicrophone={true}
+                handleKeyDown={handleInputKeyDowns}
+              />
             </div>
           </div>
         </article>
@@ -469,80 +617,6 @@ export default function BuchVocabsPractice() {
             {progressPercent}% completed
           </p>
         </div>
-
-        {/* History panel (collapsible below card) */}
-        {showHistory && (
-          <div className="rounded-2xl border border-gray-200 dark:border-white/[0.07] bg-white dark:bg-[#121212] shadow-lg overflow-hidden">
-            <div className="p-4 space-y-3 max-h-60 overflow-y-auto">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-white/35">
-                  Verlauf — {selectedLevel} Kap. {selectedChapter}
-                </h3>
-                {currentHistory && currentHistory.entries.length > 0 && (
-                  <button
-                    onClick={() =>
-                      setHistory((prev) =>
-                        prev.map((h) =>
-                          h.level === selectedLevel &&
-                          h.chapter === selectedChapter
-                            ? { ...h, entries: [] }
-                            : h
-                        )
-                      )
-                    }
-                    className="text-[10px] font-bold uppercase tracking-wider text-red-400 hover:text-red-600 transition-colors"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-
-              {!currentHistory || currentHistory.entries.length === 0 ? (
-                <p className="text-xs text-gray-400 dark:text-white/25 text-center py-4">
-                  No attempts yet — start typing!
-                </p>
-              ) : (
-                <div className="space-y-1.5">
-                  {currentHistory.entries.map((entry, i) => (
-                    <div
-                      key={i}
-                      className={`flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-xs ${
-                        entry.isCorrect
-                          ? "bg-emerald-50/50 dark:bg-emerald-950/15"
-                          : "bg-red-50/50 dark:bg-red-950/15"
-                      }`}
-                    >
-                      <span className="mt-0.5 text-sm leading-none">
-                        {entry.isCorrect ? "✅" : "❌"}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="font-bold text-gray-800 dark:text-white/80">
-                            {entry.word.article
-                              ? `${entry.word.article} `
-                              : ""}
-                            {entry.word.german}
-                          </span>
-                          <span className="text-gray-300 dark:text-white/15">
-                            →
-                          </span>
-                          <span className="text-gray-500 dark:text-white/45">
-                            {entry.word.english}
-                          </span>
-                        </div>
-                        {!entry.isCorrect && (
-                          <p className="text-red-500 dark:text-red-400 mt-0.5">
-                            You typed: &quot;{entry.userAnswer}&quot;
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </main>
   );

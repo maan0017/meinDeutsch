@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGoBack } from "@/hooks/useGoBack";
 import { shortStories, StoryLevel, ShortStory } from "@/data/shortStories";
-import { useSpeech } from "@/hooks/useTextToSpeech";
+import { useTextToSpeech } from "@/hooks/useTextToSpeech";
 import {
   Settings,
   ArrowLeft,
@@ -13,8 +13,6 @@ import {
   BookOpen,
   Pause,
   Play,
-  SlidersHorizontal,
-  RefreshCw,
   X,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -39,19 +37,37 @@ export default function ShortStoriesPracticeComp() {
 
   // UI State
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [showAudioControls, setShowAudioControls] = useState(false);
 
   // Audio Speech State
-  const [pitch, setPitch] = useState(1);
-  const [rate, setRate] = useState(0.85);
-  const [volume, setVolume] = useState(1);
+  type AudioSpeed = "slow" | "medium" | "fast";
+  const [speed, setSpeed] = useState<AudioSpeed>("medium");
+
+  useEffect(() => {
+    const saved = localStorage.getItem(
+      "short_stories_audio_speed"
+    ) as AudioSpeed;
+    if (saved && ["slow", "medium", "fast"].includes(saved)) {
+      setSpeed(saved);
+    }
+  }, []);
+
+  const handleSpeedChange = (newSpeed: AudioSpeed) => {
+    setSpeed(newSpeed);
+    localStorage.setItem("short_stories_audio_speed", newSpeed);
+  };
+
+  const getRateValue = (s: AudioSpeed) => {
+    if (s === "slow") return 0.75;
+    if (s === "fast") return 1.25;
+    return 1; // medium
+  };
 
   const { speak, stop, pause, resume, isPlaying, isPaused, isSupported } =
-    useSpeech({
+    useTextToSpeech({
       lang: "de-DE",
-      pitch,
-      rate,
-      volume,
+      pitch: 0.9,
+      rate: getRateValue(speed),
+      volume: 1,
     });
 
   // Derived
@@ -83,7 +99,9 @@ export default function ShortStoriesPracticeComp() {
     setSelectedOption(null);
     setIsAnswered(false);
     stop();
-    document.getElementById("story-scroll-container")?.scrollTo({ top: 0, behavior: "smooth" });
+    document
+      .getElementById("story-scroll-container")
+      ?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleLevelChange = (level: StoryLevel | "All") => {
@@ -93,7 +111,9 @@ export default function ShortStoriesPracticeComp() {
     setSelectedOption(null);
     setIsAnswered(false);
     stop();
-    document.getElementById("story-scroll-container")?.scrollTo({ top: 0, behavior: "smooth" });
+    document
+      .getElementById("story-scroll-container")
+      ?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Audio extraction
@@ -126,12 +146,6 @@ export default function ShortStoriesPracticeComp() {
     textToSpeak = textToSpeak.replace(/\s+/g, " ").trim();
 
     speak({ text: textToSpeak });
-  };
-
-  const resetAudioSettings = () => {
-    setPitch(1);
-    setRate(0.85);
-    setVolume(1);
   };
 
   if (!currentStory) {
@@ -181,182 +195,128 @@ export default function ShortStoriesPracticeComp() {
       </header>
 
       {/* MAIN SPLIT LAYOUT */}
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden max-w-[1600px] mx-auto w-full">
-        
-        {/* LEFT/TOP: FIXED HERO PANEL */}
-        <div className="flex-none lg:w-[45%] xl:w-[40%] p-4 md:p-6 lg:p-8 flex flex-col relative z-20">
-          <div className="relative w-full h-[40vh] min-h-[300px] lg:h-full lg:min-h-0 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-end group bg-slate-900">
-            {currentStory.imageUrl ? (
-              <img
-                src={currentStory.imageUrl}
-                alt={currentStory.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80"
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                <BookOpen className="w-32 h-32 text-white" />
-              </div>
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
-            
-            <div className="relative p-5 md:p-8 flex flex-col gap-4 md:gap-6 w-full">
-              {/* Tags */}
-              <div className="flex flex-wrap items-center gap-2 md:gap-3">
-                <span className="px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-lg">
-                  Level {currentStory.level}
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] md:text-xs font-semibold uppercase tracking-widest border border-white/20">
-                  {currentStory.tags.join(" · ")}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-lg">
-                {currentStory.title}
-              </h1>
-
-              {/* Audio Player Bar */}
-              <div className="mt-2 p-3 md:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-between shadow-xl relative">
-                <div className="flex items-center gap-3 md:gap-4">
-                  <button
-                    onClick={handlePlayAudio}
-                    className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white text-slate-900 hover:scale-105 active:scale-95 transition-transform shadow-lg shrink-0"
-                  >
-                    {isPlaying && !isPaused ? (
-                      <Pause className="w-4 h-4 md:w-5 md:h-5 fill-current" />
-                    ) : (
-                      <Play className="w-4 h-4 md:w-5 md:h-5 fill-current ml-1" />
-                    )}
-                  </button>
-                  <div className="flex flex-col">
-                    <span className="font-bold text-xs md:text-sm text-white line-clamp-1">
-                      {isPlaying && !isPaused
-                        ? "Wird vorgelesen..."
-                        : "Geschichte anhören"}
-                    </span>
-                    <span className="text-[10px] text-white/70 font-medium">KI Stimme</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1 md:gap-2 shrink-0">
-                  {(isPlaying || isPaused) && (
-                    <button
-                      onClick={stop}
-                      className="text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-colors"
-                    >
-                      Stop
-                    </button>
-                  )}
-                  <button
-                    onClick={() => setShowAudioControls(!showAudioControls)}
-                    className={`p-2 md:p-2.5 rounded-full transition-colors ${
-                      showAudioControls
-                        ? "bg-white text-slate-900 shadow-md"
-                        : "text-white/80 hover:text-white hover:bg-white/20"
-                    }`}
-                  >
-                    <SlidersHorizontal className="w-4 h-4 md:w-5 md:h-5" />
-                  </button>
-                </div>
-
-                {/* Audio Settings Popover */}
-                {showAudioControls && (
-                  <div className="absolute bottom-full right-0 mb-4 w-[280px] sm:w-[320px] p-5 rounded-2xl bg-[#1A1A1A]/95 backdrop-blur-xl border border-white/10 shadow-2xl z-30 animate-in slide-in-from-bottom-2">
-                    <div className="flex flex-col gap-5">
-                      {/* Tempo */}
-                      <div className="flex flex-col gap-2">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex justify-between">
-                          <span>Tempo</span>
-                          <span className="text-white">
-                            {rate.toFixed(2)}x
-                          </span>
-                        </label>
-                        <input
-                          type="range"
-                          min="0.5"
-                          max="2"
-                          step="0.05"
-                          value={rate}
-                          onChange={(e) => setRate(parseFloat(e.target.value))}
-                          className="w-full accent-white h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                        />
-                      </div>
-                      {/* Pitch */}
-                      <div className="flex flex-col gap-2">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex justify-between">
-                          <span>Tonhöhe</span>
-                          <span className="text-white">
-                            {pitch.toFixed(1)}
-                          </span>
-                        </label>
-                        <input
-                          type="range"
-                          min="0.1"
-                          max="2"
-                          step="0.1"
-                          value={pitch}
-                          onChange={(e) => setPitch(parseFloat(e.target.value))}
-                          className="w-full accent-white h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                        />
-                      </div>
-                      {/* Volume */}
-                      <div className="flex flex-col gap-2">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex justify-between">
-                          <span>Lautstärke</span>
-                          <span className="text-white">
-                            {Math.round(volume * 100)}%
-                          </span>
-                        </label>
-                        <input
-                          type="range"
-                          min="0"
-                          max="1"
-                          step="0.1"
-                          value={volume}
-                          onChange={(e) => setVolume(parseFloat(e.target.value))}
-                          className="w-full accent-white h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-5 pt-4 border-t border-white/10 flex justify-end">
-                      <button
-                        onClick={resetAudioSettings}
-                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white transition-colors"
-                      >
-                        <RefreshCw className="w-3 h-3" />
-                        Standard
-                      </button>
-                    </div>
+      <main
+        id="story-scroll-container"
+        className="flex-1 overflow-y-auto custom-scrollbar w-full"
+      >
+        <div className="max-w-[1600px] mx-auto flex flex-col">
+          {/* TOP SECTION: Hero & Story */}
+          <div className="flex flex-col lg:flex-row">
+            {/* LEFT/TOP: HERO PANEL */}
+            <div className="flex-none lg:w-[45%] xl:w-[40%] p-4 md:p-6 lg:p-8 relative z-20">
+              <div className="relative w-full h-[40vh] min-h-[300px] lg:h-[calc(100vh-8rem)] lg:sticky lg:top-6 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-end group bg-slate-900">
+                {currentStory.imageUrl ? (
+                  <img
+                    src={currentStory.imageUrl}
+                    alt={currentStory.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center opacity-20">
+                    <BookOpen className="w-32 h-32 text-white" />
                   </div>
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+
+                <div className="relative p-5 md:p-8 flex flex-col gap-4 md:gap-6 w-full">
+                  {/* Tags */}
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                    <span className="px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-lg">
+                      Level {currentStory.level}
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] md:text-xs font-semibold uppercase tracking-widest border border-white/20">
+                      {currentStory.tags.join(" · ")}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-lg">
+                    {currentStory.title}
+                  </h1>
+
+                  {/* Audio Player Bar */}
+                  <div className="mt-2 p-3 md:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-between shadow-xl relative">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <button
+                        onClick={handlePlayAudio}
+                        className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white text-slate-900 hover:scale-105 active:scale-95 transition-transform shadow-lg shrink-0"
+                      >
+                        {isPlaying && !isPaused ? (
+                          <Pause className="w-4 h-4 md:w-5 md:h-5 fill-current" />
+                        ) : (
+                          <Play className="w-4 h-4 md:w-5 md:h-5 fill-current ml-1" />
+                        )}
+                      </button>
+                      <div className="flex flex-col">
+                        <span className="font-bold text-xs md:text-sm text-white line-clamp-1">
+                          {isPlaying && !isPaused
+                            ? "Wird vorgelesen..."
+                            : "Geschichte anhören"}
+                        </span>
+                        <span className="text-[10px] text-white/70 font-medium">
+                          KI Stimme
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1 md:gap-2 shrink-0">
+                      {(isPlaying || isPaused) && (
+                        <button
+                          onClick={stop}
+                          className="text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+                        >
+                          Stop
+                        </button>
+                      )}
+                      <div className="flex items-center bg-black/20 rounded-full p-1 border border-white/10">
+                        {(["slow", "medium", "fast"] as const).map((s) => (
+                          <button
+                            key={s}
+                            onClick={() => handleSpeedChange(s)}
+                            className={`text-[9px] md:text-[10px] font-bold uppercase tracking-wider px-2 md:px-3 py-1 md:py-1.5 rounded-full transition-all ${
+                              speed === s
+                                ? "bg-white text-slate-900 shadow-md scale-105"
+                                : "text-white/60 hover:text-white hover:bg-white/10"
+                            }`}
+                          >
+                            {s === "slow"
+                              ? "Langsam"
+                              : s === "medium"
+                                ? "Normal"
+                                : "Schnell"}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT/BOTTOM: STORY SECTION */}
+            <div className="flex-1 px-5 sm:px-8 py-8 lg:py-12 relative z-10">
+              <div className="max-w-2xl mx-auto lg:ml-0 lg:max-w-3xl xl:max-w-4xl">
+                {/* STORY TEXT */}
+                <div
+                  id="story-content-box"
+                  className="prose prose-lg md:prose-xl dark:prose-invert max-w-none text-slate-800 dark:text-slate-300 font-serif leading-relaxed"
+                >
+                  {currentStory.content}
+                </div>
+
+                {/* DIVIDER */}
+                <div className="my-16 lg:my-24 flex items-center justify-center gap-4 opacity-30">
+                  <div className="w-16 h-px bg-slate-400" />
+                  <div className="w-2 h-2 rounded-full border border-slate-500" />
+                  <div className="w-16 h-px bg-slate-400" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT/BOTTOM: SCROLLABLE STORY SECTION */}
-        <div 
-          id="story-scroll-container"
-          className="flex-1 overflow-y-auto px-5 sm:px-8 py-8 lg:py-12 custom-scrollbar relative z-10"
-        >
-          <div className="max-w-2xl mx-auto lg:ml-0 lg:max-w-3xl xl:max-w-4xl">
-            {/* STORY TEXT */}
-            <div
-              id="story-content-box"
-              className="prose prose-lg md:prose-xl dark:prose-invert max-w-none text-slate-800 dark:text-slate-300 font-serif leading-relaxed"
-            >
-              {currentStory.content}
-            </div>
-
-            {/* DIVIDER */}
-            <div className="my-16 lg:my-24 flex items-center justify-center gap-4 opacity-30">
-              <div className="w-16 h-px bg-slate-400" />
-              <div className="w-2 h-2 rounded-full border border-slate-500" />
-              <div className="w-16 h-px bg-slate-400" />
-            </div>
-
-            {/* QUIZ SECTION */}
-            <div className="mb-20">
+          {/* BOTTOM SECTION: QUIZ */}
+          <div className="w-full px-5 sm:px-8 pb-20 pt-8 lg:pt-16 border-t border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-black/20">
+            <div className="max-w-4xl mx-auto">
               <div className="mb-8">
                 <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-2">
                   Testen Sie Ihr Verständnis
@@ -499,7 +459,9 @@ export default function ShortStoriesPracticeComp() {
                         setIsAnswered(false);
                         stop();
                         setIsSettingsOpen(false);
-                        document.getElementById("story-scroll-container")?.scrollTo({ top: 0, behavior: "smooth" });
+                        document
+                          .getElementById("story-scroll-container")
+                          ?.scrollTo({ top: 0, behavior: "smooth" });
                       }}
                       className={`w-full text-left px-4 py-3.5 rounded-2xl text-sm transition-all ${
                         currentStoryIndex === idx
