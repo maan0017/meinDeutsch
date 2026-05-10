@@ -20,6 +20,7 @@ import {
   GraduationCap,
   Puzzle,
   BookOpen,
+  BookMarked,
   LucideIcon,
 } from "lucide-react";
 import WordExplainComp from "@/components/WordExplainComp";
@@ -134,801 +135,901 @@ const QuizCard = ({
 export default function QuizGamesHomePage() {
   useGoBack();
 
-  const quizzes: QuizCardProps[] = [
-    // --- FOUNDATION ---
+  const gameLevels = [
     {
-      href: "/juwel/practice-german-alphabets",
-      title: (
-        <>
-          <WordExplainComp
-            word="Alphabetübung"
-            meaning="Alphabet Practice"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          Lerne, deutsche{" "}
-          <WordExplainComp
-            word="Buchstaben"
-            meaning="Letters"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="auszusprechen"
-            meaning="to pronounce"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und zu{" "}
-          <WordExplainComp
-            word="tippen"
-            meaning="to type"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "blue",
-      icon: Type,
+      id: "A1",
+      title: "Anfänger",
+      description: "Grundlagen, Alphabet, Zahlen, Zeiten und Basis-Wortschatz",
+      games: [
+        {
+          href: "/juwel/practice-german-alphabets",
+          title: (
+            <>
+              <WordExplainComp
+                word="Alphabetübung"
+                meaning="Alphabet Practice"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              Lerne, deutsche{" "}
+              <WordExplainComp
+                word="Buchstaben"
+                meaning="Letters"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="auszusprechen"
+                meaning="to pronounce"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und zu{" "}
+              <WordExplainComp
+                word="tippen"
+                meaning="to type"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "blue" as ColorType,
+          icon: Type,
+        },
+        {
+          href: "/juwel/practice-german-numbers",
+          title: (
+            <>
+              <WordExplainComp
+                word="Zahlenspiel"
+                meaning="Numbers Game"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Zahlen"
+                meaning="Numbers"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              von null bis{" "}
+              <WordExplainComp
+                word="unendlich"
+                meaning="infinity"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="buchstabieren"
+                meaning="to spell"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und tippen
+            </>
+          ),
+          color: "cyan" as ColorType,
+          icon: Hash,
+        },
+        {
+          href: "/juwel/practice-german-time",
+          title: (
+            <>
+              <WordExplainComp
+                word="Uhrzeit"
+                meaning="Telling Time"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Übe"
+                meaning="Practice"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              das{" "}
+              <WordExplainComp
+                word="Lesen"
+                meaning="Reading"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="Schreiben"
+                meaning="Writing"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              der Uhrzeit auf Deutsch
+            </>
+          ),
+          color: "rose" as ColorType,
+          icon: Clock,
+        },
+        {
+          href: "/juwel/calendar-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Kalender"
+                meaning="Calendar"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+                alwaysShow
+              />
+              -Memory
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Merke dir"
+                meaning="Memorize"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="Wochentage"
+                meaning="Weekdays"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+              ,{" "}
+              <WordExplainComp
+                word="Monate"
+                meaning="Months"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="Jahreszeiten"
+                meaning="Seasons"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "emerald" as ColorType,
+          icon: Calendar,
+        },
+        {
+          href: "/buch-vocabs",
+          title: (
+            <>
+              <WordExplainComp
+                word="Buchwortschatz"
+                meaning="Book Vocabulary"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Übe"
+                meaning="Practice"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="Vokabeln"
+                meaning="Vocabulary"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              aus deinem{" "}
+              <WordExplainComp
+                word="Lehrbuch"
+                meaning="Textbook"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              nach Kapitel
+            </>
+          ),
+          color: "rose" as ColorType,
+          icon: BookMarked,
+        },
+        {
+          href: "/juwel/practice-german-word",
+          title: (
+            <>
+              <WordExplainComp
+                word="Vokabeltrainer"
+                meaning="Vocabulary Builder"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Tippe"
+                meaning="Type"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              die genaue deutsche{" "}
+              <WordExplainComp
+                word="Übersetzung"
+                meaning="Translation"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              für wichtige{" "}
+              <WordExplainComp
+                word="Wörter"
+                meaning="Words"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "indigo" as ColorType,
+          icon: PenTool,
+        },
+        {
+          href: "/juwel/practice-german-word-mcq",
+          title: (
+            <>
+              <WordExplainComp
+                word="Vokabel"
+                meaning="Vocabulary"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                alwaysShow
+              />
+              -Quiz
+            </>
+          ),
+          description: (
+            <>
+              Multiple-Choice-Test für{" "}
+              <WordExplainComp
+                word="Wortübersetzungen"
+                meaning="Word translations"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "purple" as ColorType,
+          icon: ListChecks,
+        },
+        {
+          href: "/juwel/adjectives-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Adjektiv"
+                meaning="Adjective"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+                alwaysShow
+              />
+              -Memory
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Merke dir"
+                meaning="Memorize"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="häufige"
+                meaning="frequent"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              beschreibende Wörter und ihre{" "}
+              <WordExplainComp
+                word="Gegensätze"
+                meaning="Opposites"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "amber" as ColorType,
+          icon: GitCompare,
+        },
+        {
+          href: "/juwel/practice-wh-words",
+          title: (
+            <>
+              <WordExplainComp
+                word="W-Fragen"
+                meaning="Wh-Questions"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                alwaysShow
+              />
+              -Quiz
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Meistere"
+                meaning="Master"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              die{" "}
+              <WordExplainComp
+                word="Fragewörter"
+                meaning="Question words"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+              : wer, was, wo, wann, warum
+            </>
+          ),
+          color: "rose" as ColorType,
+          icon: HelpCircle,
+        },
+        {
+          href: "/juwel/modal-verbs-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Modalverben"
+                meaning="Modal Verbs"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Merke dir"
+                meaning="Memorize"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="Konjugationen"
+                meaning="Conjugations"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              für können, müssen, dürfen, usw.
+            </>
+          ),
+          color: "amber" as ColorType,
+          icon: Zap,
+        },
+      ],
     },
     {
-      href: "/juwel/practice-german-numbers",
-      title: (
-        <>
-          <WordExplainComp
-            word="Zahlenspiel"
-            meaning="Numbers Game"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Zahlen"
-            meaning="Numbers"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          von null bis{" "}
-          <WordExplainComp
-            word="unendlich"
-            meaning="infinity"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="buchstabieren"
-            meaning="to spell"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und tippen
-        </>
-      ),
-      color: "cyan",
-      icon: Hash,
+      id: "A2",
+      title: "Grundlagen",
+      description: "Erweiterte Grammatik, Fälle, Präpositionen und Verbformen",
+      games: [
+        {
+          href: "/juwel/grammar-cases-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Kasus"
+                meaning="Cases"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+                alwaysShow
+              />
+              -Meister
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Merke dir"
+                meaning="Memorize"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              die Nominativ-, Akkusativ-, Dativ- &{" "}
+              <WordExplainComp
+                word="Genitiv-Tabellen"
+                meaning="Genitive tables"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "emerald" as ColorType,
+          icon: Layers,
+        },
+        {
+          href: "/juwel/dativs-memory-game",
+          title: (
+            <>
+              Dativ-
+              <WordExplainComp
+                word="Verben"
+                meaning="Verbs"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Merke dir"
+                meaning="Memorize"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="spezifische"
+                meaning="specific"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              Verben, die{" "}
+              <WordExplainComp
+                word="zwingend"
+                meaning="mandatory"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              den Dativ{" "}
+              <WordExplainComp
+                word="verlangen"
+                meaning="require"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "blue" as ColorType,
+          icon: Target,
+        },
+        {
+          href: "/juwel/prepositions-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Präpositionen"
+                meaning="Prepositions"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                alwaysShow
+              />
+              -Matrix
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Meistere"
+                meaning="Master"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              Akkusativ-, Dativ- und{" "}
+              <WordExplainComp
+                word="Wechselpräpositionen"
+                meaning="Two-way prepositions"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "purple" as ColorType,
+          icon: ListChecks,
+        },
+        {
+          href: "/juwel/verb-forms-challange",
+          title: (
+            <>
+              <WordExplainComp
+                word="Verbformen"
+                meaning="Verb Forms"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                alwaysShow
+              />
+              -Herausforderung
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Meistere"
+                meaning="Master"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              die{" "}
+              <WordExplainComp
+                word="Vergangenheitsform"
+                meaning="Past tense"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="Partizipien"
+                meaning="Participles"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="unregelmäßiger"
+                meaning="irregular"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              Verben
+            </>
+          ),
+          color: "rose" as ColorType,
+          icon: RefreshCw,
+        },
+        {
+          href: "/juwel/practice-grammar",
+          title: (
+            <>
+              <WordExplainComp
+                word="Grammatik"
+                meaning="Grammar"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                alwaysShow
+              />
+              -Übungen
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Unendliche"
+                meaning="Infinite"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+              ,{" "}
+              <WordExplainComp
+                word="rasante"
+                meaning="rapid"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="Übungen"
+                meaning="Exercises"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              zum{" "}
+              <WordExplainComp
+                word="Aufbau"
+                meaning="building"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              deiner Grammatik
+            </>
+          ),
+          color: "indigo" as ColorType,
+          icon: Brain,
+        },
+        {
+          href: "/juwel/grammar-exercises",
+          title: (
+            <>
+              Grammatik-
+              <WordExplainComp
+                word="Prüfungen"
+                meaning="Exams"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Umfassende"
+                meaning="Comprehensive"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              Tests zu{" "}
+              <WordExplainComp
+                word="Artikeln"
+                meaning="Articles"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="Konjugationen"
+                meaning="Conjugations"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "purple" as ColorType,
+          icon: GraduationCap,
+        },
+      ],
     },
     {
-      href: "/juwel/practice-german-time",
-      title: (
-        <>
-          <WordExplainComp
-            word="Uhrzeit"
-            meaning="Telling Time"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Übe"
-            meaning="Practice"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          das{" "}
-          <WordExplainComp
-            word="Lesen"
-            meaning="Reading"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="Schreiben"
-            meaning="Writing"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          der Uhrzeit auf Deutsch
-        </>
-      ),
-      color: "rose",
-      icon: Clock,
-    },
-    {
-      href: "/juwel/calendar-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Kalender"
-            meaning="Calendar"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
-            alwaysShow
-          />
-          -Memory
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Merke dir"
-            meaning="Memorize"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="Wochentage"
-            meaning="Weekdays"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-          ,{" "}
-          <WordExplainComp
-            word="Monate"
-            meaning="Months"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="Jahreszeiten"
-            meaning="Seasons"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "emerald",
-      icon: Calendar,
-    },
-
-    // --- VOCABULARY ---
-    {
-      href: "/juwel/practice-german-word",
-      title: (
-        <>
-          <WordExplainComp
-            word="Vokabeltrainer"
-            meaning="Vocabulary Builder"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Tippe"
-            meaning="Type"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          die genaue deutsche{" "}
-          <WordExplainComp
-            word="Übersetzung"
-            meaning="Translation"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          für wichtige{" "}
-          <WordExplainComp
-            word="Wörter"
-            meaning="Words"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "indigo",
-      icon: PenTool,
-    },
-    {
-      href: "/juwel/practice-german-word-mcq",
-      title: (
-        <>
-          <WordExplainComp
-            word="Vokabel"
-            meaning="Vocabulary"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
-            alwaysShow
-          />
-          -Quiz
-        </>
-      ),
-      description: (
-        <>
-          Multiple-Choice-Test für{" "}
-          <WordExplainComp
-            word="Wortübersetzungen"
-            meaning="Word translations"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "purple",
-      icon: ListChecks,
-    },
-    {
-      href: "/juwel/adjectives-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Adjektiv"
-            meaning="Adjective"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
-            alwaysShow
-          />
-          -Memory
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Merke dir"
-            meaning="Memorize"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="häufige"
-            meaning="frequent"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          beschreibende Wörter und ihre{" "}
-          <WordExplainComp
-            word="Gegensätze"
-            meaning="Opposites"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "amber",
-      icon: GitCompare,
-    },
-    {
-      href: "/juwel/practice-wh-words",
-      title: (
-        <>
-          <WordExplainComp
-            word="W-Fragen"
-            meaning="Wh-Questions"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
-            alwaysShow
-          />
-          -Quiz
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Meistere"
-            meaning="Master"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          die{" "}
-          <WordExplainComp
-            word="Fragewörter"
-            meaning="Question words"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-          : wer, was, wo, wann, warum
-        </>
-      ),
-      color: "rose",
-      icon: HelpCircle,
-    },
-
-    // --- GRAMMAR & STRUCTURE ---
-    {
-      href: "/juwel/grammar-cases-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Kasus"
-            meaning="Cases"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
-            alwaysShow
-          />
-          -Meister
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Merke dir"
-            meaning="Memorize"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          die Nominativ-, Akkusativ-, Dativ- &{" "}
-          <WordExplainComp
-            word="Genitiv-Tabellen"
-            meaning="Genitive tables"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "emerald",
-      icon: Layers,
-    },
-    {
-      href: "/juwel/dativs-memory-game",
-      title: (
-        <>
-          Dativ-
-          <WordExplainComp
-            word="Verben"
-            meaning="Verbs"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Merke dir"
-            meaning="Memorize"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="spezifische"
-            meaning="specific"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          Verben, die{" "}
-          <WordExplainComp
-            word="zwingend"
-            meaning="mandatory"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          den Dativ{" "}
-          <WordExplainComp
-            word="verlangen"
-            meaning="require"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "blue",
-      icon: Target,
-    },
-    {
-      href: "/juwel/prepositions-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Präpositionen"
-            meaning="Prepositions"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
-            alwaysShow
-          />
-          -Matrix
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Meistere"
-            meaning="Master"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          Akkusativ-, Dativ- und{" "}
-          <WordExplainComp
-            word="Wechselpräpositionen"
-            meaning="Two-way prepositions"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "purple",
-      icon: ListChecks,
-    },
-    {
-      href: "/juwel/konnectors-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Konnektoren"
-            meaning="Connectors"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
-            alwaysShow
-          />
-          -Spiel
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Übe"
-            meaning="Practice"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="Konjunktionen"
-            meaning="Conjunctions"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          wie weil, dass, wenn und deshalb
-        </>
-      ),
-      color: "cyan",
-      icon: Link2,
-    },
-    {
-      href: "/juwel/modal-verbs-memory-game",
-      title: (
-        <>
-          <WordExplainComp
-            word="Modalverben"
-            meaning="Modal Verbs"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Merke dir"
-            meaning="Memorize"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="Konjugationen"
-            meaning="Conjugations"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          für können, müssen, dürfen, usw.
-        </>
-      ),
-      color: "amber",
-      icon: Zap,
-    },
-    {
-      href: "/juwel/verb-forms-challange",
-      title: (
-        <>
-          <WordExplainComp
-            word="Verbformen"
-            meaning="Verb Forms"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
-            alwaysShow
-          />
-          -Herausforderung
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Meistere"
-            meaning="Master"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          die{" "}
-          <WordExplainComp
-            word="Vergangenheitsform"
-            meaning="Past tense"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="Partizipien"
-            meaning="Participles"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="unregelmäßiger"
-            meaning="irregular"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          Verben
-        </>
-      ),
-      color: "rose",
-      icon: RefreshCw,
-    },
-    {
-      href: "/juwel/practice-grammar",
-      title: (
-        <>
-          <WordExplainComp
-            word="Grammatik"
-            meaning="Grammar"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
-            alwaysShow
-          />
-          -Übungen
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Unendliche"
-            meaning="Infinite"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-          ,{" "}
-          <WordExplainComp
-            word="rasante"
-            meaning="rapid"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="Übungen"
-            meaning="Exercises"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          zum{" "}
-          <WordExplainComp
-            word="Aufbau"
-            meaning="building"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          deiner Grammatik
-        </>
-      ),
-      color: "indigo",
-      icon: Brain,
-    },
-    {
-      href: "/juwel/grammar-exercises",
-      title: (
-        <>
-          Grammatik-
-          <WordExplainComp
-            word="Prüfungen"
-            meaning="Exams"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Umfassende"
-            meaning="Comprehensive"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          Tests zu{" "}
-          <WordExplainComp
-            word="Artikeln"
-            meaning="Articles"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="Konjugationen"
-            meaning="Conjugations"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "purple",
-      icon: GraduationCap,
-    },
-
-    // --- COMPREHENSION & USAGE ---
-    {
-      href: "/juwel/practice-german-sentences",
-      title: (
-        <>
-          <WordExplainComp
-            word="Satzbauer"
-            meaning="Sentence Builder"
-            position="TOP_RIGHT_RIGHT"
-            className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Übersetze"
-            meaning="Translate"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="bilde"
-            meaning="form"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="vollständige"
-            meaning="complete"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-          , grammatikalisch korrekte{" "}
-          <WordExplainComp
-            word="Sätze"
-            meaning="Sentences"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-        </>
-      ),
-      color: "emerald",
-      icon: Puzzle,
-    },
-    {
-      href: "/juwel/practice-reading",
-      title: (
-        <>
-          <WordExplainComp
-            word="Leseverstehen"
-            meaning="Reading Comprehension"
-            position="TOP_LEFT_LEFT"
-            className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-            alwaysShow
-          />
-        </>
-      ),
-      description: (
-        <>
-          <WordExplainComp
-            word="Lese"
-            meaning="Read"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />
-          ,{" "}
-          <WordExplainComp
-            word="analysiere"
-            meaning="analyze"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          und{" "}
-          <WordExplainComp
-            word="verstehe"
-            meaning="understand"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          <WordExplainComp
-            word="vollständige"
-            meaning="complete"
-            alwaysShow={false}
-            position="TOP_RIGHT_TOP"
-            theme="slate"
-          />{" "}
-          deutsche Texte
-        </>
-      ),
-      color: "blue",
-      icon: BookOpen,
+      id: "B1",
+      title: "Mittelstufe",
+      description: "Komplexere Sätze, Konnektoren und Textverständnis",
+      games: [
+        {
+          href: "/juwel/konnectors-memory-game",
+          title: (
+            <>
+              <WordExplainComp
+                word="Konnektoren"
+                meaning="Connectors"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+                alwaysShow
+              />
+              -Spiel
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Übe"
+                meaning="Practice"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="Konjunktionen"
+                meaning="Conjunctions"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              wie weil, dass, wenn und deshalb
+            </>
+          ),
+          color: "cyan" as ColorType,
+          icon: Link2,
+        },
+        {
+          href: "/juwel/practice-german-sentences",
+          title: (
+            <>
+              <WordExplainComp
+                word="Satzbauer"
+                meaning="Sentence Builder"
+                position="TOP_RIGHT_RIGHT"
+                className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Übersetze"
+                meaning="Translate"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="bilde"
+                meaning="form"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="vollständige"
+                meaning="complete"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+              , grammatikalisch korrekte{" "}
+              <WordExplainComp
+                word="Sätze"
+                meaning="Sentences"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+            </>
+          ),
+          color: "emerald" as ColorType,
+          icon: Puzzle,
+        },
+        {
+          href: "/juwel/practice-reading",
+          title: (
+            <>
+              <WordExplainComp
+                word="Leseverstehen"
+                meaning="Reading Comprehension"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Lese"
+                meaning="Read"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />
+              ,{" "}
+              <WordExplainComp
+                word="analysiere"
+                meaning="analyze"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="verstehe"
+                meaning="understand"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="vollständige"
+                meaning="complete"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              deutsche Texte
+            </>
+          ),
+          color: "blue" as ColorType,
+          icon: BookOpen,
+        },
+        {
+          href: "/juwel/short-stories",
+          title: (
+            <>
+              <WordExplainComp
+                word="Kurzgeschichten"
+                meaning="Short Stories"
+                position="TOP_LEFT_LEFT"
+                className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+                alwaysShow
+              />
+            </>
+          ),
+          description: (
+            <>
+              <WordExplainComp
+                word="Lese"
+                meaning="Read"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              <WordExplainComp
+                word="einfache"
+                meaning="simple"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              und{" "}
+              <WordExplainComp
+                word="spannende"
+                meaning="exciting"
+                alwaysShow={false}
+                position="TOP_RIGHT_TOP"
+                theme="slate"
+              />{" "}
+              Geschichten
+            </>
+          ),
+          color: "emerald" as ColorType,
+          icon: BookOpen,
+        },
+      ],
     },
   ];
 
   return (
-    <main className="min-h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-hidden">
+    <main className="min-h-screen h-screen w-full flex flex-col bg-slate-50 dark:bg-[#121212] overflow-hidden">
       {/* Header Section - minimal height */}
-      <div className="pt-6 pb-4 px-6 z-10 w-full">
-        <div className="max-w-7xl mx-auto w-full relative flex items-center justify-center">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 ml-6">
+      <div className="pt-6 pb-4 px-6 z-10 w-full shrink-0">
+        <div className="max-w-7xl mx-auto w-full relative flex flex-col md:flex-row items-center justify-between">
+          <div className="w-full md:w-auto mb-4 md:mb-0 flex items-center justify-start">
             <Link
               href="/"
-              className="p-1.5 md:p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center"
+              className="p-1.5 md:p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#444444] text-gray-500 dark:text-[#B0B0B0] transition-colors inline-flex items-center justify-center group"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -940,10 +1041,11 @@ export default function QuizGamesHomePage() {
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="group-hover:-translate-x-1 transition-transform"
               >
                 <path d="m15 18-6-6 6-6" />
               </svg>
-              <span className="hidden md:inline text-sm font-semibold ">
+              <span className="hidden md:inline text-sm font-semibold ml-1">
                 <WordExplainComp
                   word="Zurück zum Hauptmenü"
                   meaning="Back to the main menu"
@@ -955,9 +1057,16 @@ export default function QuizGamesHomePage() {
               </span>
             </Link>
           </div>
-          <div className="text-center">
+          <div className="text-center w-full md:absolute md:left-1/2 md:-translate-x-1/2">
             <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300">
-              Meine{" "}
+              <WordExplainComp
+                word="Meine"
+                meaning="My"
+                position="TOP_LEFT_LEFT"
+                offsetY={-5}
+                alwaysShow
+                className="text-black dark:text-white"
+              />{" "}
               <WordExplainComp
                 word="Juwelen"
                 meaning="Gems"
@@ -977,20 +1086,37 @@ export default function QuizGamesHomePage() {
               />
             </p>
           </div>
+          {/* Empty div for flex balance on desktop */}
+          <div className="hidden md:block w-[160px]"></div>
         </div>
       </div>
 
-      {/* Content Grid - Fill remaining space, centered */}
-      <div className="flex-1 p-6 flex flex-col justify-start max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {quizzes.map((quiz) => (
-            <QuizCard key={quiz.href} {...quiz} />
-          ))}
+      {/* Content Grid - Scrollable area */}
+      <div className="flex-1 overflow-y-auto w-full pb-20 custom-scrollbar">
+        <div className="p-6 flex flex-col justify-start max-w-7xl mx-auto w-full gap-12">
+          {gameLevels.map((level) => (
+            <section key={level.id} className="flex flex-col gap-6">
+              {/* Level Header */}
+              <div className="flex flex-col border-b border-slate-200 dark:border-[#333] pb-3">
+                <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-3">
+                  <span className="bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400 px-3 py-1 rounded-lg text-sm font-black tracking-wide">
+                    {level.id}
+                  </span>
+                  {level.title}
+                </h2>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ml-16">
+                  {level.description}
+                </p>
+              </div>
 
-          {/* Future proof placeholder or empty space handler if needed, 
-                  but user said "don't use too much sapce for all option beacuse in future i'm going to add more game options"
-                  Grid auto-flow handles this well.
-              */}
+              {/* Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {level.games.map((quiz) => (
+                  <QuizCard key={quiz.href} {...quiz} />
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
       </div>
     </main>

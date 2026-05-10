@@ -16,30 +16,321 @@ type KonnectorItem = {
 
 // ── Verb am Ende (Nebensatz) ──
 const NEBENSATZ_KONNEKTORS: KonnectorItem[] = [
-  { word: "dass", en: "that", hi: "कि", type: "Nebensatz", example: "Ich weiß, dass du kommst." },
-  { word: "weil", en: "because", hi: "क्योंकि", type: "Nebensatz", example: "Ich esse, weil ich hungrig bin." },
-  { word: "da", en: "since / because", hi: "चूंकि", type: "Nebensatz", example: "Da es regnet, bleibe ich hier." },
-  { word: "wenn", en: "if / when", hi: "अगर / जब", type: "Nebensatz", example: "Wenn ich Zeit habe, lese ich." },
-  { word: "obwohl", en: "although", hi: "हालांकि", type: "Nebensatz", example: "Er kam, obwohl er krank war." },
-  { word: "als", en: "when (past)", hi: "जब (अतीत)", type: "Nebensatz", example: "Als ich Kind war, spielte ich oft." },
-  { word: "seit", en: "since", hi: "जब से", type: "Nebensatz", example: "Seit er hier ist, geht es besser." },
-  { word: "ob", en: "whether / if", hi: "क्या / यदि", type: "Nebensatz", example: "Ich weiß nicht, ob er kommt." },
-  { word: "damit", en: "so that", hi: "ताकि", type: "Nebensatz", example: "Ich lerne, damit ich bestehe." },
+  {
+    word: "dass",
+    en: "that",
+    hi: "कि",
+    type: "Nebensatz",
+    example: "Ich weiß, dass du kommst.",
+  },
+  {
+    word: "weil",
+    en: "because",
+    hi: "क्योंकि",
+    type: "Nebensatz",
+    example: "Ich esse, weil ich hungrig bin.",
+  },
+  {
+    word: "da",
+    en: "since / because",
+    hi: "चूंकि",
+    type: "Nebensatz",
+    example: "Da es regnet, bleibe ich hier.",
+  },
+  {
+    word: "wenn",
+    en: "if / when",
+    hi: "अगर / जब",
+    type: "Nebensatz",
+    example: "Wenn es regnet, bleiben wir hier.",
+  },
+  {
+    word: "als",
+    en: "when (past)",
+    hi: "जब (अतीत)",
+    type: "Nebensatz",
+    example: "Als ich Kind war, spielte ich oft.",
+  },
+  {
+    word: "obwohl",
+    en: "although",
+    hi: "हालांकि",
+    type: "Nebensatz",
+    example: "Er kam, obwohl er krank war.",
+  },
+  {
+    word: "ob",
+    en: "whether / if",
+    hi: "क्या / यदि",
+    type: "Nebensatz",
+    example: "Ich weiß nicht, ob er kommt.",
+  },
+  {
+    word: "damit",
+    en: "so that",
+    hi: "ताकि",
+    type: "Nebensatz",
+    example: "Er lernt, damit er arbeiten kann.",
+  },
+  {
+    word: "seit",
+    en: "since",
+    hi: "जब से",
+    type: "Nebensatz",
+    example: "Seit er hier ist, geht es besser.",
+  },
+  {
+    word: "seitdem",
+    en: "since then",
+    hi: "तब से",
+    type: "Nebensatz",
+    example: "Er ist weg, seitdem ist es ruhig.",
+  },
+  {
+    word: "bevor",
+    en: "before",
+    hi: "इससे पहले",
+    type: "Nebensatz",
+    example: "Ich esse, bevor ich gehe.",
+  },
+  {
+    word: "nachdem",
+    en: "after",
+    hi: "के बाद",
+    type: "Nebensatz",
+    example: "Nachdem er aß, ging er.",
+  },
+  {
+    word: "während",
+    en: "while",
+    hi: "जबकि / दौरान",
+    type: "Nebensatz",
+    example: "Er liest, während ich arbeite.",
+  },
+  {
+    word: "bis",
+    en: "until",
+    hi: "तक",
+    type: "Nebensatz",
+    example: "Ich warte, bis du kommst.",
+  },
+  {
+    word: "falls",
+    en: "in case",
+    hi: "यदि",
+    type: "Nebensatz",
+    example: "Falls er anruft, sag Bescheid.",
+  },
+  {
+    word: "sobald",
+    en: "as soon as",
+    hi: "जैसे ही",
+    type: "Nebensatz",
+    example: "Komm, sobald du fertig bist.",
+  },
 ];
 
 // ── Verb auf Position 2 (Hauptsatz / Adverb) ──
 const HAUPTSATZ_KONNEKTORS: KonnectorItem[] = [
-  { word: "dann", en: "then", hi: "फिर", type: "Hauptsatz", example: "Erst essen wir, dann gehen wir." },
-  { word: "deswegen", en: "therefore / that's why", hi: "इसलिए", type: "Hauptsatz", example: "Es regnet, deswegen bleibe ich hier." },
-  { word: "deshalb", en: "therefore / that's why", hi: "इसलिए", type: "Hauptsatz", example: "Er ist krank, deshalb kommt er nicht." },
-  { word: "daher", en: "therefore / hence", hi: "इसलिए", type: "Hauptsatz", example: "Ich habe kein Geld, daher bleibe ich zu Hause." },
-  { word: "darum", en: "therefore / for that reason", hi: "इसलिए", type: "Hauptsatz", example: "Sie war müde, darum ging sie schlafen." },
-  { word: "draußen", en: "outside", hi: "बाहर", type: "Hauptsatz", example: "Es ist kalt, draußen schneit es." },
-  { word: "trotzdem", en: "nevertheless / still", hi: "फिर भी", type: "Hauptsatz", example: "Es regnet, trotzdem gehe ich spazieren." },
-  { word: "sonst", en: "otherwise", hi: "वरना", type: "Hauptsatz", example: "Beeil dich, sonst verpassen wir den Zug." },
+  {
+    word: "deshalb",
+    en: "therefore",
+    hi: "इसलिए",
+    type: "Hauptsatz",
+    example: "Es regnet, deshalb bleiben wir zu Hause.",
+  },
+  {
+    word: "deswegen",
+    en: "therefore",
+    hi: "इसलिए",
+    type: "Hauptsatz",
+    example: "Er war krank, deswegen kam er nicht.",
+  },
+  {
+    word: "darum",
+    en: "therefore",
+    hi: "इसलिए",
+    type: "Hauptsatz",
+    example: "Sie war müde, darum schlief sie.",
+  },
+  {
+    word: "daher",
+    en: "hence",
+    hi: "इस कारण",
+    type: "Hauptsatz",
+    example: "Es ist spät, daher gehe ich.",
+  },
+  {
+    word: "dann",
+    en: "then",
+    hi: "फिर",
+    type: "Hauptsatz",
+    example: "Wir essen, dann gehen wir.",
+  },
+  {
+    word: "danach",
+    en: "afterwards",
+    hi: "उसके बाद",
+    type: "Hauptsatz",
+    example: "Ich koche, danach esse ich.",
+  },
+  {
+    word: "zuerst",
+    en: "first",
+    hi: "पहले",
+    type: "Hauptsatz",
+    example: "Zuerst lesen wir.",
+  },
+  {
+    word: "später",
+    en: "later",
+    hi: "बाद में",
+    type: "Hauptsatz",
+    example: "Wir sprechen später.",
+  },
+  {
+    word: "endlich",
+    en: "finally",
+    hi: "आखिरकार",
+    type: "Hauptsatz",
+    example: "Endlich sind wir da.",
+  },
+  {
+    word: "trotzdem",
+    en: "nevertheless",
+    hi: "फिर भी",
+    type: "Hauptsatz",
+    example: "Ich war müde, trotzdem arbeitete ich.",
+  },
+  {
+    word: "jedoch",
+    en: "however",
+    hi: "हालाँकि",
+    type: "Hauptsatz",
+    example: "Das ist gut, jedoch zu teuer.",
+  },
+  {
+    word: "sonst",
+    en: "otherwise",
+    hi: "वरना",
+    type: "Hauptsatz",
+    example: "Beeil dich, sonst kommen wir zu spät.",
+  },
+  {
+    word: "draußen",
+    en: "outside",
+    hi: "बाहर",
+    type: "Hauptsatz",
+    example: "Es regnet, draußen ist es nass.",
+  },
+  {
+    word: "drinnen",
+    en: "inside",
+    hi: "अंदर",
+    type: "Hauptsatz",
+    example: "Wir bleiben drinnen.",
+  },
 ];
 
-type CategoryKey = "nebensatz" | "hauptsatz";
+const COORDINATING_KONNEKTORS: KonnectorItem[] = [
+  {
+    word: "und",
+    en: "and",
+    hi: "और",
+    type: "Pos 0",
+    example: "Ich lerne Deutsch und ich lese Bücher.",
+  },
+  {
+    word: "oder",
+    en: "or",
+    hi: "या",
+    type: "Pos 0",
+    example: "Trinkst du Kaffee oder Tee?",
+  },
+  {
+    word: "aber",
+    en: "but",
+    hi: "लेकिन",
+    type: "Pos 0",
+    example: "Es ist klein, aber schön.",
+  },
+  {
+    word: "denn",
+    en: "because",
+    hi: "क्योंकि",
+    type: "Pos 0",
+    example: "Ich bleibe, denn ich bin müde.",
+  },
+  {
+    word: "sondern",
+    en: "but rather",
+    hi: "बल्कि",
+    type: "Pos 0",
+    example: "Er ist nicht müde, sondern krank.",
+  },
+];
+
+const TWOPART_KONNEKTORS: KonnectorItem[] = [
+  {
+    word: "entweder … oder",
+    en: "either ... or",
+    hi: "या तो ... या",
+    type: "Zweiteilig",
+    example: "Entweder gehen wir, oder wir bleiben.",
+  },
+  {
+    word: "nicht nur … sondern auch",
+    en: "not only ... but also",
+    hi: "न केवल ... बल्कि",
+    type: "Zweiteilig",
+    example: "Sie spricht nicht nur Deutsch, sondern auch Englisch.",
+  },
+  {
+    word: "sowohl … als auch",
+    en: "both ... and",
+    hi: "दोनों",
+    type: "Zweiteilig",
+    example: "Sowohl er als auch sie sind hier.",
+  },
+  {
+    word: "weder … noch",
+    en: "neither ... nor",
+    hi: "न तो ... न ही",
+    type: "Zweiteilig",
+    example: "Er hat weder Geld noch Zeit.",
+  },
+];
+
+const INFINITIVE_KONNEKTORS: KonnectorItem[] = [
+  {
+    word: "um … zu",
+    en: "in order to",
+    hi: "के लिए",
+    type: "Infinitiv",
+    example: "Ich lerne, um die Prüfung zu bestehen.",
+  },
+  {
+    word: "ohne … zu",
+    en: "without ... ing",
+    hi: "बिना",
+    type: "Infinitiv",
+    example: "Er ging, ohne etwas zu sagen.",
+  },
+  {
+    word: "statt … zu",
+    en: "instead of ... ing",
+    hi: "के बजाय",
+    type: "Infinitiv",
+    example: "Statt zu lernen, spielt er.",
+  },
+];
+
+type CategoryKey =
+  | "nebensatz"
+  | "hauptsatz"
+  | "coordinating"
+  | "twopart"
+  | "infinitive";
 
 const CATEGORIES: {
   key: CategoryKey;
@@ -56,7 +347,7 @@ const CATEGORIES: {
   {
     key: "nebensatz",
     label: "Verb am Ende",
-    sublabel: "Subordinating (Nebensatz)",
+    sublabel: "Subordinating",
     items: NEBENSATZ_KONNEKTORS,
     color: "bg-rose-50",
     darkColor: "dark:bg-[#2a1a1a]",
@@ -68,7 +359,7 @@ const CATEGORIES: {
   {
     key: "hauptsatz",
     label: "Verb Position 2",
-    sublabel: "Adverbial (Hauptsatz)",
+    sublabel: "Adverbial",
     items: HAUPTSATZ_KONNEKTORS,
     color: "bg-sky-50",
     darkColor: "dark:bg-[#1a1a2a]",
@@ -76,6 +367,42 @@ const CATEGORIES: {
     darkBorderColor: "dark:border-[#3d3d6b]",
     textColor: "text-sky-700",
     darkTextColor: "dark:text-[#7e9ee8]",
+  },
+  {
+    key: "coordinating",
+    label: "Position 0",
+    sublabel: "Coordinating",
+    items: COORDINATING_KONNEKTORS,
+    color: "bg-amber-50",
+    darkColor: "dark:bg-[#2a2a1a]",
+    borderColor: "border-amber-400",
+    darkBorderColor: "dark:border-[#6b6b3d]",
+    textColor: "text-amber-700",
+    darkTextColor: "dark:text-[#e8e87e]",
+  },
+  {
+    key: "twopart",
+    label: "Zweiteilig",
+    sublabel: "Two-Part",
+    items: TWOPART_KONNEKTORS,
+    color: "bg-purple-50",
+    darkColor: "dark:bg-[#231a2a]",
+    borderColor: "border-purple-400",
+    darkBorderColor: "dark:border-[#523d6b]",
+    textColor: "text-purple-700",
+    darkTextColor: "dark:text-[#c27ee8]",
+  },
+  {
+    key: "infinitive",
+    label: "Infinitiv",
+    sublabel: "Question / Infinitive",
+    items: INFINITIVE_KONNEKTORS,
+    color: "bg-teal-50",
+    darkColor: "dark:bg-[#1a2a2a]",
+    borderColor: "border-teal-400",
+    darkBorderColor: "dark:border-[#3d6b6b]",
+    textColor: "text-teal-700",
+    darkTextColor: "dark:text-[#7ee8e8]",
   },
 ];
 
@@ -85,8 +412,10 @@ const SORTED_CATEGORIES = CATEGORIES.map((cat) => ({
 }));
 
 const STORAGE_KEY = "konnectors-memory-game-categories";
+const MODE_STORAGE_KEY = "konnectors-memory-game-mode";
 
-const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
+const normalize = (s: string) =>
+  s.trim().toLowerCase().replace(/[.…]/g, "").replace(/\s+/g, " ");
 
 export default function KonnectorsMemoryGameComp() {
   const [guessed, setGuessed] = useState<Set<string>>(new Set());
@@ -94,6 +423,14 @@ export default function KonnectorsMemoryGameComp() {
   const [shake, setShake] = useState(false);
   const [flash, setFlash] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const [gameMode, setGameMode] = useState<"sequential" | "free">(() => {
+    if (typeof window === "undefined") return "sequential";
+    try {
+      const saved = localStorage.getItem(MODE_STORAGE_KEY);
+      if (saved === "sequential" || saved === "free") return saved;
+    } catch {}
+    return "sequential";
+  });
   const [enabledCategories, setEnabledCategories] = useState<Set<CategoryKey>>(
     () => {
       if (typeof window === "undefined")
@@ -116,6 +453,12 @@ export default function KonnectorsMemoryGameComp() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...enabledCategories]));
     } catch {}
   }, [enabledCategories]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(MODE_STORAGE_KEY, gameMode);
+    } catch {}
+  }, [gameMode]);
 
   const activeCats = SORTED_CATEGORIES.filter((c) =>
     enabledCategories.has(c.key)
@@ -146,17 +489,35 @@ export default function KonnectorsMemoryGameComp() {
   const handleGuess = () => {
     const val = normalize(input);
     if (!val || guessed.size >= activeWords.length) return;
-    const expectedWord = activeWords[guessed.size];
-    if (normalize(expectedWord.word) === val) {
-      setGuessed((prev) => new Set([...prev, expectedWord.uid]));
-      setFlash(expectedWord.uid);
-      setTimeout(() => setFlash(null), 2500);
-      playSound("correct");
-      setInput("");
+
+    if (gameMode === "sequential") {
+      const expectedWord = activeWords[guessed.size];
+      if (normalize(expectedWord.word) === val) {
+        setGuessed((prev) => new Set([...prev, expectedWord.uid]));
+        setFlash(expectedWord.uid);
+        setTimeout(() => setFlash(null), 2500);
+        playSound("correct");
+        setInput("");
+      } else {
+        setShake(true);
+        setTimeout(() => setShake(false), 500);
+        playSound("wrong");
+      }
     } else {
-      setShake(true);
-      setTimeout(() => setShake(false), 500);
-      playSound("wrong");
+      const match = activeWords.find(
+        (w) => !guessed.has(w.uid) && normalize(w.word) === val
+      );
+      if (match) {
+        setGuessed((prev) => new Set([...prev, match.uid]));
+        setFlash(match.uid);
+        setTimeout(() => setFlash(null), 2500);
+        playSound("correct");
+        setInput("");
+      } else {
+        setShake(true);
+        setTimeout(() => setShake(false), 500);
+        playSound("wrong");
+      }
     }
     inputRef.current?.focus();
   };
@@ -198,7 +559,8 @@ export default function KonnectorsMemoryGameComp() {
     const isRevealed = guessed.has(uid);
     const isVisible = isRevealed || showAll;
     const isFlashing = flash === uid;
-    const isExpected = seqIdx === guessed.size && !showAll;
+    const isExpected =
+      gameMode === "sequential" && seqIdx === guessed.size && !showAll;
 
     let c = `group inline-flex items-center justify-center min-w-[90px] h-[30px] border rounded text-[0.8rem] tracking-[0.04em] transition-all duration-[400ms] ease-in-out px-2 relative cursor-default `;
     if (isVisible) {
@@ -278,6 +640,38 @@ export default function KonnectorsMemoryGameComp() {
         <p className="text-[0.65rem] text-slate-600 z-10 dark:text-[#555560] tracking-[0.12em] uppercase mb-1.5 text-center">
           German Connectors Memory Game
         </p>
+
+        {/* Game mode toggle */}
+        <div className="flex gap-1 mb-3 bg-slate-200 dark:bg-[#15151c] p-1 rounded-lg z-10 w-fit">
+          <button
+            type="button"
+            onClick={() => {
+              setGameMode("sequential");
+              resetFunction();
+            }}
+            className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+              gameMode === "sequential"
+                ? "bg-white dark:bg-[#2a2a35] text-slate-800 dark:text-slate-200 shadow-sm"
+                : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+            }`}
+          >
+            One by One
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setGameMode("free");
+              resetFunction();
+            }}
+            className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+              gameMode === "free"
+                ? "bg-white dark:bg-[#2a2a35] text-slate-800 dark:text-slate-200 shadow-sm"
+                : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+            }`}
+          >
+            Free
+          </button>
+        </div>
 
         {/* Category toggles */}
         <div className="flex gap-2 mb-2 flex-wrap justify-center z-10">

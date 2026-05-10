@@ -66,7 +66,7 @@ export default function WordExplainComp({
 
       {/* The meaning container */}
       <span
-        className={`absolute z-50 pointer-events-none transition-all duration-200 ${
+        className={`word-meaning-tooltip absolute z-50 pointer-events-none transition-all duration-200 ${
           alwaysShow
             ? "opacity-100 scale-100"
             : "opacity-0 scale-95 group-hover/word:opacity-100 group-hover/word:scale-100"
