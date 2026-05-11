@@ -23,6 +23,7 @@ export default function Home() {
           position="TOP_RIGHT_RIGHT"
           className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
           alwaysShow={true}
+          showArrow={true}
         />
       ),
       description: (
@@ -33,7 +34,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           <WordExplainComp
             word="Lehrplan"
@@ -41,7 +42,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           vom A1-
           <WordExplainComp
@@ -50,7 +51,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           bis zur C2-
           <WordExplainComp
@@ -59,7 +60,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           .
         </>
@@ -75,9 +76,10 @@ export default function Home() {
         <WordExplainComp
           word="Grundwortschatz"
           meaning="Core Vocabulary"
-          position="UP"
+          position="TOP"
           className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
           alwaysShow={true}
+          showArrow={true}
         />
       ),
       description: (
@@ -89,7 +91,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           deutschen{" "}
           <WordExplainComp
@@ -98,7 +100,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           mit{" "}
           <WordExplainComp
@@ -107,7 +109,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           <WordExplainComp
             word="Übersetzungen"
@@ -115,7 +117,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           .
         </>
@@ -133,9 +135,10 @@ export default function Home() {
           <WordExplainComp
             word="Spiele"
             meaning="Games"
-            position="UP"
+            position="TOP"
             className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
             alwaysShow={true}
+            showArrow={true}
           />
         </>
       ),
@@ -148,7 +151,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           und Ihren{" "}
           <WordExplainComp
@@ -157,7 +160,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           durch{" "}
           <WordExplainComp
@@ -166,7 +169,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           <WordExplainComp
             word="Übungen"
@@ -174,7 +177,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           .
         </>
@@ -196,6 +199,7 @@ export default function Home() {
             offsetY={10}
             className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
             alwaysShow={true}
+            showArrow={true}
           />
         </>
       ),
@@ -208,7 +212,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           <WordExplainComp
             word="Wege"
@@ -216,7 +220,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           ,{" "}
           <WordExplainComp
@@ -225,7 +229,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           (ä, ö, ü) und das Eszett (ß) zu{" "}
           <WordExplainComp
@@ -234,7 +238,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           .
         </>
@@ -254,6 +258,7 @@ export default function Home() {
             position="TOP_RIGHT_RIGHT"
             className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
             alwaysShow={true}
+            showArrow={true}
           />
         </>
       ),
@@ -265,7 +270,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           über den{" "}
           <WordExplainComp
@@ -274,7 +279,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />{" "}
           und die{" "}
           <WordExplainComp
@@ -283,7 +288,7 @@ export default function Home() {
             theme="slate"
             alwaysShow={false}
             highlight={false}
-            position="TOP_RIGHT_TOP"
+            position="TOP"
           />
           .
         </>
@@ -316,6 +321,7 @@ export default function Home() {
                 meaning="my"
                 position="BOTTOM_LEFT_BOTTOM"
                 alwaysShow={true}
+                showArrow={true}
               />{" "}
               <WordExplainComp
                 word="Deutsch"
@@ -323,6 +329,7 @@ export default function Home() {
                 position="BOTTOM_RIGHT_BOTTOM"
                 highlight={true}
                 alwaysShow={true}
+                showArrow={true}
               />
             </h1>
             <span className="hidden md:block w-1 h-1 rounded-full bg-slate-300 dark:bg-[#444]" />
@@ -332,6 +339,7 @@ export default function Home() {
                 meaning="Language Practice"
                 position="BOTTOM_RIGHT_BOTTOM"
                 alwaysShow={true}
+                showArrow={true}
               />
             </p>
           </div>

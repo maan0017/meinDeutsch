@@ -151,6 +151,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -161,14 +162,14 @@ export default function QuizGamesHomePage() {
                 word="Buchstaben"
                 meaning="Letters"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="auszusprechen"
                 meaning="to pronounce"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und zu{" "}
@@ -176,7 +177,7 @@ export default function QuizGamesHomePage() {
                 word="tippen"
                 meaning="to type"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -194,6 +195,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -203,7 +205,7 @@ export default function QuizGamesHomePage() {
                 word="Zahlen"
                 meaning="Numbers"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               von null bis{" "}
@@ -211,14 +213,14 @@ export default function QuizGamesHomePage() {
                 word="unendlich"
                 meaning="infinity"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="buchstabieren"
                 meaning="to spell"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und tippen
@@ -237,6 +239,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -246,7 +249,7 @@ export default function QuizGamesHomePage() {
                 word="Übe"
                 meaning="Practice"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               das{" "}
@@ -254,7 +257,7 @@ export default function QuizGamesHomePage() {
                 word="Lesen"
                 meaning="Reading"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -262,7 +265,7 @@ export default function QuizGamesHomePage() {
                 word="Schreiben"
                 meaning="Writing"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               der Uhrzeit auf Deutsch
@@ -281,6 +284,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Memory
             </>
@@ -291,14 +295,14 @@ export default function QuizGamesHomePage() {
                 word="Merke dir"
                 meaning="Memorize"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="Wochentage"
                 meaning="Weekdays"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
               ,{" "}
@@ -306,7 +310,7 @@ export default function QuizGamesHomePage() {
                 word="Monate"
                 meaning="Months"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -314,7 +318,7 @@ export default function QuizGamesHomePage() {
                 word="Jahreszeiten"
                 meaning="Seasons"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -332,6 +336,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -341,14 +346,14 @@ export default function QuizGamesHomePage() {
                 word="Übe"
                 meaning="Practice"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="Vokabeln"
                 meaning="Vocabulary"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               aus deinem{" "}
@@ -356,7 +361,7 @@ export default function QuizGamesHomePage() {
                 word="Lehrbuch"
                 meaning="Textbook"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               nach Kapitel
@@ -375,6 +380,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -384,7 +390,7 @@ export default function QuizGamesHomePage() {
                 word="Tippe"
                 meaning="Type"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               die genaue deutsche{" "}
@@ -392,7 +398,7 @@ export default function QuizGamesHomePage() {
                 word="Übersetzung"
                 meaning="Translation"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               für wichtige{" "}
@@ -400,7 +406,7 @@ export default function QuizGamesHomePage() {
                 word="Wörter"
                 meaning="Words"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -418,6 +424,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Quiz
             </>
@@ -429,7 +436,7 @@ export default function QuizGamesHomePage() {
                 word="Wortübersetzungen"
                 meaning="Word translations"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -447,6 +454,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Memory
             </>
@@ -457,14 +465,14 @@ export default function QuizGamesHomePage() {
                 word="Merke dir"
                 meaning="Memorize"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="häufige"
                 meaning="frequent"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               beschreibende Wörter und ihre{" "}
@@ -472,7 +480,7 @@ export default function QuizGamesHomePage() {
                 word="Gegensätze"
                 meaning="Opposites"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -490,6 +498,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Quiz
             </>
@@ -500,7 +509,7 @@ export default function QuizGamesHomePage() {
                 word="Meistere"
                 meaning="Master"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               die{" "}
@@ -508,7 +517,7 @@ export default function QuizGamesHomePage() {
                 word="Fragewörter"
                 meaning="Question words"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
               : wer, was, wo, wann, warum
@@ -527,6 +536,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -536,14 +546,14 @@ export default function QuizGamesHomePage() {
                 word="Merke dir"
                 meaning="Memorize"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="Konjugationen"
                 meaning="Conjugations"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               für können, müssen, dürfen, usw.
@@ -569,6 +579,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Meister
             </>
@@ -579,7 +590,7 @@ export default function QuizGamesHomePage() {
                 word="Merke dir"
                 meaning="Memorize"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               die Nominativ-, Akkusativ-, Dativ- &{" "}
@@ -587,7 +598,7 @@ export default function QuizGamesHomePage() {
                 word="Genitiv-Tabellen"
                 meaning="Genitive tables"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -606,6 +617,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -615,14 +627,14 @@ export default function QuizGamesHomePage() {
                 word="Merke dir"
                 meaning="Memorize"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="spezifische"
                 meaning="specific"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               Verben, die{" "}
@@ -630,7 +642,7 @@ export default function QuizGamesHomePage() {
                 word="zwingend"
                 meaning="mandatory"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               den Dativ{" "}
@@ -638,7 +650,7 @@ export default function QuizGamesHomePage() {
                 word="verlangen"
                 meaning="require"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -656,6 +668,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Matrix
             </>
@@ -666,7 +679,7 @@ export default function QuizGamesHomePage() {
                 word="Meistere"
                 meaning="Master"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               Akkusativ-, Dativ- und{" "}
@@ -674,7 +687,7 @@ export default function QuizGamesHomePage() {
                 word="Wechselpräpositionen"
                 meaning="Two-way prepositions"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -692,6 +705,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Herausforderung
             </>
@@ -702,7 +716,7 @@ export default function QuizGamesHomePage() {
                 word="Meistere"
                 meaning="Master"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               die{" "}
@@ -710,7 +724,7 @@ export default function QuizGamesHomePage() {
                 word="Vergangenheitsform"
                 meaning="Past tense"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -718,14 +732,14 @@ export default function QuizGamesHomePage() {
                 word="Partizipien"
                 meaning="Participles"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="unregelmäßiger"
                 meaning="irregular"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               Verben
@@ -744,6 +758,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Übungen
             </>
@@ -754,7 +769,7 @@ export default function QuizGamesHomePage() {
                 word="Unendliche"
                 meaning="Infinite"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
               ,{" "}
@@ -762,14 +777,14 @@ export default function QuizGamesHomePage() {
                 word="rasante"
                 meaning="rapid"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="Übungen"
                 meaning="Exercises"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               zum{" "}
@@ -777,7 +792,7 @@ export default function QuizGamesHomePage() {
                 word="Aufbau"
                 meaning="building"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               deiner Grammatik
@@ -797,6 +812,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -806,7 +822,7 @@ export default function QuizGamesHomePage() {
                 word="Umfassende"
                 meaning="Comprehensive"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               Tests zu{" "}
@@ -814,7 +830,7 @@ export default function QuizGamesHomePage() {
                 word="Artikeln"
                 meaning="Articles"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -822,7 +838,7 @@ export default function QuizGamesHomePage() {
                 word="Konjugationen"
                 meaning="Conjugations"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -847,6 +863,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
               -Spiel
             </>
@@ -857,14 +874,14 @@ export default function QuizGamesHomePage() {
                 word="Übe"
                 meaning="Practice"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="Konjunktionen"
                 meaning="Conjunctions"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               wie weil, dass, wenn und deshalb
@@ -883,6 +900,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_RIGHT_RIGHT"
                 className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -892,7 +910,7 @@ export default function QuizGamesHomePage() {
                 word="Übersetze"
                 meaning="Translate"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -900,14 +918,14 @@ export default function QuizGamesHomePage() {
                 word="bilde"
                 meaning="form"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="vollständige"
                 meaning="complete"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
               , grammatikalisch korrekte{" "}
@@ -915,7 +933,7 @@ export default function QuizGamesHomePage() {
                 word="Sätze"
                 meaning="Sentences"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
             </>
@@ -933,6 +951,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -942,7 +961,7 @@ export default function QuizGamesHomePage() {
                 word="Lese"
                 meaning="Read"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />
               ,{" "}
@@ -950,7 +969,7 @@ export default function QuizGamesHomePage() {
                 word="analysiere"
                 meaning="analyze"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -958,14 +977,14 @@ export default function QuizGamesHomePage() {
                 word="verstehe"
                 meaning="understand"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="vollständige"
                 meaning="complete"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               deutsche Texte
@@ -984,6 +1003,7 @@ export default function QuizGamesHomePage() {
                 position="TOP_LEFT_LEFT"
                 className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
                 alwaysShow
+                showArrow={true}
               />
             </>
           ),
@@ -993,14 +1013,14 @@ export default function QuizGamesHomePage() {
                 word="Lese"
                 meaning="Read"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               <WordExplainComp
                 word="einfache"
                 meaning="simple"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               und{" "}
@@ -1008,7 +1028,7 @@ export default function QuizGamesHomePage() {
                 word="spannende"
                 meaning="exciting"
                 alwaysShow={false}
-                position="TOP_RIGHT_TOP"
+                position="TOP"
                 theme="slate"
               />{" "}
               Geschichten
@@ -1053,6 +1073,7 @@ export default function QuizGamesHomePage() {
                   alwaysShow
                   offsetX={20}
                   offsetY={-10}
+                  showArrow={true}
                 />
               </span>
             </Link>
@@ -1063,17 +1084,19 @@ export default function QuizGamesHomePage() {
                 word="Meine"
                 meaning="My"
                 position="TOP_LEFT_LEFT"
-                offsetY={-5}
+                offsetY={-20}
                 alwaysShow
                 className="text-black dark:text-white"
+                showArrow={true}
               />{" "}
               <WordExplainComp
                 word="Juwelen"
                 meaning="Gems"
                 position="TOP_RIGHT_RIGHT"
-                offsetY={-5}
+                offsetY={-20}
                 highlight={true}
                 alwaysShow
+                showArrow={true}
               />
             </h1>
             <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
@@ -1083,6 +1106,7 @@ export default function QuizGamesHomePage() {
                 position="BOTTOM_RIGHT_RIGHT"
                 alwaysShow
                 offsetY={-8}
+                showArrow={true}
               />
             </p>
           </div>

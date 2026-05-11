@@ -138,6 +138,7 @@ export default function SettingsPage() {
                 meaning="Back"
                 position="BOTTOM_RIGHT_BOTTOM"
                 alwaysShow
+                showArrow={true}
               />
             </span>
           </button>
@@ -151,6 +152,7 @@ export default function SettingsPage() {
                 meaning="Settings"
                 position="BOTTOM_LEFT_BOTTOM"
                 alwaysShow
+                showArrow={true}
               />
             </h1>
           </div>
@@ -171,6 +173,7 @@ export default function SettingsPage() {
                 meaning="Reset"
                 position="BOTTOM_LEFT_BOTTOM"
                 alwaysShow
+                showArrow={true}
               />
             </span>
           </button>
@@ -209,8 +212,7 @@ export default function SettingsPage() {
                     <WordExplainComp
                       word="Soundeffekte"
                       meaning="Sound Effects"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />
                   </h3>
@@ -218,24 +220,21 @@ export default function SettingsPage() {
                     <WordExplainComp
                       word="Aktivieren"
                       meaning="Enable"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />{" "}
                     oder{" "}
                     <WordExplainComp
                       word="deaktivieren"
                       meaning="disable"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />{" "}
                     Sie{" "}
                     <WordExplainComp
                       word="Soundeffekte"
                       meaning="Sound effects"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />
                   </p>
@@ -272,8 +271,7 @@ export default function SettingsPage() {
                     <WordExplainComp
                       word="Gruppengröße"
                       meaning="Group Size"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />
                   </h3>
@@ -281,16 +279,14 @@ export default function SettingsPage() {
                     <WordExplainComp
                       word="Wörter"
                       meaning="Words"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />{" "}
                     pro{" "}
                     <WordExplainComp
                       word="Gruppe"
                       meaning="Group"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />{" "}
                     · {groupPercentage}% von {maxWords}
@@ -363,8 +359,7 @@ export default function SettingsPage() {
                     <WordExplainComp
                       word="Schriftart"
                       meaning="Font"
-                      alwaysShow={false}
-                      position="TOP_RIGHT_TOP"
+                      position="TOP"
                       theme="slate"
                     />
                   </h3>
@@ -465,27 +460,20 @@ export default function SettingsPage() {
         {/* ── Footer info ──────────────────────────────────────────── */}
         <footer className="pt-4 pb-8 text-center">
           <p className="text-[11px] text-slate-400 dark:text-[#555]">
-            <WordExplainComp
-              word="Einstellungen"
-              meaning="Settings"
-              alwaysShow={false}
-              position="TOP_RIGHT_TOP"
-              theme="slate"
-            />{" "}
-            werden{" "}
+            Einstellungen werden{" "}
             <WordExplainComp
               word="automatisch"
               meaning="automatically"
-              alwaysShow={false}
-              position="TOP_RIGHT_TOP"
-              theme="slate"
+              alwaysShow
+              position="BOTTOM"
+              showArrow
             />{" "}
             <WordExplainComp
               word="gespeichert"
               meaning="saved"
-              alwaysShow={false}
-              position="TOP_RIGHT_TOP"
-              theme="slate"
+              alwaysShow
+              showArrow
+              position="BOTTOM_RIGHT_BOTTOM"
             />
           </p>
         </footer>

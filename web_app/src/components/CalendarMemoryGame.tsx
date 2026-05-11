@@ -253,7 +253,7 @@ export default function CalendarMemoryGameComp() {
               <WordExplainComp
                 word={HEADINGS[0].word}
                 meaning={`${HEADINGS[0].en} / ${HEADINGS[0].hi}`}
-                position="UP"
+                position="TOP"
                 alwaysShow
               />
             </div>
@@ -261,7 +261,7 @@ export default function CalendarMemoryGameComp() {
               <WordExplainComp
                 word={HEADINGS[1].word}
                 meaning={`${HEADINGS[1].en} / ${HEADINGS[1].hi}`}
-                position="UP"
+                position="TOP"
                 alwaysShow
               />
             </div>
@@ -312,7 +312,7 @@ export default function CalendarMemoryGameComp() {
               <WordExplainComp
                 word={HEADINGS[2].word}
                 meaning={`${HEADINGS[2].en} / ${HEADINGS[2].hi}`}
-                position="UP"
+                position="TOP"
                 alwaysShow
               />
             </div>

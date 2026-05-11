@@ -13,7 +13,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Bernstein"
               meaning="Amber (Default)"
-              position="UP"
+              position="TOP"
               theme="amber"
               highlight
               alwaysShow
@@ -23,7 +23,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Smaragd"
               meaning="Emerald"
-              position="UP"
+              position="TOP"
               theme="emerald"
               highlight
               alwaysShow
@@ -33,7 +33,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Blau"
               meaning="Blue"
-              position="UP"
+              position="TOP"
               theme="blue"
               highlight
               alwaysShow
@@ -43,7 +43,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Grün"
               meaning="Green"
-              position="DOWN"
+              position="BOTTOM"
               theme="green"
               highlight
               alwaysShow
@@ -53,7 +53,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Rot"
               meaning="Red"
-              position="DOWN"
+              position="BOTTOM"
               theme="red"
               highlight
               alwaysShow
@@ -63,7 +63,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Orange"
               meaning="Orange"
-              position="DOWN"
+              position="BOTTOM"
               theme="orange"
               highlight
               alwaysShow
@@ -102,7 +102,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Absatz"
               meaning="This is a very long meaning that forces the tooltip to wrap into multiple lines instead of staying on one line."
-              position="DOWN"
+              position="BOTTOM"
               theme="emerald"
               meaningClassName="!whitespace-normal w-48 text-center"
               alwaysShow
@@ -112,7 +112,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Riesig"
               meaning="Huge Text [20px] w/ padding"
-              position="UP"
+              position="TOP"
               theme="blue"
               meaningClassName="text-[20px] p-4 rounded-xl shadow-lg"
               alwaysShow
@@ -152,7 +152,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Nah (Y)"
               meaning="offsetY = -10"
-              position="UP"
+              position="TOP"
               theme="orange"
               offsetY={-10}
               highlight
@@ -193,7 +193,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Tochter"
               meaning="DOWN"
-              position="DOWN"
+              position="BOTTOM"
               alwaysShow
             />
           </div>
@@ -209,7 +209,7 @@ export default function DisplayWordMeaningPage() {
             <WordExplainComp
               word="Sohn"
               meaning="UP"
-              position="UP"
+              position="TOP"
               alwaysShow
             />
           </div>

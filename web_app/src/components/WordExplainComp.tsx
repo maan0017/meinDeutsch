@@ -3,8 +3,8 @@
 type Position =
   | "LEFT"
   | "RIGHT"
-  | "UP"
-  | "DOWN"
+  | "TOP"
+  | "BOTTOM"
   | "TOP_LEFT_TOP"
   | "TOP_LEFT_LEFT"
   | "TOP_RIGHT_TOP"
@@ -35,6 +35,7 @@ interface WordExplainProps {
   offsetY?: number;
   meaningClassName?: string;
   theme?: ThemeColor;
+  showArrow?: boolean;
 }
 
 export default function WordExplainComp({
@@ -48,13 +49,15 @@ export default function WordExplainComp({
   offsetY = 0,
   meaningClassName = "",
   theme = "amber",
+  showArrow = false,
 }: WordExplainProps) {
-  // Base gap is 16px. We clamp the minimum size so the arrow doesn't collapse.
-  const dx = Math.max(16 + offsetX, 4);
-  const dy = Math.max(16 + offsetY, 4);
+  // If no arrow, we don't need a large gap. Base gap is 16px with arrow, 4px without.
+  const baseGap = showArrow ? 16 : 4;
+  const dx = Math.max(baseGap + offsetX, 4);
+  const dy = Math.max(baseGap + offsetY, 4);
 
   return (
-    <span className={`relative inline-block group/word ${className}`}>
+    <span className={`relative inline group/word ${className}`}>
       {/* The main word - normal text by default, seamlessly blends in */}
       <span
         className={`relative z-10 transition-colors ${
@@ -80,7 +83,7 @@ export default function WordExplainComp({
         >
           {meaning}
         </span>
-        <Arrow position={position} dx={dx} dy={dy} />
+        {showArrow && <Arrow position={position} dx={dx} dy={dy} />}
       </span>
     </span>
   );
@@ -149,13 +152,13 @@ const getDynamicStyles = (
         bottom: "50%",
         transform: "translateY(50%)",
       };
-    case "UP":
+    case "TOP":
       return {
         bottom: `calc(100% + ${dy}px)`,
         right: "50%",
         transform: "translateX(50%)",
       };
-    case "DOWN":
+    case "BOTTOM":
       return {
         top: `calc(100% + ${dy}px)`,
         right: "50%",
@@ -228,7 +231,7 @@ const Arrow = ({
           <path d={`M 7 4 L 3 8 L 7 12`} />
         </svg>
       );
-    case "UP":
+    case "TOP":
       return (
         <svg
           className={`${baseSvgClass} left-1/2 -translate-x-1/2 top-full`}
@@ -241,7 +244,7 @@ const Arrow = ({
           <path d={`M 4 ${dy - 7} L 8 ${dy - 3} L 12 ${dy - 7}`} />
         </svg>
       );
-    case "DOWN":
+    case "BOTTOM":
       return (
         <svg
           className={`${baseSvgClass} left-1/2 -translate-x-1/2 bottom-full`}
